@@ -15,6 +15,9 @@ const isMedia = type => ['image', 'video', 'audio', 'pdf'].includes(type)
 const isBareCid = name => {
   try { CID.parse(name); return true } catch { return false }
 }
+const previewAddress = url => {
+  try { return new URL(url).host } catch { return '' }
+}
 
 export const Preview = ({ t, name, cid, size, availableGatewayUrl, previewLocalGatewayUrl = '', read, onDownload, onClose }) => {
   const [result, setResult] = useState(null)
@@ -54,7 +57,7 @@ export const Preview = ({ t, name, cid, size, availableGatewayUrl, previewLocalG
           if (!signal.aborted) setError('unsupported')
           return
         }
-        if (!signal.aborted) setResult({ key, type: 'text', ...source, local, ...decoded })
+        if (!signal.aborted) setResult({ key, type: 'text', ...source, url: local ? source.url : source.fallbackUrl, local, ...decoded })
       } catch {
         if (!signal.aborted) setError('failed')
       }
@@ -79,7 +82,7 @@ export const Preview = ({ t, name, cid, size, availableGatewayUrl, previewLocalG
           <h2 title={name}>{name}</h2>
           <div className='file-preview-meta'>
             <span>{humanSize(size)}</span>
-            {preview && <span className='file-preview-badge'>{t(preview.local ? 'preview.local' : 'preview.connectedNode')}</span>}
+            {preview && <span className='file-preview-badge'>{t(preview.local ? 'preview.local' : 'preview.connectedNode')}: {previewAddress(preview.url)}</span>}
           </div>
         </div>
         <div className='file-preview-actions'>

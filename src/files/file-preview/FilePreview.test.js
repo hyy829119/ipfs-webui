@@ -15,6 +15,7 @@ afterEach(() => { global.fetch = originalFetch })
 it('renders text as inert content and keeps download available', async () => {
   const { container } = render(<Preview {...props} name='example.html' />)
   expect(await screen.findByText(/hello 中文/)).toBeInTheDocument()
+  expect(screen.getByText('preview.connectedNode: ifshare.example')).toBeInTheDocument()
   expect(container.querySelector('script')).toBeNull()
   fireEvent.click(screen.getByRole('button', { name: 'app:actions.download' }))
   expect(props.onDownload).toHaveBeenCalled()
@@ -54,9 +55,21 @@ it('falls back when a locally probed image fails to load', async () => {
   render(<Preview {...props} name='photo.PNG' previewLocalGatewayUrl='http://127.0.0.1:8080' />)
   const img = await screen.findByRole('img')
   expect(img.src).toContain('127.0.0.1:8080')
+  expect(screen.getByText('preview.local: 127.0.0.1:8080')).toBeInTheDocument()
   fireEvent.error(img)
   await waitFor(() => expect(screen.getByRole('img').src).toContain('ifshare.example'))
+  expect(screen.getByText('preview.connectedNode: ifshare.example')).toBeInTheDocument()
   expect(screen.queryByRole('alert')).not.toBeInTheDocument()
+})
+
+it('updates the displayed node when a text read falls back from local to server', async () => {
+  global.fetch = jest.fn()
+    .mockResolvedValueOnce({ ok: true, headers: new Headers({ 'Content-Type': 'text/plain' }) })
+    .mockRejectedValueOnce(new Error('Local client stopped'))
+  render(<Preview {...props} name='notes.txt' previewLocalGatewayUrl='http://127.0.0.1:8080' availableGatewayUrl='http://111.10.164.175:3000' />)
+  expect(await screen.findByText(/hello 中文/)).toBeInTheDocument()
+  expect(screen.getByText('preview.connectedNode: 111.10.164.175:3000')).toBeInTheDocument()
+  expect(screen.queryByText(/preview.local:/)).not.toBeInTheDocument()
 })
 
 it('uses a streaming video URL with controls instead of buffering it via RPC', async () => {
