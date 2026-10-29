@@ -227,6 +227,7 @@
     "text": "TEXT",
     "wrap": "Wrap lines",
     "empty": "This file is empty.",
-    "limit": "Showing the first 256 KiB. Download the file to view the full content."
+    "limit": "Showing the first 256 KiB. Download the file to view the full content.",
+    "binary": "This file contains binary data or an unsupported text encoding. Download it to open it."
   }
 }

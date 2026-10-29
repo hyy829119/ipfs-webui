@@ -20,6 +20,19 @@ it('renders text as inert content and keeps download available', async () => {
   expect(props.onDownload).toHaveBeenCalled()
 })
 
+it.each(['Program.cs', 'main.js', 'App.java', 'module.fs', 'notes.unknown', 'README'])('reads text from %s without an extension allowlist', async name => {
+  render(<Preview {...props} name={name} />)
+  expect(await screen.findByText(/hello 中文/)).toBeInTheDocument()
+  expect(screen.queryByRole('img')).not.toBeInTheDocument()
+})
+
+it('offers download for binary content even with a code suffix', async () => {
+  const binary = async function * () { yield Uint8Array.from([0, 255, 3, 1]) }
+  render(<Preview {...props} name='binary.cs' read={binary} />)
+  expect(await screen.findByRole('alert')).toHaveTextContent('preview.binary')
+  expect(screen.getByRole('button', { name: 'app:actions.download' })).toBeInTheDocument()
+})
+
 it('shows an empty file and a recoverable error instead of a permanent spinner', async () => {
   const empty = async function * () {}
   const view = render(<Preview {...props} name='empty.txt' size={0} read={empty} />)

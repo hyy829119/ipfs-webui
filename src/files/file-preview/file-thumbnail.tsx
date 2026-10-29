@@ -1,7 +1,7 @@
 import { CID } from 'multiformats/cid'
 import React, { useState, useEffect, useCallback, type FC } from 'react'
 import { connect } from 'redux-bundler-react'
-import typeFromExt from '../type-from-ext/index.js'
+import { getPreviewType } from './preview-type'
 import { resolvePreviewSource, type PreviewSource } from './preview-source'
 import './file-thumbnail.css'
 
@@ -21,7 +21,7 @@ const FileThumbnail: FC<FileThumbnailPropsConnected> = ({ name, cid, availableGa
   const [error, setError] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
   const [source, setSource] = useState<PreviewSource | null>(null)
-  const type = typeFromExt(name)
+  const type = getPreviewType(name)
 
   const handleImageError = useCallback(() => {
     if (source?.local && source.fallbackUrl) {

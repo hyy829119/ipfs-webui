@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { connect } from 'redux-bundler-react'
 import { withTranslation } from 'react-i18next'
 import { CID } from 'multiformats/cid'
-import typeFromExt from '../type-from-ext/index.js'
+import { getPreviewType } from './preview-type'
 import { humanSize } from '../../lib/files.js'
 import Button from '../../components/button/button.tsx'
 import GlyphCancel from '../../icons/GlyphCancel.js'
@@ -30,7 +30,7 @@ export const Preview = ({ t, name, cid, size, availableGatewayUrl, previewLocalG
     const load = async () => {
       try {
         const source = await resolvePreviewSource(availableGatewayUrl, previewLocalGatewayUrl, String(cid), name, signal)
-        let type = typeFromExt(name)
+        let type = getPreviewType(name)
         // A CID has no extension: use the gateway MIME type for media previews.
         if (isBareCid(name) && source.url) {
           let mime = source.mime
@@ -89,7 +89,7 @@ export const Preview = ({ t, name, cid, size, availableGatewayUrl, previewLocalG
       </header>
       {error
         ? <div className='file-preview-message' role='alert'>
-          <p>{t(error === 'unsupported' ? 'cantBePreviewed' : 'preview.failed')}</p>
+          <p>{t(error === 'unsupported' ? 'preview.binary' : 'preview.failed')}</p>
           <p className='file-preview-hint'>{t('preview.downloadHint')}</p>
           {error === 'failed' && <Button onClick={() => setAttempt(value => value + 1)}>{t('preview.retry')}</Button>}
         </div>
