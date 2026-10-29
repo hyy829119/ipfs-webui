@@ -52,3 +52,21 @@ describe('gateway selection with a Local Gateway URL override', () => {
     expect(store.selectLocalGateway()).toBe('')
   })
 })
+
+it('keeps server content on the page origin while probing the local client only for previews', async () => {
+  const original = process.env.REACT_APP_SERVER_AUTH
+  process.env.REACT_APP_SERVER_AUTH = 'true'
+  try {
+    const store = createStore({})
+    await store.doUpdateLocalGateway('http://127.0.0.1:8181')
+    store.doSetAvailableGateway('http://127.0.0.1:8080')
+    expect(store.selectGatewayUrl()).toBe(window.location.origin)
+    expect(store.selectAvailableGatewayUrl()).toBe(window.location.origin)
+    expect(store.selectPreviewLocalGatewayUrl()).toBe('http://127.0.0.1:8181')
+    await store.doUpdateLocalGateway('')
+    expect(store.selectPreviewLocalGatewayUrl()).toBe('http://127.0.0.1:8080')
+  } finally {
+    if (original === undefined) delete process.env.REACT_APP_SERVER_AUTH
+    else process.env.REACT_APP_SERVER_AUTH = original
+  }
+})

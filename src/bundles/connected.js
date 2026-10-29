@@ -41,6 +41,21 @@ const selectors = {
       ipfsReady && lastSuccess != null && lastSuccess > lastError
   ),
 
+  selectIpfsConnecting: createSelector(
+    'selectIpfsReady',
+    'selectIpfsInitFailed',
+    'selectNodeBandwidthLastSuccess',
+    'selectNodeBandwidthLastError',
+    /**
+     * @param {boolean} ready
+     * @param {boolean} failed
+     * @param {number|null|undefined} lastSuccess
+     * @param {number|null|undefined} lastError
+     */
+    (ready, failed, lastSuccess, lastError) =>
+      !failed && (!ready || (lastSuccess == null && !lastError))
+  ),
+
   /**
    * @param {State} state
    */

@@ -10,6 +10,7 @@ const config = {
     '/test/e2e'
   ],
   testEnvironment: 'jsdom',
+  resolver: '<rootDir>/jest-resolver.cjs',
   setupFiles: ['<rootDir>/src/setupTests.js', 'fake-indexeddb/auto'],
   moduleNameMapper: {
     // ...config.moduleNameMapper,

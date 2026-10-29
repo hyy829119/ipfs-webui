@@ -27,7 +27,7 @@ i18n
       ],
       backendOptions: [
         { // LocalStorageBackend
-          defaultVersion: `${APP_NAME}-${CLI_NAME}-${version}`,
+          defaultVersion: `${APP_NAME}-${CLI_NAME}-${version}-preview1`,
           expirationTime: (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') ? 1 : 7 * 24 * 60 * 60 * 1000
         },
         { // HttpBackend

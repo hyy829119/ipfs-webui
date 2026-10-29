@@ -3,6 +3,53 @@
   min-height: 100px;
 }
 
+.file-preview {
+  margin: 16px 0;
+  border: 1px solid #e4eaf5;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 30px #18396906;
+}
+.file-preview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  border-bottom: 1px solid #edf1f8;
+}
+.file-preview-heading { min-width: 0; }
+.file-preview-heading h2 {
+  margin: 0 0 8px;
+  color: #21344e;
+  font-size: 17px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.file-preview-meta { display: flex; gap: 12px; align-items: center; color: #7b879a; font-size: 12px; }
+.file-preview-badge { padding: 4px 9px; background: #eef4ff; color: #4679c8; border-radius: 6px; }
+.file-preview-actions { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.file-preview-close { display: grid; place-items: center; width: 34px; height: 34px; border: 0; border-radius: 8px; background: #f4f6fb; cursor: pointer; }
+.file-preview-close svg { width: 24px; height: 24px; fill: #71809a; }
+.file-preview-media { display: flex; justify-content: center; align-items: center; padding: 24px; min-height: 240px; background: #f6f8fc; }
+.file-preview-media img, .file-preview-media video { max-width: 100%; max-height: 70vh; object-fit: contain; border-radius: 8px; }
+.file-preview-media video { width: 100%; background: #101c30; }
+.file-preview-media audio { width: min(100%, 640px); }
+.file-preview-message { min-height: 240px; padding: 30px 24px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: #65758e; }
+.file-preview-hint { font-size: 13px; color: #8490a2; }
+.file-preview-editor-toolbar { display: flex; justify-content: space-between; gap: 16px; padding: 12px 24px; color: #62728b; background: #f6f8fc; font-size: 12px; }
+.file-preview-editor-toolbar label { cursor: pointer; }
+.file-preview-editor .ace-chrome .ace_gutter { background: #f6f8fc; color: #9aa7ba; }
+.file-preview-editor .ace-chrome { color: #284361; }
+.file-preview-limit { margin: 0; padding: 14px 24px; color: #7c6b45; background: #fffaf0; font-size: 13px; }
+@media (max-width: 600px) {
+  .file-preview-header { padding: 16px; flex-wrap: wrap; }
+  .file-preview-heading { flex: 1; min-width: 160px; }
+  .file-preview-media { padding: 12px; }
+}
+
 @media only screen and (max-width: 60em) {
   .FilePreviewPDF {
     height: calc(100vh - 234px - 14rem);   /* 100% of viewport height, minus fixed-height search box, page nav header, and PDF info bar based on font height  */

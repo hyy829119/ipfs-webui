@@ -18,6 +18,7 @@
     "eslint": "eslint .",
     "prebuild": "lol public/locales > src/lib/languages.json",
     "build": "run-script-os",
+    "build:server": "cross-env REACT_APP_SERVER_AUTH=true GENERATE_SOURCEMAP=false npm run build",
     "build:win32": "@powershell -Command $env:REACT_APP_GIT_REV=(git rev-parse --short HEAD); react-app-rewired-esm build",
     "build:darwin:linux": "cross-env REACT_APP_GIT_REV=`git rev-parse --short HEAD` react-app-rewired-esm build",
     "build:icons": "svgr --ext tsx --typescript -d src/icons node_modules/ipfs-css/icons && eslint --fix src/icons/*.tsx",

@@ -155,6 +155,7 @@ const init = () => {
  * @returns {HTTPClientOptions|string|null}
  */
 const readAPIAddressSetting = () => {
+  if (process.env.REACT_APP_SERVER_AUTH === 'true') return window.location.origin
   const setting = readSetting('ipfsApi')
   return setting == null ? null : asAPIOptions(setting)
 }
@@ -333,7 +334,9 @@ const actions = {
     }
 
     const kuboGateway = readSetting('kuboGateway')
-    const localGateway = readSetting('ipfsLocalGateway')
+    const localGateway = process.env.REACT_APP_SERVER_AUTH === 'true'
+      ? window.location.origin
+      : readSetting('ipfsLocalGateway')
 
     if (typeof localGateway === 'string' && localGateway) {
       // User has configured a custom local gateway, sync it to kuboGateway for Helia/Explore

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { useTranslation } from 'react-i18next'
 import { APP_NAME } from '../constants/branding.js'
@@ -63,22 +63,41 @@ function DataFlow () {
 }
 
 interface LoginPageProps {
-  onLogin: (username: string, password: string) => boolean
+  onLogin: (username: string, password: string) => Promise<boolean>
+  serverAuth?: boolean
 }
 
-export default function LoginPage ({ onLogin }: LoginPageProps) {
+export default function LoginPage ({ onLogin, serverAuth = false }: LoginPageProps) {
   const { t } = useTranslation('login')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState(false)
+  const [unavailable, setUnavailable] = useState(false)
+  const [pending, setPending] = useState(false)
   const passwordInput = useRef<HTMLInputElement>(null)
+  const mounted = useRef(true)
 
-  const submit = (event: React.FormEvent<HTMLFormElement>) => {
+  useEffect(() => {
+    mounted.current = true
+    return () => { mounted.current = false }
+  }, [])
+
+  const submit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    if (!onLogin(username, password)) {
-      setError(true)
-      passwordInput.current?.focus()
+    if (pending) return
+    setPending(true)
+    setError(false)
+    setUnavailable(false)
+    try {
+      if (!await onLogin(username, password)) {
+        setError(true)
+        passwordInput.current?.focus()
+      }
+    } catch {
+      setUnavailable(true)
+    } finally {
+      if (mounted.current) setPending(false)
     }
   }
 
@@ -130,9 +149,9 @@ export default function LoginPage ({ onLogin }: LoginPageProps) {
                 </div>
               </div>
               <div className='login-feedback'>
-                {error ? <p id='login-error' role='alert'>{t('invalidCredentials')}</p> : <p>{t('sessionHint')}</p>}
+                {error ? <p id='login-error' role='alert'>{t('invalidCredentials')}</p> : unavailable ? <p role='alert'>{t('serviceUnavailable')}</p> : <p>{t(serverAuth ? 'serverSessionHint' : 'sessionHint')}</p>}
               </div>
-              <button type='submit' className='login-submit'><span>{t('signIn')}</span><LoginIcon name='arrow' /></button>
+              <button type='submit' className='login-submit' disabled={pending} aria-busy={pending}><span>{t(pending ? 'signingIn' : 'signIn')}</span><LoginIcon name='arrow' /></button>
             </form>
             <div className='login-form-footer'><span />{t('formFooter')}<span /></div>
           </div>

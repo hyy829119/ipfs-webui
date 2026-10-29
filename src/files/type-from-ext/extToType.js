@@ -151,6 +151,7 @@ const extToType = {
   emf: 'image',
   png: 'image',
   webp: 'image',
+  avif: 'image',
   jxr: 'image',
   hdp: 'image',
   wdp: 'image',

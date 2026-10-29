@@ -17,10 +17,12 @@ import AnalyticsBanner from '../components/analytics-banner/AnalyticsBanner.js'
 import { statusTour } from '../lib/tours.js'
 import { getJoyrideLocales } from '../helpers/i8n.js'
 import withTour from '../components/tour/withTour.js'
+import Connecting from '../components/connected/Connecting'
 
-const StatusPage = ({
+export const StatusPage = ({
   t,
   ipfsConnected,
+  ipfsConnecting,
   showAnalyticsComponents,
   showAnalyticsBanner,
   doEnableAnalytics,
@@ -30,6 +32,13 @@ const StatusPage = ({
   handleJoyrideCallback,
   nodeBandwidthEnabled
 }) => {
+  if (ipfsConnecting) {
+    return <div data-id='StatusPage' className='mw9 center'>
+      <Helmet><title>{t('title')} | {APP_NAME}</title></Helmet>
+      <Box className='pa3'><Connecting /></Box>
+    </div>
+  }
+
   return (
     <div data-id='StatusPage' className='mw9 center'>
       <Helmet>
@@ -95,6 +104,7 @@ const StatusPage = ({
 
 export default connect(
   'selectIpfsConnected',
+  'selectIpfsConnecting',
   'selectNodeBandwidthEnabled',
   'selectShowAnalyticsBanner',
   'selectShowAnalyticsComponents',

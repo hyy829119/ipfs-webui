@@ -441,7 +441,7 @@ const FilesPage = ({
 
 const Preview = ({ files, onDownload, onClose }) => {
   if (files && files.type === 'file') {
-    return (<FilePreview {...files} onDownload={onDownload} onClose={onClose} />)
+    return (<FilePreview key={`${files.cid}/${files.name}`} {...files} onDownload={onDownload} onClose={onClose} />)
   }
   return null
 }

@@ -287,9 +287,10 @@ const actions = () => ({
           * Reads a portion of data from IPFS.
           * @param {number} offset - The starting point to read from.
           * @param {number} length - The number of bytes to read.
+          * @param {{signal?: AbortSignal}} [options] - Cancel reads when the preview closes.
           * @returns {AsyncIterable<Uint8Array>} An async generator that yields the data read from IPFS.
           */
-          read: (offset, length) => ipfs.cat(stats.cid, { offset, length }),
+          read: (offset, length, options = {}) => ipfs.cat(stats.cid, { offset, length, ...options, timeout: 15000 }),
           name: path.split('/').pop(),
           size: stats.size,
           cid: stats.cid

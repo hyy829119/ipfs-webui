@@ -87,7 +87,7 @@
   "addByPathModal": {
     "title": "Import from IFShare",
     "description": "Insert an IFShare or IPNS path, CID, or protocol URL to import.",
-    "preloadNote": "NOTE: Imported path is lazy-loaded by default, and will be retrieved on-demand as you browse it. To proactively prefetch imported path to the local Datastore, choose \u201cDownload\u201d from the context menu.",
+    "preloadNote": "NOTE: Imported path is lazy-loaded by default, and will be retrieved on-demand as you browse it. To proactively prefetch imported path to the local Datastore, choose “Download” from the context menu.",
     "importPathPlaceholder": "Path, CID, or URL (required)",
     "namePlaceholder": "Name (optional)",
     "examples": "Examples:"
@@ -216,5 +216,17 @@
   },
   "inspectResolveFailed": "Failed to resolve path: {{path}}",
   "showSearch": "Click to show search filter",
-  "hideSearch": "Click to hide search filter"
+  "hideSearch": "Click to hide search filter",
+  "preview": {
+    "loading": "Loading preview…",
+    "failed": "The preview could not be loaded.",
+    "downloadHint": "You can download the original file. Video and audio playback depends on browser codec support.",
+    "retry": "Retry",
+    "local": "Local client",
+    "connectedNode": "Connected node",
+    "text": "TEXT",
+    "wrap": "Wrap lines",
+    "empty": "This file is empty.",
+    "limit": "Showing the first 256 KiB. Download the file to view the full content."
+  }
 }

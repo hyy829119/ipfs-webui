@@ -55,6 +55,7 @@ bundle.selectLocalGatewayUrl = createSelector(
   'selectConfigObject',
   'selectLocalGateway',
   (config, localGateway) => {
+    if (process.env.REACT_APP_SERVER_AUTH === 'true') return window.location.origin
     // Priority: 1) User-configured local gateway, 2) Kubo config. Never the
     // public gateway: consumers use this where "local" is a promise (share
     // links and content links labeled as same-machine).
@@ -74,7 +75,17 @@ bundle.selectGatewayUrl = createSelector(
 bundle.selectAvailableGatewayUrl = createSelector(
   'selectAvailableGateway',
   'selectGatewayUrl',
-  (availableGateway, gatewayUrl) => availableGateway || gatewayUrl
+  (availableGateway, gatewayUrl) => process.env.REACT_APP_SERVER_AUTH === 'true'
+    ? window.location.origin
+    : availableGateway || gatewayUrl
+)
+
+// Only previews probe the local client. RPC and listings stay on the server.
+bundle.selectPreviewLocalGatewayUrl = createSelector(
+  'selectLocalGateway',
+  (localGateway) => process.env.REACT_APP_SERVER_AUTH === 'true'
+    ? localGateway || 'http://127.0.0.1:8080'
+    : ''
 )
 
 bundle.selectBootstrapPeers = createSelector(

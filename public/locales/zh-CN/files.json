@@ -216,5 +216,17 @@
   },
   "inspectResolveFailed": "无法解析路径：{{path}}",
   "showSearch": "点击显示搜索筛选器",
-  "hideSearch": "点击隐藏搜索筛选器"
+  "hideSearch": "点击隐藏搜索筛选器",
+  "preview": {
+    "loading": "正在加载文件预览…",
+    "failed": "文件预览加载失败。",
+    "downloadHint": "可以下载原文件查看。视频和音频能否播放取决于浏览器对编码格式的支持。",
+    "retry": "重新加载",
+    "local": "本地客户端",
+    "connectedNode": "当前连接节点",
+    "text": "纯文本",
+    "wrap": "自动换行",
+    "empty": "这是一个空文件。",
+    "limit": "当前显示前 256 KiB 内容，下载后可查看完整文件。"
+  }
 }
