@@ -19,7 +19,7 @@
   "tour": {
     "step1": {
       "title": "狀態頁面",
-      "paragraph1": "這是 IPFS 節點的起始頁面，您可以在這裡查看其基本資訊。",
+      "paragraph1": "這是 IFShare 節點的起始頁面，您可以在這裡查看其基本資訊。",
       "paragraph2": "點選 \"下一步\" 了解更多資訊。"
     },
     "step2": {
@@ -29,7 +29,7 @@
     },
     "step3": {
       "title": "節點資訊",
-      "paragraph1": "在這裡您可以看到 repo 的大小、已連接節點數量、你的節點 ID 和正在使用的 IPFS 版本資訊。",
+      "paragraph1": "在這裡您可以看到 repo 的大小、已連接節點數量、你的節點 ID 和正在使用的 IFShare 版本資訊。",
       "paragraph2": "<0>展開<1>進階<1>連結以查看更多資訊，例如網關 URL 和地址。 進階部分裡還有一個連結可以更改您的 API 位置<0>"
     },
     "step4": {
@@ -43,5 +43,5 @@
     }
   },
   "bandwidthStats": "頻寬狀態",
-  "bandwidthStatsDisabled": "您已經禁用頻寬測量基準了。您可以透過輸入以下命令或是變更其值來重新啟用，在<2>設定<2>中將<0>Swarm.DisableBandwidthMetrics<0>改為<1>false<1>。然後您必須要重新啟動 IPFS 後臺守護程式才能生效。"
+  "bandwidthStatsDisabled": "您已經禁用頻寬測量基準了。您可以透過輸入以下命令或是變更其值來重新啟用，在<2>設定<2>中將<0>Swarm.DisableBandwidthMetrics<0>改為<1>false<1>。然後您必須要重新啟動 IFShare 後臺守護程式才能生效。"
 }

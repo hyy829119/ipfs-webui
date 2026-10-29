@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { APP_NAME } from '../constants/branding.js'
 import { findDOMNode } from 'react-dom'
 import { Helmet } from 'react-helmet'
 import { connect } from 'redux-bundler-react'
@@ -159,10 +160,6 @@ const FilesPage = ({
     doAddCarFile(files.path, file, name)
   }
   const onInspect = (cid) => doUpdateHash(`/explore/${cid}`)
-  const onCheckRetrieval = (cid) => {
-    doFilesCidProvide(cid) // Trigger background provide
-    doUpdateHash(`/diagnostics/retrieval/${cid}`)
-  }
   const showModal = (modal, files = null) => setModals({ show: modal, files })
   const hideModal = () => setModals({})
   /**
@@ -324,7 +321,7 @@ const FilesPage = ({
       parts.push(t('app:terms.files'))
     }
 
-    parts.push('IPFS')
+    parts.push(APP_NAME)
     return parts.join(' | ')
   }
 
@@ -349,7 +346,6 @@ const FilesPage = ({
         onRemove={() => showModal(DELETE, [contextMenu.file])}
         onRename={() => showModal(RENAME, [contextMenu.file])}
         onInspect={() => onInspect(contextMenu.file.cid)}
-        onCheckRetrieval={() => onCheckRetrieval(contextMenu.file.cid)}
         onDownload={() => onDownload([contextMenu.file])}
         onDownloadCar={() => onDownloadCar([contextMenu.file])}
         onPinning={() => showModal(PINNING, [contextMenu.file])}

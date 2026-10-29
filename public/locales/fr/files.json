@@ -11,7 +11,7 @@
   "openWithPublicGateway": "Essayer de l'ouvrir plutôt avec votre <1>passerelle publique</1>.",
   "openWithLocalAndPublicGateway": "Essayer de l'ouvrir plutôt avec votre <1>passerelle locale</1> ou votre <3>passerelle publique</3>.",
   "cantBePreviewed": "Désolé, ce fichier ne peut pas être prévisualisé",
-  "addByPath": "Depuis IPFS",
+  "addByPath": "Depuis IFShare",
   "addByCar": "Depuis un CAR",
   "bulkImport": "Import de masse",
   "newFolder": "Nouveau répertoire",
@@ -31,10 +31,10 @@
     "title": "Partager des fichiers",
     "description": "Copiez le lien ci-dessous et partagez-le avec vos amis.",
     "descriptionLocal": "Utilisez ce lien pour ouvrir dans les applications sur cette machine.",
-    "descriptionNative": "Cette adresse native IPFS s'ouvre dans les applications et navigateurs qui supportent IPFS, comme l'extension <1>IPFS Companion</1>.",
+    "descriptionNative": "Cette adresse native IFShare s'ouvre dans les applications et navigateurs qui supportent IFShare, comme l'extension <1>IFShare Companion</1>.",
     "useLocalLink": "Lien HTTP local pour les autres applications sur cette machine",
     "useSubdomains": "Utilise les sous-domaines de localhost pour les applications web",
-    "linkError": "Echec de la création du lien. Vérifiez que votre nœud IPFS est en fonctionnement."
+    "linkError": "Echec de la création du lien. Vérifiez que votre nœud IFShare est en fonctionnement."
   },
   "renameModal": {
     "titleFile": "Renommer le fichier",
@@ -46,9 +46,9 @@
     "titleItem": "{count, plural, one {Supprimer l'élément {name} ?} many {Supprimer {count} éléments ?} other {Supprimer {count} éléments ?}}",
     "titleFolder": "{count, plural, one {Supprimer le dossier {name} ?} many {Supprimer {count} dossiers ?} other {Supprimer {count} dossiers ?}}",
     "titleFile": "{count, plural, one {Supprimer le fichier {name} ?} many {Supprimer {count} fichiers ?} other {Supprimer {count} fichiers ?}}",
-    "descriptionItem": "{count, plural, one {Êtes-vous sûr(e) de vouloir supprimer cet élément ? Il n'apparaîtra plus dans l'onglet Fichiers, et sera supprimé de façon définitive lors du prochain nettoyage (mais des copies peuvent exister sur d'autres nœuds IPFS). Cette action est irréversible.} many {Êtes-vous sûr(e) de vouloir supprimer ces {count} éléments ? Ils n'apparaitront plus dans l'onglet Fichiers, et seront supprimés de façon définitive lors du prochain nettoyage (mais des copies peuvent exister sur d'autres nœuds IPFS). Cette action est irréversible.} other {Êtes-vous sûr(e) de vouloir supprimer ces {count} éléments ? Ils n'apparaitront plus dans l'onglet Fichiers, et seront supprimés de façon définitive lors du prochain nettoyage (mais des copies peuvent exister sur d'autres nœuds IPFS). Cette action est irréversible.}}",
-    "descriptionFolder": "{count, plural, one {Êtes-vous sûr(e) de vouloir supprimer ce dossier ? Il n'apparaitra plus dans l'onglet Fichiers, et sera supprimé de façon définitive lors du prochain nettoyage (mais des copies peuvent exister sur d'autres nœuds IPFS). Cette action est irréversible.} many {Êtes-vous sûr(e) de vouloir supprimer ces {count} dossiers ? Ils n'apparaitront plus dans l'onglet Fichiers, et seront supprimés de façon définitive lors du prochain nettoyage (mais des copies peuvent exister sur d'autres nœuds IPFS). Cette action est irréversible.} other {Êtes-vous sûr(e) de vouloir supprimer ces {count} dossiers ? Ils n'apparaitront plus dans l'onglet Fichiers, et seront supprimés de façon définitive lors du prochain nettoyage (mais des copies peuvent exister sur d'autres nœuds IPFS). Cette action est irréversible.}}",
-    "descriptionFile": "{count, plural, one {Êtes-vous sûr(e) de vouloir supprimer ce fichier? Il n'apparaitra plus dans l'onglet Fichiers, et sera supprimé de façon définitive lors du prochain nettoyage (mais des copies peuvent exister sur d'autres nœuds IPFS). Cette action est irréversible.} many {Êtes-vous sûr(e) de vouloir supprimer ces {count} fichiers ? Ils n'apparaitront plus dans l'onglet Fichiers, et seront supprimés de façon définitive lors du prochain nettoyage (mais des copies peuvent exister sur d'autres nœuds IPFS). Cette action est irréversible.} other {Êtes-vous sûr(e) de vouloir supprimer ces {count} fichiers ? Ils n'apparaitront plus dans l'onglet Fichiers, et seront supprimés de façon définitive lors du prochain nettoyage (mais des copies peuvent exister sur d'autres nœuds IPFS). Cette action est irréversible.}}",
+    "descriptionItem": "{count, plural, one {Êtes-vous sûr(e) de vouloir supprimer cet élément ? Il n'apparaîtra plus dans l'onglet Fichiers, et sera supprimé de façon définitive lors du prochain nettoyage (mais des copies peuvent exister sur d'autres nœuds IFShare). Cette action est irréversible.} many {Êtes-vous sûr(e) de vouloir supprimer ces {count} éléments ? Ils n'apparaitront plus dans l'onglet Fichiers, et seront supprimés de façon définitive lors du prochain nettoyage (mais des copies peuvent exister sur d'autres nœuds IFShare). Cette action est irréversible.} other {Êtes-vous sûr(e) de vouloir supprimer ces {count} éléments ? Ils n'apparaitront plus dans l'onglet Fichiers, et seront supprimés de façon définitive lors du prochain nettoyage (mais des copies peuvent exister sur d'autres nœuds IFShare). Cette action est irréversible.}}",
+    "descriptionFolder": "{count, plural, one {Êtes-vous sûr(e) de vouloir supprimer ce dossier ? Il n'apparaitra plus dans l'onglet Fichiers, et sera supprimé de façon définitive lors du prochain nettoyage (mais des copies peuvent exister sur d'autres nœuds IFShare). Cette action est irréversible.} many {Êtes-vous sûr(e) de vouloir supprimer ces {count} dossiers ? Ils n'apparaitront plus dans l'onglet Fichiers, et seront supprimés de façon définitive lors du prochain nettoyage (mais des copies peuvent exister sur d'autres nœuds IFShare). Cette action est irréversible.} other {Êtes-vous sûr(e) de vouloir supprimer ces {count} dossiers ? Ils n'apparaitront plus dans l'onglet Fichiers, et seront supprimés de façon définitive lors du prochain nettoyage (mais des copies peuvent exister sur d'autres nœuds IFShare). Cette action est irréversible.}}",
+    "descriptionFile": "{count, plural, one {Êtes-vous sûr(e) de vouloir supprimer ce fichier? Il n'apparaitra plus dans l'onglet Fichiers, et sera supprimé de façon définitive lors du prochain nettoyage (mais des copies peuvent exister sur d'autres nœuds IFShare). Cette action est irréversible.} many {Êtes-vous sûr(e) de vouloir supprimer ces {count} fichiers ? Ils n'apparaitront plus dans l'onglet Fichiers, et seront supprimés de façon définitive lors du prochain nettoyage (mais des copies peuvent exister sur d'autres nœuds IFShare). Cette action est irréversible.} other {Êtes-vous sûr(e) de vouloir supprimer ces {count} fichiers ? Ils n'apparaitront plus dans l'onglet Fichiers, et seront supprimés de façon définitive lors du prochain nettoyage (mais des copies peuvent exister sur d'autres nœuds IFShare). Cette action est irréversible.}}",
     "checkboxRemoveLocalPin": "Aussi supprimer l'épinglage local (recommandé)",
     "checkboxUnpinFromServices": "Désépingler de tous les services d'épinglage"
   },
@@ -83,8 +83,8 @@
     "totalSize": "Taille totale: {size}"
   },
   "addByPathModal": {
-    "title": "Importer depuis IPFS",
-    "description": "Insérez un chemin IPFS ou IPNS, un CID, ou une URL de protocole pour l'importer.",
+    "title": "Importer depuis IFShare",
+    "description": "Insérez un chemin IFShare ou IPNS, un CID, ou une URL de protocole pour l'importer.",
     "preloadNote": "NB: Le chemin importé est chargé passivement par défaut, et ne sera téléchargé que sur demande quand vous l'explorez. Pour le télécharger proactivement, importez le chemin dans le Datastore local, choisissez \"Télécharger\" dans le menu contextuel.",
     "importPathPlaceholder": "Chemin, CID, ou URL (requis)",
     "namePlaceholder": "Nom (optionnel)",
@@ -122,8 +122,8 @@
     "closeDropdown": "Fermer la liste",
     "count": "{count} sur {count}"
   },
-  "addFilesInfo": "<0>Aucun fichier ici pour l'instant ! Ajoutez-en à votre nœud IPFS local en cliquant sur le bouton <1>Importer</1> ci-dessus.</0>",
-  "companionInfo": "<0>Comme vous utilisez <1>IPFS Companion</1>, la liste des fichiers est limitée aux fichiers ajoutés lors de l'utilisation de l'extension.</0>",
+  "addFilesInfo": "<0>Aucun fichier ici pour l'instant ! Ajoutez-en à votre nœud IFShare local en cliquant sur le bouton <1>Importer</1> ci-dessus.</0>",
+  "companionInfo": "<0>Comme vous utilisez <1>IFShare Companion</1>, la liste des fichiers est limitée aux fichiers ajoutés lors de l'utilisation de l'extension.</0>",
   "tour": {
     "step1": {
       "title": "Page des fichiers",
@@ -141,7 +141,7 @@
       "title": "Ajouter des fichiers",
       "paragraph1": "Ici vous pouvez voir comment les blocs et les fichiers sont épinglés.",
       "paragraph2": "Vous pouvez ajouter des fichiers ou des dossiers dans votre dépot en utilisant le menu déroulant sur la droite.",
-      "paragraph3": "<0>Si vous voulez ajouter quelque chose déjà présent sur IPFS, vous pouvez l'importer dans votre MFS en entrant son <1>Identifiant de contenu (CID)</1>.</0>"
+      "paragraph3": "<0>Si vous voulez ajouter quelque chose déjà présent sur IFShare, vous pouvez l'importer dans votre MFS en entrant son <1>Identifiant de contenu (CID)</1>.</0>"
     },
     "step5": {
       "title": "Liste des fichiers",
@@ -169,10 +169,10 @@
   "clickToCancel": "Cliquez pour annuler",
   "blocks": "Blocs",
   "localDatastore": "Datastore local",
-  "localDatastoreDescription": "Taille totale de tous les blocs actuellement stockés sur votre nœud IPFS (\"RepoSize\" de \"ipfs repo stat\"). Cela inclut tout ce qui est dans la vue Fichiers (MFS), les épinglages de bas niveau et les blocs récemment supprimés ou temporairement mis en cache qui n'ont pas encore été collectés par le ramasse-miettes.",
+  "localDatastoreDescription": "Taille totale de tous les blocs actuellement stockés sur votre nœud IFShare (\"RepoSize\" de \"ifshare repo stat\"). Cela inclut tout ce qui est dans la vue Fichiers (MFS), les épinglages de bas niveau et les blocs récemment supprimés ou temporairement mis en cache qui n'ont pas encore été collectés par le ramasse-miettes.",
   "currentLocationRoot": "Mes Fichiers",
   "currentLocation": "Emplacement actuel",
-  "currentLocationDescription": "Taille totale du DAG du dossier courant (\"CumulativeSize\" de 'ipfs files stat\"). Cela inclut les blocs locaux et distants et peut être plus grand que la taille de votre datastore local.",
+  "currentLocationDescription": "Taille totale du DAG du dossier courant (\"CumulativeSize\" de 'ifshare files stat\"). Cela inclut les blocs locaux et distants et peut être plus grand que la taille de votre datastore local.",
   "pinningQueue": "Queue d'épinglage",
   "more": "Plus",
   "files": "Fichiers",

@@ -4,7 +4,7 @@
   "saving": "A guardar...",
   "reset": "Começar de novo",
   "language": "Linguagem",
-  "config": "Configuração do IPFS",
+  "config": "Configuração do IFShare",
   "analytics": "Analíticas",
   "languageModal": {
     "title": "Alterar a Linguagem",
@@ -15,15 +15,15 @@
     "close": "Fechar"
   },
   "fetchingSettings": "A obter as configurações...",
-  "ipfsDaemonOffline": "O nó IPFS está offline. Por favor ative-o e tente novamente,",
-  "settingsUnavailable": "As configurações não estão disponíveis. Confira, por favor, se o seu nó IPFS está em execução.",
+  "ipfsDaemonOffline": "O nó IFShare está offline. Por favor ative-o e tente novamente,",
+  "settingsUnavailable": "As configurações não estão disponíveis. Confira, por favor, se o seu nó IFShare está em execução.",
   "settingsHaveChanged": "As configurações foram alteradas, por favor clique em <1>Começar de novo</1> para atualizar os conteúdos do editor.",
   "errorOccured": "Ocorreu um erro enquanto guardávamos as configurações.",
   "checkConsole": "Confira a consola de desenvolvedor do seu navegador para mais informações.",
   "changesSaved": "As suas alterações foram guardadas",
-  "settingsWillBeUsedNextTime": "As novas configurações irão ser utilizadas da próxima vez que reiniciar o seu nó IPFS.",
-  "ipfsConfigDescription": "A configuração do IPFS é um documento json. Apenas é lida quando o nó IPFS é iniciado. Guarde as suas alterações e, de seguida, reinicie o nó IPFS para que estas entrem em efeito.",
-  "ipfsDesktop": "IPFS Desktop",
+  "settingsWillBeUsedNextTime": "As novas configurações irão ser utilizadas da próxima vez que reiniciar o seu nó IFShare.",
+  "ipfsConfigDescription": "A configuração do IFShare é um documento json. Apenas é lida quando o nó IFShare é iniciado. Guarde as suas alterações e, de seguida, reinicie o nó IFShare para que estas entrem em efeito.",
+  "ipfsDesktop": "IFShare Desktop",
   "launchOnStartup": "Iniciar com o arranque",
   "autoAddScreenshots": "Adicionar capturas de ecrã automaticamente",
   "autoAddScreenshotsDescription": "Utilize <0>{ctrlKey}</0>+<2>{altKey}</2>+<3>S</3> para tirar uma captura de ecrã e adicioná-la ao seu repositório.",
@@ -63,16 +63,16 @@
     }
   },
   "Experiments": {
-    "description": "Aqui pode experimentar novas funcionalidades do IPFS ativando as opções abaixo. Estamos a testar estas ideias e estas ainda podem não estar perfeitas por isso gostaríamos de saber a sua opinião.",
+    "description": "Aqui pode experimentar novas funcionalidades do IFShare ativando as opções abaixo. Estamos a testar estas ideias e estas ainda podem não estar perfeitas por isso gostaríamos de saber a sua opinião.",
     "issueUrl": "Abrir um relatório de erros",
     "feedbackUrl": "💌Deixar um comentário",
     "readMoreUrl": "Ler mais",
     "npmOnIpfs": {
-      "title": "NPM em IPFS",
+      "title": "NPM em IFShare",
       "label": "Ativar ipfs-npm",
-      "description": "Instale os módulos npm através do IPFS com a ferramenta da linha de comandos 'ipfs-npm'!"
+      "description": "Instale os módulos npm através do IFShare com a ferramenta da linha de comandos 'ipfs-npm'!"
     }
   },
-  "ipfsCmdTools": "Ferramentas de linha de comandos IPFS",
+  "ipfsCmdTools": "Ferramentas de linha de comandos IFShare",
   "ipfsCmdToolsDescription": "Adicione o binário <0>ipfs</0> ao <0>PATH</0> do seu sistema para que o possa usar na sua linha de comandos."
 }

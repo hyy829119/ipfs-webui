@@ -38,8 +38,8 @@
     "codeLink": "Смотреть код"
   },
   "status": {
-    "connectedToIpfs": "Подключено к IPFS",
-    "connectingToIpfs": "Подключение к IPFS…",
+    "connectedToIpfs": "Подключено к IFShare",
+    "connectingToIpfs": "Подключение к IFShare…",
     "couldNotConnect": ""
   },
   "apiAddressForm": {
@@ -63,7 +63,7 @@
     "addresses": "Адреса",
     "advanced": "Дополнительно",
     "agent": "Агент",
-    "api": "Kubo RPC",
+    "api": "IFShare RPC",
     "apiAddress": "",
     "blocks": "Блоки",
     "connection": "Подключение",

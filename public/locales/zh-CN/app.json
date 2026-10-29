@@ -1,4 +1,5 @@
 {
+  "workspace": "工作空间",
   "actions": {
     "add": "添加",
     "apply": "应用",
@@ -31,16 +32,16 @@
     "checkRetrieval": "检查检索"
   },
   "cliModal": {
-    "description": "将以下内容粘贴到终端中，以通过命令行在Kubo中执行此任务。请谨记您需要使用您自己的参数来替换掉占位符"
+    "description": "将以下内容粘贴到终端中，以通过命令行在IFShare中执行此任务。请谨记您需要使用您自己的参数来替换掉占位符"
   },
   "nav": {
     "bugsLink": "报告 bug",
     "codeLink": "查看源码"
   },
   "status": {
-    "connectedToIpfs": "已连接到 IPFS",
-    "connectingToIpfs": "正在连接 IPFS",
-    "couldNotConnect": "无法连接到Kubo RPC"
+    "connectedToIpfs": "已连接到 IFShare",
+    "connectingToIpfs": "正在连接 IFShare",
+    "couldNotConnect": "无法连接到 IFShare RPC"
   },
   "apiAddressForm": {
     "placeholder": "输入一个URL(http://user:password@127.0.0.1:5001) 或以Multiaddr形式(/ip4/127.0.0.1/tcp/5001)"
@@ -63,8 +64,8 @@
     "addresses": "地址",
     "advanced": "高级",
     "agent": "代理",
-    "api": "Kubo RPC",
-    "apiAddress": "Kubo RPC API 地址",
+    "api": "IFShare RPC",
+    "apiAddress": "IFShare RPC API 地址",
     "blocks": "块",
     "connection": "连接",
     "downSpeed": "接收",

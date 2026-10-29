@@ -1,4 +1,5 @@
 import React from 'react'
+import { APP_NAME } from '../constants/branding.js'
 import { Helmet } from 'react-helmet'
 import { withTranslation, Trans } from 'react-i18next'
 import { connect } from 'redux-bundler-react'
@@ -32,7 +33,7 @@ const StatusPage = ({
   return (
     <div data-id='StatusPage' className='mw9 center'>
       <Helmet>
-        <title>{t('title')} | IPFS</title>
+        <title>{t('title')} | {APP_NAME}</title>
       </Helmet>
       <Box className='pa3 joyride-status-node' style={{ minHeight: 0 }}>
         <div className='flex'>

@@ -11,7 +11,7 @@
   "openWithPublicGateway": "Spróbuj otworzyć przez <1>publiczną bramkę</1>.",
   "openWithLocalAndPublicGateway": "Spróbuj otworzyć przez <1>lokalną bramkę</1> lub <3>publiczną bramkę</3>.",
   "cantBePreviewed": "Nie można wyświetlić podglądu tego pliku",
-  "addByPath": "Z IPFS",
+  "addByPath": "Z IFShare",
   "addByCar": "Z pliku CAR",
   "bulkImport": "Import zbiorczy",
   "newFolder": "Nowy folder",
@@ -46,9 +46,9 @@
     "titleItem": "{count, plural, one {Usunąć element? {name}} few {Usunąć {count} elementy?} many {Usunąć {count} elementów?} other {Usunąć {count} elementów?}}",
     "titleFolder": "{count, plural, one {Usunąć folder? {name}} few {Usunąć {count} foldery?} many {Usunąć {count} folderów?} other {Usunąć {count} folderów?}}",
     "titleFile": "{count, plural, one {Usunąć plik? {name}} few {Usunąć {count} pliki?} many {Usunąć {count} plików?} other {Usunąć {count} plików?}}",
-    "descriptionItem": "{count, plural, one {Czy na pewno chcesz usunąć ten element? Zniknie z ekranu Pliki i zostanie trwale usunięty przy następnym czyszczeniu (kopie mogą istnieć na innych węzłach IPFS). Tej operacji nie można cofnąć.} few {Czy na pewno chcesz usunąć te {count} elementy? Znikną z ekranu Pliki i zostaną trwale usunięte przy następnym czyszczeniu (kopie mogą istnieć na innych węzłach IPFS). Tej operacji nie można cofnąć.} many {Czy na pewno chcesz usunąć te {count} elementów? Znikną z ekranu Pliki i zostaną trwale usunięte przy następnym czyszczeniu (kopie mogą istnieć na innych węzłach IPFS). Tej operacji nie można cofnąć.} other {Czy na pewno chcesz usunąć te {count} elementów? Znikną z ekranu Pliki i zostaną trwale usunięte przy następnym czyszczeniu (kopie mogą istnieć na innych węzłach IPFS). Tej operacji nie można cofnąć.}}",
-    "descriptionFolder": "{count, plural, one {Czy na pewno chcesz usunąć ten folder? Zniknie z ekranu Pliki i zostanie trwale usunięty przy następnym czyszczeniu (kopie mogą istnieć na innych węzłach IPFS). Tej operacji nie można cofnąć.} few {Czy na pewno chcesz usunąć te {count} foldery? Znikną z ekranu Pliki i zostaną trwale usunięte przy następnym czyszczeniu (kopie mogą istnieć na innych węzłach IPFS). Tej operacji nie można cofnąć.} many {Czy na pewno chcesz usunąć te {count} folderów? Znikną z ekranu Pliki i zostaną trwale usunięte przy następnym czyszczeniu (kopie mogą istnieć na innych węzłach IPFS). Tej operacji nie można cofnąć.} other {Czy na pewno chcesz usunąć te {count} folderów? Znikną z ekranu Pliki i zostaną trwale usunięte przy następnym czyszczeniu (kopie mogą istnieć na innych węzłach IPFS). Tej operacji nie można cofnąć.}}",
-    "descriptionFile": "{count, plural, one {Czy na pewno chcesz usunąć ten plik? Zniknie z ekranu Pliki i zostanie trwale usunięty przy następnym czyszczeniu (kopie mogą istnieć na innych węzłach IPFS). Tej operacji nie można cofnąć.} few {Czy na pewno chcesz usunąć te {count} pliki? Znikną z ekranu Pliki i zostaną trwale usunięte przy następnym czyszczeniu (kopie mogą istnieć na innych węzłach IPFS). Tej operacji nie można cofnąć.} many {Czy na pewno chcesz usunąć te {count} plików? Znikną z ekranu Pliki i zostaną trwale usunięte przy następnym czyszczeniu (kopie mogą istnieć na innych węzłach IPFS). Tej operacji nie można cofnąć.} other {Czy na pewno chcesz usunąć te {count} plików? Znikną z ekranu Pliki i zostaną trwale usunięte przy następnym czyszczeniu (kopie mogą istnieć na innych węzłach IPFS). Tej operacji nie można cofnąć.}}",
+    "descriptionItem": "{count, plural, one {Czy na pewno chcesz usunąć ten element? Zniknie z ekranu Pliki i zostanie trwale usunięty przy następnym czyszczeniu (kopie mogą istnieć na innych węzłach IFShare). Tej operacji nie można cofnąć.} few {Czy na pewno chcesz usunąć te {count} elementy? Znikną z ekranu Pliki i zostaną trwale usunięte przy następnym czyszczeniu (kopie mogą istnieć na innych węzłach IFShare). Tej operacji nie można cofnąć.} many {Czy na pewno chcesz usunąć te {count} elementów? Znikną z ekranu Pliki i zostaną trwale usunięte przy następnym czyszczeniu (kopie mogą istnieć na innych węzłach IFShare). Tej operacji nie można cofnąć.} other {Czy na pewno chcesz usunąć te {count} elementów? Znikną z ekranu Pliki i zostaną trwale usunięte przy następnym czyszczeniu (kopie mogą istnieć na innych węzłach IFShare). Tej operacji nie można cofnąć.}}",
+    "descriptionFolder": "{count, plural, one {Czy na pewno chcesz usunąć ten folder? Zniknie z ekranu Pliki i zostanie trwale usunięty przy następnym czyszczeniu (kopie mogą istnieć na innych węzłach IFShare). Tej operacji nie można cofnąć.} few {Czy na pewno chcesz usunąć te {count} foldery? Znikną z ekranu Pliki i zostaną trwale usunięte przy następnym czyszczeniu (kopie mogą istnieć na innych węzłach IFShare). Tej operacji nie można cofnąć.} many {Czy na pewno chcesz usunąć te {count} folderów? Znikną z ekranu Pliki i zostaną trwale usunięte przy następnym czyszczeniu (kopie mogą istnieć na innych węzłach IFShare). Tej operacji nie można cofnąć.} other {Czy na pewno chcesz usunąć te {count} folderów? Znikną z ekranu Pliki i zostaną trwale usunięte przy następnym czyszczeniu (kopie mogą istnieć na innych węzłach IFShare). Tej operacji nie można cofnąć.}}",
+    "descriptionFile": "{count, plural, one {Czy na pewno chcesz usunąć ten plik? Zniknie z ekranu Pliki i zostanie trwale usunięty przy następnym czyszczeniu (kopie mogą istnieć na innych węzłach IFShare). Tej operacji nie można cofnąć.} few {Czy na pewno chcesz usunąć te {count} pliki? Znikną z ekranu Pliki i zostaną trwale usunięte przy następnym czyszczeniu (kopie mogą istnieć na innych węzłach IFShare). Tej operacji nie można cofnąć.} many {Czy na pewno chcesz usunąć te {count} plików? Znikną z ekranu Pliki i zostaną trwale usunięte przy następnym czyszczeniu (kopie mogą istnieć na innych węzłach IFShare). Tej operacji nie można cofnąć.} other {Czy na pewno chcesz usunąć te {count} plików? Znikną z ekranu Pliki i zostaną trwale usunięte przy następnym czyszczeniu (kopie mogą istnieć na innych węzłach IFShare). Tej operacji nie można cofnąć.}}",
     "checkboxRemoveLocalPin": "Usuń również lokalne przypięcie (zalecane)",
     "checkboxUnpinFromServices": "Odepnij ze wszystkich usług przypinania"
   },
@@ -83,7 +83,7 @@
     "totalSize": "Rozmiar całkowity: {size}"
   },
   "addByPathModal": {
-    "title": "Importuj z IPFS",
+    "title": "Importuj z IFShare",
     "description": "",
     "preloadNote": "",
     "importPathPlaceholder": "",
@@ -122,8 +122,8 @@
     "closeDropdown": "Zamknij listę rozwijaną",
     "count": "{count} z {count}"
   },
-  "addFilesInfo": "<0>Nie ma tu jeszcze żadnych plików! Dodaj pliki do lokalnego węzła IPFS, klikając przycisk <1>Importuj</1> powyżej.</0>",
-  "companionInfo": "<0>Ponieważ używasz <1>IPFS Companion</1>, widok plików jest ograniczony do plików dodanych podczas korzystania z rozszerzenia.</0>",
+  "addFilesInfo": "<0>Nie ma tu jeszcze żadnych plików! Dodaj pliki do lokalnego węzła IFShare, klikając przycisk <1>Importuj</1> powyżej.</0>",
+  "companionInfo": "<0>Ponieważ używasz <1>IFShare Companion</1>, widok plików jest ograniczony do plików dodanych podczas korzystania z rozszerzenia.</0>",
   "tour": {
     "step1": {
       "title": "Strona Pliki",
@@ -141,7 +141,7 @@
       "title": "Dodawanie plików",
       "paragraph1": "Tutaj możesz zobaczyć, ile bloków i plików masz przypiętych.",
       "paragraph2": "Możesz dodać pliki lub foldery do repozytorium przez listę rozwijaną po prawej stronie.",
-      "paragraph3": "<0>Jeśli chcesz dodać coś, co już jest w IPFS, możesz zaimportować to do MFS, podając <1>identyfikator treści (CID)</1>.</0>"
+      "paragraph3": "<0>Jeśli chcesz dodać coś, co już jest w IFShare, możesz zaimportować to do MFS, podając <1>identyfikator treści (CID)</1>.</0>"
     },
     "step5": {
       "title": "Lista plików",
@@ -169,10 +169,10 @@
   "clickToCancel": "Kliknij, aby anulować",
   "blocks": "Bloki",
   "localDatastore": "Lokalny magazyn danych",
-  "localDatastoreDescription": "Całkowity rozmiar wszystkich bloków przechowywanych w magazynie danych Twojego węzła IPFS (\"RepoSize\" z \"ipfs repo stat\"). Obejmuje to wszystko w widoku Pliki (MFS), piny niskiego poziomu oraz niedawno usunięte lub tymczasowo buforowane bloki, które nie zostały jeszcze usunięte przez garbage collector.",
+  "localDatastoreDescription": "Całkowity rozmiar wszystkich bloków przechowywanych w magazynie danych Twojego węzła IFShare (\"RepoSize\" z \"ifshare repo stat\"). Obejmuje to wszystko w widoku Pliki (MFS), piny niskiego poziomu oraz niedawno usunięte lub tymczasowo buforowane bloki, które nie zostały jeszcze usunięte przez garbage collector.",
   "currentLocationRoot": "Moje pliki",
   "currentLocation": "Bieżąca lokalizacja",
-  "currentLocationDescription": "Całkowity rozmiar DAG za bieżącym katalogiem (\"CumulativeSize\" z \"ipfs files stat\"). Ta wartość obejmuje zarówno lokalne, jak i zdalne bloki, i może być większa niż rozmiar lokalnego magazynu danych.",
+  "currentLocationDescription": "Całkowity rozmiar DAG za bieżącym katalogiem (\"CumulativeSize\" z \"ifshare files stat\"). Ta wartość obejmuje zarówno lokalne, jak i zdalne bloki, i może być większa niż rozmiar lokalnego magazynu danych.",
   "pinningQueue": "Kolejka przypinania",
   "more": "Więcej",
   "files": "Pliki",

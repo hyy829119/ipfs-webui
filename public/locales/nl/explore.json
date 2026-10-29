@@ -1,7 +1,7 @@
 {
   "appName": "IPLD Explorer",
   "StartExploringPage": {
-    "title": "Verken | IPLD",
+    "title": "Verken | IFShare",
     "header": "Verken het Merkle Forest",
     "leadParagraph": "Plak een CID in het vak om de IPLD node op te halen waar hij naar verwijst of kies een van de aanbevolen datasets."
   },
@@ -11,7 +11,7 @@
     "paragraph3": "<0>IPLD lost dit op: een enkel adresbereik voor alle op-hash-geïnspireerde protocollen. Met IPLD kunnen koppelingen gevold worden doorheen verschillende protocollen, zodat je gegevens kan verkennen ongeacht het onderliggende protocol.</0>"
   },
   "ExplorePage": {
-    "title": "Verkennen | IPLD"
+    "title": "Verkennen | IFShare"
   },
   "IpldExploreForm": {
     "explore": "Verken"
@@ -21,7 +21,7 @@
     "hashDigest": "Hash digest"
   },
   "ObjectInfo": {
-    "gatewayLink": "Bekijk via de IPFS Gateway"
+    "gatewayLink": "Bekijk via de IFShare Gateway"
   },
   "base": "basis",
   "version": "versie",

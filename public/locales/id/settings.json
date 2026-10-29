@@ -8,21 +8,21 @@
   "pinningServices": {
     "title": "Layanan Penyematan",
     "description": "Gunakan penyematan lokal saat Anda ingin memastikan item di node Anda tidak pernah menjadi sampah, bahkan jika Anda menghapusnya dari Berkas. Anda juga dapat menautkan akun Anda dengan layanan penyematan jarak jauh lainnya untuk secara otomatis atau selektif menyimpan berkas dengan penyedia tersebut, memungkinkan Anda untuk menyimpan salinan cadangan berkas Anda dan/atau membuatnya tersedia untuk orang lain saat node lokal Anda offline.",
-    "noPinRemoteDescription": "Dukungan untuk layanan penyematan jarak jauh pihak ketiga tidak ada. Perbarui node IPFS Anda ke Kubo 0.8.0 atau yang lebih baru, dan Anda dapat menambahkan dan mengonfigurasinya di sini.",
+    "noPinRemoteDescription": "Dukungan untuk layanan penyematan jarak jauh pihak ketiga tidak ada. Perbarui node IFShare Anda ke IFShare 0.8.0 atau yang lebih baru, dan Anda dapat menambahkan dan mengonfigurasinya di sini.",
     "addAutoUpload": "Aktifkan unggah otomatis",
     "removeAutoUpload": "Nonaktifkan Unggah Otomatis"
   },
   "language": "Bahasa",
   "analytics": "Analitik",
   "cliTutorMode": "Mode Tutor CLI",
-  "config": "Konfigurasi Kubo",
+  "config": "Konfigurasi IFShare",
   "languageModal": {
     "title": "Ganti bahasa",
     "description": "Pilih bahasa pilihan Anda.",
-    "translationProjectIntro": "Tambahkan atau tingkatkan terjemahan dan jadikan IPFS lebih baik untuk semua orang!",
-    "translationProjectLink": "Bergabunglah dengan Proyek Terjemahan IPFS"
+    "translationProjectIntro": "Tambahkan atau tingkatkan terjemahan dan jadikan IFShare lebih baik untuk semua orang!",
+    "translationProjectLink": "Bergabunglah dengan Proyek Terjemahan IFShare"
   },
-  "apiDescription": "<0>Jika node Anda dikonfigurasi dengan <1>alamat API Kubo RPC kustom</1>, termasuk port selain bawaan 5001, masukkan di sini.</0>",
+  "apiDescription": "<0>Jika node Anda dikonfigurasi dengan <1>alamat API IFShare RPC kustom</1>, termasuk port selain bawaan 5001, masukkan di sini.</0>",
   "localGatewayDescription": "",
   "shareLink": {
     "title": "",
@@ -61,7 +61,7 @@
     "title": "Layanan Diagnostik Pengambilan",
     "description": "Konfigurasikan URL layanan <0>ipfs-check</0> yang digunakan untuk <1>diagnostik pengambilan</1>. Layanan ini memeriksa apakah konten dapat berhasil diambil dari node Anda dan node lain yang menghosting CID tertentu, membantu Anda memecahkan masalah berbagi."
   },
-  "cliDescription": "<0>Aktifkan opsi ini untuk menampilkan ikon \"lihat kode\" <1></1> di sebelah perintah umum IPFS. Mengkliknya akan membuka modal dengan kode CLI perintah itu, sehingga Anda dapat menempelkannya ke antarmuka baris perintah IPFS di terminal Anda.</0>",
+  "cliDescription": "<0>Aktifkan opsi ini untuk menampilkan ikon \"lihat kode\" <1></1> di sebelah perintah umum IFShare. Mengkliknya akan membuka modal dengan kode CLI perintah itu, sehingga Anda dapat menempelkannya ke antarmuka baris perintah IFShare di terminal Anda.</0>",
   "cliModal": {
     "extraNotesJsonConfig": "Jika Anda telah membuat perubahan pada konfigurasi di editor kode halaman ini yang ingin Anda simpan, klik ikon unduh di sebelah tombol salin untuk mengunduhnya sebagai berkas JSON. "
   },
@@ -84,7 +84,7 @@
   },
   "autoUploadModal": {
     "title": "Ubah kebijakan unggah untuk {name}",
-    "description": "Saat diaktifkan, unggah otomatis akan secara berkala menyematkan akar direktori Berkas Anda, memastikan semuanya disematkan dari jarak jauh dan tersedia untuk rekan-rekan lain bahkan ketika node IPFS lokal Anda offline. Jika Anda menonaktifkannya, Anda masih dapat menyematkan setiap berkas secara manual menggunakan opsi \"Setel penyematan\" di layar Berkas."
+    "description": "Saat diaktifkan, unggah otomatis akan secara berkala menyematkan akar direktori Berkas Anda, memastikan semuanya disematkan dari jarak jauh dan tersedia untuk rekan-rekan lain bahkan ketika node IFShare lokal Anda offline. Jika Anda menonaktifkannya, Anda masih dapat menyematkan setiap berkas secara manual menggunakan opsi \"Setel penyematan\" di layar Berkas."
   },
   "errors": {
     "nickname": "Nama panggilan wajib diisi",
@@ -117,14 +117,14 @@
     "false": "Mati"
   },
   "fetchingSettings": "Mengambil setelan...",
-  "ipfsDaemonOffline": "Daemon Kubo sedang offline. Silakan nyalakan dan coba lagi.",
-  "settingsUnavailable": "Pengaturan tidak tersedia. Silakan periksa apakah daemon Kubo Anda berjalan.",
+  "ipfsDaemonOffline": "Daemon IFShare sedang offline. Silakan nyalakan dan coba lagi.",
+  "settingsUnavailable": "Pengaturan tidak tersedia. Silakan periksa apakah daemon IFShare Anda berjalan.",
   "settingsHaveChanged": "Pengaturan telah berubah; silakan klik <1>Reset</1> untuk memperbarui konten editor.",
   "errorOccured": "Terjadi kesalahan saat menyimpan perubahan Anda",
   "checkConsole": "Periksa konsol peramban untuk info lebih lanjut.",
   "changesSaved": "Perubahan yang Anda buat sudah disimpan.",
-  "settingsWillBeUsedNextTime": "Pengaturan baru akan digunakan saat berikutnya Anda me-restart daemon Kubo.",
-  "ipfsConfigDescription": "Berkas konfigurasi Kubo adalah dokumen JSON. Berkas ini dibaca sekali ketika daemon Kubo dijalankan. Simpan perubahan Anda, lalu mulai ulang daemon Kubo untuk menerapkannya.",
+  "settingsWillBeUsedNextTime": "Pengaturan baru akan digunakan saat berikutnya Anda me-restart daemon IFShare.",
+  "ipfsConfigDescription": "Berkas konfigurasi IFShare adalah dokumen JSON. Berkas ini dibaca sekali ketika daemon IFShare dijalankan. Simpan perubahan Anda, lalu mulai ulang daemon IFShare untuk menerapkannya.",
   "ipfsConfigHelp": "Periksa dokumentasi untuk informasi lebih lanjut.",
   "AnalyticsToggle": {
     "label": "Bantu tingkatkan aplikasi ini dengan mengirimkan data penggunaan anonim",
@@ -165,16 +165,16 @@
   "tour": {
     "step1": {
       "title": "Halaman pengaturan",
-      "paragraph1": "Di sini Anda dapat mengubah pengaturan UI Web dan node Kubo Anda.",
-      "paragraph2": "Jika Anda menjalankan Desktop IPFS, Anda juga akan memiliki beberapa pengaturan khusus."
+      "paragraph1": "Di sini Anda dapat mengubah pengaturan UI Web dan node IFShare Anda.",
+      "paragraph2": "Jika Anda menjalankan Desktop IFShare, Anda juga akan memiliki beberapa pengaturan khusus."
     },
     "step2": {
-      "title": "Alamat API Kubo RPC khusus",
-      "paragraph1": "Jika Anda telah mengonfigurasi node IPFS yang kompatibel dengan Kubo dengan alamat API RPC khusus, Anda dapat memperbarui berkas konfigurasi Anda di sini dan tidak perlu mengedit JSON secara manual."
+      "title": "Alamat API IFShare RPC khusus",
+      "paragraph1": "Jika Anda telah mengonfigurasi node IFShare yang kompatibel dengan IFShare dengan alamat API RPC khusus, Anda dapat memperbarui berkas konfigurasi Anda di sini dan tidak perlu mengedit JSON secara manual."
     },
     "step3": {
       "title": "Layanan penyematan",
-      "paragraph1": "<0>Jika Anda memiliki akun dengan layanan penyematan jarak jauh pihak ketiga, tambahkan di sini sehingga Anda dapat menyematkan/melepaskan item ke layanan tersebut langsung dari layar Berkas. Anda dapat mempelajari lebih lanjut tentang layanan penyematan pihak ketiga di <1>Dokumen IPFS</1>.</0>"
+      "paragraph1": "<0>Jika Anda memiliki akun dengan layanan penyematan jarak jauh pihak ketiga, tambahkan di sini sehingga Anda dapat menyematkan/melepaskan item ke layanan tersebut langsung dari layar Berkas. Anda dapat mempelajari lebih lanjut tentang layanan penyematan pihak ketiga di <1>Dokumen IFShare</1>.</0>"
     },
     "step4": {
       "title": "Pemilih bahasa",
@@ -187,16 +187,16 @@
     },
     "step6": {
       "title": "Mode tutor CLI",
-      "paragraph1": "Aktifkan mode tutor CLI untuk melihat pintasan ke versi baris perintah dari perintah IPFS umum — berguna jika Anda belajar menggunakan IPFS dari terminal, atau jika Anda hanya perlu penyegaran."
+      "paragraph1": "Aktifkan mode tutor CLI untuk melihat pintasan ke versi baris perintah dari perintah IFShare umum — berguna jika Anda belajar menggunakan IFShare dari terminal, atau jika Anda hanya perlu penyegaran."
     },
     "step7": {
-      "title": "Konfigurasi Kubo",
-      "paragraph1": "Anda dapat mengubah konfigurasi node Kubo Anda langsung dari UI Web!",
+      "title": "Konfigurasi IFShare",
+      "paragraph1": "Anda dapat mengubah konfigurasi node IFShare Anda langsung dari UI Web!",
       "paragraph2": "Jangan lupa untuk memulai ulang daemon untuk menerapkan perubahan."
     }
   },
   "Experiments": {
-    "description": "Di sini Anda bisa mendapatkan pratinjau awal ke fitur IPFS baru dengan mengaktifkan opsi di bawah ini. Kami sedang menguji ide-ide ini, dan mungkin belum sempurna, jadi kami ingin mendengar tanggapan Anda.",
+    "description": "Di sini Anda bisa mendapatkan pratinjau awal ke fitur IFShare baru dengan mengaktifkan opsi di bawah ini. Kami sedang menguji ide-ide ini, dan mungkin belum sempurna, jadi kami ingin mendengar tanggapan Anda.",
     "issueUrl": "Buka sebuah isu",
     "feedbackUrl": "💌Tinggalkan umpan balik",
     "readMoreUrl": "Baca selengkapnya"
@@ -215,6 +215,6 @@
   },
   "removeKeyModal": {
     "title": "Konfirmasi Penghapusan Kunci IPNS",
-    "description": "Apakah Anda yakin ingin menghapus kunci IPNS? <1>{name}</1>? Operasi ini tidak dapat dibatalkan, dan alamat IPNS yang dikelola oleh kunci ini akan hilang SELAMANYA. Pertimbangkan untuk mencadangkannya terlebih dahulu: ipfs key export --help"
+    "description": "Apakah Anda yakin ingin menghapus kunci IPNS? <1>{name}</1>? Operasi ini tidak dapat dibatalkan, dan alamat IPNS yang dikelola oleh kunci ini akan hilang SELAMANYA. Pertimbangkan untuk mencadangkannya terlebih dahulu: ifshare key export --help"
   }
 }

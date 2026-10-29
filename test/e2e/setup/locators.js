@@ -87,7 +87,7 @@ export const explore = {
 
 // Status page locators
 export const status = {
-  connectionStatus: (page) => page.getByText('Connected to IPFS'),
+  connectionStatus: (page) => page.getByText('Connected to IFShare'),
   statusMenuItem: (page) => page.getByText('Status'),
   httpApiAddress: (page) => page.locator('div[id="http-api-address"]'),
   detailsSummary: (page) => page.locator('summary')

@@ -38,8 +38,8 @@
     "codeLink": "Guarda il codice"
   },
   "status": {
-    "connectedToIpfs": "Connesso ad IPFS",
-    "connectingToIpfs": "Connessione ad IPFS...",
+    "connectedToIpfs": "Connesso ad IFShare",
+    "connectingToIpfs": "Connessione ad IFShare...",
     "couldNotConnect": ""
   },
   "apiAddressForm": {

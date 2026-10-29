@@ -10,34 +10,34 @@ test.describe('Navigation menu', () => {
     const link = nav.status(page)
     await expect(link).toBeVisible()
     await link.click()
-    await expect(page).toHaveTitle('Status | IPFS')
+    await expect(page).toHaveTitle('Status | IFShare')
   })
 
   test('should work for Files page', async ({ page }) => {
     const link = nav.files(page)
     await expect(link).toBeVisible()
     await link.click()
-    await expect(page).toHaveTitle('/ | Files | IPFS')
+    await expect(page).toHaveTitle('/ | Files | IFShare')
   })
 
   test('should work for Explore page', async ({ page }) => {
     const link = nav.explore(page)
     await expect(link).toBeVisible()
     await link.click()
-    await expect(page).toHaveTitle('Explore | IPLD')
+    await expect(page).toHaveTitle('Explore | IFShare')
   })
 
   test('should work for Peers page', async ({ page }) => {
     const link = nav.peers(page)
     await expect(link).toBeVisible()
     await link.click()
-    await expect(page).toHaveTitle('Peers | IPFS')
+    await expect(page).toHaveTitle('Peers | IFShare')
   })
 
   test('should work for Settings page', async ({ page }) => {
     const link = nav.settings(page)
     await expect(link).toBeVisible()
     await link.click()
-    await expect(page).toHaveTitle('Settings | IPFS')
+    await expect(page).toHaveTitle('Settings | IFShare')
   })
 })

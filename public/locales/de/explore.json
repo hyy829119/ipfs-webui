@@ -55,7 +55,7 @@
       },
       "step3": {
         "title": "Node informationen",
-        "paragraph1": "Hier findest Du detaillierte Informationen über den Node. Du kannst es außerdem im IPFS Gateway öffnen.",
+        "paragraph1": "Hier findest Du detaillierte Informationen über den Node. Du kannst es außerdem im IFShare Gateway öffnen.",
         "paragraph2": "Wenn der Knoten ein Verzeichnis ist, kannst Du seine Kinder sehen und zu ihnen navigieren."
       },
       "step4": {

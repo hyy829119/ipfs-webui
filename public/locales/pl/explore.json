@@ -6,7 +6,7 @@
     "paragraph1": "Dostępna jest nowa wersja Eksploratora IPLD; <1>odśwież stronę</1>."
   },
   "StartExploringPage": {
-    "title": "Eksploruj | IPLD",
+    "title": "Eksploruj | IFShare",
     "header": "Eksploruj Las Merkle'a",
     "leadParagraph": "Wklej CID w pole, aby pobrać wskazany węzeł IPLD, lub wybierz jeden z wyróżnionych zbiorów danych.",
     "noDataAvailable": "Brak dostępnych danych"
@@ -17,7 +17,7 @@
     "paragraph3": "<0>Tu z pomocą przychodzi IPLD: wspólna przestrzeń nazw dla wszystkich protokołów opartych na hashach. Dzięki IPLD można nawigować między protokołami, eksplorując dane niezależnie od użytego protokołu.</0>"
   },
   "ExplorePage": {
-    "title": "Eksplorowanie | IPLD"
+    "title": "Eksplorowanie | IFShare"
   },
   "IpldExploreForm": {
     "explore": "Eksploruj"
@@ -55,7 +55,7 @@
       },
       "step3": {
         "title": "Informacje o węźle",
-        "paragraph1": "Tutaj znajdziesz szczegółowe informacje o węźle. Możesz też otworzyć go w bramce IPFS.",
+        "paragraph1": "Tutaj znajdziesz szczegółowe informacje o węźle. Możesz też otworzyć go w bramce IFShare.",
         "paragraph2": "Jeśli węzeł jest katalogiem, możesz zobaczyć jego zawartość i do niej przejść."
       },
       "step4": {
@@ -72,11 +72,11 @@
     "BlockFetchTimeoutError": "Przekroczono limit czasu pobierania bloku",
     "BlockFetchError": "Błąd pobierania bloku",
     "CidSyntaxError": "Nieprawidłowa składnia CID",
-    "checkIpfsNetwork": "Sprawdź połączenie z siecią IPFS",
+    "checkIpfsNetwork": "Sprawdź połączenie z siecią IFShare",
     "troubleshootingTips": {
       "title": "Wskazówki diagnostyczne",
       "refresh": "Odśwież stronę",
-      "checkConnection": "Sprawdź połączenie z węzłem IPFS",
+      "checkConnection": "Sprawdź połączenie z węzłem IFShare",
       "tryLater": "Spróbuj ponownie później",
       "checkCidSyntax": "Sprawdź poprawność składni CID"
     }

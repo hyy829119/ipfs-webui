@@ -1,0 +1,43 @@
+{
+  "title": "登录",
+  "headerLabel": "分布式文件工作空间",
+  "eyebrow": "内容互联，自由共享",
+  "headlineFirst": "连接每一份内容，",
+  "headlineSecond": "让数据自由流动。",
+  "introduction": "基于 IPFS 的点对点网络，按内容寻找文件，让存储、访问与分享在节点之间自然连接。",
+  "diagram": {
+    "content": "内容分块",
+    "node": "存储节点",
+    "caption": "内容在节点间流动"
+  },
+  "features": {
+    "content": {
+      "title": "内容寻址",
+      "description": "使用 CID 标识内容，内容改变，地址随之改变。"
+    },
+    "network": {
+      "title": "点对点传输",
+      "description": "节点直接交换数据，减少对单一服务器的依赖。"
+    },
+    "storage": {
+      "title": "分布式存储",
+      "description": "内容可保留在多个节点，通过固定（Pin）持续保存。"
+    }
+  },
+  "workspace": "进入你的工作空间",
+  "welcome": "欢迎回来",
+  "description": "登录 IFShare，管理你的内容与节点。",
+  "username": "用户名",
+  "usernamePlaceholder": "输入用户名",
+  "password": "密码",
+  "passwordPlaceholder": "输入密码",
+  "showPassword": "显示密码",
+  "hidePassword": "隐藏密码",
+  "invalidCredentials": "用户名或密码不正确，请重试。",
+  "sessionHint": "登录状态将在当前标签页内保留",
+  "signIn": "登录工作空间",
+  "signOut": "退出登录",
+  "formFooter": "连接内容，连接可能",
+  "formNote": "你的内容，你的节点，你的工作空间。",
+  "footer": "让分享回归简单"
+}

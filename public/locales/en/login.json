@@ -1,0 +1,43 @@
+{
+  "title": "Sign in",
+  "headerLabel": "Distributed file workspace",
+  "eyebrow": "Connected content. Open possibilities.",
+  "headlineFirst": "Connect your content.",
+  "headlineSecond": "Let your data flow.",
+  "introduction": "Built on the IPFS peer-to-peer network. Find files by their content and connect storage, access, and sharing across nodes.",
+  "diagram": {
+    "content": "Content blocks",
+    "node": "Storage node",
+    "caption": "Content flows between peers"
+  },
+  "features": {
+    "content": {
+      "title": "Content addressing",
+      "description": "Identify content by its CID. When content changes, its address changes."
+    },
+    "network": {
+      "title": "Peer-to-peer transfer",
+      "description": "Nodes exchange data directly, reducing reliance on a single server."
+    },
+    "storage": {
+      "title": "Distributed storage",
+      "description": "Keep content on multiple nodes and pin it for continued retention."
+    }
+  },
+  "workspace": "YOUR WORKSPACE AWAITS",
+  "welcome": "Welcome back",
+  "description": "Sign in to IFShare to manage your content and node.",
+  "username": "Username",
+  "usernamePlaceholder": "Enter your username",
+  "password": "Password",
+  "passwordPlaceholder": "Enter your password",
+  "showPassword": "Show password",
+  "hidePassword": "Hide password",
+  "invalidCredentials": "Incorrect username or password. Please try again.",
+  "sessionHint": "Stay signed in within this browser tab",
+  "signIn": "Enter workspace",
+  "signOut": "Sign out",
+  "formFooter": "A place for connected content",
+  "formNote": "Your content. Your node. Your workspace.",
+  "footer": "Sharing, made simple"
+}

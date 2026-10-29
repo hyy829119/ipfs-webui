@@ -8,24 +8,24 @@
   "pinningServices": {
     "title": "固定服务",
     "description": "当您希望确保您节点上的项目永远不会被执行垃圾回收时，请使用本地固定，这样即便您将项目从文件中删除，项目依旧会保存在您的节点内。您还可以将您的帐户与其他远程固定服务连接，以自动或有选择地将文件同步至其他固定服务商，这样即便您自己的本地节点失效时，您依旧可以获得文件的副本/或者将这些文件分享给其他人。",
-    "noPinRemoteDescription": "缺少对第三方远程固定服务的支持特性。请将您的IPFS 节点更新为IPFS 0.8.0或更高版本，然后您就可以在此处添加以及配置它们。",
+    "noPinRemoteDescription": "缺少对第三方远程固定服务的支持特性。请将您的IFShare 节点更新为IFShare 0.8.0或更高版本，然后您就可以在此处添加以及配置它们。",
     "addAutoUpload": "启用自动上传",
     "removeAutoUpload": "禁用自动上传"
   },
   "language": "语言",
   "analytics": "分析",
   "cliTutorMode": "CLI 引导模式",
-  "config": "Kubo 配置",
+  "config": "IFShare 配置",
   "languageModal": {
     "title": "修改语言",
     "description": "选择首选语言。",
-    "translationProjectIntro": "添加或改进翻译，使IPFS更适合每个人！",
-    "translationProjectLink": "加入IPFS翻译项目"
+    "translationProjectIntro": "添加或改进翻译，使IFShare更适合每个人！",
+    "translationProjectLink": "加入IFShare翻译项目"
   },
-  "apiDescription": "<0>如果您的节点配置了一个<1>自定义的Kubo PRC API地址</1>，以及包含了其他非默认的5001端口的情况下，在这里修改。</0>",
-  "localGatewayDescription": "<0>如果您通过反向代理、Docker或其他主机访问WebUI，请输入浏览器可以访问的网关URL。留空以使用Kubo配置中的第一个<1>网关地址</1>。</0>\n\n",
+  "apiDescription": "<0>如果节点使用了<1>自定义 IFShare RPC API 地址</1>或非默认的 5001 端口，请在这里修改连接地址。</0>",
+  "localGatewayDescription": "<0>如果您通过反向代理、Docker或其他主机访问WebUI，请输入浏览器可以访问的网关URL。留空以使用IFShare配置中的第一个<1>网关地址</1>。</0>\n\n",
   "shareLink": {
-    "title": "分享IPFS链接",
+    "title": "分享IFShare链接",
     "intro": "此项设置用于控制您通过“分享链接”或“发布到 IPNS”操作所复制的链接格式。每个选项均针对特定使用场景而设计，请根据链接预期被打开的方式选择最合适的选项。",
     "pathVsSubdomain": "网关链接分为两种形式：<0>路径链接path</0>和<1>子域名链接subdomain</1>。路径链接将网关上所有内容置于同一源（origin）之下——源是浏览器用于划分缓存、Cookie 和已保存登录状态的边界，因此同一源内的一个页面能够读取另一个页面遗留的数据。而子域名链接则为每个项目分配独立的源，浏览器会将它们完全隔离。使用建议：打开或托管网页时请用子域名链接，非浏览器应用则宜采用路径链接。",
     "recommendedBadge": "推荐",
@@ -38,11 +38,11 @@
     "native": {
       "label": "本地 (ipfs:// and ipns:// 地址)",
       "description": "这些地址不依赖于任何HTTP服务器，因此即使公共网关关闭，它们也能继续工作。最适合与人点对点的分享。",
-      "companionNote": "要打开它们，您和您共享的人可以安装<0>IPFS 伴侣</0>浏览器扩展。然后，每个人都直接从彼此加载内容，而不是依赖于其他人的HTTP服务器。"
+      "companionNote": "请使用<0>支持原生协议</0>的应用程序或浏览器扩展打开此类链接。"
     },
     "localPath": {
       "label": "本地网关，路径链接",
-      "description": "该链接直接从您本机运行的 IPFS 节点获取内容，适用于非浏览器的本地应用程序，但无法用于与他人分享。"
+      "description": "该链接直接从您本机运行的 IFShare 节点获取内容，适用于非浏览器的本地应用程序，但无法用于与他人分享。"
     },
     "localSubdomain": {
       "label": "本地网关，子域名链接",
@@ -59,9 +59,9 @@
   },
   "retrievalDiagnosticService": {
     "title": "检索诊断服务",
-    "description": "配置用于检索诊断的IPFS-检查服务的URL。此服务检查是否可以从您的节点和托管特定CID（内容标识符）的其他节点成功获取内容，帮助您解决共享问题。"
+    "description": "配置用于检索诊断的IFShare-检查服务的URL。此服务检查是否可以从您的节点和托管特定CID（内容标识符）的其他节点成功获取内容，帮助您解决共享问题。"
   },
-  "cliDescription": "<0>启用这个选来会在下方IPFS命令旁显示一个“查看代码”<1></1>图标。单击它将打开一个带有命令的CLI代码的引导模式，因此您可以将其粘贴到IPFS 节点的命令行终端中执行。</0>",
+  "cliDescription": "<0>启用后，常用操作旁会显示“查看命令”<1></1>图标。点击可查看对应的 IFShare 命令，并复制到终端执行。</0>",
   "cliModal": {
     "extraNotesJsonConfig": "如果您希望保存已在该页的代码编辑器中修改过的配置，点击复制图标旁边的下载图标可以将配置文件以JSON文件的形式下载到本地"
   },
@@ -84,7 +84,7 @@
   },
   "autoUploadModal": {
     "title": "为{name}更改上传策略",
-    "description": "当启用时，自动上传将定期地固定您的根目录，确保所有内容都被远程固定至其他节点，这样即使您的本地IPFS 节点脱机，这些文件也能被访问。如果您禁用它，您仍然可以使用“文件”页面上的“固定”选项手动地固定每个文件。"
+    "description": "当启用时，自动上传将定期地固定您的根目录，确保所有内容都被远程固定至其他节点，这样即使您的本地IFShare 节点脱机，这些文件也能被访问。如果您禁用它，您仍然可以使用“文件”页面上的“固定”选项手动地固定每个文件。"
   },
   "errors": {
     "nickname": "需要填写昵称",
@@ -117,14 +117,14 @@
     "false": "关"
   },
   "fetchingSettings": "拉取配置中 ...",
-  "ipfsDaemonOffline": " Kubo 守护进程离线了。请打开后再试一次。",
-  "settingsUnavailable": "设置不可用。请检查您的Kubo守护进程是否正在运行。",
+  "ipfsDaemonOffline": " IFShare 守护进程离线了。请打开后再试一次。",
+  "settingsUnavailable": "设置不可用。请检查您的IFShare守护进程是否正在运行。",
   "settingsHaveChanged": "配置已经改变，请单击 <1>重置</1> 按钮刷新编辑器中的内容。",
   "errorOccured": "在保存修改的配置文件过程中出错。",
   "checkConsole": "请查看浏览器控制台了解更多的信息。",
   "changesSaved": "你修改的配置已经保存。",
-  "settingsWillBeUsedNextTime": "新设置将在下次重新启动Kubo守护进程时使用。",
-  "ipfsConfigDescription": "Kubo配置文件是一个JSON文档。它在Kubo守护进程启动时读取一次。保存更改，然后重新启动Kubo守护进程以应用它们。",
+  "settingsWillBeUsedNextTime": "新设置将在下次重新启动IFShare守护进程时使用。",
+  "ipfsConfigDescription": "IFShare配置文件是一个JSON文档。它在IFShare守护进程启动时读取一次。保存更改，然后重新启动IFShare守护进程以应用它们。",
   "ipfsConfigHelp": "查看文档获取更多信息",
   "AnalyticsToggle": {
     "label": "向我们提供匿名数据来帮助我们改进",
@@ -165,16 +165,16 @@
   "tour": {
     "step1": {
       "title": "配置页面",
-      "paragraph1": "在这里，您可以更改Web 用户界面和Kubo节点的设置。",
-      "paragraph2": "如果你正在运行 IPFS Desktop ，会有一些特定的设置。"
+      "paragraph1": "在这里，您可以更改Web 用户界面和IFShare节点的设置。",
+      "paragraph2": "如果你正在运行 IFShare Desktop ，会有一些特定的设置。"
     },
     "step2": {
-      "title": "自定义Kubo RPC API地址",
-      "paragraph1": "如果您为使用Kubo兼容的 IPFS 节点配置了自定义的RPC API地址，你可以直接在这里更新配置而不需要手动修改JSON配置文件。"
+      "title": "自定义IFShare RPC API地址",
+      "paragraph1": "如果 IFShare 节点使用了自定义 RPC API 地址，可以直接在此更新，无需手动修改 JSON 配置文件。"
     },
     "step3": {
       "title": "固定服务",
-      "paragraph1": "<0>如果您有第三方远程固定服务的账户，请添加在此处，这样您可以直接进行远程固定或取消固定文件的操作。您可以在<1>IPFS 文档</1>中了解到更多有关第三方固定服务的详细说明。</0>"
+      "paragraph1": "<0>如果您有第三方远程固定服务的账户，请添加在此处，这样您可以直接进行远程固定或取消固定文件的操作。您可以在<1>IFShare 文档</1>中了解到更多有关第三方固定服务的详细说明。</0>"
     },
     "step4": {
       "title": "语言选择",
@@ -187,23 +187,23 @@
     },
     "step6": {
       "title": "CLI 引导模式",
-      "paragraph1": "启用CLI 引导模式来查看常见IPFS终端命令——如果您正在从终端学习使用IPFS，或者您只是需要查询命令，这将非常有用。"
+      "paragraph1": "启用CLI 引导模式来查看常见IFShare终端命令——如果您正在从终端学习使用IFShare，或者您只是需要查询命令，这将非常有用。"
     },
     "step7": {
-      "title": "Kubo 配置",
-      "paragraph1": "您可以直接从Web 用户界面更改Kubo节点的配置！",
+      "title": "IFShare 配置",
+      "paragraph1": "您可以直接从Web 用户界面更改IFShare节点的配置！",
       "paragraph2": "不要忘记重新启动守护程序以应用更改！"
     }
   },
   "Experiments": {
-    "description": "在这里，您可以通过激活下方选项获得使用早期预览版 IPFS 功能的身份。 我们正在测试这些功能，但它们可能还不完美，所以我们很乐意听取您的反馈意见。",
+    "description": "在这里，您可以通过激活下方选项获得使用早期预览版 IFShare 功能的身份。 我们正在测试这些功能，但它们可能还不完美，所以我们很乐意听取您的反馈意见。",
     "issueUrl": "提交 bug",
     "feedbackUrl": "💌提供反馈",
     "readMoreUrl": "查看更多"
   },
   "ipnsPublishingKeys": {
     "title": "IPNS发布密钥",
-    "description": "星际名称系统（IPNS）提供加密的地址，可用于发布随时间变化的内容更新。这项功能要求您的节点每天至少连接至IPFS网络一次，以确保IPNS的解析记录在公共DHT上保持有效。"
+    "description": "星际名称系统（IPNS）提供加密的地址，可用于发布随时间变化的内容更新。这项功能要求您的节点每天至少连接至IFShare网络一次，以确保IPNS的解析记录在公共DHT上保持有效。"
   },
   "generateKeyModal": {
     "title": "生成新的IPNS密钥",
@@ -215,6 +215,6 @@
   },
   "removeKeyModal": {
     "title": "确认移除此IPNS密钥",
-    "description": "你确认你想要删除此IPNS密钥<1>{name}</1>吗？此操作不可逆，以及此密钥管理的IPNS地址将永远丢失。考虑备份?: 请使用IPFS密钥导出功能"
+    "description": "你确认你想要删除此IPNS密钥<1>{name}</1>吗？此操作不可逆，以及此密钥管理的IPNS地址将永远丢失。考虑备份?: 请使用IFShare密钥导出功能"
   }
 }

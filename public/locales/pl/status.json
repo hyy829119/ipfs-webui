@@ -19,17 +19,17 @@
   "tour": {
     "step1": {
       "title": "Strona Status",
-      "paragraph1": "To jest punkt startowy Twojego węzła IPFS, gdzie możesz sprawdzić jego podstawowe informacje.",
+      "paragraph1": "To jest punkt startowy Twojego węzła IFShare, gdzie możesz sprawdzić jego podstawowe informacje.",
       "paragraph2": "Kliknij \"Dalej\", aby dowiedzieć się więcej."
     },
     "step2": {
       "title": "Status połączenia",
-      "paragraph1": "Kliknij tę ikonę z dowolnego miejsca w aplikacji, aby wrócić do strony Status. Jeśli utracisz połączenie z Kubo RPC, ikona zmieni kolor na czerwony.",
+      "paragraph1": "Kliknij tę ikonę z dowolnego miejsca w aplikacji, aby wrócić do strony Status. Jeśli utracisz połączenie z IFShare RPC, ikona zmieni kolor na czerwony.",
       "paragraph2": "Jeśli musisz skonfigurować niestandardowy adres API dla swojego węzła, kliknij link \"Edytuj\" obok miejsca, gdzie adres API jest wyświetlany na tej stronie."
     },
     "step3": {
       "title": "Informacje o węźle",
-      "paragraph1": "Tutaj znajdziesz informacje o rozmiarze repozytorium, liczbie połączonych węzłów, ID węzła oraz aktualnie używanej implementacji IPFS.",
+      "paragraph1": "Tutaj znajdziesz informacje o rozmiarze repozytorium, liczbie połączonych węzłów, ID węzła oraz aktualnie używanej implementacji IFShare.",
       "paragraph2": "<0>Rozwiń link <1>Zaawansowane</1>, aby zobaczyć więcej informacji, takich jak URL bramki HTTP i adresy. W sekcji Zaawansowane znajdziesz również link do zmiany adresu API.</0>"
     },
     "step4": {
@@ -43,5 +43,5 @@
     }
   },
   "bandwidthStats": "Statystyki przepustowości",
-  "bandwidthStatsDisabled": "Masz wyłączone metryki przepustowości. Możesz je włączyć, wpisując poniższe polecenie lub zmieniając klucz <1>Swarm.DisableBandwidthMetrics</1> na <3>false</3> w <5>Ustawieniach</5>. Następnie musisz zrestartować demona IPFS, aby zastosować zmiany."
+  "bandwidthStatsDisabled": "Masz wyłączone metryki przepustowości. Możesz je włączyć, wpisując poniższe polecenie lub zmieniając klucz <1>Swarm.DisableBandwidthMetrics</1> na <3>false</3> w <5>Ustawieniach</5>. Następnie musisz zrestartować demona IFShare, aby zastosować zmiany."
 }

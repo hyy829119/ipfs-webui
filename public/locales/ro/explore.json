@@ -55,7 +55,7 @@
       },
       "step3": {
         "title": "Informații nod",
-        "paragraph1": "Aici ai informații detaliate despre nod și poți să-l deschizi în gateway-ul IPFS.",
+        "paragraph1": "Aici ai informații detaliate despre nod și poți să-l deschizi în gateway-ul IFShare.",
         "paragraph2": "Dacă nodul este un director poți să-i vezi copiii și poți merge la aceștia."
       },
       "step4": {

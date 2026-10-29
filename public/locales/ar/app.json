@@ -38,8 +38,8 @@
     "codeLink": "انظر الرمز"
   },
   "status": {
-    "connectedToIpfs": "متصل بـ IPFS",
-    "connectingToIpfs": "جارٍ الاتصال بـ IPFS ...",
+    "connectedToIpfs": "متصل بـ IFShare",
+    "connectingToIpfs": "جارٍ الاتصال بـ IFShare ...",
     "couldNotConnect": ""
   },
   "apiAddressForm": {

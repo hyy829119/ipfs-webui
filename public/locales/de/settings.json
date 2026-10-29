@@ -8,7 +8,7 @@
   "pinningServices": {
     "title": "Pinning-Dienste",
     "description": "Verwende lokales Anheften, wenn Du sicherstellen möchtest, dass ein Element auf Deinem Knoten niemals durch den Garbage-Collector gelöscht wird, selbst wenn Du es aus Dateien entfernst. Du kannst Deine Konten auch mit anderen Remote-Pinning-Diensten verknüpfen, um Dateien bei diesen Anbietern automatisch oder selektiv beizubehalten. So kannst Du Sicherungskopien Deiner Dateien aufbewahren und / oder anderen zur Verfügung stellen, wenn Dein lokaler Knoten offline ist.",
-    "noPinRemoteDescription": "Es fehlt die Unterstützung für Remote-Pinning-Dienste von Drittanbietern. Aktualisiere Deinen IPFS Knoten auf Kubo 0.8.0 oder neuer um sie hier hinzufügen und konfigurieren zu können.",
+    "noPinRemoteDescription": "Es fehlt die Unterstützung für Remote-Pinning-Dienste von Drittanbietern. Aktualisiere Deinen IFShare Knoten auf IFShare 0.8.0 oder neuer um sie hier hinzufügen und konfigurieren zu können.",
     "addAutoUpload": "Automatisch hochladen aktivieren",
     "removeAutoUpload": "Automatisch hochladen deaktivieren"
   },
@@ -19,8 +19,8 @@
   "languageModal": {
     "title": "Sprache ändern",
     "description": "Wähle Deine bevorzugte Sprache.",
-    "translationProjectIntro": "Füge Übersetzungen hinzu oder verbessere sie und mache IPFS besser für jeden!",
-    "translationProjectLink": "Dem IPFS-Übersetzungsprojekt beitreten"
+    "translationProjectIntro": "Füge Übersetzungen hinzu oder verbessere sie und mache IFShare besser für jeden!",
+    "translationProjectLink": "Dem IFShare-Übersetzungsprojekt beitreten"
   },
   "apiDescription": "",
   "localGatewayDescription": "",
@@ -61,7 +61,7 @@
     "title": "",
     "description": ""
   },
-  "cliDescription": "<0>Aktiviere diese Option, um ein \"Code anzeigen\" <1></1> Symbol neben häufigen IPFS Befehlen anzuzeigen. Wenn du auf das Symbol klickst, öffnet sich ein Fenster mit CLI-Code des Befehls, den du in die IPFS Kommandozeile deines Terminals einfügen kannst.</0>",
+  "cliDescription": "<0>Aktiviere diese Option, um ein \"Code anzeigen\" <1></1> Symbol neben häufigen IFShare Befehlen anzuzeigen. Wenn du auf das Symbol klickst, öffnet sich ein Fenster mit CLI-Code des Befehls, den du in die IFShare Kommandozeile deines Terminals einfügen kannst.</0>",
   "cliModal": {
     "extraNotesJsonConfig": "Wenn Du im Code-Editor dieser Seite Änderungen an der Konfiguration vorgenommen hast, die Du speichern möchtest, klicke auf das Herunterladen-Symbol neben der Schaltfläche zum Kopieren, um sie als JSON-Datei herunterzuladen."
   },
@@ -84,7 +84,7 @@
   },
   "autoUploadModal": {
     "title": "Upload-Richtlinie für {name} ändern",
-    "description": "Wenn aktiviert, wird regelmäßig das Wurzelverzeichnis Deines Dateiverzeichnisses automatisch angeheftet, damit alles entfernt angeheftet ist und anderen Knoten zur Verfügung steht, auch wenn Dein lokaler IPFS-Knoten offline geht. Wenn Du dies deaktivierst, kannst Du jede Datei weiterhin manuell mit der Option \"Anheften einstellen\" auf der Seite \"Dateien\" anheften."
+    "description": "Wenn aktiviert, wird regelmäßig das Wurzelverzeichnis Deines Dateiverzeichnisses automatisch angeheftet, damit alles entfernt angeheftet ist und anderen Knoten zur Verfügung steht, auch wenn Dein lokaler IFShare-Knoten offline geht. Wenn Du dies deaktivierst, kannst Du jede Datei weiterhin manuell mit der Option \"Anheften einstellen\" auf der Seite \"Dateien\" anheften."
   },
   "errors": {
     "nickname": "Name ist erforderlich",
@@ -166,7 +166,7 @@
     "step1": {
       "title": "Einstellungen",
       "paragraph1": "",
-      "paragraph2": "Wenn Du IPFS Desktop benutzt, hast Du auch einige spezifische Einstellungen dafür."
+      "paragraph2": "Wenn Du IFShare Desktop benutzt, hast Du auch einige spezifische Einstellungen dafür."
     },
     "step2": {
       "title": "",
@@ -174,7 +174,7 @@
     },
     "step3": {
       "title": "Pinning-Dienste",
-      "paragraph1": "<0>Wenn Du Konten bei Remote-Pinning-Diensten von Drittanbietern hast, füge diese hier hinzu, damit Du Elemente direkt über die Seite \"Dateien\" an diese Dienste anheften oder loslösen kannst. Weitere Informationen zu Pinning-Diensten von Drittanbietern findest Du in der <1>IPFS-Dokumentation</1>.</0>"
+      "paragraph1": "<0>Wenn Du Konten bei Remote-Pinning-Diensten von Drittanbietern hast, füge diese hier hinzu, damit Du Elemente direkt über die Seite \"Dateien\" an diese Dienste anheften oder loslösen kannst. Weitere Informationen zu Pinning-Diensten von Drittanbietern findest Du in der <1>IFShare-Dokumentation</1>.</0>"
     },
     "step4": {
       "title": "Sprachauswahl",
@@ -187,7 +187,7 @@
     },
     "step6": {
       "title": "CLI-Tutor-Modus",
-      "paragraph1": "Aktiviere den CLI-Tutor-Modus, um die Kommandozeilenversion gängiger IPFS-Befehle anzuzeigen. Dies ist hilfreich, wenn Du die Verwendung von IPFS über das Terminal erlernst oder nur eine Auffrischung benötigst."
+      "paragraph1": "Aktiviere den CLI-Tutor-Modus, um die Kommandozeilenversion gängiger IFShare-Befehle anzuzeigen. Dies ist hilfreich, wenn Du die Verwendung von IFShare über das Terminal erlernst oder nur eine Auffrischung benötigst."
     },
     "step7": {
       "title": "",
@@ -196,7 +196,7 @@
     }
   },
   "Experiments": {
-    "description": "Hier kannst du eine frühe Vorschau neuer Funktionen in IPFS erhalten, indem du die folgenden Optionen aktivierst. Wir testen diese Ideen und sie sind möglicherweise noch nicht perfekt, deshalb würden wir uns über Dein Feedback freuen.",
+    "description": "Hier kannst du eine frühe Vorschau neuer Funktionen in IFShare erhalten, indem du die folgenden Optionen aktivierst. Wir testen diese Ideen und sie sind möglicherweise noch nicht perfekt, deshalb würden wir uns über Dein Feedback freuen.",
     "issueUrl": "Ein issue öffnen",
     "feedbackUrl": "💌Feedback geben",
     "readMoreUrl": "Mehr lesen"
@@ -215,6 +215,6 @@
   },
   "removeKeyModal": {
     "title": "Bestätige Entfernen von IPNS-Schlüssel",
-    "description": "Bist du sicher, dass du den IPNS-Key <1>{name}</1> löschen möchtest? Diese Operation kann nicht rückgängig gemacht werden und die IPNS-Adresse, die von diesem Schlüssel verwaltet wird, wird FÜR IMMER verloren sein. Ziehe in Erwägung den Schlüssel zuerst zu sichern: ipfs key export --help"
+    "description": "Bist du sicher, dass du den IPNS-Key <1>{name}</1> löschen möchtest? Diese Operation kann nicht rückgängig gemacht werden und die IPNS-Adresse, die von diesem Schlüssel verwaltet wird, wird FÜR IMMER verloren sein. Ziehe in Erwägung den Schlüssel zuerst zu sichern: ifshare key export --help"
   }
 }

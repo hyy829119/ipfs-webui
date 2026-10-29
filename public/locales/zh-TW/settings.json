@@ -19,8 +19,8 @@
   "languageModal": {
     "title": "變更語言",
     "description": "挑選你喜好的語言。",
-    "translationProjectIntro": "新增或改進翻譯，使 IPFS 更適合每個人！",
-    "translationProjectLink": "加入 IPFS 翻譯專案"
+    "translationProjectIntro": "新增或改進翻譯，使 IFShare 更適合每個人！",
+    "translationProjectLink": "加入 IFShare 翻譯專案"
   },
   "apiDescription": "",
   "localGatewayDescription": "",
@@ -30,7 +30,7 @@
     "title": "",
     "description": ""
   },
-  "cliDescription": "<0>啟用此選項可在常用 IPFS 指令旁顯示<1>“查看程式碼”</1>的圖示。點選後會開啟一個帶有該指令的 CLI 視窗，因此您可以將其複製貼上到終端機的 IPFS 指令界面中。</0>",
+  "cliDescription": "<0>啟用此選項可在常用 IFShare 指令旁顯示<1>“查看程式碼”</1>的圖示。點選後會開啟一個帶有該指令的 CLI 視窗，因此您可以將其複製貼上到終端機的 IFShare 指令界面中。</0>",
   "cliModal": {
     "extraNotesJsonConfig": "如果您希望保存已在此頁的程式編輯器中修改過的設置，點擊複製圖示旁的下載圖示可以將設置文件以 JSON 檔案的形式下載到本機。"
   },
@@ -53,7 +53,7 @@
   },
   "autoUploadModal": {
     "title": "替{name}更改上傳策略",
-    "description": "當啟用時，自動上傳將定期錨釘您的檔案根目錄，以確保即使您的本機 IPFS 節點離線時也將所有檔案都錨釘到運行中的遠端錨釘節點。若禁用時，\n您也可以在檔案頁面上方的 \"設定錨釘\" 選項中進行個別檔案的手動錨釘。"
+    "description": "當啟用時，自動上傳將定期錨釘您的檔案根目錄，以確保即使您的本機 IFShare 節點離線時也將所有檔案都錨釘到運行中的遠端錨釘節點。若禁用時，\n您也可以在檔案頁面上方的 \"設定錨釘\" 選項中進行個別檔案的手動錨釘。"
   },
   "errors": {
     "nickname": "需要填寫暱稱",
@@ -135,7 +135,7 @@
     "step1": {
       "title": "設定頁面",
       "paragraph1": "",
-      "paragraph2": "如果你正在運行IPFS Desktop ，會有一些特定的設置。"
+      "paragraph2": "如果你正在運行IFShare Desktop ，會有一些特定的設置。"
     },
     "step2": {
       "title": "",
@@ -143,7 +143,7 @@
     },
     "step3": {
       "title": "正在錨釘服務",
-      "paragraph1": "<0>如果您有第三方遠程固定服務的帳號，請於此處新增。這樣您可以在這個檔案頁面直接進行遠程錨釘或取消錨釘檔案的操作。您可以在<1> IPFS Docs<1> 中得到解到更多有關第三方錨釘服務的詳細說明。<0>"
+      "paragraph1": "<0>如果您有第三方遠程固定服務的帳號，請於此處新增。這樣您可以在這個檔案頁面直接進行遠程錨釘或取消錨釘檔案的操作。您可以在<1> IFShare Docs<1> 中得到解到更多有關第三方錨釘服務的詳細說明。<0>"
     },
     "step4": {
       "title": "語言選擇器",
@@ -156,7 +156,7 @@
     },
     "step6": {
       "title": "CLI 引導模式",
-      "paragraph1": "啟用CLI 引導模式來查看常見 IPFS 指令 — 若您正在學習如何透過中終端機使用 IPFS，或者您只是需要查詢指令，這將非常有用。"
+      "paragraph1": "啟用CLI 引導模式來查看常見 IFShare 指令 — 若您正在學習如何透過中終端機使用 IFShare，或者您只是需要查詢指令，這將非常有用。"
     },
     "step7": {
       "title": "",
@@ -165,7 +165,7 @@
     }
   },
   "Experiments": {
-    "description": "在這裡，您可以通過下面的觸發選項獲得使用早期預覽版IPFS 功能的身份。 我們正在測試這些想法，但它們可能還不完美，所以我們很樂意聽取您的反饋意見。",
+    "description": "在這裡，您可以通過下面的觸發選項獲得使用早期預覽版IFShare 功能的身份。 我們正在測試這些想法，但它們可能還不完美，所以我們很樂意聽取您的反饋意見。",
     "issueUrl": "回報臭蟲",
     "feedbackUrl": "💌留下意見",
     "readMoreUrl": "閱讀更多"

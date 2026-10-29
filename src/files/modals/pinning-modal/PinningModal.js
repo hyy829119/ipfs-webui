@@ -7,7 +7,6 @@ import Checkbox from '../../../components/checkbox/Checkbox.js'
 import GlyphPin from '../../../icons/GlyphPin.js'
 import Icon from '../../../icons/StrokePinCloud.js'
 import { Modal, ModalActions, ModalBody } from '../../../components/modal/modal'
-import { complianceReportsHomepage } from '../../../constants/pinning.js'
 import { connect } from 'redux-bundler-react'
 import './PinningModal.css'
 
@@ -71,7 +70,6 @@ export const PinningModal = ({ t, tReady, onCancel, onPinningSet, file, pinningS
             Need to add or configure a pinning service? Go to <a href="#/settings" className="link blue">Settings.</a>
           </Trans>
         </p> */}
-        <a className="mb1 tl f7 charcoal-muted no-underline underline-hover" target="_blank" rel="noreferrer" href={complianceReportsHomepage}>{ t('pinningModal.complianceLabel') }</a>
         <p className="f6 charcoal">{t('pinningModal.totalSize', { size: humanSize(size) })}</p>
       </ModalBody>
 

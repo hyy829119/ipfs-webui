@@ -13,7 +13,7 @@
   "openWithPublicGateway": "Zkuste ji místo toho otevřít pomocí <1>veřejné brány</1>.",
   "openWithLocalAndPublicGateway": "Místo toho ji zkuste otevřít pomocí <1>místní</1> nebo <3>veřejné brány</3>.",
   "cantBePreviewed": "Litujeme, tento soubor nelze zobrazit",
-  "addByPath": "Od IPFS",
+  "addByPath": "Od IFShare",
   "addByCar": "From CAR",
   "bulkImport": "Bulk import",
   "newFolder": "Nová složka",
@@ -40,9 +40,9 @@
     "titleItem": "{count, plural, one {Odebrat položku? {name}} few {Odebrat {count} položky?} many {Odebrat {count} položek?} other {Odebrat {count} položek?}}",
     "titleFolder": "{count, plural, one {Odebrat složku? {name}} few {Odebrat {count} složky?} many {Odebrat {count} složek?} other {Odebrat {count} složek?}}",
     "titleFile": "{count, plural, one {Odebrat soubor? {name}} few {Odebrat {count} soubory?} many {Odebrat {count} souborů?} other {Odebrat {count} souborů?}}",
-    "descriptionItem": "{count, plural, one {Opravdu chcete tuto položku odstranit? Nebude se již zobrazovat na obrazovce Soubory a bude trvale odstraněna při příštím plánovaném čištění (ačkoli její kopie mohou existovat na jiných uzlech IPFS). Tuto akci a nelze vrátit zpět.} few {OPravdu chcete tyto {count} položky odstranit? Nebudou se již zobrazovat na obrazovce Soubory a budou trvale odstraněny při příštím plánovaném čištění (ačkoli jejich kopie mohou existovat na jiných uzlech IPFS). Tuto akci nelze vrátit zpět.} many {Opravdu chcete těchto {count} položek odstranit? Nebudou se již zobrazovat na obrazovce Soubory a budou trvale odstraněny při příštím plánovaném čištění (ačkoli jejich kopie mohou existovat na jiných uzlech IPFS). Tuto akci nelze vrátit zpět.} other {Opravdu chcete těchto {count} položek odstranit? Nebudou se již zobrazovat na obrazovce Soubory a budou trvale odstraněny při příštím plánovaném čištění (ačkoli jejich kopie mohou existovat na jiných uzlech IPFS). Tuto akci nelze vrátit zpět.}}",
-    "descriptionFolder": "{count, plural, one {Opravdu chcete tuto složku odstranit? Složka se již nebude zobrazovat na obrazovce Soubory a bude trvale odstraněna při příštím plánovaném čištění (ačkoli její kopie mohou existovat na jiných uzlech IPFS). Tuto akci nelze vrátit zpět.} few {Opravdu chcete tyto {count} složky odstranit? Nebudou se již zobrazovat na obrazovce Soubory a budou trvale odstraněny při příštím plánovaném čištění (i když jejich kopie mohou existovat na jiných uzlech IPFS). Tuto akci nelze vrátit zpět.} many {Opravdu chcete těchto {count} složek odstranit? Nebudou se již zobrazovat na obrazovce Soubory a budou trvale odstraněny při příštím plánovaném čištění (i když jejich kopie mohou existovat na jiných uzlech IPFS). Tuto akci nelze vrátit zpět.} other {Opravdu chcete těchto {count} složek odstranit? Nebudou se již zobrazovat na obrazovce Soubory a budou trvale odstraněny při příštím plánovaném čištění (i když jejich kopie mohou existovat na jiných uzlech IPFS). Tuto akci nelze vrátit zpět.}}",
-    "descriptionFile": "{count, plural, one {Opravdu chcete tento soubor odstranit? Nebude se již zobrazovat na obrazovce Soubory a bude trvale odstraněn při příštím plánovaném čištění (ačkoli jeho kopie mohou existovat na jiných uzlech IPFS). Tuto akci nelze vrátit zpět.} few {Opravdu chcete tyto {count} soubory odstranit? Nebudou se již zobrazovat na obrazovce Soubory a budou trvale odstraněny při příštím plánovaném čištění (ačkoli jejich kopie mohou existovat na jiných uzlech IPFS). Tuto akci nelze vrátit zpět.} many {Opravdu chcete těchto {count} souborů odstranit? Nebudou se již zobrazovat na obrazovce Soubory a budou trvale odstraněny při příštím plánovaném čištění (ačkoli jejich kopie mohou existovat na jiných uzlech IPFS). Tuto akci nelze vrátit zpět.} other {Opravdu chcete těchto {count} souborů odstranit? Nebudou se již zobrazovat na obrazovce Soubory a budou trvale odstraněny při příštím plánovaném čištění (ačkoli jejich kopie mohou existovat na jiných uzlech IPFS). Tuto akci nelze vrátit zpět.}}",
+    "descriptionItem": "{count, plural, one {Opravdu chcete tuto položku odstranit? Nebude se již zobrazovat na obrazovce Soubory a bude trvale odstraněna při příštím plánovaném čištění (ačkoli její kopie mohou existovat na jiných uzlech IFShare). Tuto akci a nelze vrátit zpět.} few {OPravdu chcete tyto {count} položky odstranit? Nebudou se již zobrazovat na obrazovce Soubory a budou trvale odstraněny při příštím plánovaném čištění (ačkoli jejich kopie mohou existovat na jiných uzlech IFShare). Tuto akci nelze vrátit zpět.} many {Opravdu chcete těchto {count} položek odstranit? Nebudou se již zobrazovat na obrazovce Soubory a budou trvale odstraněny při příštím plánovaném čištění (ačkoli jejich kopie mohou existovat na jiných uzlech IFShare). Tuto akci nelze vrátit zpět.} other {Opravdu chcete těchto {count} položek odstranit? Nebudou se již zobrazovat na obrazovce Soubory a budou trvale odstraněny při příštím plánovaném čištění (ačkoli jejich kopie mohou existovat na jiných uzlech IFShare). Tuto akci nelze vrátit zpět.}}",
+    "descriptionFolder": "{count, plural, one {Opravdu chcete tuto složku odstranit? Složka se již nebude zobrazovat na obrazovce Soubory a bude trvale odstraněna při příštím plánovaném čištění (ačkoli její kopie mohou existovat na jiných uzlech IFShare). Tuto akci nelze vrátit zpět.} few {Opravdu chcete tyto {count} složky odstranit? Nebudou se již zobrazovat na obrazovce Soubory a budou trvale odstraněny při příštím plánovaném čištění (i když jejich kopie mohou existovat na jiných uzlech IFShare). Tuto akci nelze vrátit zpět.} many {Opravdu chcete těchto {count} složek odstranit? Nebudou se již zobrazovat na obrazovce Soubory a budou trvale odstraněny při příštím plánovaném čištění (i když jejich kopie mohou existovat na jiných uzlech IFShare). Tuto akci nelze vrátit zpět.} other {Opravdu chcete těchto {count} složek odstranit? Nebudou se již zobrazovat na obrazovce Soubory a budou trvale odstraněny při příštím plánovaném čištění (i když jejich kopie mohou existovat na jiných uzlech IFShare). Tuto akci nelze vrátit zpět.}}",
+    "descriptionFile": "{count, plural, one {Opravdu chcete tento soubor odstranit? Nebude se již zobrazovat na obrazovce Soubory a bude trvale odstraněn při příštím plánovaném čištění (ačkoli jeho kopie mohou existovat na jiných uzlech IFShare). Tuto akci nelze vrátit zpět.} few {Opravdu chcete tyto {count} soubory odstranit? Nebudou se již zobrazovat na obrazovce Soubory a budou trvale odstraněny při příštím plánovaném čištění (ačkoli jejich kopie mohou existovat na jiných uzlech IFShare). Tuto akci nelze vrátit zpět.} many {Opravdu chcete těchto {count} souborů odstranit? Nebudou se již zobrazovat na obrazovce Soubory a budou trvale odstraněny při příštím plánovaném čištění (ačkoli jejich kopie mohou existovat na jiných uzlech IFShare). Tuto akci nelze vrátit zpět.} other {Opravdu chcete těchto {count} souborů odstranit? Nebudou se již zobrazovat na obrazovce Soubory a budou trvale odstraněny při příštím plánovaném čištění (ačkoli jejich kopie mohou existovat na jiných uzlech IFShare). Tuto akci nelze vrátit zpět.}}",
     "checkboxRemoveLocalPin": "Odstranit také místní připnutí (doporučeno)",
     "checkboxUnpinFromServices": "Odpojení od všech služeb připínání"
   },
@@ -54,8 +54,8 @@
     "totalSize": "Celková velikost: {size}"
   },
   "addByPathModal": {
-    "title": "Import z IPFS",
-    "description": "Vložte cestu IPFS (CID) pro import.",
+    "title": "Import z IFShare",
+    "description": "Vložte cestu IFShare (CID) pro import.",
     "preloadNote": "POZNÁMKA: Importovaná cesta je ve výchozím nastavení líně načtena a bude načtena na vyžádání při jejím procházení. Chcete-li proaktivně přednačíst importovanou cestu do místního datového úložiště, vyberte z kontextové nabídky možnost \"Stáhnout\"",
     "importPathPlaceholder": "Cesta nebo CID (povinné)",
     "namePlaceholder": "Název (nepovinné)",
@@ -91,8 +91,8 @@
     "closeDropdown": "Zavřít rozbalovací nabídku",
     "count": "{count} z {count}"
   },
-  "addFilesInfo": "<0>Zatím zde nejsou žádné soubory! Přidejte soubory do místního uzlu IPFS kliknutím na tlačítko <1>Importovat</1> výše.</0>",
-  "companionInfo": "<0>Jelikož používáte <1>IPFS Companion</1>, zobrazené soubory jsou omezeny pouze na ty které jste přidali během používání tohoto rozšíření.</0>",
+  "addFilesInfo": "<0>Zatím zde nejsou žádné soubory! Přidejte soubory do místního uzlu IFShare kliknutím na tlačítko <1>Importovat</1> výše.</0>",
+  "companionInfo": "<0>Jelikož používáte <1>IFShare Companion</1>, zobrazené soubory jsou omezeny pouze na ty které jste přidali během používání tohoto rozšíření.</0>",
   "tour": {
     "step1": {
       "title": "Stránka se soubory",
@@ -110,7 +110,7 @@
       "title": "Přidat soubory",
       "paragraph1": "Zde vidíte, kolik bloků a souborů jste přidali.",
       "paragraph2": "K repozitáři můžete přidat soubory nebo složky pomocí rozbalovací nabídky na pravé straně.",
-      "paragraph3": "<0>Pokud chcete přidat něco, co je již na IPFS, můžete jej importovat do vašeho MFS předáním jeho <1>identifikátoru obsahu (CID)</1>.</0>"
+      "paragraph3": "<0>Pokud chcete přidat něco, co je již na IFShare, můžete jej importovat do vašeho MFS předáním jeho <1>identifikátoru obsahu (CID)</1>.</0>"
     },
     "step5": {
       "title": "Seznam souborů",
@@ -133,10 +133,10 @@
   "clickToCancel": "Kliknutím zrušte",
   "blocks": "Bloky",
   "localDatastore": "Místní datové úložiště",
-  "localDatastoreDescription": "Celková velikost všech bloků aktuálně uložených v datovém úložišti uzlu IPFS (\"RepoSize\" z \"ipfs repo stat\"). Zahrnuje vše v zobrazení Soubory (MFS), nízkoúrovňové vývody a všechny nedávno odstraněné nebo dočasně uložené bloky, které ještě nebyly shromážděny do mezipaměti.",
+  "localDatastoreDescription": "Celková velikost všech bloků aktuálně uložených v datovém úložišti uzlu IFShare (\"RepoSize\" z \"ifshare repo stat\"). Zahrnuje vše v zobrazení Soubory (MFS), nízkoúrovňové vývody a všechny nedávno odstraněné nebo dočasně uložené bloky, které ještě nebyly shromážděny do mezipaměti.",
   "currentLocationRoot": "Moje soubory",
   "currentLocation": "Současná poloha",
-  "currentLocationDescription": "Celková velikost DAG za aktuálním adresářem (\"CumulativeSize\" z \"ipfs files stat\"). Tato hodnota zahrnuje místní i vzdálené bloky a může být větší než velikost místního datového úložiště.",
+  "currentLocationDescription": "Celková velikost DAG za aktuálním adresářem (\"CumulativeSize\" z \"ifshare files stat\"). Tato hodnota zahrnuje místní i vzdálené bloky a může být větší než velikost místního datového úložiště.",
   "pinningQueue": "Fronta připnutí",
   "more": "Více",
   "files": "Soubory",

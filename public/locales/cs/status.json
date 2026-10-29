@@ -19,17 +19,17 @@
   "tour": {
     "step1": {
       "title": "Stránka stavu",
-      "paragraph1": "Toto je výchozí bod vašeho uzlu IPFS a kde si můžete zkontrolovat jeho základní informace.",
+      "paragraph1": "Toto je výchozí bod vašeho uzlu IFShare a kde si můžete zkontrolovat jeho základní informace.",
       "paragraph2": "Klikněte na tlačítko \"Další\" a dozvíte se více."
     },
     "step2": {
       "title": "Stav připojení",
-      "paragraph1": "Kliknutím na tuto ikonu odkudkoli v aplikaci se vrátíte na stavovou stránku. Pokud dojde ke ztrátě spojení s Kubo RPC, ikona zčervená.",
+      "paragraph1": "Kliknutím na tuto ikonu odkudkoli v aplikaci se vrátíte na stavovou stránku. Pokud dojde ke ztrátě spojení s IFShare RPC, ikona zčervená.",
       "paragraph2": "Pokud potřebujete nakonfigurovat vlastní adresu API pro svůj uzel, stačí kliknout na odkaz \"Upravit\" vedle místa, kde je na této stránce uvedena adresa API."
     },
     "step3": {
       "title": "Informace o uzlu",
-      "paragraph1": "Zde máte informace o velikosti vašeho repozitáře, o tom, kolik uzlů je připojeno, vaše ID uzlu a IPFS varianta, která se v současné době používá.",
+      "paragraph1": "Zde máte informace o velikosti vašeho repozitáře, o tom, kolik uzlů je připojeno, vaše ID uzlu a IFShare varianta, která se v současné době používá.",
       "paragraph2": "<0>Rozbalením odkazu <1>Pokročilé</1> zobrazíte další informace, například adresu URL brány a adresy. Uvnitř sekce Pokročilé je také odkaz, který umožňuje změnit adresu API.</0>"
     },
     "step4": {
@@ -43,5 +43,5 @@
     }
   },
   "bandwidthStats": "Statistiky šířky pásma",
-  "bandwidthStatsDisabled": "Máte zakázané metriky šířky pásma. Můžete je povolit zadáním příkazu níže nebo změnou klíče <1>Swarm.DisableBandwidthMetrics</1> na hodnotu <3>false</3> v <5>Nastavení</5>. Poté je třeba restartovat démona IPFS, aby se změny projevily."
+  "bandwidthStatsDisabled": "Máte zakázané metriky šířky pásma. Můžete je povolit zadáním příkazu níže nebo změnou klíče <1>Swarm.DisableBandwidthMetrics</1> na hodnotu <3>false</3> v <5>Nastavení</5>. Poté je třeba restartovat démona IFShare, aby se změny projevily."
 }

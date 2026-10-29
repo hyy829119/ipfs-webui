@@ -38,8 +38,8 @@
     "codeLink": "کوڈ دیکھیں"
   },
   "status": {
-    "connectedToIpfs": ".IPFS سے مربوط ہوا",
-    "connectingToIpfs": ".IPFS سے مربوط ہو رہا ہے...",
+    "connectedToIpfs": ".IFShare سے مربوط ہوا",
+    "connectingToIpfs": ".IFShare سے مربوط ہو رہا ہے...",
     "couldNotConnect": ""
   },
   "apiAddressForm": {

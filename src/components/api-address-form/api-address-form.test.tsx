@@ -47,7 +47,7 @@ i18n
       en: {
         app: {
           terms: {
-            apiAddress: 'Kubo RPC API address'
+            apiAddress: 'IFShare RPC API address'
           },
           apiAddressForm: {
             placeholder: 'Enter a URL (http://user:password@127.0.0.1:5001) or a Multiaddr (/ip4/127.0.0.1/tcp/5001)'
@@ -111,7 +111,7 @@ describe('ApiAddressForm', () => {
     it('renders form with all required elements', () => {
       renderApiAddressForm()
 
-      expect(screen.getByLabelText('Kubo RPC API address')).toBeInTheDocument()
+      expect(screen.getByLabelText('IFShare RPC API address')).toBeInTheDocument()
       expect(screen.getByPlaceholderText('Enter a URL (http://user:password@127.0.0.1:5001) or a Multiaddr (/ip4/127.0.0.1/tcp/5001)')).toBeInTheDocument()
       expect(screen.getByRole('button', { name: /submit/i })).toBeInTheDocument()
       expect(screen.getByRole('button', { name: /submit/i })).toHaveTextContent('Submit')
@@ -122,7 +122,7 @@ describe('ApiAddressForm', () => {
 
       renderApiAddressForm({ ipfsApiAddress: testAddress })
 
-      const input = screen.getByLabelText('Kubo RPC API address')
+      const input = screen.getByLabelText('IFShare RPC API address')
       expect(input).toHaveValue(testAddress)
     })
 
@@ -135,7 +135,7 @@ describe('ApiAddressForm', () => {
         { checkValidAPIAddress: mockCheckValidAPIAddress }
       )
 
-      const input = screen.getByLabelText('Kubo RPC API address')
+      const input = screen.getByLabelText('IFShare RPC API address')
       expect(input).toHaveValue(testAddress)
       expect(mockValidation).toHaveBeenCalledWith(testAddress)
 
@@ -144,7 +144,7 @@ describe('ApiAddressForm', () => {
 
     it('handles null and undefined API address values', () => {
       const { rerender } = renderApiAddressForm({ ipfsApiAddress: null })
-      expect(screen.getByLabelText('Kubo RPC API address')).toHaveValue('')
+      expect(screen.getByLabelText('IFShare RPC API address')).toHaveValue('')
 
       rerender(
         <ContextBridgeProvider>
@@ -153,7 +153,7 @@ describe('ApiAddressForm', () => {
           </I18nextProvider>
         </ContextBridgeProvider>
       )
-      expect(screen.getByLabelText('Kubo RPC API address')).toHaveValue('')
+      expect(screen.getByLabelText('IFShare RPC API address')).toHaveValue('')
     })
 
     it('handles object API address values by converting to JSON string', () => {
@@ -161,7 +161,7 @@ describe('ApiAddressForm', () => {
 
       renderApiAddressForm({ ipfsApiAddress: testObject })
 
-      const input = screen.getByLabelText('Kubo RPC API address')
+      const input = screen.getByLabelText('IFShare RPC API address')
       expect(input).toHaveValue(JSON.stringify(testObject))
     })
   })
@@ -170,7 +170,7 @@ describe('ApiAddressForm', () => {
     it('shows green border for valid addresses', () => {
       renderApiAddressForm()
 
-      const input = screen.getByLabelText('Kubo RPC API address')
+      const input = screen.getByLabelText('IFShare RPC API address')
       expect(input).toHaveClass('b--green-muted')
       expect(input).not.toHaveClass('b--red-muted')
     })
@@ -178,7 +178,7 @@ describe('ApiAddressForm', () => {
     it('shows red border when IPFS initialization failed', () => {
       renderApiAddressForm({ ipfsInitFailed: true })
 
-      const input = screen.getByLabelText('Kubo RPC API address')
+      const input = screen.getByLabelText('IFShare RPC API address')
       expect(input).toHaveClass('b--red-muted')
       expect(input).not.toHaveClass('b--green-muted')
     })
@@ -194,7 +194,7 @@ describe('ApiAddressForm', () => {
         { checkValidAPIAddress: mockCheckValidAPIAddress }
       )
 
-      const input = screen.getByLabelText('Kubo RPC API address')
+      const input = screen.getByLabelText('IFShare RPC API address')
 
       expect(mockValidation).toHaveBeenCalledWith('http://127.0.0.1:5001')
 
@@ -229,7 +229,7 @@ describe('ApiAddressForm', () => {
         { checkValidAPIAddress: mockCheckValidAPIAddress }
       )
 
-      const input = screen.getByLabelText('Kubo RPC API address')
+      const input = screen.getByLabelText('IFShare RPC API address')
       fireEvent.change(input, { target: { value: 'http://new-address:5001' } })
 
       expect(screen.getByRole('button', { name: /submit/i })).not.toBeDisabled()
@@ -248,7 +248,7 @@ describe('ApiAddressForm', () => {
     it('submits form with new address via form submit', async () => {
       const { mockDoUpdateIpfsApiAddress, container } = renderApiAddressForm()
 
-      const input = screen.getByLabelText('Kubo RPC API address')
+      const input = screen.getByLabelText('IFShare RPC API address')
       fireEvent.change(input, { target: { value: 'http://new-address:5001' } })
 
       const form = container.querySelector('form')
@@ -262,7 +262,7 @@ describe('ApiAddressForm', () => {
     it('submits form with new address via Enter key', async () => {
       const { mockDoUpdateIpfsApiAddress } = renderApiAddressForm()
 
-      const input = screen.getByLabelText('Kubo RPC API address')
+      const input = screen.getByLabelText('IFShare RPC API address')
       fireEvent.change(input, { target: { value: 'http://new-address:5001' } })
       fireEvent.keyDown(input, { key: 'Enter', code: 'Enter' })
 
@@ -274,7 +274,7 @@ describe('ApiAddressForm', () => {
     it('does not submit on non-Enter key presses', () => {
       const { mockDoUpdateIpfsApiAddress } = renderApiAddressForm()
 
-      const input = screen.getByLabelText('Kubo RPC API address')
+      const input = screen.getByLabelText('IFShare RPC API address')
       fireEvent.keyDown(input, { key: 'A', code: 'KeyA' })
       fireEvent.keyDown(input, { key: 'Escape', code: 'Escape' })
       fireEvent.keyDown(input, { key: 'Tab', code: 'Tab' })
@@ -292,7 +292,7 @@ describe('ApiAddressForm', () => {
         ipfsApiAddress: 'http://old-address:5001'
       })
 
-      const input = screen.getByLabelText('Kubo RPC API address')
+      const input = screen.getByLabelText('IFShare RPC API address')
       fireEvent.change(input, { target: { value: 'http://new-address:5001' } })
 
       fireEvent.keyDown(input, { key: 'Enter', code: 'Enter' })
@@ -322,7 +322,7 @@ describe('ApiAddressForm', () => {
         </ContextBridgeProvider>
       )
 
-      const input = screen.getByLabelText('Kubo RPC API address')
+      const input = screen.getByLabelText('IFShare RPC API address')
       fireEvent.change(input, { target: { value: 'http://new-address:5001' } })
 
       const form = container.querySelector('form')
@@ -349,7 +349,7 @@ describe('ApiAddressForm', () => {
         { checkValidAPIAddress: mockCheckValidAPIAddress }
       )
 
-      const input = screen.getByLabelText('Kubo RPC API address')
+      const input = screen.getByLabelText('IFShare RPC API address')
 
       fireEvent.change(input, { target: { value: 'first' } })
       expect(input).toHaveValue('first')
@@ -370,7 +370,7 @@ describe('ApiAddressForm', () => {
         { checkValidAPIAddress: mockCheckValidAPIAddress }
       )
 
-      const input = screen.getByLabelText('Kubo RPC API address')
+      const input = screen.getByLabelText('IFShare RPC API address')
       fireEvent.change(input, { target: { value: '' } })
 
       expect(input).toHaveValue('')
@@ -385,7 +385,7 @@ describe('ApiAddressForm', () => {
         { checkValidAPIAddress: mockCheckValidAPIAddress }
       )
 
-      const input = screen.getByLabelText('Kubo RPC API address')
+      const input = screen.getByLabelText('IFShare RPC API address')
       const specialValue = 'http://user:pass@127.0.0.1:5001/api/v0'
       fireEvent.change(input, { target: { value: specialValue } })
 
@@ -398,7 +398,7 @@ describe('ApiAddressForm', () => {
     it('has proper form structure and labels', () => {
       const { container } = renderApiAddressForm()
 
-      expect(screen.getByLabelText('Kubo RPC API address')).toBeInTheDocument()
+      expect(screen.getByLabelText('IFShare RPC API address')).toBeInTheDocument()
       expect(screen.getByPlaceholderText('Enter a URL (http://user:password@127.0.0.1:5001) or a Multiaddr (/ip4/127.0.0.1/tcp/5001)')).toBeInTheDocument()
       expect(container.querySelector('form')).toBeInTheDocument()
     })

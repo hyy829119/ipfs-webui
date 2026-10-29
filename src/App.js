@@ -18,6 +18,18 @@ import Notify from './components/notify/Notify.js'
 import Connected from './components/connected/Connected.js'
 import TourHelper from './components/tour/TourHelper.js'
 import FilesExploreForm from './files/explore-form/files-explore-form.tsx'
+import { APP_NAME } from './constants/branding.js'
+import { AccountMenu } from './auth/AuthGate'
+
+const pageTitleKey = (url) => {
+  if (/^\/(files|ipfs|ipns)/.test(url)) return 'files:title'
+  if (url.startsWith('/settings')) return 'settings:title'
+  if (url.startsWith('/explore')) return 'explore:tabName'
+  if (url.startsWith('/peers')) return 'peers:title'
+  if (url.startsWith('/pins')) return 'files:pinningQueue'
+  if (url.startsWith('/welcome')) return 'welcome:description'
+  return 'status:title'
+}
 
 export class App extends Component {
   static propTypes = {
@@ -64,29 +76,34 @@ export class App extends Component {
     const { t, route: Page, ipfsReady, doFilesNavigateTo, routeInfo: { url }, connectDropTarget, canDrop, isOver, showTooltip } = this.props
     return connectDropTarget(
       // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
-      <div className='sans-serif h-100 relative' onClick={getNavHelper(this.props.doUpdateUrl)}>
+      <div className='ifshare-app sans-serif h-100 relative' onClick={getNavHelper(this.props.doUpdateUrl)}>
         {/* Tinted overlay that appears when dragging and dropping an item */}
-        { canDrop && isOver && <div className='h-100 top-0 right-0 fixed appOverlay' style={{ background: 'rgba(99, 202, 210, 0.2)' }} /> }
-        <div className='flex flex-row-reverse-l flex-column-reverse justify-end justify-start-l' style={{ minHeight: '100vh' }}>
-          <div className='flex-auto-l'>
-            <div className='flex items-center ph3 ph4-l' style={{ WebkitAppRegion: 'drag', height: 75, background: '#F0F6FA', paddingTop: '20px', paddingBottom: '15px' }}>
-              <div className='joyride-app-explore' style={{ width: 560 }}>
+        { canDrop && isOver && <div className='h-100 top-0 right-0 fixed appOverlay' /> }
+        <div className='app-layout'>
+          <aside className='navbar-container'>
+            <NavBar />
+          </aside>
+          <div className='app-workspace'>
+            <header className='app-topbar'>
+              <div className='app-page-heading'>
+                <div className='app-eyebrow'>{APP_NAME} <span>/</span> {t('workspace', 'Workspace')}</div>
+                <h1>{t(pageTitleKey(url))}</h1>
+              </div>
+              <div className='joyride-app-explore app-search'>
                 <FilesExploreForm onBrowse={doFilesNavigateTo} />
               </div>
-              <div className='dn flex-ns flex-auto items-center justify-end'>
-                {!url.startsWith('/diagnostics') && <TourHelper />}
+              <div className='app-topbar-actions'>
+                <TourHelper />
                 <Connected className='joyride-app-status' />
+                <AccountMenu />
               </div>
-            </div>
-            <main className='bg-white pv3 pa3 pa4-l'>
-              { (ipfsReady || url === '/welcome' || url.startsWith('/settings'))
+            </header>
+            <main className='app-content'>
+              { (ipfsReady || url === '/' || url.startsWith('/status') || url === '/welcome' || url.startsWith('/settings'))
                 ? <Page />
                 : <ComponentLoader />
               }
             </main>
-          </div>
-          <div className='navbar-container flex-none-l bg-navy'>
-            <NavBar />
           </div>
         </div>
 

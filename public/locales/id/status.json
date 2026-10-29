@@ -19,17 +19,17 @@
   "tour": {
     "step1": {
       "title": "Halaman status",
-      "paragraph1": "Ini adalah titik awal dari node IPFS Anda dan di mana Anda dapat memeriksa info dasarnya.",
+      "paragraph1": "Ini adalah titik awal dari node IFShare Anda dan di mana Anda dapat memeriksa info dasarnya.",
       "paragraph2": "Klik \"Berikutnya\" untuk mempelajari lebih lanjut."
     },
     "step2": {
       "title": "Status hubungan",
-      "paragraph1": "Klik ikon ini dari mana saja di aplikasi untuk kembali ke halaman Status. Jika koneksi Anda terputus ke Kubo RPC, ikon akan berubah menjadi merah.",
+      "paragraph1": "Klik ikon ini dari mana saja di aplikasi untuk kembali ke halaman Status. Jika koneksi Anda terputus ke IFShare RPC, ikon akan berubah menjadi merah.",
       "paragraph2": "Jika Anda perlu mengonfigurasi alamat API kustom untuk node Anda, cukup klik tautan \"Edit\" di sebelah alamat API yang tercantum di halaman ini."
     },
     "step3": {
       "title": "Info Node",
-      "paragraph1": "Di sini Anda memiliki informasi tentang ukuran repo Anda, berapa banyak rekan yang terhubung, ID rekan Anda dan rasa IPFS yang sedang digunakan.",
+      "paragraph1": "Di sini Anda memiliki informasi tentang ukuran repo Anda, berapa banyak rekan yang terhubung, ID rekan Anda dan rasa IFShare yang sedang digunakan.",
       "paragraph2": "<0>Perluas tautan <1>Lanjutan</1> untuk melihat info selengkapnya, seperti URL dan alamat gerbang. Ada juga tautan di dalam bagian Lanjutan untuk mengubah alamat API Anda.</0>"
     },
     "step4": {
@@ -43,5 +43,5 @@
     }
   },
   "bandwidthStats": "Statistik bandwidth",
-  "bandwidthStatsDisabled": "Anda menonaktifkan metrik bandwidth. Anda dapat mengaktifkannya dengan mengetikkan perintah di bawah ini atau mengubah kunci <1>Swarm.DisableBandwidthMetrics</1> menjadi <3>false</3> pada <5>Pengaturan</5>. Kemudian, Anda perlu me-restart daemon IPFS untuk menerapkan perubahan."
+  "bandwidthStatsDisabled": "Anda menonaktifkan metrik bandwidth. Anda dapat mengaktifkannya dengan mengetikkan perintah di bawah ini atau mengubah kunci <1>Swarm.DisableBandwidthMetrics</1> menjadi <3>false</3> pada <5>Pengaturan</5>. Kemudian, Anda perlu me-restart daemon IFShare untuk menerapkan perubahan."
 }

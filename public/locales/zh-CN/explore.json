@@ -55,7 +55,7 @@
       },
       "step3": {
         "title": "节点信息",
-        "paragraph1": "您可以在此处获得有关节点的详细信息，并在 IPFS 网关中打开它。",
+        "paragraph1": "您可以在此处获得有关节点的详细信息，并在 IFShare 网关中打开它。",
         "paragraph2": "如果该节点是一个目录，则可以查看其子节点并跳转。"
       },
       "step4": {
@@ -72,7 +72,7 @@
     "BlockFetchTimeoutError": "在{timeout}内抓取内容失败. 请刷新页面或尝试一个不同的CID",
     "BlockFetchError": "获取内容失败：{error}. 这可能意味着内容在网络上不可用，或者存在连接问题。",
     "CidSyntaxError": "无效的CID格式:{cid}, 请确保您正使用的是有效的CID",
-    "checkIpfsNetwork": "检查IPFS网络上的内容可用性",
+    "checkIpfsNetwork": "检查IFShare网络上的内容可用性",
     "troubleshootingTips": {
       "title": "故障诊断 Tips",
       "refresh": "尝试刷新页面",

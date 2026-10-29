@@ -31,16 +31,16 @@
     "checkRetrieval": "Periksa Pengambilan"
   },
   "cliModal": {
-    "description": "Tempelkan perintah berikut ke terminal Anda untuk melakukan tugas ini di Kubo melalui baris perintah. Ingatlah bahwa Anda perlu mengganti placeholder dengan parameter spesifik Anda."
+    "description": "Tempelkan perintah berikut ke terminal Anda untuk melakukan tugas ini di IFShare melalui baris perintah. Ingatlah bahwa Anda perlu mengganti placeholder dengan parameter spesifik Anda."
   },
   "nav": {
     "bugsLink": "Laporkan bug",
     "codeLink": "Lihat kodenya"
   },
   "status": {
-    "connectedToIpfs": "Terhubung ke IPFS",
-    "connectingToIpfs": "Menghubungkan ke IPFS…",
-    "couldNotConnect": "Tidak dapat terhubung ke Kubo RPC"
+    "connectedToIpfs": "Terhubung ke IFShare",
+    "connectingToIpfs": "Menghubungkan ke IFShare…",
+    "couldNotConnect": "Tidak dapat terhubung ke IFShare RPC"
   },
   "apiAddressForm": {
     "placeholder": "Masukkan URL (http://user:password@127.0.0.1:5001) atau Multiaddr (/ip4/127.0.0.1/tcp/5001)"
@@ -63,8 +63,8 @@
     "addresses": "Alamat",
     "advanced": "Canggih",
     "agent": "Agen",
-    "api": "Kubo RPC",
-    "apiAddress": "Alamat API Kubo RPC",
+    "api": "IFShare RPC",
+    "apiAddress": "Alamat API IFShare RPC",
     "blocks": "Blok",
     "connection": "Koneksi",
     "downSpeed": "Yang baru masuk",

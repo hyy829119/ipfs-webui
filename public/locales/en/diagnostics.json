@@ -88,11 +88,11 @@
       }
     },
     "unsupported": {
-      "title": "Unsupported Kubo Version",
-      "description": "Your current version of Kubo ({version}) does not support the log level management feature required for this diagnostics page.",
+      "title": "Unsupported IFShare Version",
+      "description": "Your current version of IFShare ({version}) does not support the log level management feature required for this diagnostics page.",
       "upgradeTitle": "Upgrade Required",
-      "upgradeDescription": "To use the log level management features, you need to upgrade to a newer version of Kubo that supports getting log levels and tailing logs from the RPC API endpoint.",
-      "downloadKubo": "Download Kubo"
+      "upgradeDescription": "To use the log level management features, you need to upgrade to a newer version of IFShare that supports getting log levels and tailing logs from the RPC API endpoint.",
+      "downloadKubo": "Download IFShare"
     }
   },
   "dhtProvide": {

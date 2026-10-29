@@ -108,7 +108,7 @@ const AnalyticsToggle = ({ analyticsActionsToRecord, analyticsConsent, doToggleC
             enabled={analyticsConsent.includes('events')}
             label={t('AnalyticsToggle.events.label')}
             summary={t('AnalyticsToggle.events.summary')}
-            sourceLink='https://github.com/ipfs-shipyard/ipfs-webui/blob/30a077efe5198bf6403681b094ab585a88395c40/src/bundles/analytics.js#L93-L111'
+
             exampleRequest='https://countly.ipfs.io/i?events=%5B%7B%22key%22%3A%22FILES_MAKEDIR%22%2C%22count%22%3A1%2C%22dur%22%3A0.015194999985396862%2C%22timestamp%22%3A1552296333639%2C%22hour%22%3A9%2C%22dow%22%3A1%7D%5D&app_key=700fd825c3b257e021bd9dbc6cbf044d33477531&device_id=804117b1-c21d-4e55-a65f-f9dbbe9a1f91&sdk_name=javascript_native_web&sdk_version=19.02.1&timestamp=1552296333640&hour=9&dow=1'>
             <p>
               <Trans i18nKey='AnalyticsToggle.events.details' t={t}>
@@ -130,7 +130,7 @@ const AnalyticsToggle = ({ analyticsActionsToRecord, analyticsConsent, doToggleC
             enabled={analyticsConsent.includes('views')}
             label={t('AnalyticsToggle.views.label')}
             summary={t('AnalyticsToggle.views.summary')}
-            sourceLink='https://github.com/ipfs-shipyard/ipfs-webui/blob/2fb9df4e7b294f26b35b1dd76084fe85672b6f2b/src/bundles/analytics.js#L81-L86'
+
             exampleRequest='https://countly.ipfs.io/i?events=%5B%7B%22key%22%3A%22%5BCLY%5D_view%22%2C%22count%22%3A1%2C%22dur%22%3A2%2C%22segmentation%22%3A%7B%22name%22%3A%22%2F%22%7D%2C%22timestamp%22%3A1552296364914%2C%22hour%22%3A9%2C%22dow%22%3A1%7D%2C%7B%22key%22%3A%22%5BCLY%5D_view%22%2C%22count%22%3A1%2C%22segmentation%22%3A%7B%22name%22%3A%22%2Ffiles*%22%2C%22visit%22%3A1%2C%22domain%22%3A%22localhost%22%2C%22view%22%3A%22%2F%22%7D%2C%22timestamp%22%3A1552296364915%2C%22hour%22%3A9%2C%22dow%22%3A1%7D%5D&app_key=700fd825c3b257e021bd9dbc6cbf044d33477531&device_id=804117b1-c21d-4e55-a65f-f9dbbe9a1f91&sdk_name=javascript_native_web&sdk_version=19.02.1&timestamp=1552296364916&hour=9&dow=1'>
             <p>{t('AnalyticsToggle.views.details')}</p>
           </AnalyticType>
@@ -149,7 +149,7 @@ const AnalyticsToggle = ({ analyticsActionsToRecord, analyticsConsent, doToggleC
             enabled={analyticsConsent.includes('crashes')}
             label={t('AnalyticsToggle.crashes.label')}
             summary={t('AnalyticsToggle.crashes.summary')}
-            sourceLink='https://github.com/ipfs-shipyard/ipfs-webui/blob/2fb9df4e7b294f26b35b1dd76084fe85672b6f2b/src/bundles/analytics.js#L115-L121'
+
             exampleRequest='https://countly.ipfs.io/i?crash=%7B%22_resolution%22%3A%221920x1080%22%2C%22_error%22%3A%22Error%3A%20example%20error%5Cn%20%20%20%20at%20Object._callee%24%20(http%3A%2F%2Flocalhost%3A3000%2Fstatic%2Fjs%2Fbundle.js%3A192105%3A63)%5Cn%20%20%20%20at%20tryCatch%20(http%3A%2F%2Flocalhost%3A3000%2Fstatic%2Fjs%2Fbundle.js%3A173974%3A40)%5Cn%20%20%20%20at%20Generator.invoke%20%5Bas%20_invoke%5D%20(http%3A%2F%2Flocalhost%3A3000%2Fstatic%2Fjs%2Fbundle.js%3A174208%3A22)%5Cn%20%20%20%20at%20Generator.prototype.(anonymous%20function)%20%5Bas%20next%5D%20(http%3A%2F%2Flocalhost%3A3000%2Fstatic%2Fjs%2Fbundle.js%3A174026%3A21)%5Cn%20%20%20%20at%20step%20(http%3A%2F%2Flocalhost%3A3000%2Fstatic%2Fjs%2Fbundle.js%3A192086%3A191)%5Cn%20%20%20%20at%20http%3A%2F%2Flocalhost%3A3000%2Fstatic%2Fjs%2Fbundle.js%3A192086%3A361%22%2C%22_app_version%22%3A%222.4.0%22%2C%22_run%22%3A5%2C%22_not_os_specific%22%3Atrue%2C%22_online%22%3Atrue%2C%22_background%22%3Atrue%2C%22_logs%22%3A%22STATS_FETCH_FAILED%22%2C%22_nonfatal%22%3Atrue%2C%22_view%22%3A%22%2F%23%2Fsettings%22%2C%22_custom%22%3Anull%2C%22_opengl%22%3A%22WebGL%201.0%20(OpenGL%20ES%202.0%20Chromium)%22%7D&app_key=700fd825c3b257e021bd9dbc6cbf044d33477531&device_id=d96d67ff-4797-45da-83b4-9e8f599cd12a&sdk_name=javascript_native_web&sdk_version=19.02.1&timestamp=1552294449012&hour=8&dow=1'>
             <p>
               <Trans i18nKey='AnalyticsToggle.crashes.details' t={t}>

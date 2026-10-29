@@ -86,7 +86,7 @@ const GologLevelSection: React.FC = () => {
         <h3 className='ttu tracked f6 fw4 teal mt0 mb3'>{t('logs.gologLevel.title')}</h3>
         <p>
           <Trans i18nKey='logs.gologLevel.description' t={t}>
-            <a className='link blue' href='https://github.com/ipfs/kubo/blob/master/docs/environment-variables.md#golog_log_level' target='_blank' rel='noopener noreferrer'> </a>
+            <span> </span>
           </Trans>
         </p>
         <form onSubmit={onSubmit}>

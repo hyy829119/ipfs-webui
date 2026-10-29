@@ -8,7 +8,7 @@
   "pinningServices": {
     "title": "Služby připínání",
     "description": "Místní připnutí použijte, pokud chcete zajistit, aby položka v uzlu nebyla nikdy shromážděna jako odpad, i když ji odstraníte ze Souborů. Své účty můžete také propojit s jinými službami vzdáleného připínání, abyste mohli automaticky nebo selektivně uchovávat soubory u těchto poskytovatelů, což vám umožní uchovávat záložní kopie souborů a/nebo je zpřístupnit ostatním, když je váš místní uzel offline.",
-    "noPinRemoteDescription": "Chybí podpora pro služby vzdáleného připnutí třetích stran. Aktualizujte svůj uzel IPFS na verzi Kubo 0.8.0 nebo novější a budete je moci přidat a konfigurovat zde.",
+    "noPinRemoteDescription": "Chybí podpora pro služby vzdáleného připnutí třetích stran. Aktualizujte svůj uzel IFShare na verzi IFShare 0.8.0 nebo novější a budete je moci přidat a konfigurovat zde.",
     "addAutoUpload": "Povolit automatické nahrávání",
     "removeAutoUpload": "Zakázat automatické nahrávání"
   },
@@ -19,10 +19,10 @@
   "languageModal": {
     "title": "Změnit jazyk",
     "description": "Vyberte si preferovaný jazyk.",
-    "translationProjectIntro": "Přidejte nebo vylepšete překlady a vylepšete IPFS pro všechny!",
-    "translationProjectLink": "Připojte se k projektu překladu IPFS"
+    "translationProjectIntro": "Přidejte nebo vylepšete překlady a vylepšete IFShare pro všechny!",
+    "translationProjectLink": "Připojte se k projektu překladu IFShare"
   },
-  "apiDescription": "<0>Pokud je váš uzel nakonfigurován s <1>vlastní adresou rozhraní Kubo RPC API</1> včetně jiného portu než výchozího 5001, zadejte ji zde.</0>",
+  "apiDescription": "<0>Pokud je váš uzel nakonfigurován s <1>vlastní adresou rozhraní IFShare RPC API</1> včetně jiného portu než výchozího 5001, zadejte ji zde.</0>",
   "localGatewayDescription": "",
   "shareLink": {
     "title": "",
@@ -61,7 +61,7 @@
     "title": "",
     "description": ""
   },
-  "cliDescription": "<0>Povolením této možnosti zobrazíte vedle běžných příkazů systému IPFS ikonu \"zobrazit kód\".<1></1> Kliknutím na ni se otevře modální okno s kódem CLI daného příkazu, který můžete vložit do rozhraní příkazového řádku systému IPFS v terminálu.</0>",
+  "cliDescription": "<0>Povolením této možnosti zobrazíte vedle běžných příkazů systému IFShare ikonu \"zobrazit kód\".<1></1> Kliknutím na ni se otevře modální okno s kódem CLI daného příkazu, který můžete vložit do rozhraní příkazového řádku systému IFShare v terminálu.</0>",
   "cliModal": {
     "extraNotesJsonConfig": "Pokud jste v editoru kódu této stránky provedli změny konfigurace, které chcete uložit, klikněte na ikonu stahování vedle tlačítka kopírovat a stáhněte je jako soubor JSON."
   },
@@ -84,7 +84,7 @@
   },
   "autoUploadModal": {
     "title": "Hostování dat {name}",
-    "description": "Je-li automatické nahrávání povoleno, bude pravidelně připínat kořenový adresář Files, čímž zajistí, že vše bude vzdáleně připnuté a dostupné ostatním partnerům, i když místní uzel IPFS bude offline. Pokud tuto funkci zakážete, můžete stále připínat jednotlivé soubory ručně pomocí možnosti \"Nastavit připínání\" na obrazovce Soubory."
+    "description": "Je-li automatické nahrávání povoleno, bude pravidelně připínat kořenový adresář Files, čímž zajistí, že vše bude vzdáleně připnuté a dostupné ostatním partnerům, i když místní uzel IFShare bude offline. Pokud tuto funkci zakážete, můžete stále připínat jednotlivé soubory ručně pomocí možnosti \"Nastavit připínání\" na obrazovce Soubory."
   },
   "errors": {
     "nickname": "Přezdívka je povinná",
@@ -166,15 +166,15 @@
     "step1": {
       "title": "Stránka nastavení",
       "paragraph1": "",
-      "paragraph2": "Pokud používáte IPFS Desktop, budete mít také určitá konkrétní nastavení."
+      "paragraph2": "Pokud používáte IFShare Desktop, budete mít také určitá konkrétní nastavení."
     },
     "step2": {
-      "title": "Vlastní adresa Kubo RPC API",
-      "paragraph1": "Pokud jste svůj uzel IPFS kompatibilní s Kubo nakonfigurovali s vlastní adresou rozhraní RPC API, můžete namísto ruční úpravy JSON aktualizovat konfigurační soubor přímo zde."
+      "title": "Vlastní adresa IFShare RPC API",
+      "paragraph1": "Pokud jste svůj uzel IFShare kompatibilní s IFShare nakonfigurovali s vlastní adresou rozhraní RPC API, můžete namísto ruční úpravy JSON aktualizovat konfigurační soubor přímo zde."
     },
     "step3": {
       "title": "Služby Pinning",
-      "paragraph1": "<0>Pokud máte účty u služeb vzdáleného připínání třetích stran, přidejte je sem, abyste mohli připínat/odpínat položky k těmto službám přímo z obrazovky Soubory. Více informací o službách připínání třetích stran najdete v <1>dokumentaci IPFS</1>.</0>"
+      "paragraph1": "<0>Pokud máte účty u služeb vzdáleného připínání třetích stran, přidejte je sem, abyste mohli připínat/odpínat položky k těmto službám přímo z obrazovky Soubory. Více informací o službách připínání třetích stran najdete v <1>dokumentaci IFShare</1>.</0>"
     },
     "step4": {
       "title": "Volič jazyka",
@@ -187,7 +187,7 @@
     },
     "step6": {
       "title": "Výukový režim CLI",
-      "paragraph1": "Zapnutím výukového režimu CLI zobrazíte zkratky běžných příkazů IPFS v příkazovém řádku - to je užitečné, pokud se učíte používat IPFS z terminálu nebo pokud si potřebujete jen osvěžit informace."
+      "paragraph1": "Zapnutím výukového režimu CLI zobrazíte zkratky běžných příkazů IFShare v příkazovém řádku - to je užitečné, pokud se učíte používat IFShare z terminálu nebo pokud si potřebujete jen osvěžit informace."
     },
     "step7": {
       "title": "",
@@ -196,7 +196,7 @@
     }
   },
   "Experiments": {
-    "description": "Zde získáte rychlý náhled na nové funkce IPFS povolením níže uvedených možností. Testujeme tyto nápady a nemusí být dokonalé, takže bychom rádi slyšeli vaši zpětnou vazbu.",
+    "description": "Zde získáte rychlý náhled na nové funkce IFShare povolením níže uvedených možností. Testujeme tyto nápady a nemusí být dokonalé, takže bychom rádi slyšeli vaši zpětnou vazbu.",
     "issueUrl": "Otevřete problém",
     "feedbackUrl": "💌Zanechte zpětnou vazbu",
     "readMoreUrl": "Přečtěte si více"
@@ -215,6 +215,6 @@
   },
   "removeKeyModal": {
     "title": "Potvrďte odstranění klíče IPNS",
-    "description": "Opravdu chcete odstranit klíč IPNS <1>{name}</1>? Tuto operaci nelze vrátit zpět a adresa IPNS spravovaná tímto klíčem bude navždy ztracena. Zvažte nejprve jeho zálohování: ipfs key export --help"
+    "description": "Opravdu chcete odstranit klíč IPNS <1>{name}</1>? Tuto operaci nelze vrátit zpět a adresa IPNS spravovaná tímto klíčem bude navždy ztracena. Zvažte nejprve jeho zálohování: ifshare key export --help"
   }
 }

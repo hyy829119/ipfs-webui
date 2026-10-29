@@ -31,10 +31,6 @@ const LanguageModal = ({ t, tReady, onLeave, link, className, isIpfsDesktop, doD
             </button>
           )}
         </div>
-        <p className='lh-copy charcoal f6'>
-          {t('languageModal.translationProjectIntro')}<br/>
-          <a href="https://github.com/ipfs/i18n#how-can-i-contribute-translation-for-my-language" rel="noopener noreferrer" target="_blank" className="link blue">{t('languageModal.translationProjectLink')}</a>
-        </p>
       </ModalBody>
 
       <ModalActions justify="center">

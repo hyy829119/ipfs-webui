@@ -1,4 +1,5 @@
 import React from 'react'
+import { APP_NAME } from '../constants/branding.js'
 import { Helmet } from 'react-helmet'
 import { connect } from 'redux-bundler-react'
 import { withTranslation, Trans } from 'react-i18next'
@@ -18,7 +19,6 @@ import AnalyticsToggle from '../components/analytics-toggle/AnalyticsToggle.js'
 import ApiAddressForm from '../components/api-address-form/api-address-form'
 import LocalGatewayForm from '../components/local-gateway-form/LocalGatewayForm.js'
 import ShareLinkTypeForm from '../components/share-link-type-form/ShareLinkTypeForm.js'
-import IpfsCheckForm from '../components/ipfs-check-form/IpfsCheckForm.js'
 import { JsonEditor } from './editor/JsonEditor.js'
 import Experiments from '../components/experiments/ExperimentsPanel.js'
 import Title from './Title.js'
@@ -40,7 +40,7 @@ export const SettingsPage = ({
 }) => (
   <div data-id='SettingsPage' className='mw9 center'>
     <Helmet>
-      <title>{t('title')} | IPFS</title>
+      <title>{t('title')} | {APP_NAME}</title>
     </Helmet>
 
     {/* Enable a full screen loader after updating to a new Kubo RPC address.
@@ -59,7 +59,7 @@ export const SettingsPage = ({
         <div className='lh-copy charcoal'>
           <Title>{t('app:terms.apiAddress')}</Title>
           <Trans i18nKey='apiDescription' t={t}>
-            <p className='f6'>If your node is configured with a <a className='link blue' href='https://github.com/ipfs/kubo/blob/master/docs/config.md#addressesapi' target='_blank' rel='noopener noreferrer'>custom Kubo RPC API address</a>, including a port other than the default 5001, enter it here.</p>
+            <p className='f6'>If your node is configured with a <span>custom IFShare RPC API address</span>, including a port other than the default 5001, enter it here.</p>
           </Trans>
           <ApiAddressForm/>
         </div>
@@ -69,7 +69,7 @@ export const SettingsPage = ({
       <div className='lh-copy charcoal'>
         <Title>{t('app:terms.localGateway')}</Title>
         <Trans i18nKey='localGatewayDescription' t={t}>
-          <p className='f6'>If you access the WebUI through a reverse proxy, Docker, or a different host, enter the gateway URL your browser can reach. Leave empty to use the first <a className='link blue' href='https://github.com/ipfs/kubo/blob/master/docs/config.md#addressesgateway' target='_blank' rel='noopener noreferrer'>gateway address</a> from your Kubo config.</p>
+          <p className='f6'>If you access the WebUI through a reverse proxy, Docker, or a different host, enter the gateway URL your browser can reach. Leave empty to use the first <span>gateway address</span> from your IFShare config.</p>
         </Trans>
         <LocalGatewayForm/>
       </div>
@@ -81,8 +81,8 @@ export const SettingsPage = ({
         <p className='charcoal lh-copy f6'>{t('shareLink.intro')}</p>
         <p className='charcoal lh-copy f6'>
           <Trans i18nKey='shareLink.pathVsSubdomain' t={t}>
-            <a className='link blue' href='https://specs.ipfs.tech/http-gateways/path-gateway/' target='_blank' rel='noopener noreferrer'>path</a>
-            <a className='link blue' href='https://specs.ipfs.tech/http-gateways/subdomain-gateway/' target='_blank' rel='noopener noreferrer'>subdomain</a>
+            <span>path</span>
+            <span>subdomain</span>
           </Trans>
         </p>
         <ShareLinkTypeForm/>
@@ -92,7 +92,7 @@ export const SettingsPage = ({
     <Box className='mb3 pa4-l pa2'>
       <Title>{t('ipnsPublishingKeys.title')}</Title>
       <p className='ma0 mr2 lh-copy charcoal f6'>
-        {t('ipnsPublishingKeys.description')}&nbsp;<a className='link blue' target='_blank' rel='noopener noreferrer' href='https://docs.ipfs.tech/concepts/glossary/#ipns'>{t('learnMoreLink')}</a>
+        {t('ipnsPublishingKeys.description')}
       </p>
       <IpnsManager t={t} />
     </Box>
@@ -103,20 +103,9 @@ export const SettingsPage = ({
         { arePinningServicesSupported
           ? t('pinningServices.description')
           : t('pinningServices.noPinRemoteDescription')
-        }&nbsp;<a className='link blue' target='_blank' rel='noopener noreferrer' href='https://docs.ipfs.tech/how-to/work-with-pinning-services/'>{t('learnMoreLink')}</a>
+        }
       </p>
       <PinningManager t={t} />
-    </Box>
-
-    <Box className='mb3 pa4-l pa2'>
-      <Title>{t('retrievalDiagnosticService.title')}</Title>
-      <p className='ma0 mr2 lh-copy charcoal f6'>
-        <Trans i18nKey='retrievalDiagnosticService.description' t={t}>
-          <a className='link blue' href='https://github.com/ipfs/ipfs-check' target='_blank' rel='noopener noreferrer'>ipfs-check</a>
-          <a className='link blue' href='#/diagnostics/retrieval'>retrieval diagnostics</a>
-        </Trans>
-      </p>
-      <IpfsCheckForm/>
     </Box>
 
     <Box className='mb3 pa4-l pa2'>
@@ -141,7 +130,7 @@ export const SettingsPage = ({
         <Checkbox className='dib' onChange={doToggleCliTutorMode} checked={isCliTutorModeEnabled}
           label={<span className='f5 lh-copy'>{t('cliToggle.label')}</span>}/>
         <Trans i18nKey='cliDescription' t={t}>
-          <p className='f6 mv2'>Enable this option to display a "view code" <StrokeCode className='dib v-mid icon mh1 fill-charcoal' viewBox='14 20 70 66' style={{ height: 24 }} /> icon next to common IPFS commands. Clicking it opens a modal with that command's CLI code, so you can paste it into the IPFS command-line interface in your terminal.</p>
+          <p className='f6 mv2'>Enable this option to display a "view code" <StrokeCode className='dib v-mid icon mh1 fill-charcoal' viewBox='14 20 70 66' style={{ height: 24 }} /> icon next to common IFShare commands. Clicking it opens a modal with that command's CLI code, so you can paste it into the IFShare command-line interface in your terminal.</p>
         </Trans>
       </div>
     </Box>
@@ -276,7 +265,7 @@ const SettingsInfo = ({ t, isIpfsConnected, hasExternalChanges, hasSaveFailed, h
   }
   return (
     <p className='ma0 mr2 lh-copy charcoal f5'>
-      {t('ipfsConfigDescription')} <a href='https://github.com/ipfs/kubo/blob/master/docs/config.md' rel='noopener noreferrer' target='_blank' className='link blue'>{t('ipfsConfigHelp')}</a>
+      {t('ipfsConfigDescription')}
     </p>
   )
 }

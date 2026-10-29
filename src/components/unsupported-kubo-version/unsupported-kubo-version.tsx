@@ -1,7 +1,6 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 import { useTranslation } from 'react-i18next'
 import Box from '../box/Box.js'
-import Button from '../button/button'
 import { useIdentity } from '../../contexts/identity-context'
 
 interface UnsupportedKuboVersionProps {
@@ -13,17 +12,6 @@ interface UnsupportedKuboVersionProps {
 const UnsupportedKuboVersion: React.FC<UnsupportedKuboVersionProps> = () => {
   const { t } = useTranslation('diagnostics')
   const { identity, agentVersionObject } = useIdentity()
-
-  // If user is using IPFS-Desktop, we need to send them to the IPFS-Desktop release page.
-  // Otherwise, we need to send them to the Kubo release page.
-  // TODO: do we need to link to any other release pages?
-  const openReleasePage = useCallback(() => {
-    let url = 'https://github.com/ipfs/kubo/releases'
-    if (agentVersionObject?.name === 'kubo' && agentVersionObject.suffix === 'desktop') {
-      url = 'https://github.com/ipfs/ipfs-desktop/releases'
-    }
-    window.open(url, '_blank')
-  }, [agentVersionObject])
 
   if (agentVersionObject == null) {
     return <div className='pa4'>{t('dhtProvide.screen.loading')}</div>
@@ -46,14 +34,6 @@ const UnsupportedKuboVersion: React.FC<UnsupportedKuboVersionProps> = () => {
           <p className='charcoal-muted f6 lh-copy mb3'>
             {t('logs.unsupported.upgradeDescription')}
           </p>
-          <div className='flex justify-center gap3'>
-            <Button
-              className='bg-blue white'
-              onClick={openReleasePage}
-            >
-              {t('logs.unsupported.downloadKubo')}
-            </Button>
-          </div>
         </div>
       </div>
     </Box>

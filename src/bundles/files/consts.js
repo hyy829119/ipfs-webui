@@ -1,3 +1,5 @@
+import { CLI_NAME } from '../../constants/branding.js'
+
 export const IS_MAC = navigator.userAgent.indexOf('Mac') !== -1
 
 /**
@@ -120,19 +122,19 @@ export const cliCmdKeys = {
 }
 
 export const cliCmdPrefixes = {
-  PIN_OBJECT: 'ipfs pin'
+  PIN_OBJECT: `${CLI_NAME} pin`
 }
 
 export const cliCommandList = {
-  [cliCmdKeys.UPDATE_IPFS_CONFIG]: () => 'ipfs config replace <path-to-settings.json>',
+  [cliCmdKeys.UPDATE_IPFS_CONFIG]: () => `${CLI_NAME} config replace <path-to-settings.json>`,
   /**
    * @param {string} filePath
    */
-  [cliCmdKeys.REMOVE_FILE_FROM_IPFS]: (filePath) => `ipfs files rm -r "${filePath}"`,
+  [cliCmdKeys.REMOVE_FILE_FROM_IPFS]: (filePath) => `${CLI_NAME} files rm -r "${filePath}"`,
   /**
    * @param {string} cid
    */
-  [cliCmdKeys.DOWNLOAD_OBJECT_COMMAND]: (cid) => `ipfs get ${cid}`,
+  [cliCmdKeys.DOWNLOAD_OBJECT_COMMAND]: (cid) => `${CLI_NAME} get ${cid}`,
   /**
    * @param {string} cid
    * @param {string} op
@@ -144,36 +146,36 @@ export const cliCommandList = {
    */
   [cliCmdKeys.RENAME_IPFS_OBJECT]: (filePath, fileName) => {
     const prefix = filePath.replace(fileName, '').trim()
-    return `ipfs files mv "${filePath}" "${prefix}<new-name>"`
+    return `${CLI_NAME} files mv "${filePath}" "${prefix}<new-name>"`
   },
   /**
    * @param {string} path
    */
-  [cliCmdKeys.ADD_FILE]: (path) => `ipfs files cp /ipfs/$(ipfs add -Q <local-file>) "${path}/<dest-name>"`,
+  [cliCmdKeys.ADD_FILE]: (path) => `${CLI_NAME} files cp /ipfs/$(${CLI_NAME} add -Q <local-file>) "${path}/<dest-name>"`,
   /**
    * @param {string} path
    */
-  [cliCmdKeys.ADD_DIRECTORY]: (path) => `ipfs files cp /ipfs/$(ipfs add -r -Q <local-folder>) "${path}/<dest-name>"`,
+  [cliCmdKeys.ADD_DIRECTORY]: (path) => `${CLI_NAME} files cp /ipfs/$(${CLI_NAME} add -r -Q <local-folder>) "${path}/<dest-name>"`,
   /**
    * @param {string} path
    */
-  [cliCmdKeys.CREATE_NEW_DIRECTORY]: (path) => `ipfs files mkdir "${path}/<folder-name>"`,
+  [cliCmdKeys.CREATE_NEW_DIRECTORY]: (path) => `${CLI_NAME} files mkdir "${path}/<folder-name>"`,
   /**
    * @param {string} path
    */
-  [cliCmdKeys.FROM_IPFS]: (path) => `ipfs files cp /ipfs/<cid> "${path}/<dest-name>"`,
+  [cliCmdKeys.FROM_IPFS]: (path) => `${CLI_NAME} files cp /ipfs/<cid> "${path}/<dest-name>"`,
   /**
    * @param {string} path
    */
-  [cliCmdKeys.FROM_CAR]: (path) => `ipfs dag import file.car && ipfs files cp /ipfs/<imported-cid> "${path}/<dest-name>"`,
-  [cliCmdKeys.ADD_NEW_PEER]: () => 'ipfs swarm connect <peer-multiaddr>',
+  [cliCmdKeys.FROM_CAR]: (path) => `${CLI_NAME} dag import file.car && ${CLI_NAME} files cp /ipfs/<imported-cid> "${path}/<dest-name>"`,
+  [cliCmdKeys.ADD_NEW_PEER]: () => `${CLI_NAME} swarm connect <peer-multiaddr>`,
   /**
    * @param {string} ipfsPath
    * @param {string} name
    */
-  [cliCmdKeys.PUBLISH_WITH_IPNS]: (ipfsPath, name) => `ipfs name publish ${ipfsPath} --key="${name}"`,
+  [cliCmdKeys.PUBLISH_WITH_IPNS]: (ipfsPath, name) => `${CLI_NAME} name publish ${ipfsPath} --key="${name}"`,
   /**
    * @param {string} cid
    */
-  [cliCmdKeys.DOWNLOAD_CAR_COMMAND]: (cid) => `ipfs dag export ${cid}`
+  [cliCmdKeys.DOWNLOAD_CAR_COMMAND]: (cid) => `${CLI_NAME} dag export ${cid}`
 }

@@ -3,7 +3,7 @@
   "tabName": "Explorer",
   "homeLink": "Accueil",
   "UpdateAvailable": {
-    "paragraph1": "Une nouvelle version d'IPFS Explorer est disponible. <1>Merci de rafraîchir</1>."
+    "paragraph1": "Une nouvelle version d'IFShare Explorer est disponible. <1>Merci de rafraîchir</1>."
   },
   "StartExploringPage": {
     "title": "Explorer - IPLD",
@@ -55,7 +55,7 @@
       },
       "step3": {
         "title": "Information du pair",
-        "paragraph1": "Trouvez ici le détail des informations sur votre nœud et ouvrez-le dans la passerelle IPFS.",
+        "paragraph1": "Trouvez ici le détail des informations sur votre nœud et ouvrez-le dans la passerelle IFShare.",
         "paragraph2": "Si le nœud est un dossier, vous pouvez voir les sous-dossiers et naviguer à l'intérieur. "
       },
       "step4": {
@@ -72,7 +72,7 @@
     "BlockFetchTimeoutError": "Impossible d'obtenir le contenu après {timeout}s. Merci de rafraîchir la page pour réessayer ou d'essayer avec un autre CID.",
     "BlockFetchError": "Impossible de télécharger le contenu : {error}. Cela peut vouloir dire que le contenu n'est pas disponible sur le réseau ou qu'il y a des problèmes de connectivité.",
     "CidSyntaxError": "Format de CID invalide : {cid} . Vérifiez que vous utilisez un CID valide.",
-    "checkIpfsNetwork": "Vérifiez la disponibilité du contenu sur le réseau IPFS",
+    "checkIpfsNetwork": "Vérifiez la disponibilité du contenu sur le réseau IFShare",
     "troubleshootingTips": {
       "title": "Astuces de diagnostic",
       "refresh": "Essayez de rafraîchir la page",

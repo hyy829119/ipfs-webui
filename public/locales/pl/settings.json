@@ -8,21 +8,21 @@
   "pinningServices": {
     "title": "Usługi przypinania",
     "description": "Użyj lokalnego przypinania, gdy chcesz mieć pewność, że element na Twoim węźle nigdy nie zostanie usunięty przez garbage collector, nawet jeśli usuniesz go z Plików. Możesz również połączyć swoje konta z innymi zdalnymi usługami przypinania, aby automatycznie lub wybiórczo przechowywać pliki u tych dostawców, co pozwala na tworzenie kopii zapasowych i/lub udostępnianie plików innym, gdy Twój lokalny węzeł jest offline.",
-    "noPinRemoteDescription": "Brak obsługi zdalnych usług przypinania. Zaktualizuj węzeł IPFS do Kubo 0.8.0 lub nowszego, aby móc je dodawać i konfigurować tutaj.",
+    "noPinRemoteDescription": "Brak obsługi zdalnych usług przypinania. Zaktualizuj węzeł IFShare do IFShare 0.8.0 lub nowszego, aby móc je dodawać i konfigurować tutaj.",
     "addAutoUpload": "Włącz automatyczne wysyłanie",
     "removeAutoUpload": "Wyłącz automatyczne wysyłanie"
   },
   "language": "Język",
   "analytics": "Analityka",
   "cliTutorMode": "Tryb samouczka CLI",
-  "config": "Konfiguracja Kubo",
+  "config": "Konfiguracja IFShare",
   "languageModal": {
     "title": "Zmień język",
     "description": "Wybierz preferowany język.",
-    "translationProjectIntro": "Dodaj lub popraw tłumaczenia i pomóż ulepszyć IPFS dla wszystkich!",
-    "translationProjectLink": "Dołącz do projektu tłumaczeń IPFS"
+    "translationProjectIntro": "Dodaj lub popraw tłumaczenia i pomóż ulepszyć IFShare dla wszystkich!",
+    "translationProjectLink": "Dołącz do projektu tłumaczeń IFShare"
   },
-  "apiDescription": "<0>Jeśli Twój węzeł jest skonfigurowany z <1>niestandardowym adresem Kubo RPC API</1>, w tym portem innym niż domyślny 5001, wprowadź go tutaj.</0>",
+  "apiDescription": "<0>Jeśli Twój węzeł jest skonfigurowany z <1>niestandardowym adresem IFShare RPC API</1>, w tym portem innym niż domyślny 5001, wprowadź go tutaj.</0>",
   "localGatewayDescription": "",
   "shareLink": {
     "title": "",
@@ -61,7 +61,7 @@
     "title": "Usługa diagnostyki pobierania",
     "description": "Skonfiguruj URL usługi <0>ipfs-check</0> używanej do <1>diagnostyki pobierania</1>. Ta usługa sprawdza, czy treść może być pomyślnie pobrana z Twojego węzła i innych węzłów hostujących dany CID, pomagając w rozwiązywaniu problemów z udostępnianiem."
   },
-  "cliDescription": "<0>Włącz tę opcję, aby wyświetlić ikonę \"podgląd kodu\" <1></1> obok popularnych poleceń IPFS. Kliknięcie jej otwiera okno z poleceniem CLI, które możesz wkleić do terminala.</0>",
+  "cliDescription": "<0>Włącz tę opcję, aby wyświetlić ikonę \"podgląd kodu\" <1></1> obok popularnych poleceń IFShare. Kliknięcie jej otwiera okno z poleceniem CLI, które możesz wkleić do terminala.</0>",
   "cliModal": {
     "extraNotesJsonConfig": "Jeśli dokonałeś zmian w konfiguracji w edytorze kodu na tej stronie i chcesz je zapisać, kliknij ikonę pobierania obok przycisku kopiowania, aby pobrać plik JSON."
   },
@@ -84,7 +84,7 @@
   },
   "autoUploadModal": {
     "title": "Zmień politykę wysyłania dla {name}",
-    "description": "Po włączeniu automatyczne wysyłanie będzie okresowo przypinać główny katalog Plików, zapewniając, że wszystko jest przypięte zdalnie i dostępne dla innych węzłów, nawet gdy Twój lokalny węzeł IPFS jest offline. Po wyłączeniu nadal możesz przypinać każdy plik ręcznie, używając opcji \"Ustaw przypinanie\" na ekranie Pliki."
+    "description": "Po włączeniu automatyczne wysyłanie będzie okresowo przypinać główny katalog Plików, zapewniając, że wszystko jest przypięte zdalnie i dostępne dla innych węzłów, nawet gdy Twój lokalny węzeł IFShare jest offline. Po wyłączeniu nadal możesz przypinać każdy plik ręcznie, używając opcji \"Ustaw przypinanie\" na ekranie Pliki."
   },
   "errors": {
     "nickname": "Nazwa jest wymagana",
@@ -117,14 +117,14 @@
     "false": "Wyłączone"
   },
   "fetchingSettings": "Pobieranie ustawień…",
-  "ipfsDaemonOffline": "Demon Kubo jest offline. Uruchom go i spróbuj ponownie.",
-  "settingsUnavailable": "Ustawienia niedostępne. Sprawdź, czy demon Kubo działa.",
+  "ipfsDaemonOffline": "Demon IFShare jest offline. Uruchom go i spróbuj ponownie.",
+  "settingsUnavailable": "Ustawienia niedostępne. Sprawdź, czy demon IFShare działa.",
   "settingsHaveChanged": "Ustawienia zostały zmienione; kliknij <1>Resetuj</1>, aby zaktualizować zawartość edytora.",
   "errorOccured": "Wystąpił błąd podczas zapisywania zmian",
   "checkConsole": "Sprawdź konsolę przeglądarki, aby uzyskać więcej informacji.",
   "changesSaved": "Twoje zmiany zostały zapisane.",
-  "settingsWillBeUsedNextTime": "Nowe ustawienia zostaną użyte po następnym uruchomieniu demona Kubo.",
-  "ipfsConfigDescription": "Plik konfiguracyjny Kubo to dokument JSON. Jest odczytywany raz przy uruchomieniu demona Kubo. Zapisz zmiany, a następnie uruchom ponownie demona Kubo, aby je zastosować.",
+  "settingsWillBeUsedNextTime": "Nowe ustawienia zostaną użyte po następnym uruchomieniu demona IFShare.",
+  "ipfsConfigDescription": "Plik konfiguracyjny IFShare to dokument JSON. Jest odczytywany raz przy uruchomieniu demona IFShare. Zapisz zmiany, a następnie uruchom ponownie demona IFShare, aby je zastosować.",
   "ipfsConfigHelp": "Sprawdź dokumentację, aby uzyskać więcej informacji.",
   "AnalyticsToggle": {
     "label": "Pomóż ulepszyć tę aplikację, wysyłając anonimowe dane o użytkowaniu",
@@ -165,16 +165,16 @@
   "tour": {
     "step1": {
       "title": "Strona Ustawienia",
-      "paragraph1": "Tutaj możesz zmienić ustawienia Web UI i węzła Kubo.",
-      "paragraph2": "Jeśli używasz IPFS Desktop, będziesz mieć również specyficzne ustawienia dla niego."
+      "paragraph1": "Tutaj możesz zmienić ustawienia Web UI i węzła IFShare.",
+      "paragraph2": "Jeśli używasz IFShare Desktop, będziesz mieć również specyficzne ustawienia dla niego."
     },
     "step2": {
-      "title": "Niestandardowy adres Kubo RPC API",
-      "paragraph1": "Jeśli skonfigurowałeś węzeł IPFS kompatybilny z Kubo z niestandardowym adresem RPC API, możesz zaktualizować plik konfiguracyjny tutaj, zamiast ręcznie edytować JSON."
+      "title": "Niestandardowy adres IFShare RPC API",
+      "paragraph1": "Jeśli skonfigurowałeś węzeł IFShare kompatybilny z IFShare z niestandardowym adresem RPC API, możesz zaktualizować plik konfiguracyjny tutaj, zamiast ręcznie edytować JSON."
     },
     "step3": {
       "title": "Usługi przypinania",
-      "paragraph1": "<0>Jeśli masz konta w zdalnych usługach przypinania, dodaj je tutaj, aby móc przypinać/odpinać elementy do tych usług bezpośrednio z ekranu Pliki. Więcej informacji o usługach przypinania znajdziesz w <1>dokumentacji IPFS</1>.</0>"
+      "paragraph1": "<0>Jeśli masz konta w zdalnych usługach przypinania, dodaj je tutaj, aby móc przypinać/odpinać elementy do tych usług bezpośrednio z ekranu Pliki. Więcej informacji o usługach przypinania znajdziesz w <1>dokumentacji IFShare</1>.</0>"
     },
     "step4": {
       "title": "Wybór języka",
@@ -187,16 +187,16 @@
     },
     "step6": {
       "title": "Tryb samouczka CLI",
-      "paragraph1": "Włącz tryb samouczka CLI, aby zobaczyć skróty do wersji wiersza poleceń popularnych poleceń IPFS - przydatne, jeśli uczysz się korzystać z IPFS z terminala lub potrzebujesz odświeżenia."
+      "paragraph1": "Włącz tryb samouczka CLI, aby zobaczyć skróty do wersji wiersza poleceń popularnych poleceń IFShare - przydatne, jeśli uczysz się korzystać z IFShare z terminala lub potrzebujesz odświeżenia."
     },
     "step7": {
-      "title": "Konfiguracja Kubo",
-      "paragraph1": "Możesz zmienić konfigurację węzła Kubo bezpośrednio z Web UI!",
+      "title": "Konfiguracja IFShare",
+      "paragraph1": "Możesz zmienić konfigurację węzła IFShare bezpośrednio z Web UI!",
       "paragraph2": "Nie zapomnij zrestartować demona, aby zastosować zmiany."
     }
   },
   "Experiments": {
-    "description": "Tutaj możesz uzyskać wczesny podgląd nowych funkcji IPFS, włączając poniższe opcje. Testujemy te pomysły i mogą nie być jeszcze doskonałe, więc chętnie poznamy Twoją opinię.",
+    "description": "Tutaj możesz uzyskać wczesny podgląd nowych funkcji IFShare, włączając poniższe opcje. Testujemy te pomysły i mogą nie być jeszcze doskonałe, więc chętnie poznamy Twoją opinię.",
     "issueUrl": "Zgłoś problem",
     "feedbackUrl": "Zostaw opinię",
     "readMoreUrl": "Czytaj więcej"
@@ -215,6 +215,6 @@
   },
   "removeKeyModal": {
     "title": "Potwierdź usunięcie klucza IPNS",
-    "description": "Czy na pewno chcesz usunąć klucz IPNS <1>{name}</1>? Tej operacji nie można cofnąć, a adres IPNS zarządzany przez ten klucz zostanie utracony NA ZAWSZE. Rozważ najpierw wykonanie kopii zapasowej: ipfs key export --help"
+    "description": "Czy na pewno chcesz usunąć klucz IPNS <1>{name}</1>? Tej operacji nie można cofnąć, a adres IPNS zarządzany przez ten klucz zostanie utracony NA ZAWSZE. Rozważ najpierw wykonanie kopii zapasowej: ifshare key export --help"
   }
 }

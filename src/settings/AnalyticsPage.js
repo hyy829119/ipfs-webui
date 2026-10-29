@@ -1,4 +1,5 @@
 import React from 'react'
+import { APP_NAME } from '../constants/branding.js'
 import { Helmet } from 'react-helmet'
 import { withTranslation } from 'react-i18next'
 import Title from './Title.js'
@@ -8,7 +9,7 @@ import AnalyticsToggle from '../components/analytics-toggle/AnalyticsToggle.js'
 export const AnalyticsPage = ({ t }) => (
   <div data-id='AnalyticsPage' className='mw9 center'>
     <Helmet>
-      <title>{t('title')} | IPFS</title>
+      <title>{t('title')} | {APP_NAME}</title>
     </Helmet>
 
     <Box>

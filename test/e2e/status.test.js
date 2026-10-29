@@ -14,9 +14,9 @@ test.describe('Status page', () => {
     await expect(page.getByText('Status')).toBeVisible()
   })
 
-  test('should inform it is successfully connected to IPFS', async ({ page }) => {
+  test('should inform it is successfully connected to IFShare', async ({ page }) => {
     // confirm webui thinks it is connected to node
-    await expect(page.getByText('Connected to IPFS')).toBeVisible()
+    await expect(page.getByText('Connected to IFShare')).toBeVisible()
   })
 
   test('should display Peer ID of real IPFS node', async ({ page }) => {

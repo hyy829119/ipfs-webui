@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react'
+import { APP_NAME } from '../constants/branding.js'
 import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet'
 import IsNotConnected from '../components/is-not-connected/is-not-connected'
@@ -19,7 +20,7 @@ const DiagnosticsPage: React.FC = () => {
   return (
     <div data-id='DiagnosticsPage' className='mw9 center'>
       <Helmet>
-        <title>{t('title')} | IPFS</title>
+        <title>{t('title')} | {APP_NAME}</title>
       </Helmet>
       <div className='flex'>
         <div className='flex-auto'>

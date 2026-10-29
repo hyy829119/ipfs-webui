@@ -55,7 +55,7 @@
       },
       "step3": {
         "title": "Düğüm bilgisi",
-        "paragraph1": "Burada düğüm hakkında ayrıntılı bilgi var ve onu IPFS ağ geçidinde açabilirsiniz.",
+        "paragraph1": "Burada düğüm hakkında ayrıntılı bilgi var ve onu IFShare ağ geçidinde açabilirsiniz.",
         "paragraph2": "Düğüm bir dizinse, alt öğelerini görebilir ve onlara gidebilirsiniz."
       },
       "step4": {

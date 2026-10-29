@@ -76,7 +76,7 @@ import { debouncedProvide } from '../../lib/files.js'
 export const spawn = (type, task, ...[init]) => async (context) => {
   const ipfs = context.getIpfs()
   if (ipfs == null) {
-    throw Error('IPFS node was not found')
+    throw Error('IFShare node was not found')
   } else {
     const spawn = Task.spawn(
       type,
@@ -128,7 +128,7 @@ export const spawn = (type, task, ...[init]) => async (context) => {
 export const perform = (type, task, ...[init]) => async (context) => {
   const ipfs = context.getIpfs()
   if (ipfs == null) {
-    throw Error('IPFS node was not found')
+    throw Error('IFShare node was not found')
   } else {
     const perform = Task.perform(
       type,

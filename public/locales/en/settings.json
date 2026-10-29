@@ -8,24 +8,24 @@
   "pinningServices": {
     "title": "Pinning Services",
     "description": "Use local pinning when you want to ensure an item on your node is never garbage-collected, even if you remove it from Files. You can also link your accounts with other remote pinning services to automatically or selectively persist files with those providers, enabling you to keep backup copies of your files and/or make them available to others when your local node is offline.",
-    "noPinRemoteDescription": "Support for third-party remote pinning services is missing. Update your IPFS node to Kubo 0.8.0 or later, and you'll be able to add and configure them here.",
+    "noPinRemoteDescription": "Support for third-party remote pinning services is missing. Update your IFShare node to IFShare 0.8.0 or later, and you'll be able to add and configure them here.",
     "addAutoUpload": "Enable auto upload",
     "removeAutoUpload": "Disable Auto Upload"
   },
   "language": "Language",
   "analytics": "Analytics",
   "cliTutorMode": "CLI Tutor Mode",
-  "config": "Kubo Config",
+  "config": "IFShare Config",
   "languageModal": {
     "title": "Change language",
     "description": "Pick your preferred language.",
-    "translationProjectIntro": "Add or improve translations and make IPFS better for everyone!",
-    "translationProjectLink": "Join the IPFS Translation Project"
+    "translationProjectIntro": "Add or improve translations and make IFShare better for everyone!",
+    "translationProjectLink": "Join the IFShare Translation Project"
   },
-  "apiDescription": "<0>If your node is configured with a <1>custom Kubo RPC API address</1>, including a port other than the default 5001, enter it here.</0>",
-  "localGatewayDescription": "<0>If you access the WebUI through a reverse proxy, Docker, or a different host, enter the gateway URL your browser can reach. Leave empty to use the first <1>gateway address</1> from your Kubo config.</0>",
+  "apiDescription": "<0>If your node is configured with a <1>custom IFShare RPC API address</1>, including a port other than the default 5001, enter it here.</0>",
+  "localGatewayDescription": "<0>If you access the WebUI through a reverse proxy, Docker, or a different host, enter the gateway URL your browser can reach. Leave empty to use the first <1>gateway address</1> from your IFShare config.</0>",
   "shareLink": {
-    "title": "Sharing IPFS Links",
+    "title": "Sharing IFShare Links",
     "intro": "This controls the link you copy with Share Link or Publish to IPNS. Each option fits a specific need, so pick the one that matches how the link will be opened.",
     "pathVsSubdomain": "Gateway links come in two shapes: <0>path</0> and <1>subdomain</1>. A path link puts everything from that gateway on one origin, the boundary your browser uses for cache, cookies, and saved logins, so one page can see what another left behind. A subdomain link gives each item its own origin, so your browser keeps them apart. Use a subdomain link for opening or hosting web pages, and a path link for non-browser apps.",
     "recommendedBadge": "Recommended",
@@ -38,7 +38,7 @@
     "native": {
       "label": "Native (ipfs:// and ipns:// addresses)",
       "description": "These addresses don't depend on any HTTP server, so they keep working even when a public gateway is down. Best for sharing with people peer-to-peer.",
-      "companionNote": "To open them, you and the people you share with can install the <0>IPFS Companion</0> browser extension. Everyone then loads content directly from each other, instead of depending on someone else's HTTP server."
+      "companionNote": "To open these links, use an app or browser extension with <0>native protocol support</0>."
     },
     "localPath": {
       "label": "Local gateway, path link",
@@ -61,7 +61,7 @@
     "title": "Retrieval Diagnostic Service",
     "description": "Configure the URL of the <0>ipfs-check</0> service used for <1>retrieval diagnostics</1>. This service checks if content can be successfully fetched from your node and other nodes hosting a specific CID, helping you troubleshoot sharing issues."
   },
-  "cliDescription": "<0>Enable this option to display a \"view code\" <1></1> icon next to common IPFS commands. Clicking it opens a modal with that command's CLI code, so you can paste it into the IPFS command-line interface in your terminal.</0>",
+  "cliDescription": "<0>Show a “view code” <1></1> icon next to common actions. Click it to see the equivalent IFShare command and copy it into your terminal.</0>",
   "cliModal": {
     "extraNotesJsonConfig": "If you've made changes to the config in this page's code editor that you'd like to save, click the download icon next to the copy button to download it as a JSON file."
   },
@@ -84,7 +84,7 @@
   },
   "autoUploadModal": {
     "title": "Change upload policy for {name}",
-    "description": "When enabled, auto upload will periodically pin the root of your Files directory, ensuring everything is pinned remotely and available to other peers even when your local IPFS node goes offline. If you disable it, you can still pin each file manually using the \"Set pinning\" option on the Files screen."
+    "description": "When enabled, auto upload will periodically pin the root of your Files directory, ensuring everything is pinned remotely and available to other peers even when your local IFShare node goes offline. If you disable it, you can still pin each file manually using the \"Set pinning\" option on the Files screen."
   },
   "errors": {
     "nickname": "Nickname is required",
@@ -117,14 +117,14 @@
     "false": "Off"
   },
   "fetchingSettings": "Fetching settings...",
-  "ipfsDaemonOffline": "The Kubo daemon is offline. Please turn it on and try again.",
-  "settingsUnavailable": "Settings not available. Please check your Kubo daemon is running.",
+  "ipfsDaemonOffline": "The IFShare daemon is offline. Please turn it on and try again.",
+  "settingsUnavailable": "Settings not available. Please check your IFShare daemon is running.",
   "settingsHaveChanged": "The settings have changed; please click <1>Reset</1> to update the editor contents.",
   "errorOccured": "An error occured while saving your changes",
   "checkConsole": "Check the browser console for more info.",
   "changesSaved": "Your changes have been saved.",
-  "settingsWillBeUsedNextTime": "The new settings will be used next time you restart the Kubo daemon.",
-  "ipfsConfigDescription": "The Kubo config file is a JSON document. It is read once when the Kubo daemon is started. Save your changes, then restart the Kubo daemon to apply them.",
+  "settingsWillBeUsedNextTime": "The new settings will be used next time you restart the IFShare daemon.",
+  "ipfsConfigDescription": "The IFShare config file is a JSON document. It is read once when the IFShare daemon is started. Save your changes, then restart the IFShare daemon to apply them.",
   "ipfsConfigHelp": "Check the documentation for further information.",
   "AnalyticsToggle": {
     "label": "Help improve this app by sending anonymous usage data",
@@ -165,16 +165,16 @@
   "tour": {
     "step1": {
       "title": "Settings page",
-      "paragraph1": "Here you can change the settings of your Web UI and Kubo node.",
-      "paragraph2": "If you're running IPFS Desktop you'll have some specific settings for it too."
+      "paragraph1": "Here you can change the settings of your Web UI and IFShare node.",
+      "paragraph2": "If you're running IFShare Desktop you'll have some specific settings for it too."
     },
     "step2": {
-      "title": "Custom Kubo RPC API address",
-      "paragraph1": "If you've configured your Kubo-compatible IPFS node with a custom RPC API address, you can update your config file right here instead of editing the JSON by hand."
+      "title": "Custom IFShare RPC API address",
+      "paragraph1": "If your IFShare node uses a custom RPC API address, update it here without editing the JSON configuration by hand."
     },
     "step3": {
       "title": "Pinning services",
-      "paragraph1": "<0>If you have accounts with third-party remote pinning services, add them here so you can pin/unpin items to those services directly from the Files screen. You can learn more about third-party pinning services in the <1>IPFS Docs</1>.</0>"
+      "paragraph1": "<0>If you have accounts with third-party remote pinning services, add them here so you can pin/unpin items to those services directly from the Files screen. You can learn more about third-party pinning services in the <1>IFShare Docs</1>.</0>"
     },
     "step4": {
       "title": "Language selector",
@@ -187,16 +187,16 @@
     },
     "step6": {
       "title": "CLI tutor mode",
-      "paragraph1": "Enable CLI tutor mode to see shortcuts to the command-line version of common IPFS commands — helpful if you're learning to use IPFS from the terminal, or if you just need a refresher."
+      "paragraph1": "Enable CLI tutor mode to see shortcuts to the command-line version of common IFShare commands — helpful if you're learning to use IFShare from the terminal, or if you just need a refresher."
     },
     "step7": {
-      "title": "Kubo Config",
-      "paragraph1": "You can change the config of your Kubo node right from Web UI!",
+      "title": "IFShare Config",
+      "paragraph1": "You can change the config of your IFShare node right from Web UI!",
       "paragraph2": "Don't forget to restart the daemon to apply the changes."
     }
   },
   "Experiments": {
-    "description": "Here you can get an early preview into new IPFS features by enabling options below. We are testing these ideas, and they may not be perfect yet so we'd love to hear your feedback.",
+    "description": "Here you can get an early preview into new IFShare features by enabling options below. We are testing these ideas, and they may not be perfect yet so we'd love to hear your feedback.",
     "issueUrl": "Open an issue",
     "feedbackUrl": "💌Leave feedback",
     "readMoreUrl": "Read More"
@@ -215,6 +215,6 @@
   },
   "removeKeyModal": {
     "title": "Confirm IPNS Key Removal",
-    "description": "Are you sure you want to delete the IPNS key <1>{name}</1>? This operation can't be undone, and the IPNS address managed by this key will be lost FOREVER. Consider backing it up first: ipfs key export --help"
+    "description": "Are you sure you want to delete the IPNS key <1>{name}</1>? This operation can't be undone, and the IPNS address managed by this key will be lost FOREVER. Consider backing it up first: ifshare key export --help"
   }
 }

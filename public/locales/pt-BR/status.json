@@ -19,7 +19,7 @@
   "tour": {
     "step1": {
       "title": "Página de status",
-      "paragraph1": "Este é o ponto de partida do seu nó IPFS e onde você pode verificar suas informações básicas.",
+      "paragraph1": "Este é o ponto de partida do seu nó IFShare e onde você pode verificar suas informações básicas.",
       "paragraph2": "Clique \"Próximo\" para saber mais."
     },
     "step2": {
@@ -29,7 +29,7 @@
     },
     "step3": {
       "title": "Informação sobre o nó",
-      "paragraph1": "Aqui você tem informações sobre o tamanho de seu repositório, quantos pares estão conectados, sua identificação de pares e o sabor IPFS que está em uso no momento.",
+      "paragraph1": "Aqui você tem informações sobre o tamanho de seu repositório, quantos pares estão conectados, sua identificação de pares e o sabor IFShare que está em uso no momento.",
       "paragraph2": "<0>Expanda o link <1>Avançado</1> para ver mais informações, tais como a URL e os endereços da porta de entrada. Há também um link dentro da seção Avançado para mudar seu endereço API.</0>"
     },
     "step4": {
@@ -43,5 +43,5 @@
     }
   },
   "bandwidthStats": "Estatísticas de largura de banda",
-  "bandwidthStatsDisabled": "Você tem as métricas de largura de banda desativadas. Você pode habilitá-las digitando o comando abaixo ou mudando a chave <1>Swarm. Desabilitar Métrica de largura de banda</1> para <3>falso</3> em <5>Configurações</5>. Então, você precisa reiniciar o daemon IPFS para aplicar as mudanças."
+  "bandwidthStatsDisabled": "Você tem as métricas de largura de banda desativadas. Você pode habilitá-las digitando o comando abaixo ou mudando a chave <1>Swarm. Desabilitar Métrica de largura de banda</1> para <3>falso</3> em <5>Configurações</5>. Então, você precisa reiniciar o daemon IFShare para aplicar as mudanças."
 }

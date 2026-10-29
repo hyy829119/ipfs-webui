@@ -32,24 +32,16 @@ describe('VersionLink', () => {
 
   describe('when agentVersion is provided', () => {
     describe('with kubo agent (supported provider)', () => {
-      it('should render kubo with version and create links', () => {
+      it('should render kubo with version as plain text', () => {
         render(<VersionLink agentVersion="/kubo/0.14.0/desktop" />)
 
-        // Check that the name link exists
-        const nameLink = screen.getByRole('link', { name: 'kubo' })
-        expect(nameLink).toBeInTheDocument()
-        expect(nameLink).toHaveAttribute('href', 'https://github.com/ipfs/kubo')
-        expect(nameLink).toHaveAttribute('target', '_blank')
-        expect(nameLink).toHaveAttribute('rel', 'noopener noreferrer')
-        expect(nameLink).toHaveClass('link', 'blue')
+        // Check that the name text exists
+        const nameText = screen.getByText('kubo')
+        expect(nameText).toBeInTheDocument()
 
-        // Check that the version link exists
-        const versionLink = screen.getByRole('link', { name: 'v0.14.0' })
-        expect(versionLink).toBeInTheDocument()
-        expect(versionLink).toHaveAttribute('href', 'https://github.com/ipfs/kubo/releases/tag/v0.14.0')
-        expect(versionLink).toHaveAttribute('target', '_blank')
-        expect(versionLink).toHaveAttribute('rel', 'noopener noreferrer')
-        expect(versionLink).toHaveClass('link', 'blue', 'ml2')
+        // Check that the version text exists
+        const versionText = screen.getByText('v0.14.0')
+        expect(versionText).toBeInTheDocument()
 
         // Check that the suffix is rendered
         expect(screen.getByText('desktop')).toBeInTheDocument()
@@ -58,11 +50,11 @@ describe('VersionLink', () => {
       it('should render kubo with version but no suffix', () => {
         render(<VersionLink agentVersion="/kubo/0.14.0" />)
 
-        const nameLink = screen.getByRole('link', { name: 'kubo' })
-        expect(nameLink).toBeInTheDocument()
+        const nameText = screen.getByText('kubo')
+        expect(nameText).toBeInTheDocument()
 
-        const versionLink = screen.getByRole('link', { name: 'v0.14.0' })
-        expect(versionLink).toBeInTheDocument()
+        const versionText = screen.getByText('v0.14.0')
+        expect(versionText).toBeInTheDocument()
 
         // Should not have suffix text
         expect(screen.queryByText('desktop')).not.toBeInTheDocument()
@@ -71,11 +63,11 @@ describe('VersionLink', () => {
       it('should render kubo with version and multiple suffix parts', () => {
         render(<VersionLink agentVersion="/kubo/0.14.0/desktop/stable" />)
 
-        const nameLink = screen.getByRole('link', { name: 'kubo' })
-        expect(nameLink).toBeInTheDocument()
+        const nameText = screen.getByText('kubo')
+        expect(nameText).toBeInTheDocument()
 
-        const versionLink = screen.getByRole('link', { name: 'v0.14.0' })
-        expect(versionLink).toBeInTheDocument()
+        const versionText = screen.getByText('v0.14.0')
+        expect(versionText).toBeInTheDocument()
 
         // Check that multiple suffix parts are joined
         expect(screen.getByText('desktop/stable')).toBeInTheDocument()
@@ -84,8 +76,8 @@ describe('VersionLink', () => {
       it('should handle kubo with no version', () => {
         render(<VersionLink agentVersion="/kubo" />)
 
-        const nameLink = screen.getByRole('link', { name: 'kubo' })
-        expect(nameLink).toBeInTheDocument()
+        const nameText = screen.getByText('kubo')
+        expect(nameText).toBeInTheDocument()
 
         // Should not have version link
         expect(screen.queryByRole('link', { name: /v\d/ })).not.toBeInTheDocument()
@@ -97,13 +89,12 @@ describe('VersionLink', () => {
       it('should handle kubo with empty version part', () => {
         render(<VersionLink agentVersion="/kubo//desktop" />)
 
-        const nameLink = screen.getByRole('link', { name: 'kubo' })
-        expect(nameLink).toBeInTheDocument()
+        const nameText = screen.getByText('kubo')
+        expect(nameText).toBeInTheDocument()
 
-        // Should have version link with "desktop" as version since empty part is filtered out
-        const versionLink = screen.getByRole('link', { name: /vdesktop/ })
-        expect(versionLink).toBeInTheDocument()
-        expect(versionLink).toHaveAttribute('href', 'https://github.com/ipfs/kubo/releases/tag/vdesktop')
+        // Should have version text with "desktop" as version since empty part is filtered out
+        const versionText = screen.getByText(/vdesktop/)
+        expect(versionText).toBeInTheDocument()
 
         // Should not have separate suffix since "desktop" becomes the version
         expect(screen.queryByText('desktop')).not.toBeInTheDocument()
@@ -153,11 +144,11 @@ describe('VersionLink', () => {
       it('should handle agent version with multiple slashes and empty parts', () => {
         render(<VersionLink agentVersion="///kubo///0.14.0///desktop///" />)
 
-        const nameLink = screen.getByRole('link', { name: 'kubo' })
-        expect(nameLink).toBeInTheDocument()
+        const nameText = screen.getByText('kubo')
+        expect(nameText).toBeInTheDocument()
 
-        const versionLink = screen.getByRole('link', { name: 'v0.14.0' })
-        expect(versionLink).toBeInTheDocument()
+        const versionText = screen.getByText('v0.14.0')
+        expect(versionText).toBeInTheDocument()
 
         // Should have suffix with multiple parts
         expect(screen.getByText(/desktop/)).toBeInTheDocument()
@@ -166,11 +157,11 @@ describe('VersionLink', () => {
       it('should handle agent version with special characters', () => {
         render(<VersionLink agentVersion="/kubo/0.14.0-rc1/desktop-beta" />)
 
-        const nameLink = screen.getByRole('link', { name: 'kubo' })
-        expect(nameLink).toBeInTheDocument()
+        const nameText = screen.getByText('kubo')
+        expect(nameText).toBeInTheDocument()
 
-        const versionLink = screen.getByRole('link', { name: 'v0.14.0-rc1' })
-        expect(versionLink).toBeInTheDocument()
+        const versionText = screen.getByText('v0.14.0-rc1')
+        expect(versionText).toBeInTheDocument()
 
         expect(screen.getByText('desktop-beta')).toBeInTheDocument()
       })
@@ -178,8 +169,8 @@ describe('VersionLink', () => {
       it('should handle agent version with only name', () => {
         render(<VersionLink agentVersion="/kubo" />)
 
-        const nameLink = screen.getByRole('link', { name: 'kubo' })
-        expect(nameLink).toBeInTheDocument()
+        const nameText = screen.getByText('kubo')
+        expect(nameText).toBeInTheDocument()
 
         // Should not have version or suffix
         expect(screen.queryByRole('link', { name: /v\d/ })).not.toBeInTheDocument()
@@ -203,36 +194,20 @@ describe('VersionLink', () => {
       expect(screen.queryByRole('link', { name: 'v1.2.3' })).not.toBeInTheDocument()
     })
 
-    it('should render version as link for supported agents', () => {
+    it('should render version as text for supported agents', () => {
       render(<VersionLink agentVersion="/kubo/1.2.3" />)
 
-      const versionLink = screen.getByRole('link', { name: 'v1.2.3' })
-      expect(versionLink).toBeInTheDocument()
-      expect(versionLink).toHaveAttribute('href', 'https://github.com/ipfs/kubo/releases/tag/v1.2.3')
+      const versionText = screen.getByText('v1.2.3')
+      expect(versionText).toBeInTheDocument()
     })
   })
 
-  describe('accessibility', () => {
-    it('should have proper link attributes for external links', () => {
-      render(<VersionLink agentVersion="/kubo/0.14.0/desktop" />)
+  describe('official links', () => {
+    it('keeps node information visible without outbound links', () => {
+      const { container } = render(<VersionLink agentVersion="/kubo/0.14.0/desktop" />)
 
-      const nameLink = screen.getByRole('link', { name: 'kubo' })
-      expect(nameLink).toHaveAttribute('target', '_blank')
-      expect(nameLink).toHaveAttribute('rel', 'noopener noreferrer')
-
-      const versionLink = screen.getByRole('link', { name: 'v0.14.0' })
-      expect(versionLink).toHaveAttribute('target', '_blank')
-      expect(versionLink).toHaveAttribute('rel', 'noopener noreferrer')
-    })
-
-    it('should have proper CSS classes', () => {
-      render(<VersionLink agentVersion="/kubo/0.14.0/desktop" />)
-
-      const nameLink = screen.getByRole('link', { name: 'kubo' })
-      expect(nameLink).toHaveClass('link', 'blue')
-
-      const versionLink = screen.getByRole('link', { name: 'v0.14.0' })
-      expect(versionLink).toHaveClass('link', 'blue', 'ml2')
+      expect(container).toHaveTextContent('kubo v0.14.0 desktop')
+      expect(screen.queryByRole('link')).not.toBeInTheDocument()
     })
   })
 
@@ -249,7 +224,7 @@ describe('VersionLink', () => {
       render(<VersionLink agentVersion="/kubo /0.14.0/desktop" />)
 
       // Should handle spaces in parts
-      expect(screen.getByText(/kubo /)).toBeInTheDocument()
+      expect(screen.getByText(/kubo/)).toBeInTheDocument()
       expect(screen.getByText(/desktop/)).toBeInTheDocument()
     })
 
@@ -257,11 +232,11 @@ describe('VersionLink', () => {
       const longVersion = `/kubo/0.14.0/${'a'.repeat(1000)}`
       render(<VersionLink agentVersion={longVersion} />)
 
-      const nameLink = screen.getByRole('link', { name: 'kubo' })
-      expect(nameLink).toBeInTheDocument()
+      const nameText = screen.getByText('kubo')
+      expect(nameText).toBeInTheDocument()
 
-      const versionLink = screen.getByRole('link', { name: 'v0.14.0' })
-      expect(versionLink).toBeInTheDocument()
+      const versionText = screen.getByText('v0.14.0')
+      expect(versionText).toBeInTheDocument()
 
       // Should handle long suffix
       expect(screen.getByText('a'.repeat(1000))).toBeInTheDocument()

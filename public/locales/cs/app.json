@@ -31,16 +31,16 @@
     "checkRetrieval": ""
   },
   "cliModal": {
-    "description": "Chcete-li tento úkol provést v systému Kubo prostřednictvím příkazového řádku, vložte do terminálu následující příkaz. Nezapomeňte, že je třeba nahradit zástupné znaky konkrétními parametry."
+    "description": "Chcete-li tento úkol provést v systému IFShare prostřednictvím příkazového řádku, vložte do terminálu následující příkaz. Nezapomeňte, že je třeba nahradit zástupné znaky konkrétními parametry."
   },
   "nav": {
     "bugsLink": "Nahlásit chybu",
     "codeLink": "Podívejte se na kód"
   },
   "status": {
-    "connectedToIpfs": "Připojeno k IPFS",
-    "connectingToIpfs": "Připojení k IPFS...",
-    "couldNotConnect": "Nepodařilo se připojit ke Kubo RPC"
+    "connectedToIpfs": "Připojeno k IFShare",
+    "connectingToIpfs": "Připojení k IFShare...",
+    "couldNotConnect": "Nepodařilo se připojit ke IFShare RPC"
   },
   "apiAddressForm": {
     "placeholder": ""
@@ -63,8 +63,8 @@
     "addresses": "Adresa",
     "advanced": "Pokročilý",
     "agent": "Agent",
-    "api": "Kubo RPC",
-    "apiAddress": "Adresa Kubo RPC API",
+    "api": "IFShare RPC",
+    "apiAddress": "Adresa IFShare RPC API",
     "blocks": "Bloky",
     "connection": "Připojení",
     "downSpeed": "Příchozí",

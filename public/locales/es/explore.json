@@ -55,7 +55,7 @@
       },
       "step3": {
         "title": "Información del nodo",
-        "paragraph1": "Aquí tiene información detallada sobre el nodo y puede abrirlo en el portal IPFS.",
+        "paragraph1": "Aquí tiene información detallada sobre el nodo y puede abrirlo en el portal IFShare.",
         "paragraph2": "Si el nodo es un directorio, puede ver sus elementos secundarios y navegar hasta ellos."
       },
       "step4": {

@@ -34,16 +34,16 @@
     "done": "Done"
   },
   "cliModal": {
-    "description": "Paste the following into your terminal to do this task in IPFS via the command line. Remember that you'll need to replace placeholders with your specific parameters."
+    "description": "Paste the following into your terminal to do this task in IFShare via the command line. Remember that you'll need to replace placeholders with your specific parameters."
   },
   "nav": {
     "bugsLink": "Report a bug",
     "codeLink": "See the code"
   },
   "status": {
-    "connectedToIpfs": "Connected to IPFS",
-    "connectingToIpfs": "Connecting to IPFS…",
-    "couldNotConnect": "Could not connect to the IPFS API"
+    "connectedToIpfs": "Connected to IFShare",
+    "connectingToIpfs": "Connecting to IFShare…",
+    "couldNotConnect": "Could not connect to the IFShare API"
   },
   "apiAddressForm": {
     "placeholder": "Enter a URL (http://user:password@127.0.0.1:5001) or a Multiaddr (/ip4/127.0.0.1/tcp/5001)"

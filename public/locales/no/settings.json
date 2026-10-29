@@ -4,7 +4,7 @@
   "saving": "Lagrer...",
   "reset": "Tilbakestill",
   "language": "Språk",
-  "config": "IPFS Konfigurasjon",
+  "config": "IFShare Konfigurasjon",
   "analytics": "Analyse",
   "languageModal": {
     "title": "Skifte språk",
@@ -15,15 +15,15 @@
     "close": "Lukk"
   },
   "fetchingSettings": "Henter innstillinger...",
-  "ipfsDaemonOffline": "IPFS-daemon er offline. Vennligst skru den på og prøv på nytt.",
-  "settingsUnavailable": "Innstillinger ikke tilgjengelig. Vennligst sjekk at din IPFS daemon kjører.",
+  "ipfsDaemonOffline": "IFShare-daemon er offline. Vennligst skru den på og prøv på nytt.",
+  "settingsUnavailable": "Innstillinger ikke tilgjengelig. Vennligst sjekk at din IFShare daemon kjører.",
   "settingsHaveChanged": "Innstillingene er endret, vennligst klikk <1>Tilbakestill</1> for å oppdatere editor innholdet",
   "errorOccured": "Det oppsto en feil under lagring av endringene",
   "checkConsole": "Sjekk nettleserkonsollen for mer info.",
   "changesSaved": "Dine endringer har blitt lagret",
-  "settingsWillBeUsedNextTime": "De nye innstillingene vil bli brukt neste gang du starter din IPFS daemon.",
-  "ipfsConfigDescription": "IPFS-konfigurasjonsfilen er et json dokument. Det leses en gang når IPFS daemon starter. Lagre endringene, og start IPFS daemon på nytt for å bruke de.",
-  "ipfsDesktop": "IPFS Desktop",
+  "settingsWillBeUsedNextTime": "De nye innstillingene vil bli brukt neste gang du starter din IFShare daemon.",
+  "ipfsConfigDescription": "IFShare-konfigurasjonsfilen er et json dokument. Det leses en gang når IFShare daemon starter. Lagre endringene, og start IFShare daemon på nytt for å bruke de.",
+  "ipfsDesktop": "IFShare Desktop",
   "launchOnStartup": "Start ved oppstart",
   "autoAddScreenshots": "Legg til skjermbilder automatisk",
   "autoAddScreenshotsDescription": "Bruk <0>{ctrlKey}</0>+<2>{altKey}</2>+<3>S</3> for å ta skjermbilder, og legge de til i oppbevaringsstedet.",
@@ -63,16 +63,16 @@
     }
   },
   "Experiments": {
-    "description": "Here you can get an early preview into new IPFS features by enabling options below. We are testing these ideas, and they may not be perfect yet so we'd love to hear your feedback.",
+    "description": "Here you can get an early preview into new IFShare features by enabling options below. We are testing these ideas, and they may not be perfect yet so we'd love to hear your feedback.",
     "issueUrl": "Open an issue",
     "feedbackUrl": "💌Leave feedback",
     "readMoreUrl": "Read More",
     "npmOnIpfs": {
-      "title": "NPM on IPFS",
+      "title": "NPM on IFShare",
       "label": "Enable ipfs-npm",
-      "description": "Install npm modules through IPFS with the 'ipfs-npm' command line tool!"
+      "description": "Install npm modules through IFShare with the 'ipfs-npm' command line tool!"
     }
   },
-  "ipfsCmdTools": "IPFS kommandolinjeverktøy",
+  "ipfsCmdTools": "IFShare kommandolinjeverktøy",
   "ipfsCmdToolsDescription": "Legg <0>ipfs</0> binære til ditt systems <0>STI</0>, slik at du kan bruke det i kommandolinjen."
 }

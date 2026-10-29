@@ -8,15 +8,18 @@ import getStore from './bundles/index.js'
 import bundleCache from './lib/bundle-cache.js'
 import { I18nextProvider } from 'react-i18next'
 import i18n from './i18n.js'
+import { APP_NAME } from './constants/branding.js'
 import { DndProvider } from 'react-dnd'
 import DndBackend from './lib/dnd-backend.js'
 import { HeliaProvider, ExploreProvider } from 'ipld-explorer-components/providers'
 import { ContextBridgeProvider } from './helpers/context-bridge.jsx'
+import AuthGate from './auth/AuthGate'
+import './theme.css'
 
 const appVersion = process.env.REACT_APP_VERSION
 const gitRevision = process.env.REACT_APP_GIT_REV
 
-console.log(`IPFS Web UI - v${appVersion} - https://github.com/ipfs-shipyard/ipfs-webui/commit/${gitRevision}`)
+console.log(`${APP_NAME} - v${appVersion} - ${gitRevision}`)
 
 async function render () {
   const initialData = await bundleCache.getAll()
@@ -36,13 +39,15 @@ async function render () {
     <Provider store={store}>
       <ContextBridgeProvider>
         <I18nextProvider i18n={i18n} >
-          <DndProvider backend={DndBackend}>
-            <HeliaProvider>
-              <ExploreProvider>
-                <App />
-              </ExploreProvider>
-            </HeliaProvider>
-          </DndProvider>
+          <AuthGate>
+            <DndProvider backend={DndBackend}>
+              <HeliaProvider>
+                <ExploreProvider>
+                  <App />
+                </ExploreProvider>
+              </HeliaProvider>
+            </DndProvider>
+          </AuthGate>
         </I18nextProvider>
       </ContextBridgeProvider>
     </Provider>,

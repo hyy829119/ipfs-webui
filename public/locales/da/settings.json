@@ -4,7 +4,7 @@
   "saving": "Gemmer...",
   "reset": "Nulstil",
   "language": "Sprog",
-  "config": "IPFS opsætning",
+  "config": "IFShare opsætning",
   "analytics": "Analyseværktøjer",
   "languageModal": {
     "title": "Ændre sprog",
@@ -15,15 +15,15 @@
     "close": "Luk"
   },
   "fetchingSettings": "Henter indstillinger...",
-  "ipfsDaemonOffline": "IPFS baggrunds-processen er offline. Forsøg at starte den og prøv igen.",
-  "settingsUnavailable": "Indstillinger er ikke tilgængelige. Venligst, tjek at IPFS baggrunds-processen kører.",
+  "ipfsDaemonOffline": "IFShare baggrunds-processen er offline. Forsøg at starte den og prøv igen.",
+  "settingsUnavailable": "Indstillinger er ikke tilgængelige. Venligst, tjek at IFShare baggrunds-processen kører.",
   "settingsHaveChanged": "Indstillingerne er opdateret, venligst klik på <1>Nulstil</1> for at opdatere editorens indhold.",
   "errorOccured": "En fejl opstået ved forsøg på at gemme dine ændringer.",
   "checkConsole": "Tjek din browser-konsol for yderligere info.",
   "changesSaved": "Dine ændringer er blevet gemt.",
-  "settingsWillBeUsedNextTime": "Dine nye indstillinger bliver taget i brug næste gang du genstarter IPFS baggrundsprocessen.",
-  "ipfsConfigDescription": "Konfigurationsfilen er et json dokument. Det læses en gang når IPFS baggrunds-processen startes. Gem dine ændringer og genstart herefter IPFS baggrundsprocessen for at ibrugtage disse.",
-  "ipfsDesktop": "IPFS Skrivebord",
+  "settingsWillBeUsedNextTime": "Dine nye indstillinger bliver taget i brug næste gang du genstarter IFShare baggrundsprocessen.",
+  "ipfsConfigDescription": "Konfigurationsfilen er et json dokument. Det læses en gang når IFShare baggrunds-processen startes. Gem dine ændringer og genstart herefter IFShare baggrundsprocessen for at ibrugtage disse.",
+  "ipfsDesktop": "IFShare Skrivebord",
   "launchOnStartup": "Kør ved opstart",
   "autoAddScreenshots": "Auto tilføj skærmbilleder",
   "autoAddScreenshotsDescription": "Benyt <0>{ctrlKey}</0> + <2>{altKey}</2> + <3>S</3> for at optage skærmbilleder og tilføje dem til fil-biblioteket.",
@@ -63,16 +63,16 @@
     }
   },
   "Experiments": {
-    "description": "Her kan du få et tidligt smugkig på nye IPFS funktioner ved at tilvælge mulighederne neden for. Vi afprøver disse idéer og de er muligvis ikke perfekte vi vil elske at høre din feedback.",
+    "description": "Her kan du få et tidligt smugkig på nye IFShare funktioner ved at tilvælge mulighederne neden for. Vi afprøver disse idéer og de er muligvis ikke perfekte vi vil elske at høre din feedback.",
     "issueUrl": "Åben en sag",
     "feedbackUrl": "💌Efterlad feedback",
     "readMoreUrl": "Læs mere",
     "npmOnIpfs": {
-      "title": "NPM på IPFS",
+      "title": "NPM på IFShare",
       "label": "Slå ipfs-npm til",
-      "description": "Installér npm moduler via IPFS med 'ipfs-npm' kommandolinje værktøjet!"
+      "description": "Installér npm moduler via IFShare med 'ipfs-npm' kommandolinje værktøjet!"
     }
   },
-  "ipfsCmdTools": "IPFS kommandolinje værktøjer",
+  "ipfsCmdTools": "IFShare kommandolinje værktøjer",
   "ipfsCmdToolsDescription": "Tilføj <0>ipfs</0> binære fil til dit system's <0>PATH</0> så du kan benytte det via kommandolinjen."
 }

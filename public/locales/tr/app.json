@@ -38,8 +38,8 @@
     "codeLink": "Kodu gör"
   },
   "status": {
-    "connectedToIpfs": "IPFS'ye bağlı",
-    "connectingToIpfs": "IPFS'ye bağlanılıyor…",
+    "connectedToIpfs": "IFShare'ye bağlı",
+    "connectingToIpfs": "IFShare'ye bağlanılıyor…",
     "couldNotConnect": ""
   },
   "apiAddressForm": {

@@ -1,4 +1,5 @@
 import React from 'react'
+import { APP_NAME } from '../constants/branding.js'
 import { Helmet } from 'react-helmet'
 import { connect } from 'redux-bundler-react'
 import { withTranslation } from 'react-i18next'
@@ -17,7 +18,7 @@ const PinsPage = ({ pendingPins, failedPins, completedPins, doDismissCompletedPi
   return (
     <div data-id='PinsPage' className='mw9 center'>
       <Helmet>
-        <title>Pins Status</title>
+        <title>Pins Status | {APP_NAME}</title>
       </Helmet>
 
       <PinsStatuses

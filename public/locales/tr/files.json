@@ -13,7 +13,7 @@
   "openWithPublicGateway": "Bunun yerine <1>genel ağ geçidinizle</1> açmayı deneyin.",
   "openWithLocalAndPublicGateway": "Bunun yerine  <1>yerel ağ geçidinizle</1> veya <3>genel ağ geçidinizle</3> açmayı deneyin.",
   "cantBePreviewed": "Maalesef bu dosya önizlenemiyor",
-  "addByPath": "IPFS'den",
+  "addByPath": "IFShare'den",
   "addByCar": "From CAR",
   "bulkImport": "Bulk import",
   "newFolder": "Yeni dosya",
@@ -40,9 +40,9 @@
     "titleItem": "{count, plural, one {Ögeyi silmek istediğinizden emin misiniz? {name}} other {{count} ögeyi silmek istediğinizden emin misiniz?}}",
     "titleFolder": "{count, plural, one {Klasörü silmek istediğinizden emin misiniz? {name}} other {{count}klasörü silmek istediğinizden emin misiniz?}}",
     "titleFile": "{count, plural, one {Dosyayı silmek istediğinizden emin misiniz? {name}} other {{count}dosyayı silmek istediğinizden emin misiniz?}}",
-    "descriptionItem": "{count, plural, one {Bu öğeyi kaldırmak istediğinizden emin misiniz? Artık Dosyalar ekranında görünmeyecek ve bir sonraki zamanlanmış temizlemede kalıcı olarak kaldırılacaktır (ancak diğer IPFS düğümlerinde kopyalar olabilir). Bu eylem ve geri alınamaz.} other {Bu {count} öğeyi kaldırmak istediğinizden emin misiniz? Artık Dosyalar ekranında görünmeyecek ve bir sonraki zamanlanmış temizlemede kalıcı olarak kaldırılacaktır (ancak diğer IPFS düğümlerinde kopyalar olabilir). Bu eylem ve geri alınamaz.}}",
-    "descriptionFolder": "{count, plural, one {Bu klasörü kaldırmak istediğinizden emin misiniz? Artık Dosyalar ekranında görünmeyecek ve bir sonraki zamanlanmış temizlemede kalıcı olarak kaldırılacaktır (ancak diğer IPFS düğümlerinde kopyalar olabilir). Bu işlem geri alınamaz.} other {Bu {count} klasörü kaldırmak istediğinizden emin misiniz? Artık Dosyalar ekranında görünmeyecek ve bir sonraki zamanlanmış temizlemede kalıcı olarak kaldırılacaktır (ancak diğer IPFS düğümlerinde kopyalar olabilir). Bu işlem geri alınamaz.}}",
-    "descriptionFile": "{count, plural, one {Bu dosyayı kaldırmak istediğinizden emin misiniz? Artık Dosyalar ekranında görünmeyecek ve bir sonraki zamanlanmış temizlemede kalıcı olarak kaldırılacaktır (ancak diğer IPFS düğümlerinde kopyalar olabilir). Bu işlem geri alınamaz.} other {Bu {count} dosyayı kaldırmak istediğinizden emin misiniz? Artık Dosyalar ekranında görünmeyecekler ve bir sonraki zamanlanmış temizlemede kalıcı olarak kaldırılacaklar (ancak diğer IPFS düğümlerinde kopyaları olabilir). Bu işlem geri alınamaz.}}",
+    "descriptionItem": "{count, plural, one {Bu öğeyi kaldırmak istediğinizden emin misiniz? Artık Dosyalar ekranında görünmeyecek ve bir sonraki zamanlanmış temizlemede kalıcı olarak kaldırılacaktır (ancak diğer IFShare düğümlerinde kopyalar olabilir). Bu eylem ve geri alınamaz.} other {Bu {count} öğeyi kaldırmak istediğinizden emin misiniz? Artık Dosyalar ekranında görünmeyecek ve bir sonraki zamanlanmış temizlemede kalıcı olarak kaldırılacaktır (ancak diğer IFShare düğümlerinde kopyalar olabilir). Bu eylem ve geri alınamaz.}}",
+    "descriptionFolder": "{count, plural, one {Bu klasörü kaldırmak istediğinizden emin misiniz? Artık Dosyalar ekranında görünmeyecek ve bir sonraki zamanlanmış temizlemede kalıcı olarak kaldırılacaktır (ancak diğer IFShare düğümlerinde kopyalar olabilir). Bu işlem geri alınamaz.} other {Bu {count} klasörü kaldırmak istediğinizden emin misiniz? Artık Dosyalar ekranında görünmeyecek ve bir sonraki zamanlanmış temizlemede kalıcı olarak kaldırılacaktır (ancak diğer IFShare düğümlerinde kopyalar olabilir). Bu işlem geri alınamaz.}}",
+    "descriptionFile": "{count, plural, one {Bu dosyayı kaldırmak istediğinizden emin misiniz? Artık Dosyalar ekranında görünmeyecek ve bir sonraki zamanlanmış temizlemede kalıcı olarak kaldırılacaktır (ancak diğer IFShare düğümlerinde kopyalar olabilir). Bu işlem geri alınamaz.} other {Bu {count} dosyayı kaldırmak istediğinizden emin misiniz? Artık Dosyalar ekranında görünmeyecekler ve bir sonraki zamanlanmış temizlemede kalıcı olarak kaldırılacaklar (ancak diğer IFShare düğümlerinde kopyaları olabilir). Bu işlem geri alınamaz.}}",
     "checkboxRemoveLocalPin": "Yerel sabitlemeyi de kaldır (önerilen)",
     "checkboxUnpinFromServices": "Tüm sabitleme hizmetlerinden sabitlemeyi kaldır"
   },
@@ -54,8 +54,8 @@
     "totalSize": "Toplam boyut: {size}"
   },
   "addByPathModal": {
-    "title": "IPFS'den içe aktar",
-    "description": "İçe aktarmak için bir IPFS yolu (CID) girin.",
+    "title": "IFShare'den içe aktar",
+    "description": "İçe aktarmak için bir IFShare yolu (CID) girin.",
     "preloadNote": "NOTE: Imported path is lazy-loaded by default, and will be retrieved on-demand as you browse it. To proactively prefetch imported path to the local Datastore, choose ”Download” from the context menu.",
     "importPathPlaceholder": "Yol veya Müşteri Kimliği (gerekli)",
     "namePlaceholder": "İsim (İsteğe bağlı)",
@@ -91,8 +91,8 @@
     "closeDropdown": "Açılır menüyü kapat",
     "count": "{count} / {count}"
   },
-  "addFilesInfo": "<0>Burada henüz dosya yok! Yukarıdaki <1>İçe Aktar</1> düğmesini tıklayarak yerel IPFS düğümünüze dosya ekleyin.</0>",
-  "companionInfo": "<0><1>IPFS Companion</1>'ı kullandığınız için, dosya görünümü, uzantı kullanılırken eklenen dosyalarla sınırlıdır.</0>",
+  "addFilesInfo": "<0>Burada henüz dosya yok! Yukarıdaki <1>İçe Aktar</1> düğmesini tıklayarak yerel IFShare düğümünüze dosya ekleyin.</0>",
+  "companionInfo": "<0><1>IFShare Companion</1>'ı kullandığınız için, dosya görünümü, uzantı kullanılırken eklenen dosyalarla sınırlıdır.</0>",
   "tour": {
     "step1": {
       "title": "Dosyalar sayfası",
@@ -110,7 +110,7 @@
       "title": "Dosyaları ekle",
       "paragraph1": "Burada kaç blok ve dosya sabitlediğinizi görebilirsiniz.",
       "paragraph2": "Sağdaki açılır menü aracılığıyla deponuza dosya veya klasör ekleyebilirsiniz.",
-      "paragraph3": "<0>Zaten IPFS'de olan bir şey eklemek istiyorsanız, bunu <1>İçerik Tanımlayıcısına (CID)</1> ileterek MFS'nize aktarabilirsiniz.</0>"
+      "paragraph3": "<0>Zaten IFShare'de olan bir şey eklemek istiyorsanız, bunu <1>İçerik Tanımlayıcısına (CID)</1> ileterek MFS'nize aktarabilirsiniz.</0>"
     },
     "step5": {
       "title": "Dosyalar listesi",
@@ -133,10 +133,10 @@
   "clickToCancel": "İptal etmek için tıklayın",
   "blocks": "Bloklar",
   "localDatastore": "Local Datastore",
-  "localDatastoreDescription": "Total size of all blocks currently stored in the Datastore of your IPFS node (“RepoSize” from “ipfs repo stat”). This includes everything in the Files view (MFS), low-level pins, and any recently removed or temporary cached blocks that were not garbage-collected yet.",
+  "localDatastoreDescription": "Total size of all blocks currently stored in the Datastore of your IFShare node (“RepoSize” from “ifshare repo stat”). This includes everything in the Files view (MFS), low-level pins, and any recently removed or temporary cached blocks that were not garbage-collected yet.",
   "currentLocationRoot": "My Files",
   "currentLocation": "Current Location",
-  "currentLocationDescription": "Total size of the DAG behind the current directory (“CumulativeSize” from “ipfs files stat”). This value includes both local and remote blocks, and could be bigger than the size of your local datastore.",
+  "currentLocationDescription": "Total size of the DAG behind the current directory (“CumulativeSize” from “ifshare files stat”). This value includes both local and remote blocks, and could be bigger than the size of your local datastore.",
   "pinningQueue": "Kuyruk tutturuluyor",
   "more": "Daha fazla",
   "files": "Dosyalar",

@@ -75,6 +75,17 @@ function modifyBabelLoaderRuleForTest (rules) {
 }
 
 function webpackOverride (config) {
+  const sourceMapLoader = config.module.rules.find(rule => rule.loader?.includes('source-map-loader'))
+  if (sourceMapLoader) {
+    sourceMapLoader.options = {
+      ...sourceMapLoader.options,
+      // These packages publish source maps without the referenced TypeScript sources.
+      // Remove only their map references; keep source maps for the app and other dependencies.
+      filterSourceMappingUrl: (url, resourcePath) =>
+        !/[/\\]node_modules[/\\](?:@chainsafe[/\\]is-ip|dag-jose)[/\\]lib[/\\]/.test(resourcePath)
+    }
+  }
+
   const fallback = config.resolve.fallback || {}
 
   Object.assign(fallback, {

@@ -19,8 +19,8 @@
   "languageModal": {
     "title": "Cambia lingua",
     "description": "Seleziona la tua lingua preferita.",
-    "translationProjectIntro": "Aggiungi o perfeziona le traduzioni e rendi IPFS migliore per tutti!",
-    "translationProjectLink": "Unisciti al Progetto di Traduzione IPFS"
+    "translationProjectIntro": "Aggiungi o perfeziona le traduzioni e rendi IFShare migliore per tutti!",
+    "translationProjectLink": "Unisciti al Progetto di Traduzione IFShare"
   },
   "apiDescription": "",
   "localGatewayDescription": "",
@@ -30,7 +30,7 @@
     "title": "",
     "description": ""
   },
-  "cliDescription": "<0>Abilita quest'opzione per mostrare un'icona \"view code\" <1></1> accanto ai comuni comandi IPFS. Cliccandoci, si aprirà una finestra modale col codice di quel comando CLI dimodoché tu possa incollarlo nell'interfaccia a riga di comando nel tuo terminale.",
+  "cliDescription": "<0>Abilita quest'opzione per mostrare un'icona \"view code\" <1></1> accanto ai comuni comandi IFShare. Cliccandoci, si aprirà una finestra modale col codice di quel comando CLI dimodoché tu possa incollarlo nell'interfaccia a riga di comando nel tuo terminale.",
   "cliModal": {
     "extraNotesJsonConfig": "Se, in questa pagina dell'editor di codice, hai fatto cambiamenti al config che vorresti salvare, clicca sull'icona scarica accanto al bottone \"copia\" per scaricarlo come file JSON."
   },
@@ -53,7 +53,7 @@
   },
   "autoUploadModal": {
     "title": "Cambia politica di upload per {name}",
-    "description": "Quando abilitato, l'auto upload periodicamente pinnerà la radice del percorso dei tuoi \"File\", assicurandosi che tutto sia pinnato in remoto e disponibile verso altri peer anche quando il tuo nodo IPFS locale sarà offline. Se lo disabiliti, potrai ancora pinnare ogni singolo file manualmente utilizzando l'opzione \"Imposta pinning\" nella schermata \"File\"."
+    "description": "Quando abilitato, l'auto upload periodicamente pinnerà la radice del percorso dei tuoi \"File\", assicurandosi che tutto sia pinnato in remoto e disponibile verso altri peer anche quando il tuo nodo IFShare locale sarà offline. Se lo disabiliti, potrai ancora pinnare ogni singolo file manualmente utilizzando l'opzione \"Imposta pinning\" nella schermata \"File\"."
   },
   "errors": {
     "nickname": "Il soprannome è obbligatorio",
@@ -135,7 +135,7 @@
     "step1": {
       "title": "Pagina delle impostazioni",
       "paragraph1": "",
-      "paragraph2": "Se hai IPFS Desktop avviato, avrai anche alcune impostazioni specifiche per quel programma."
+      "paragraph2": "Se hai IFShare Desktop avviato, avrai anche alcune impostazioni specifiche per quel programma."
     },
     "step2": {
       "title": "",
@@ -143,7 +143,7 @@
     },
     "step3": {
       "title": "Servizi di pinning",
-      "paragraph1": "<0>Se hai degli account con servizi di pinning remoto di terze parti, aggiungili qui in modo da poter pinnare/unpinnare elementi da quei servizi direttamente dalla schermata Files. Puoi saperne di più sui servizi di pinning di terze parti nei <1>documenti IPFS</1>.</0>"
+      "paragraph1": "<0>Se hai degli account con servizi di pinning remoto di terze parti, aggiungili qui in modo da poter pinnare/unpinnare elementi da quei servizi direttamente dalla schermata Files. Puoi saperne di più sui servizi di pinning di terze parti nei <1>documenti IFShare</1>.</0>"
     },
     "step4": {
       "title": "Selettore di lingue",
@@ -156,7 +156,7 @@
     },
     "step6": {
       "title": "Modalità tutor CLI",
-      "paragraph1": "Abilita la modalità CLI tutor per vedere le scorciatoie da terminale dei comandi IPFS più comuni - essa è utile se stai imparando ad usare IPFS dal terminale, o se hai solo bisogno di un ripasso."
+      "paragraph1": "Abilita la modalità CLI tutor per vedere le scorciatoie da terminale dei comandi IFShare più comuni - essa è utile se stai imparando ad usare IFShare dal terminale, o se hai solo bisogno di un ripasso."
     },
     "step7": {
       "title": "",
@@ -165,7 +165,7 @@
     }
   },
   "Experiments": {
-    "description": "Qui puoi avere un'anteprima delle nuove funzionalità di IPFS abilitando l'opzione sottostante. Stiamo testando queste idee ed esse potrebbero non essere ancora perfette, quindi vorremmo sentire la tua opinione.",
+    "description": "Qui puoi avere un'anteprima delle nuove funzionalità di IFShare abilitando l'opzione sottostante. Stiamo testando queste idee ed esse potrebbero non essere ancora perfette, quindi vorremmo sentire la tua opinione.",
     "issueUrl": "Pubblica un problema",
     "feedbackUrl": "💌Condividi la tua opinione",
     "readMoreUrl": "Leggi di più"

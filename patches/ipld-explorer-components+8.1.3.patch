@@ -1,0 +1,63 @@
+diff --git a/node_modules/ipld-explorer-components/dist/components/about/AboutIpld.js b/node_modules/ipld-explorer-components/dist/components/about/AboutIpld.js
+index 90b2ffa..365ba1a 100644
+--- a/node_modules/ipld-explorer-components/dist/components/about/AboutIpld.js
++++ b/node_modules/ipld-explorer-components/dist/components/about/AboutIpld.js
+@@ -6,7 +6,7 @@
+ const AboutIpld = () => {
+   const { t } = useTranslation("explore");
+   return /* @__PURE__ */ jsxRuntimeExports.jsxs(Box, { className: "tl dib pa4 avenir measure-wide-l lh-copy dark-gray ba-l b--black-10", children: [
+-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "tc", children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "link", href: "https://ipld.io", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: ipldLogoSrc, alt: "IPLD", style: { height: 60 } }) }) }),
++    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "tc", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: ipldLogoSrc, alt: "IPLD", style: { height: 60 } }) }) }),
+     /* @__PURE__ */ jsxRuntimeExports.jsx(Trans, { i18nKey: "AboutIpld.paragraph1", t, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
+       "IPLD is ",
+       /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "the data model of the content-addressable web." }),
+diff --git a/node_modules/ipld-explorer-components/dist/components/cid-info/CidInfo.js b/node_modules/ipld-explorer-components/dist/components/cid-info/CidInfo.js
+index 05b4afb..02cacaa 100644
+--- a/node_modules/ipld-explorer-components/dist/components/cid-info/CidInfo.js
++++ b/node_modules/ipld-explorer-components/dist/components/cid-info/CidInfo.js
+@@ -24,7 +24,7 @@
+     return null;
+   }
+   return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: `ph3 pv4 sans-serif ${className}`, ...props, children: [
+-    /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "db pb2", children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "tracked ttu f5 fw2 teal-muted hover-aqua link", href: "https://docs.ipfs.io/concepts/glossary/#cid", rel: "external", target: "_external", children: t("CidInfo.header") }) }),
++    /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "db pb2", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tracked ttu f5 fw2 teal-muted", children: t("CidInfo.header") }) }),
+     cidInfo == null ? null : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "f7 monospace fw4 ma0 pb2 truncate mid-gray force-select", title: cid.toString(), children: cid.toString() }),
+       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "f6 sans-serif fw4 ma0 pb2 truncate", id: "CidInfo-human-readable-cid", children: cidInfo.humanReadable }),
+@@ -38,12 +38,9 @@
+         t("multihash")
+       ] }),
+       /* @__PURE__ */ jsxRuntimeExports.jsx(
+-        "a",
++        "span",
+         {
+-          href: "https://docs.ipfs.io/concepts/glossary/#multihash",
+-          rel: "external",
+-          target: "_external",
+-          className: "dib tracked ttu f6 fw2 teal-muted hover-aqua link mt4",
++          className: "dib tracked ttu f6 fw2 teal-muted mt4",
+           children: t("multihash")
+         }
+       ),
+@@ -57,7 +54,7 @@
+         ] }, chunk.join(""))) }),
+         /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "CidInfo-multihash", className: "sans-serif fw2 ma0 mid-gray ttu f7 tracked", children: t("CidInfo.hashDigest") }),
+         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "tl lh-copy", children: [
+-          /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { className: "db orange no-underline pt2", href: "https://docs.ipfs.io/concepts/glossary/#multicodec", rel: "external", target: "_external", title: "Multicodec", children: [
++          /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "db orange no-underline pt2", title: "Multicodec", children: [
+             /* @__PURE__ */ jsxRuntimeExports.jsx("code", { className: "gray", children: "0x" }),
+             /* @__PURE__ */ jsxRuntimeExports.jsx("code", { children: cidInfo.hashFnCode }),
+             " = ",
+diff --git a/node_modules/ipld-explorer-components/dist/components/object-info/ObjectInfo.js b/node_modules/ipld-explorer-components/dist/components/object-info/ObjectInfo.js
+index 5fe1caf..de0cc37 100644
+--- a/node_modules/ipld-explorer-components/dist/components/object-info/ObjectInfo.js
++++ b/node_modules/ipld-explorer-components/dist/components/object-info/ObjectInfo.js
+@@ -82,7 +82,7 @@
+     /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "ma0 lh-title f4 fw4 montserrat pb2", title: nodeStyleType, children: [
+       /* @__PURE__ */ jsxRuntimeExports.jsx(DagNodeIcon, { type: nodeStyleType, className: "mr3", style: { verticalAlign: -8 } }),
+       /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "v-mid", children: nameForNode(nodeStyleType) }),
+-      format === "unixfs" ? /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "dn di-ns no-underline charcoal ml2", href: "https://docs.ipfs.io/concepts/glossary/#unixfs", rel: "external", target: "_external", children: "UnixFS" }) : null,
++      format === "unixfs" ? /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "dn di-ns no-underline charcoal ml2", children: "UnixFS" }) : null,
+       isUnixFs ? /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "dib", children: [
+         gatewayUrl != null && gatewayUrl !== publicGatewayUrl && /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "no-underline avenir ml2 pa2 fw5 f6 navy dib", href: `${gatewayUrl}/ipfs/${cid}`, rel: "external nofollow", target: "_external", children: t("ObjectInfo.privateGateway") }),
+         publicGatewayUrl != null && /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "no-underline avenir ml2 pa2 fw5 f6 navy dib", href: `${publicGatewayUrl}/ipfs/${cid}`, rel: "external nofollow", target: "_external", children: t("ObjectInfo.publicGateway") })

@@ -38,8 +38,8 @@
     "codeLink": "コードを見る"
   },
   "status": {
-    "connectedToIpfs": "IPFSに接続完了",
-    "connectingToIpfs": "IPFSサービスに接続しています…",
+    "connectedToIpfs": "IFShareに接続完了",
+    "connectingToIpfs": "IFShareサービスに接続しています…",
     "couldNotConnect": ""
   },
   "apiAddressForm": {

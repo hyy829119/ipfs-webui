@@ -1,4 +1,6 @@
 {
+  "explorePlaceholder": "输入 CID 或内容路径",
+  "exploreDescription": "粘贴 CID、内容路径或协议链接",
   "title": "文件",
   "breadcrumbs": "导航栏",
   "totalSize": "总计大小: {size}",
@@ -11,7 +13,7 @@
   "openWithPublicGateway": "尝试使用您的<1>公共网关</1>来打开",
   "openWithLocalAndPublicGateway": "尝试使用您的<1>本地网关</1>或者<3>公共网关</3>来打开。",
   "cantBePreviewed": "对不起，本文件不支持预览。",
-  "addByPath": "来自 IPFS 路径",
+  "addByPath": "来自 IFShare 路径",
   "addByCar": "来自 CAR",
   "bulkImport": "批量导入",
   "newFolder": "新建文件夹",
@@ -31,10 +33,10 @@
     "title": "共享文件",
     "description": "请复制以下链接并与您的朋友分享。",
     "descriptionLocal": "使用这个链接，在运行于本机（当前这台电脑/设备）上的应用程序中打开。",
-    "descriptionNative": "此本机IPFS地址在支持IPFS的应用程序和浏览器中打开，如IPFS 伴侣扩展。",
+    "descriptionNative": "此原生地址需要使用<1>支持相应协议</1>的应用程序或浏览器打开。",
     "useLocalLink": "此为本地 HTTP 链接，供本机上的其他应用程序调用。",
     "useSubdomains": "为web应用程序使用localhost子域",
-    "linkError": "无法生成链接。检查您的IPFS节点是否正在运行。"
+    "linkError": "无法生成链接。检查您的IFShare节点是否正在运行。"
   },
   "renameModal": {
     "titleFile": "重命名文件",
@@ -46,9 +48,9 @@
     "titleItem": "{count, plural, other {移除{count}个项目？}}",
     "titleFolder": "{count, plural, other {移除{count}个文件夹？}}",
     "titleFile": "{count, plural, other {移除{count}个文件？}}",
-    "descriptionItem": "{count, plural, other {您确定要删除这些{count}个项目吗？它们将不再出现在“文件”页面中，并将在下次自动清理中被永久删除（虽然它的副本可能存在于其他IPFS节点上），此操作具有不可逆性。}}",
-    "descriptionFolder": "{count, plural, other {您确定要删除这些{count}个文件夹吗？它们将不再出现在“文件”页面中，并将在下次自动清理中被永久删除（虽然它的副本可能存在于其他IPFS节点上），此操作具有不可逆性。}}",
-    "descriptionFile": "{count, plural, other {您确定要删除这些{count}个文件吗？它们将不再出现在“文件”页面中，并将在下次自动清理中被永久删除（虽然它的副本可能存在于其他IPFS节点上），此操作具有不可逆性。}}",
+    "descriptionItem": "{count, plural, other {您确定要删除这些{count}个项目吗？它们将不再出现在“文件”页面中，并将在下次自动清理中被永久删除（虽然它的副本可能存在于其他IFShare节点上），此操作具有不可逆性。}}",
+    "descriptionFolder": "{count, plural, other {您确定要删除这些{count}个文件夹吗？它们将不再出现在“文件”页面中，并将在下次自动清理中被永久删除（虽然它的副本可能存在于其他IFShare节点上），此操作具有不可逆性。}}",
+    "descriptionFile": "{count, plural, other {您确定要删除这些{count}个文件吗？它们将不再出现在“文件”页面中，并将在下次自动清理中被永久删除（虽然它的副本可能存在于其他IFShare节点上），此操作具有不可逆性。}}",
     "checkboxRemoveLocalPin": "同时也从本地固定中移除（推荐）",
     "checkboxUnpinFromServices": "从所有固定服务中取消固定"
   },
@@ -83,10 +85,10 @@
     "totalSize": "总计大小: {size}"
   },
   "addByPathModal": {
-    "title": "从IPFS导入",
-    "description": "输入一个IPFS/IPNS路径，CID，协议URL来导入",
+    "title": "从IFShare导入",
+    "description": "输入一个IFShare/IPNS路径，CID，协议URL来导入",
     "preloadNote": "注意：默认情况下，导入的路径是延迟加载的，在您浏览时将按需检索。要主动将导入的路径预取到本地数据存储，请从上下文菜单中选择“下载”。",
-    "importPathPlaceholder": "IPFS/IPNS路径, CID 或 URL (必要)",
+    "importPathPlaceholder": "IFShare/IPNS路径, CID 或 URL (必要)",
     "namePlaceholder": "名称 (可选)",
     "examples": "示例："
   },
@@ -122,8 +124,8 @@
     "closeDropdown": "关闭下拉框",
     "count": "{count}个 / 共{count}个"
   },
-  "addFilesInfo": "<0>现在还没有任何文件！使用上方的<1>导入</1>按钮为您的本地IPFS 节点添加文件。</0>",
-  "companionInfo": "<0>如果您正在使用<1> IPFS 伴侣</1>，文件视图仅限于使用扩展程序时添加的文件。</0>",
+  "addFilesInfo": "<0>现在还没有任何文件！使用上方的<1>导入</1>按钮为您的本地IFShare 节点添加文件。</0>",
+  "companionInfo": "<0>使用<1>浏览器扩展</1>时，文件视图仅显示通过该扩展添加的文件。</0>",
   "tour": {
     "step1": {
       "title": "文件页面",
@@ -141,7 +143,7 @@
       "title": "添加文件",
       "paragraph1": "在这里，您可以看到已固定的块数和文件数。",
       "paragraph2": "您可以通过右侧的下拉列表将文件或文件夹添加到您的仓库。",
-      "paragraph3": "<0>如果想要添加 IPFS 上已有的内容，可以通过传递其 <1>Content Identifier（CID）</1> 将其导入 MFS</0>"
+      "paragraph3": "<0>如果想要添加 IFShare 上已有的内容，可以通过传递其 <1>Content Identifier（CID）</1> 将其导入 MFS</0>"
     },
     "step5": {
       "title": "文件列表",
@@ -169,10 +171,10 @@
   "clickToCancel": "按此取消",
   "blocks": "块",
   "localDatastore": "本地数据存储",
-  "localDatastoreDescription": "当前存储在IPFS节点数据存储中的所有块的总大小 (“RepoSize” 来自 “ipfs 仓库统计”)。这包括文件视图（MFS）中的所有内容、低级引脚以及任何最近删除或临时缓存但尚未垃圾回收的块。",
+  "localDatastoreDescription": "当前存储在IFShare节点数据存储中的所有块的总大小 (“RepoSize” 来自 “ifshare repo stat”)。这包括文件视图（MFS）中的所有内容、低级引脚以及任何最近删除或临时缓存但尚未垃圾回收的块。",
   "currentLocationRoot": "我的文件",
   "currentLocation": "当前位置",
-  "currentLocationDescription": "当前目录后面的DAG的总大小 (“CumulativeSize” 来自 “ipfs文件统计”)。此值包括本地和远程块，并且可能大于本地数据存储的大小。",
+  "currentLocationDescription": "当前目录后面的DAG的总大小 (“CumulativeSize” 来自 “ifshare files stat”)。此值包括本地和远程块，并且可能大于本地数据存储的大小。",
   "pinningQueue": "固定队列",
   "more": "更多",
   "files": "文件",

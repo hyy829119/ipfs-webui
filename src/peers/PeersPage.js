@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { APP_NAME } from '../constants/branding.js'
 import { connect } from 'redux-bundler-react'
 import { Helmet } from 'react-helmet'
 import { withTranslation } from 'react-i18next'
@@ -33,7 +34,7 @@ const PeersPage = ({ t, toursEnabled, handleJoyrideCallback }) => {
   return (
   <div data-id='PeersPage' className='overflow-hidden'>
     <Helmet>
-      <title>{t('title')} | IPFS</title>
+      <title>{t('title')} | {APP_NAME}</title>
     </Helmet>
 
     <div className='flex justify-end items-center mb3'>

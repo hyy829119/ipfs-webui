@@ -38,9 +38,9 @@
     "codeLink": "Voir le code"
   },
   "status": {
-    "connectedToIpfs": "Connecté à IPFS",
-    "connectingToIpfs": "Connexion à IPFS...",
-    "couldNotConnect": "Nous n'avons pas pu nous connecter au RPC de Kubo"
+    "connectedToIpfs": "Connecté à IFShare",
+    "connectingToIpfs": "Connexion à IFShare...",
+    "couldNotConnect": "Nous n'avons pas pu nous connecter au RPC de IFShare"
   },
   "apiAddressForm": {
     "placeholder": "Entrez un URL (http://user:password@127.0.0.1:5001) ou une Multiaddr (/ip4/127.0.0.1/tcp/5001)"
@@ -63,8 +63,8 @@
     "addresses": "Adresses",
     "advanced": "Avancé",
     "agent": "Agent",
-    "api": "RPC de Kubo",
-    "apiAddress": "Adresse de l'API du RPC de Kubo",
+    "api": "RPC de IFShare",
+    "apiAddress": "Adresse de l'API du RPC de IFShare",
     "blocks": "Blocs",
     "connection": "Connexion",
     "downSpeed": "Entrant",

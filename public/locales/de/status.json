@@ -19,7 +19,7 @@
   "tour": {
     "step1": {
       "title": "Status Seite",
-      "paragraph1": "Dies ist der Startpunkt deines IPFS Knotens. Hier kannst Du seine grundlegenden Informationen einsehen.",
+      "paragraph1": "Dies ist der Startpunkt deines IFShare Knotens. Hier kannst Du seine grundlegenden Informationen einsehen.",
       "paragraph2": "Klicke \"Weiter\", um mehr zu erfahren."
     },
     "step2": {
@@ -29,7 +29,7 @@
     },
     "step3": {
       "title": "Knoteninfo",
-      "paragraph1": "Hier sind Informationen über die Größe deiner Ablage, mit wie vielen Peers du verbunden bist, deine Peer ID und die IPFS Version, die gerade benutzt wird.",
+      "paragraph1": "Hier sind Informationen über die Größe deiner Ablage, mit wie vielen Peers du verbunden bist, deine Peer ID und die IFShare Version, die gerade benutzt wird.",
       "paragraph2": "<0>Klicke auf <1>Erweitert</1>, um weitere Informationen, wie die Gateway URL und Adressen zu sehen. Es gibt auch einen Link im Abschnitt Erweitert, über den du deine API-Adresse ändern kannst."
     },
     "step4": {
@@ -43,5 +43,5 @@
     }
   },
   "bandwidthStats": "Informationen zur Bandbreite",
-  "bandwidthStatsDisabled": "Sie haben Metriken zur Bandbreite deaktiviert. Sie können diese aktivieren, indem Sie den unten angeführten Befehl ausführen oder die Einstellung <1>Swarm.DisableBandwidthMetrics</1> auf <3>false</3> in den <5>Einstellungen</5>ändern. Danach müssen Sie den  IPFS neu starten, um die Änderungen anzuwenden."
+  "bandwidthStatsDisabled": "Sie haben Metriken zur Bandbreite deaktiviert. Sie können diese aktivieren, indem Sie den unten angeführten Befehl ausführen oder die Einstellung <1>Swarm.DisableBandwidthMetrics</1> auf <3>false</3> in den <5>Einstellungen</5>ändern. Danach müssen Sie den  IFShare neu starten, um die Änderungen anzuwenden."
 }

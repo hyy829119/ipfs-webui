@@ -6,9 +6,6 @@ import PublicGatewayForm from '../public-gateway-form/PublicGatewayForm.js'
 import PublicSubdomainGatewayForm from '../public-subdomain-gateway-form/PublicSubdomainGatewayForm.js'
 import { SHARE_LINK_TYPE, gatewayExample } from '../../lib/share-link.js'
 
-const COMPANION_URL = 'https://docs.ipfs.tech/install/ipfs-companion/'
-const GATEWAY_CHECKER_URL = 'https://ipfs.github.io/public-gateway-checker/'
-const SELF_HOST_URL = 'https://docs.ipfs.tech/how-to/replace-public-gateways-with-self-hosted-ipfs/'
 const ORIGIN_ISOLATION_URL = 'https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy'
 
 // Native first (recommended), then the gateway options grouped after it.
@@ -67,7 +64,7 @@ const ShareLinkTypeForm = ({ t, shareLinkType, localGatewayUrl, publicGateway, p
           { companion &&
             <p className='ma0 mt1 ml4 f6 charcoal-muted lh-copy'>
               <Trans i18nKey='shareLink.native.companionNote' t={t}>
-                <a className='link blue' href={COMPANION_URL} target='_blank' rel='noopener noreferrer'>IPFS Companion</a>
+                <span>a compatible browser extension</span>
               </Trans>
             </p> }
           { isolation &&
@@ -95,12 +92,6 @@ const ShareLinkTypeForm = ({ t, shareLinkType, localGatewayUrl, publicGateway, p
       <p className='mt3 mb1 f6 fw6 charcoal'>{t('shareLink.gatewayGroupTitle')}</p>
       <p className='ma0 mb0 f6 charcoal-muted lh-copy'>{t('shareLink.gatewayGroupNote')}</p>
       {GATEWAY_OPTIONS.map(renderOption)}
-      <p className='ma0 mt3 f6 charcoal-muted lh-copy'>
-        <Trans i18nKey='shareLink.publicGatewayHelp' t={t}>
-          <a className='link blue' href={GATEWAY_CHECKER_URL} target='_blank' rel='noopener noreferrer'>Public Gateway Checker</a>
-          <a className='link blue' href={SELF_HOST_URL} target='_blank' rel='noopener noreferrer'>run your own</a>
-        </Trans>
-      </p>
     </div>
   )
 }

@@ -19,8 +19,8 @@
   "languageModal": {
     "title": "Dili değiştir",
     "description": "Tercih ettiğiniz dili seçin.",
-    "translationProjectIntro": "Çeviriler ekleyin veya iyileştirin ve IPFS'yi herkes için daha iyi hale getirin!",
-    "translationProjectLink": "IPFS Çeviri Projesine Katılın"
+    "translationProjectIntro": "Çeviriler ekleyin veya iyileştirin ve IFShare'yi herkes için daha iyi hale getirin!",
+    "translationProjectLink": "IFShare Çeviri Projesine Katılın"
   },
   "apiDescription": "",
   "localGatewayDescription": "",
@@ -30,7 +30,7 @@
     "title": "",
     "description": ""
   },
-  "cliDescription": "<0>Genel IPFS komutlarının yanında bir \"kodu görüntüle\"<1></1> simgesi görüntülemek için bu seçeneği etkinleştirin. Buna tıkladığınızda, o komutun CLI kodunu içeren bir modal açılır, böylece onu terminalinizdeki IPFS komut satırı arayüzüne yapıştırabilirsiniz.</0>",
+  "cliDescription": "<0>Genel IFShare komutlarının yanında bir \"kodu görüntüle\"<1></1> simgesi görüntülemek için bu seçeneği etkinleştirin. Buna tıkladığınızda, o komutun CLI kodunu içeren bir modal açılır, böylece onu terminalinizdeki IFShare komut satırı arayüzüne yapıştırabilirsiniz.</0>",
   "cliModal": {
     "extraNotesJsonConfig": "Bu sayfanın kod düzenleyicisindeki yapılandırmada kaydetmek istediğiniz değişiklikler yaptıysanız, bir JSON dosyası olarak indirmek için kopyala düğmesinin yanındaki indirme simgesini tıklayın."
   },
@@ -53,7 +53,7 @@
   },
   "autoUploadModal": {
     "title": "{name} için yükleme politikasını değiştirin",
-    "description": "Etkinleştirildiğinde, otomatik yükleme, Dosyalar dizininizin kökünü düzenli olarak sabitler ve yerel IPFS düğümünüz çevrimdışı olduğunda bile her şeyin uzaktan sabitlenmesini ve diğer eşler tarafından kullanılabilir olmasını sağlar. Devre dışı bırakırsanız, Dosyalar ekranındaki \"Sabitlemeyi ayarla\" seçeneğini kullanarak her dosyayı manuel olarak sabitleyebilirsiniz."
+    "description": "Etkinleştirildiğinde, otomatik yükleme, Dosyalar dizininizin kökünü düzenli olarak sabitler ve yerel IFShare düğümünüz çevrimdışı olduğunda bile her şeyin uzaktan sabitlenmesini ve diğer eşler tarafından kullanılabilir olmasını sağlar. Devre dışı bırakırsanız, Dosyalar ekranındaki \"Sabitlemeyi ayarla\" seçeneğini kullanarak her dosyayı manuel olarak sabitleyebilirsiniz."
   },
   "errors": {
     "nickname": "Takma ad gerekli",
@@ -135,7 +135,7 @@
     "step1": {
       "title": "Ayarlar sayfası",
       "paragraph1": "",
-      "paragraph2": "IPFS Masaüstü kullanıyorsanız, bunun için de bazı özel ayarlara sahip olacaksınız."
+      "paragraph2": "IFShare Masaüstü kullanıyorsanız, bunun için de bazı özel ayarlara sahip olacaksınız."
     },
     "step2": {
       "title": "",
@@ -143,7 +143,7 @@
     },
     "step3": {
       "title": "Sabitleme hizmetleri",
-      "paragraph1": "<0>Üçüncü taraf uzaktan sabitleme hizmetlerine sahip hesaplarınız varsa, öğeleri buraya ekleyin, böylece öğeleri doğrudan Dosyalar ekranından bu hizmetlere sabitleyebilir / sabitlemesini kaldırabilirsiniz. Üçüncü taraf sabitleme hizmetleri hakkında daha fazla bilgiyi <1>IPFS Belgeleri</1>'nde bulabilirsiniz.</0>"
+      "paragraph1": "<0>Üçüncü taraf uzaktan sabitleme hizmetlerine sahip hesaplarınız varsa, öğeleri buraya ekleyin, böylece öğeleri doğrudan Dosyalar ekranından bu hizmetlere sabitleyebilir / sabitlemesini kaldırabilirsiniz. Üçüncü taraf sabitleme hizmetleri hakkında daha fazla bilgiyi <1>IFShare Belgeleri</1>'nde bulabilirsiniz.</0>"
     },
     "step4": {
       "title": "Dil seçici",
@@ -156,7 +156,7 @@
     },
     "step6": {
       "title": "Komut Satırı Arayüzü eğitmen modu",
-      "paragraph1": "Genel IPFS komutlarının komut satırı sürümünün kısayollarını görmek için komut satırı arayüzü eğitmen modunu etkinleştirin - IPFS'yi terminalden kullanmayı öğreniyorsanız veya sadece tazeleme ihtiyacınız varsa faydalıdır."
+      "paragraph1": "Genel IFShare komutlarının komut satırı sürümünün kısayollarını görmek için komut satırı arayüzü eğitmen modunu etkinleştirin - IFShare'yi terminalden kullanmayı öğreniyorsanız veya sadece tazeleme ihtiyacınız varsa faydalıdır."
     },
     "step7": {
       "title": "",
@@ -165,7 +165,7 @@
     }
   },
   "Experiments": {
-    "description": "Burada, aşağıdaki seçenekleri etkinleştirerek yeni IPFS özelliklerine ilişkin erken bir önizleme elde edebilirsiniz. Bu fikirleri test ediyoruz ve henüz mükemmel olmayabilirler, bu yüzden geri bildiriminizi duymak isteriz.",
+    "description": "Burada, aşağıdaki seçenekleri etkinleştirerek yeni IFShare özelliklerine ilişkin erken bir önizleme elde edebilirsiniz. Bu fikirleri test ediyoruz ve henüz mükemmel olmayabilirler, bu yüzden geri bildiriminizi duymak isteriz.",
     "issueUrl": "Bir sorunu açın",
     "feedbackUrl": "💌Geri bildirim bırakın",
     "readMoreUrl": "Daha Fazla Oku"

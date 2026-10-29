@@ -55,7 +55,7 @@
       },
       "step3": {
         "title": "Informação sobre o nó",
-        "paragraph1": "Aqui você tem informações detalhadas sobre o nó e pode abri-lo no gateway IPFS.",
+        "paragraph1": "Aqui você tem informações detalhadas sobre o nó e pode abri-lo no gateway IFShare.",
         "paragraph2": "Se o nó for um diretório, você poderá ver seus subdiretórios e navegar até eles."
       },
       "step4": {

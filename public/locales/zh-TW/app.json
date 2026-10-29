@@ -38,8 +38,8 @@
     "codeLink": "檢視原始碼"
   },
   "status": {
-    "connectedToIpfs": "已連接到 IPFS",
-    "connectingToIpfs": "正在連接 IPFS",
+    "connectedToIpfs": "已連接到 IFShare",
+    "connectingToIpfs": "正在連接 IFShare",
     "couldNotConnect": ""
   },
   "apiAddressForm": {

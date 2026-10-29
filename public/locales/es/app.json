@@ -30,7 +30,7 @@
     "unselectAll": "Deseleccionar todo"
   },
   "cliModal": {
-    "description": "Paste the following into your terminal to do this task in IPFS via the command line. Remember that you'll need to replace placeholders with your specific parameters."
+    "description": "Paste the following into your terminal to do this task in IFShare via the command line. Remember that you'll need to replace placeholders with your specific parameters."
   },
   "nav": {
     "bugsLink": "Reportar un error",
@@ -38,9 +38,9 @@
     "revision": "Revisión"
   },
   "status": {
-    "connectedToIpfs": "Conectado a IPFS",
-    "connectingToIpfs": "Connecting to IPFS…",
-    "couldNotConnect": "Could not connect to the IPFS API"
+    "connectedToIpfs": "Conectado a IFShare",
+    "connectingToIpfs": "Connecting to IFShare…",
+    "couldNotConnect": "Could not connect to the IFShare API"
   },
   "terms": {
     "address": "Direcciones",

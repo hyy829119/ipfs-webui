@@ -216,7 +216,7 @@ const actions = () => ({
   */
   doRead: (cid, offset = 0, length) => perform(ACTIONS.READ_FILE, async (ipfs) => {
     if (!ipfs) {
-      throw new Error('IPFS is not available')
+      throw new Error('IFShare is not available')
     }
     return ipfs.cat(cid, { offset, length })
   }),

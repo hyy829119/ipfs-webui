@@ -124,8 +124,8 @@ export const filesTour = {
         <h2 className='f3 fw4'>{t('tour.step1.title')}</h2>
         <Trans i18nKey='tour.step1.paragraph1' t={t}>
           <p className='tl f6'>
-            This is where the files on your <a className='teal link' href='https://docs.ipfs.tech/concepts/file-systems/' rel='noopener noreferrer' target='_blank'>
-            Mutable File System (MFS)</a> live. You can add files or folders and manage them from this page.
+            This is where the files on your <span>
+            Mutable File System (MFS)</span> live. You can add files or folders and manage them from this page.
           </p>
         </Trans>
         <p className='tl f6'>{t('tour.step1.paragraph2')}</p>
@@ -153,8 +153,8 @@ export const filesTour = {
         <p className='tl f6'>{t('tour.step3.paragraph2')}</p>
         <Trans i18nKey='tour.step3.paragraph3' t={t}>
           <p className='tl f6'>
-            If you want to add something that is already on IPFS, you can import it to your MFS by passing its <a className='teal link' href='https://docs.ipfs.tech/concepts/content-addressing/' rel='noopener noreferrer' target='_blank'>Content
-            Identifier (CID)</a>.
+            If you want to add something that is already on IFShare, you can import it to your MFS by passing its <span>Content
+            Identifier (CID)</span>.
           </p>
         </Trans>
       </div>,
@@ -260,7 +260,7 @@ export const settingsTour = {
       content: <div className='montserrat charcoal'>
         <h2 className='f3 fw4'>{t('tour.step3.title')}</h2>
         <Trans i18nKey='tour.step3.paragraph1' t={t}>
-          <p className='tl f6'>If you have accounts with third-party remote pinning services, add them here so you can pin/unpin items to those services directly from the Files screen. You can learn more about third-party pinning services in the <a className='teal link' href='https://docs.ipfs.tech/how-to/work-with-pinning-services' rel='noopener noreferrer' target='_blank'>IPFS Docs</a>.
+          <p className='tl f6'>If you have accounts with third-party remote pinning services, add them here so you can pin/unpin items to those services directly from the Files screen. You can learn more about third-party pinning services in the <span>the documentation</span>.
           </p>
         </Trans>
       </div>,
@@ -272,7 +272,7 @@ export const settingsTour = {
         <h2 className='f3 fw4'>{t('tour.step4.title')}</h2>
         <Trans i18nKey='tour.step4.paragraph1' t={t}>
           <p className='tl f6'>You can change the language of the Web UI.
-          If your preferred language isn't available, head over our project page in <a className='teal link' href='https://www.transifex.com/ipfs/ipfs-webui/translate/' rel='noopener noreferrer' target='_blank'>Transifex</a> to help us translate!
+          If your preferred language isn't available, head over our project page in <span>Transifex</span> to help us translate!
           </p>
         </Trans>
       </div>,

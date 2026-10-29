@@ -1,6 +1,6 @@
 {
   "ipfsApiRequestFailed": "Bağlanamadı. Lütfen daemon'unuzun çalışıp çalışmadığını kontrol edin.",
-  "windowIpfsRequestFailed": "IPFS isteği başarısız oldu. Lütfen IPFS Companion ayarlarınızı kontrol edin.",
+  "windowIpfsRequestFailed": "IFShare isteği başarısız oldu. Lütfen IFShare Companion ayarlarınızı kontrol edin.",
   "ipfsInvalidApiAddress": "",
   "ipfsConnectSuccess": "",
   "ipfsConnectFail": "",
@@ -8,14 +8,14 @@
   "ipfsPinSucceedReason": "",
   "ipfsUnpinSucceedReason": "",
   "ipnsPublishFailReason": "",
-  "ipfsIsBack": "Normal IPFS hizmeti devam etti. Tadını çıkarın!",
+  "ipfsIsBack": "Normal IFShare hizmeti devam etti. Tadını çıkarın!",
   "folderExists": "Bu isimde bir öğe zaten var. Lütfen diğerini seçin.",
   "filesFetchFailed": "Bu dosyalar alınamadı. Lütfen yolu kontrol edin ve tekrar deneyin.",
   "filesRenameFailed": "Dosyalar yeniden adlandırılamadı. Lütfen tekrar deneyin.",
   "filesMakeDirFailed": "Dizin oluşturulamadı. Lütfen tekrar deneyin.",
   "filesCopyFailed": "Dosyalar kopyalanamadı. Lütfen tekrar deneyin.",
   "filesRemoveFailed": "Dosyalar kaldırılamadı. Lütfen tekrar deneyin.",
-  "filesAddFailed": "IPFS'ye dosya eklenemedi. Lütfen tekrar deneyin.",
+  "filesAddFailed": "IFShare'ye dosya eklenemedi. Lütfen tekrar deneyin.",
   "filesEventFailed": "İsteğiniz işlenemedi. Lütfen tekrar deneyin.",
   "couldntConnectToPeer": "Sağlanan eşe bağlanılamadı.",
   "connectedToPeer": "Sağlanan eşe başarıyla bağlandı.",
@@ -24,7 +24,7 @@
   },
   "desktopToggleErrors": {
     "autoLaunch": "Başlangıç seçeneğinde başlatma değiştirilemedi.",
-    "ipfsOnPath": "IPFS komut satırı araçları değiştirilemedi.",
+    "ipfsOnPath": "IFShare komut satırı araçları değiştirilemedi.",
     "downloadHashShortcut": "İndirme özütü kısayolu değiştirilemedi.",
     "screenshotShortcut": "Ekran görüntüsü kısayolu değiştirilemedi."
   }

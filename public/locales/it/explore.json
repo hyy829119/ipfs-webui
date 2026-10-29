@@ -55,7 +55,7 @@
       },
       "step3": {
         "title": "Informazioni nodo",
-        "paragraph1": "Qui hai tutte le informazioni dettagliate riguardo al nodo e puoi aprirlo nel gateway IPFS.",
+        "paragraph1": "Qui hai tutte le informazioni dettagliate riguardo al nodo e puoi aprirlo nel gateway IFShare.",
         "paragraph2": "Se il nodo è una directory, puoi vedere i suoi figli e navigarci in essi."
       },
       "step4": {

@@ -55,7 +55,7 @@
       },
       "step3": {
         "title": "Informace o uzlu",
-        "paragraph1": "Zde máte podrobné informace o uzlu a můžete je otevřít v bráně IPFS.",
+        "paragraph1": "Zde máte podrobné informace o uzlu a můžete je otevřít v bráně IFShare.",
         "paragraph2": "Pokud je uzel adresářem, můžete vidět jeho děti a přejít na ně."
       },
       "step4": {

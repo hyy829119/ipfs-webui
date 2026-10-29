@@ -11,7 +11,7 @@
   "openWithPublicGateway": "Coba buka dengan <1>gerbang publik</1> Anda.",
   "openWithLocalAndPublicGateway": "Coba buka dengan <1>gerbang lokal</1> Anda atau <3>gerbang publik</3>.",
   "cantBePreviewed": "Maaf, berkas ini tidak dapat dipratinjau",
-  "addByPath": "Dari IPFS",
+  "addByPath": "Dari IFShare",
   "addByCar": "Dari CAR",
   "bulkImport": "Impor massal",
   "newFolder": "Map baru",
@@ -46,9 +46,9 @@
     "titleItem": "{count, plural, other {Hapus {count} item?}}",
     "titleFolder": "{count, plural, other {Hapus {count} map?}}",
     "titleFile": "{count, plural, other {Hapus {count} berkas?}}",
-    "descriptionItem": "{count, plural, other {Anda yakin ingin menghapus item ini {count}? Mereka tidak akan lagi muncul di layar Berkas, dan akan dihapus secara permanen pada pembersihan terjadwal berikutnya (meskipun salinan mungkin ada di node IPFS lainnya). Tindakan ini tidak dapat dibatalkan.}}",
-    "descriptionFolder": "{count, plural, other {Anda yakin ingin menghapus map ini {count}? Mereka tidak akan lagi muncul di layar Berkas, dan akan dihapus secara permanen pada pembersihan terjadwal berikutnya (meskipun salinan mungkin ada di node IPFS lainnya). Tindakan ini tidak dapat dibatalkan.}}",
-    "descriptionFile": "{count, plural, other {Anda yakin ingin menghapus berkas ini {count}? Mereka tidak akan lagi muncul di layar Berkas, dan akan dihapus secara permanen pada pembersihan terjadwal berikutnya (meskipun salinan mungkin ada di node IPFS lainnya). Tindakan ini tidak dapat dibatalkan.}}",
+    "descriptionItem": "{count, plural, other {Anda yakin ingin menghapus item ini {count}? Mereka tidak akan lagi muncul di layar Berkas, dan akan dihapus secara permanen pada pembersihan terjadwal berikutnya (meskipun salinan mungkin ada di node IFShare lainnya). Tindakan ini tidak dapat dibatalkan.}}",
+    "descriptionFolder": "{count, plural, other {Anda yakin ingin menghapus map ini {count}? Mereka tidak akan lagi muncul di layar Berkas, dan akan dihapus secara permanen pada pembersihan terjadwal berikutnya (meskipun salinan mungkin ada di node IFShare lainnya). Tindakan ini tidak dapat dibatalkan.}}",
+    "descriptionFile": "{count, plural, other {Anda yakin ingin menghapus berkas ini {count}? Mereka tidak akan lagi muncul di layar Berkas, dan akan dihapus secara permanen pada pembersihan terjadwal berikutnya (meskipun salinan mungkin ada di node IFShare lainnya). Tindakan ini tidak dapat dibatalkan.}}",
     "checkboxRemoveLocalPin": "Hapus juga semat lokal (disarankan)",
     "checkboxUnpinFromServices": "Lepas sematan dari semua layanan penyematan"
   },
@@ -83,7 +83,7 @@
     "totalSize": "Ukuran total: {size}"
   },
   "addByPathModal": {
-    "title": "Impor dari IPFS",
+    "title": "Impor dari IFShare",
     "description": "",
     "preloadNote": "",
     "importPathPlaceholder": "",
@@ -122,8 +122,8 @@
     "closeDropdown": "Tutup tarik-turun",
     "count": "{count} dari {count}"
   },
-  "addFilesInfo": "<0>Belum ada berkas di sini! Tambahkan berkas ke node IPFS lokal Anda dengan mengklik tombol <1>Impor</1> di atas.</0>",
-  "companionInfo": "<0>Saat Anda menggunakan <1>Sahabat IPFS</1>, tampilan berkas terbatas pada berkas yang ditambahkan saat menggunakan ekstensi.</0>",
+  "addFilesInfo": "<0>Belum ada berkas di sini! Tambahkan berkas ke node IFShare lokal Anda dengan mengklik tombol <1>Impor</1> di atas.</0>",
+  "companionInfo": "<0>Saat Anda menggunakan <1>Sahabat IFShare</1>, tampilan berkas terbatas pada berkas yang ditambahkan saat menggunakan ekstensi.</0>",
   "tour": {
     "step1": {
       "title": "Halaman Berkas",
@@ -141,7 +141,7 @@
       "title": "Tambahkan berkas",
       "paragraph1": "Di sini Anda dapat melihat berapa banyak blok dan berkas yang telah Anda sematkan.",
       "paragraph2": "Anda dapat menambahkan berkas atau map ke repo Anda melalui tarik turun di sebelah kanan.",
-      "paragraph3": "<0>Jika Anda ingin menambahkan sesuatu yang sudah ada di IPFS, Anda dapat mengimpornya ke MFS Anda dengan meneruskan <1>Content Identifier (CID)</1>.</0>"
+      "paragraph3": "<0>Jika Anda ingin menambahkan sesuatu yang sudah ada di IFShare, Anda dapat mengimpornya ke MFS Anda dengan meneruskan <1>Content Identifier (CID)</1>.</0>"
     },
     "step5": {
       "title": "Daftar berkas",
@@ -169,10 +169,10 @@
   "clickToCancel": "Klik untuk membatalkan",
   "blocks": "Blok",
   "localDatastore": "Penyimpanan Data Lokal",
-  "localDatastoreDescription": "Ukuran total semua blok yang saat ini disimpan di Penyimpanan Data node IPFS Anda (“RepoSize” dari “ipfs repo stat”). Ini mencakup semua yang ada di tampilan File (MFS), pin tingkat rendah, dan blok apa pun yang baru saja dihapus atau di-cache sementara yang belum dikumpulkan sampahnya.",
+  "localDatastoreDescription": "Ukuran total semua blok yang saat ini disimpan di Penyimpanan Data node IFShare Anda (“RepoSize” dari “ifshare repo stat”). Ini mencakup semua yang ada di tampilan File (MFS), pin tingkat rendah, dan blok apa pun yang baru saja dihapus atau di-cache sementara yang belum dikumpulkan sampahnya.",
   "currentLocationRoot": "Berkas Saya",
   "currentLocation": "Lokasi Saat Ini",
-  "currentLocationDescription": "Ukuran total DAG di belakang direktori saat ini (“CumulativeSize” dari “ipfs files stat”). Nilai ini mencakup blok lokal dan jarak jauh, dan bisa lebih besar dari ukuran penyimpanan data lokal Anda.",
+  "currentLocationDescription": "Ukuran total DAG di belakang direktori saat ini (“CumulativeSize” dari “ifshare files stat”). Nilai ini mencakup blok lokal dan jarak jauh, dan bisa lebih besar dari ukuran penyimpanan data lokal Anda.",
   "pinningQueue": "Menyematkan antrean",
   "more": "Lebih",
   "files": "Berkas",

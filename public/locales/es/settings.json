@@ -3,24 +3,24 @@
   "language": "Idioma",
   "analytics": "Analítica",
   "cliTutorMode": "CLI Tutor Mode",
-  "config": "Config. IPFS",
+  "config": "Config. IFShare",
   "languageModal": {
     "title": "Cambiar idioma",
     "description": "Elige tu idioma preferido.",
-    "translationProjectIntro": "¡Agregue o mejore las traducciones y haga que IPFS sea mejor para todos!",
-    "translationProjectLink": "Únase al Proyecto de Traducción de IPFS"
+    "translationProjectIntro": "¡Agregue o mejore las traducciones y haga que IFShare sea mejor para todos!",
+    "translationProjectLink": "Únase al Proyecto de Traducción de IFShare"
   },
   "apiDescription": "<0>If your node is configured with a <1>custom API address</1>, including a port other than the default 5001, enter it here.</0>",
-  "cliDescription": "<0>Enable this option to display a \"view code\" <1></1> icon next to common IPFS commands. Clicking it opens a modal with that command's CLI code, so you can paste it into the IPFS command-line interface in your terminal.</0>",
+  "cliDescription": "<0>Enable this option to display a \"view code\" <1></1> icon next to common IFShare commands. Clicking it opens a modal with that command's CLI code, so you can paste it into the IFShare command-line interface in your terminal.</0>",
   "fetchingSettings": "Recuperando ajustes...",
-  "ipfsDaemonOffline": "El demonio IPFS está fuera de línea. Enciéndalo e intente nuevamente.",
-  "settingsUnavailable": "Configuración no disponible. Por favor, compruebe que su servicio IPFS se está ejecutando.",
+  "ipfsDaemonOffline": "El demonio IFShare está fuera de línea. Enciéndalo e intente nuevamente.",
+  "settingsUnavailable": "Configuración no disponible. Por favor, compruebe que su servicio IFShare se está ejecutando.",
   "settingsHaveChanged": "La configuración ha cambiado; haga clic en <1>Restablecer</1>  para actualizar el contenido del editor. ",
   "errorOccured": "Se produjo un error al guardar sus cambios",
   "checkConsole": "Compruebe la consola del navegador para más información.",
   "changesSaved": "Se han guardado los cambios.",
-  "settingsWillBeUsedNextTime": "La nueva configuración se utilizará la próxima vez que reinicie el servicio de IPFS.",
-  "ipfsConfigDescription": "El archivo de configuración de IPFS es un documento JSON. Se lee una vez cuando se inicia el demonio IPFS. Guarde sus cambios, luego reinicie el demonio IPFS para aplicarlos.",
+  "settingsWillBeUsedNextTime": "La nueva configuración se utilizará la próxima vez que reinicie el servicio de IFShare.",
+  "ipfsConfigDescription": "El archivo de configuración de IFShare es un documento JSON. Se lee una vez cuando se inicia el demonio IFShare. Guarde sus cambios, luego reinicie el demonio IFShare para aplicarlos.",
   "ipfsConfigHelp": "Consulte la documentación para más información.",
   "AnalyticsToggle": {
     "label": "Ayude a mejorar esta aplicación enviando datos de uso anónimos",
@@ -61,8 +61,8 @@
   "tour": {
     "step1": {
       "title": "Página de configuración",
-      "paragraph1": "Aquí puede cambiar la configuración de su interfaz de usuario web y nodo IPFS.",
-      "paragraph2": "Si está ejecutando IPFS Desktop, también tendrá algunas configuraciones específicas."
+      "paragraph1": "Aquí puede cambiar la configuración de su interfaz de usuario web y nodo IFShare.",
+      "paragraph2": "Si está ejecutando IFShare Desktop, también tendrá algunas configuraciones específicas."
     },
     "step2": {
       "title": "Selector de idioma",
@@ -75,16 +75,16 @@
     },
     "step4": {
       "title": "Custom API address",
-      "paragraph1": "If you've configured your IPFS node with a custom API address, you can update your config file right here instead of editing the JSON by hand."
+      "paragraph1": "If you've configured your IFShare node with a custom API address, you can update your config file right here instead of editing the JSON by hand."
     },
     "step5": {
-      "title": "Config. IPFS",
-      "paragraph1": "¡Puede cambiar la configuración de su nodo IPFS directamente desde la interfaz de usuario Web!",
+      "title": "Config. IFShare",
+      "paragraph1": "¡Puede cambiar la configuración de su nodo IFShare directamente desde la interfaz de usuario Web!",
       "paragraph2": "No olvides reiniciar el demonio para aplicar los cambios."
     }
   },
   "Experiments": {
-    "description": "Aquí puede obtener una vista previa temprana de las nuevas características de IPFS habilitando las opciones a continuación. Estamos probando estas ideas y es posible que aún no sean perfectas, por lo que nos encantaría escuchar sus comentarios.",
+    "description": "Aquí puede obtener una vista previa temprana de las nuevas características de IFShare habilitando las opciones a continuación. Estamos probando estas ideas y es posible que aún no sean perfectas, por lo que nos encantaría escuchar sus comentarios.",
     "issueUrl": "Abrir un problema",
     "feedbackUrl": "💌Deja un comentario",
     "readMoreUrl": "Lee mas"

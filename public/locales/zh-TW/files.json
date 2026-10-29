@@ -13,7 +13,7 @@
   "openWithPublicGateway": "Try opening it instead with your <1>public gateway</1>.",
   "openWithLocalAndPublicGateway": "Try opening it instead with your <1>local gateway</1> or <3>public gateway</3>.",
   "cantBePreviewed": "抱歉，本文件不支持預覽。",
-  "addByPath": "來自 IPFS",
+  "addByPath": "來自 IFShare",
   "newFolder": "新增資料夾",
   "generating": "生成…",
   "actions": {
@@ -38,9 +38,9 @@
     "titleItem": "{count, plural, other {要移除{count}個項目？}}",
     "titleFolder": "{count, plural, other {要移除{count}個資料夾？}}",
     "titleFile": "{count, plural, other {要移除{count}個檔案？}}",
-    "descriptionItem": "{count, plural, other {您確定要刪除已選擇的{count}個項目嗎？它們不再出現在檔案頁面中，且將會在下一次的自動清理中被永久移除(雖然它們的副本有可能存在於其他的 IPFS 節點上)。這個動作將不可被取消。}}",
-    "descriptionFolder": "{count, plural, other {您確定要刪除已選擇的{count}個資料夾嗎？它們不再出現在檔案頁面中，且將會在下一次的自動清理中被永久移除(雖然它們的副本有可能存在於其他的 IPFS 節點上)。這個動作將不可被取消。}}",
-    "descriptionFile": "{count, plural, other {您確定要刪除已選擇的{count}個檔案嗎？它們不再出現在檔案頁面中，且將會在下一次的自動清理中被永久移除(雖然它們的副本有可能存在於其他的 IPFS 節點上)。這個動作將不可被取消。}}",
+    "descriptionItem": "{count, plural, other {您確定要刪除已選擇的{count}個項目嗎？它們不再出現在檔案頁面中，且將會在下一次的自動清理中被永久移除(雖然它們的副本有可能存在於其他的 IFShare 節點上)。這個動作將不可被取消。}}",
+    "descriptionFolder": "{count, plural, other {您確定要刪除已選擇的{count}個資料夾嗎？它們不再出現在檔案頁面中，且將會在下一次的自動清理中被永久移除(雖然它們的副本有可能存在於其他的 IFShare 節點上)。這個動作將不可被取消。}}",
+    "descriptionFile": "{count, plural, other {您確定要刪除已選擇的{count}個檔案嗎？它們不再出現在檔案頁面中，且將會在下一次的自動清理中被永久移除(雖然它們的副本有可能存在於其他的 IFShare 節點上)。這個動作將不可被取消。}}",
     "checkboxRemoveLocalPin": "同時移除本機錨釘(推薦)",
     "checkboxUnpinFromServices": "取消所有的錨釘服務"
   },
@@ -52,8 +52,8 @@
     "totalSize": "總大小: {size}"
   },
   "addByPathModal": {
-    "title": "從 IPFS 導入",
-    "description": "將要導入 IPFS 路徑 (CID) 輸入於此",
+    "title": "從 IFShare 導入",
+    "description": "將要導入 IFShare 路徑 (CID) 輸入於此",
     "importPathPlaceholder": "Path or CID (required)",
     "namePlaceholder": "Name (optional)",
     "examples": "範例:"
@@ -73,8 +73,8 @@
     "closeDropdown": "關閉下拉式選單",
     "count": "{count}中的{count}個"
   },
-  "addFilesInfo": "<0>現在還沒有任何檔案！使用上方的<1>導入<1>按鈕為您的本地IPFS 節點加入檔案。<0>",
-  "companionInfo": "<0>如果你正在使用<1> IPFS 伴侶</1>，文件視圖僅限於使用擴展程序時添加的文件。</0>",
+  "addFilesInfo": "<0>現在還沒有任何檔案！使用上方的<1>導入<1>按鈕為您的本地IFShare 節點加入檔案。<0>",
+  "companionInfo": "<0>如果你正在使用<1> IFShare 伴侶</1>，文件視圖僅限於使用擴展程序時添加的文件。</0>",
   "tour": {
     "step1": {
       "title": "檔案頁面",
@@ -92,7 +92,7 @@
       "title": "新增檔案",
       "paragraph1": "在這裡，您可以看到已固定的區塊數和文件數。",
       "paragraph2": "您可以通過右側的下拉列表將文件或文件夾添加到您的倉庫。",
-      "paragraph3": "<0>如果想要添加 IPFS 上已有的內容，可以通過傳遞其 <1>Content Identifier（CID）</1> 將其導入 MFS</0>"
+      "paragraph3": "<0>如果想要添加 IFShare 上已有的內容，可以通過傳遞其 <1>Content Identifier（CID）</1> 將其導入 MFS</0>"
     },
     "step5": {
       "title": "檔案清單",
@@ -115,7 +115,7 @@
   "clickToCancel": "Click to cancel",
   "blocks": "區塊",
   "allBlocks": "所有資料區塊",
-  "allBlocksDescription": "總計 IPFS 節點內的所有資料區塊大小；這包括所有的檔案，加上所有的本機錨釘的檔案以及任何任何臨時塊取的資料。",
+  "allBlocksDescription": "總計 IFShare 節點內的所有資料區塊大小；這包括所有的檔案，加上所有的本機錨釘的檔案以及任何任何臨時塊取的資料。",
   "filesDescription": "當前目錄中數據的總大小（同時顯示子資料夾的數據大小） ",
   "pinningQueue": "Pinning queue",
   "more": "更多",

@@ -87,24 +87,7 @@ const DhtProvideScreen: React.FC = () => {
           <Trans
             i18nKey='dhtProvide.screen.description'
             t={t}
-            components={[
-              // eslint-disable-next-line jsx-a11y/anchor-has-content
-              <a
-                key='config'
-                href='https://github.com/ipfs/kubo/blob/master/docs/config.md#provide'
-                target='_blank'
-                rel='noopener noreferrer'
-                className='link blue'
-              />,
-              // eslint-disable-next-line jsx-a11y/anchor-has-content
-              <a
-                key='metrics'
-                href='https://github.com/ipfs/kubo/blob/master/docs/provide-stats.md'
-                target='_blank'
-                rel='noopener noreferrer'
-                className='link blue'
-              />
-            ]}
+            components={[<span key='config' />, <span key='metrics' />]}
           />
         </p>
 

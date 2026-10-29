@@ -2,6 +2,7 @@ import React from 'react'
 import { withTranslation, Trans } from 'react-i18next'
 import Shell from '../components/shell/Shell.js'
 import Box from '../components/box/Box.js'
+import { CLI_NAME } from '../constants/branding.js'
 
 const StatusNotConnected = ({ t }) => {
   return (
@@ -12,13 +13,13 @@ const StatusNotConnected = ({ t }) => {
         <Trans i18nKey='bandwidthStatsDisabled' t={t}>
           You have the bandwidth metrics disabled. You can enable them by typing the command bellow
           or changing the key <code>Swarm.DisableBandwidthMetrics</code> to <code>false</code> on
-          <a className='link blue' href='#/settings'>Settings</a>. Then, you need to restart the IPFS
+          <a className='link blue' href='#/settings'>Settings</a>. Then, you need to restart the IFShare
           daemon to apply the changes.
         </Trans>
       </p>
 
       <Shell className='mw6'>
-        <code className='db'><b className='no-select'>$ </b>ipfs config --json Swarm.DisableBandwidthMetrics false</code>
+        <code className='db'><b className='no-select'>$ </b>{CLI_NAME} config --json Swarm.DisableBandwidthMetrics false</code>
       </Shell>
     </Box>
   )

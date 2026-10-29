@@ -5,6 +5,7 @@ import LocalStorageBackend from 'i18next-localstorage-backend'
 import HttpBackend from 'i18next-http-backend'
 import LanguageDetector from 'i18next-browser-languagedetector'
 import pkgJson from '../package.json'
+import { APP_NAME, CLI_NAME } from './constants/branding.js'
 
 import locales from './lib/languages.json'
 import getValidLocaleCode from './lib/i18n-localeParser.js'
@@ -26,7 +27,7 @@ i18n
       ],
       backendOptions: [
         { // LocalStorageBackend
-          defaultVersion: version,
+          defaultVersion: `${APP_NAME}-${CLI_NAME}-${version}`,
           expirationTime: (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') ? 1 : 7 * 24 * 60 * 60 * 1000
         },
         { // HttpBackend
@@ -38,7 +39,7 @@ i18n
         }
       ]
     },
-    ns: ['app', 'welcome', 'status', 'files', 'explore', 'peers', 'settings', 'diagnostics', 'notify'],
+    ns: ['app', 'login', 'welcome', 'status', 'files', 'explore', 'peers', 'settings', 'notify'],
     defaultNS: 'app',
     fallbackNS: 'app',
     fallbackLng: {

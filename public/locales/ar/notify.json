@@ -1,6 +1,6 @@
 {
   "ipfsApiRequestFailed": "تعذر الاتصال. يرجى التحقق مما إذا كان البرنامج الخفي الخاص بك قيد التشغيل.",
-  "windowIpfsRequestFailed": "فشل طلب IPFS. يرجى التحقق من إعدادات IPFS Companion الخاصة بك.",
+  "windowIpfsRequestFailed": "فشل طلب IFShare. يرجى التحقق من إعدادات IFShare Companion الخاصة بك.",
   "ipfsInvalidApiAddress": "",
   "ipfsConnectSuccess": "",
   "ipfsConnectFail": "",
@@ -8,14 +8,14 @@
   "ipfsPinSucceedReason": "",
   "ipfsUnpinSucceedReason": "",
   "ipnsPublishFailReason": "",
-  "ipfsIsBack": "تم استئناف خدمة IPFS العادية. استمتع!",
+  "ipfsIsBack": "تم استئناف خدمة IFShare العادية. استمتع!",
   "folderExists": "يوجد عنصر بهذا الاسم بالفعل. الرجاء اختيار آخر.",
   "filesFetchFailed": "فشل الحصول على هذه الملفات. يرجى التحقق من المسار وحاول مرة أخرى.",
   "filesRenameFailed": "فشل في إعادة تسمية الملفات. حاول مرة اخرى.",
   "filesMakeDirFailed": "فشل إنشاء الدليل. حاول مرة اخرى.",
   "filesCopyFailed": "فشل نسخ الملفات. حاول مرة اخرى.",
   "filesRemoveFailed": "فشل في إزالة الملفات. حاول مرة اخرى.",
-  "filesAddFailed": "فشل في إضافة الملفات إلى IPFS. حاول مرة اخرى.",
+  "filesAddFailed": "فشل في إضافة الملفات إلى IFShare. حاول مرة اخرى.",
   "filesEventFailed": "فشل معالجة طلبك. حاول مرة اخرى.",
   "couldntConnectToPeer": "تعذر الاتصال بالنظير المقدم.",
   "connectedToPeer": "تم الاتصال بالنظير المقدم بنجاح.",
@@ -24,7 +24,7 @@
   },
   "desktopToggleErrors": {
     "autoLaunch": "تعذر تبديل خيار التشغيل عند بدء التشغيل.",
-    "ipfsOnPath": "تعذر تبديل أدوات سطر أوامر IPFS.",
+    "ipfsOnPath": "تعذر تبديل أدوات سطر أوامر IFShare.",
     "downloadHashShortcut": "تعذر تبديل اختصار تجزئة التنزيل.",
     "screenshotShortcut": "تعذر تبديل اختصار لقطة الشاشة."
   }

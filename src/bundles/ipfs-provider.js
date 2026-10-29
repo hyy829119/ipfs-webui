@@ -504,7 +504,7 @@ const actions = {
     if (ipfs) {
       return await ipfs.files.stat(path)
     } else {
-      throw Error('IPFS is not initialized')
+      throw Error('IFShare is not initialized')
     }
   },
 

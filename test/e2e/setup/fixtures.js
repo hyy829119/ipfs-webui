@@ -24,6 +24,16 @@ export function generateUUID () {
  * Extended test fixture with coverage collection and shared utilities.
  */
 export const test = baseTest.extend({
+  // Workspace tests start with a real login; sessionStorage is scoped to each page.
+  page: async ({ page }, use) => {
+    await page.goto('/#/login')
+    await page.getByLabel('Username', { exact: true }).fill('admin')
+    await page.getByLabel('Password', { exact: true }).fill('123456')
+    await page.getByRole('button', { name: 'Enter workspace' }).click()
+    await expect(page.getByRole('button', { name: 'Sign out' })).toBeVisible()
+    await use(page)
+  },
+
   // Coverage collection context (same as original coverage.js)
   context: async ({ context }, use) => {
     await context.addInitScript(() =>
@@ -101,7 +111,7 @@ export const test = baseTest.extend({
    */
   statusPage: async ({ page }, use) => {
     await page.goto('/#/')
-    await expect(page.getByText('Connected to IPFS')).toBeVisible()
+    await expect(page.getByText('Connected to IFShare')).toBeVisible()
     await use(page)
   },
 

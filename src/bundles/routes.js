@@ -8,9 +8,16 @@ import AnalyticsPage from '../settings/AnalyticsPage.js'
 import WelcomePage from '../welcome/LoadableWelcomePage.js'
 import BlankPage from '../blank/BlankPage.js'
 import ExplorePageRenderer from '../explore/explore-page-renderer.jsx'
-import DiagnosticsPage from '../diagnostics/loadable-diagnostics-page'
+import { useEffect } from 'react'
+import { connect } from 'redux-bundler-react'
+
+const RedirectToStatus = connect('doUpdateHash', ({ doUpdateHash }) => {
+  useEffect(() => { doUpdateHash('/') }, [doUpdateHash])
+  return null
+})
 
 export default createRouteBundle({
+  '/login': RedirectToStatus,
   '/explore': ExplorePageRenderer,
   '/explore*': ExplorePageRenderer,
   '/files*': FilesPage,
@@ -22,7 +29,7 @@ export default createRouteBundle({
   '/settings*': SettingsPage,
   '/welcome': WelcomePage,
   '/blank': BlankPage,
-  '/diagnostics*': DiagnosticsPage,
+  '/diagnostics*': RedirectToStatus,
   '/status*': StatusPage,
   '/': StatusPage,
   '': StatusPage

@@ -31,16 +31,16 @@
     "checkRetrieval": "Sprawdź dostępność"
   },
   "cliModal": {
-    "description": "Wklej poniższe polecenie do terminala, aby wykonać to zadanie w Kubo z linii poleceń. Pamiętaj, że musisz zastąpić symbole zastępcze swoimi konkretnymi parametrami."
+    "description": "Wklej poniższe polecenie do terminala, aby wykonać to zadanie w IFShare z linii poleceń. Pamiętaj, że musisz zastąpić symbole zastępcze swoimi konkretnymi parametrami."
   },
   "nav": {
     "bugsLink": "Zgłoś błąd",
     "codeLink": "Zobacz kod"
   },
   "status": {
-    "connectedToIpfs": "Połączono z IPFS",
-    "connectingToIpfs": "Łączenie z IPFS…",
-    "couldNotConnect": "Nie można połączyć się z Kubo RPC"
+    "connectedToIpfs": "Połączono z IFShare",
+    "connectingToIpfs": "Łączenie z IFShare…",
+    "couldNotConnect": "Nie można połączyć się z IFShare RPC"
   },
   "apiAddressForm": {
     "placeholder": "Wprowadź URL (http://user:password@127.0.0.1:5001) lub Multiaddr (/ip4/127.0.0.1/tcp/5001)"
@@ -63,8 +63,8 @@
     "addresses": "Adresy",
     "advanced": "Zaawansowane",
     "agent": "Agent",
-    "api": "Kubo RPC",
-    "apiAddress": "Adres Kubo RPC API",
+    "api": "IFShare RPC",
+    "apiAddress": "Adres IFShare RPC API",
     "blocks": "Bloki",
     "connection": "Połączenie",
     "downSpeed": "Przychodzące",

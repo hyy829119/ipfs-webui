@@ -36,16 +36,6 @@ const FileNotFound = ({ path, error }: FileNotFoundProps) => {
             Try <a className='link blue' href='#/explore'>inspecting the path</a> (or its parent) in DAG Explorer to debug the issue.
           </Trans>
         </li>
-        <li className='mb2'>
-          <Trans i18nKey='previewNotFound.helpListItemRetrieval' t={t}>
-            If you have a CID you believe should work, <a className='link blue' href='#/diagnostics/retrieval'>run Retrieval Diagnostics</a>.
-          </Trans>
-        </li>
-        <li className='mb2'>
-          <Trans i18nKey='previewNotFound.helpListItemForums' t={t}>
-            Visit the <a className='link blue' href='https://discuss.ipfs.tech' target='_blank' rel='noopener noreferrer'>Discussion Forums</a> to ask for help.
-          </Trans>
-        </li>
       </ul>
       <a href='#/files'>
         <Button className='mt3 tc' bg='bg-teal'>{t('previewNotFound.backButton')}</Button>

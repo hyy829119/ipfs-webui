@@ -2,7 +2,7 @@ import React from 'react'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import { connect } from 'redux-bundler-react'
-import { withTranslation, Trans } from 'react-i18next'
+import { withTranslation } from 'react-i18next'
 import { useForm } from 'react-hook-form'
 
 // Components
@@ -40,7 +40,6 @@ const PinningManagerServiceModal = ({ t, onLeave, onSuccess, className, service,
       <form onSubmit={handleSubmit(onSubmit)} onChange={cleanErrors}>
         <ModalBody>
           <p>{ t('pinningServiceModal.title') }</p>
-          {complianceReportUrl && (<a className="mb1 tl f7 charcoal-muted no-underline underline-hover" target="_blank" rel="noreferrer" href={complianceReportUrl}>{t('pinningServiceModal.complianceLabel', { nickname })}</a>) }
 
           <div className='pa2 pinningManagerServiceModalContainer'>
             { service.icon && service.name && (
@@ -104,12 +103,6 @@ const PinningManagerServiceModal = ({ t, onLeave, onSuccess, className, service,
           <div>
             { errors.apiValidation && <p className='red f5 ttc'>{ errors.apiValidation.message}</p> }
           </div>
-          <p className='f6'>
-            <Trans i18nKey="pinningServiceModal.description" t={t}>
-              Want to make your custom pinning service available to others?
-              <a href='https://docs.ipfs.tech/how-to/work-with-pinning-services/' rel='noopener noreferrer' target="_blank" className='pv0 dib link' type='link'>Learn how.</a>
-            </Trans>
-          </p>
         </ModalBody>
 
         <ModalActions justify="center" className='flex flex-row-reverse'>

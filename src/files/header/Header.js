@@ -59,7 +59,7 @@ class Header extends React.Component {
     const pinsInQueue = pendingPins.length + failedPins.length + completedPins.length
     const filefound = files && files.type !== 'not-found'
     return (
-      <div className='db flex-l justify-between items-center mb3'>
+      <div className='files-toolbar db flex-l justify-between items-center mb3'>
         <div className='flex items-center w-100 justify-between mr3'>
           <div className='breadheader overflow-hidden mr1'>
             <Breadcrumbs className="joyride-files-breadcrumbs" path={filefound ? files.path : '/404'}
@@ -68,7 +68,7 @@ class Header extends React.Component {
         </div>
         { children }
         </div>
-        <div className='flex justify-between items-center bg-snow-muted joyride-files-add'>
+        <div className='files-toolbar-actions flex justify-between items-center joyride-files-add'>
           { pinsInQueue > 0 && <a href='#/pins' alt={t('pinningQueue')} title={t('pinningQueue')} className='ml3'>
             <GlyphPinCloud
               style={{ width: '3rem' }}

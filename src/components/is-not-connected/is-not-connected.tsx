@@ -6,6 +6,7 @@ import Box from '../box/Box.js'
 import Shell from '../shell/Shell.js'
 import GlyphAttention from '../../icons/GlyphAttention.js'
 import { useBridgeSelector } from '../../helpers/context-bridge'
+import { CLI_NAME } from '../../constants/branding.js'
 
 const TABS = {
   UNIX: 'unix',
@@ -17,7 +18,7 @@ const IsNotConnected = () => {
   const { t } = useTranslation('welcome')
   const isSameOrigin = useBridgeSelector('selectIsSameOrigin')
   const [activeTab, setActiveTab] = useState(TABS.UNIX)
-  const defaultDomains = ['http://localhost:3000', 'http://127.0.0.1:5001', 'https://webui.ipfs.io']
+  const defaultDomains = ['http://localhost:3000', 'http://127.0.0.1:5001']
   const origin = window.location.origin
   const addOrigin = defaultDomains.indexOf(origin) === -1
 
@@ -27,22 +28,19 @@ const IsNotConnected = () => {
         <GlyphAttention style={{ height: 76 }} className='fill-red mr' role='presentation' />
         <h1 className='montserrat fw4 charcoal ma0 f3 red'>{t('app:status.couldNotConnect')}</h1>
       </div>
-      <Trans i18nKey='notConnected.paragraph1' t={t}>
-        <p className='fw6 mb3'>Check out the installation guide in the <a className='link blue' href='https://docs.ipfs.tech/install/command-line-quick-start/' target='_blank' rel='noopener noreferrer'>IPFS Docs</a>, or try these common fixes:</p>
-      </Trans>
       <ol className='pl3 pt2'>
         <Trans i18nKey='notConnected.paragraph2' t={t}>
-          <li className='mb3'>Is your IPFS daemon running? Try starting or restarting Kubo from your terminal:</li>
+          <li className='mb3'>Is your IFShare node running? Try starting or restarting IFShare from your terminal:</li>
         </Trans>
         <Shell title='Any Shell'>
-          <code className='db'><b className='no-select'>$ </b>ipfs daemon</code>
+          <code className='db'><b className='no-select'>$ </b>{CLI_NAME} daemon</code>
           <code className='db'>Initializing daemon...</code>
           <code className='db'>RPC API server listening on /ip4/127.0.0.1/tcp/5001</code>
         </Shell>
         { !isSameOrigin && (
           <div>
             <Trans i18nKey='notConnected.paragraph3' t={t}>
-              <li className='mb3 mt4'>Is your Kubo RPC API configured to allow <a className='link blue' href='https://github.com/ipfs/ipfs-webui#configure-kubo-rpc-api-cors-headers'>cross-origin (CORS) requests</a>? If not, run these commands and then start your daemon from the terminal:</li>
+              <li className='mb3 mt4'>Is your IFShare RPC API configured to allow <span>cross-origin (CORS) requests</span>? If not, run these commands and then start your daemon from the terminal:</li>
             </Trans>
             <div className='br1 overflow-hidden'>
               <div className='f7 mb0 sans-serif charcoal pv1 pl2 bg-black-20 flex items-center overflow-x-auto'>
@@ -59,20 +57,20 @@ const IsNotConnected = () => {
               <div className='bg-black-70 snow pa2 f7 lh-copy monospace nowrap overflow-x-auto'>
                 { activeTab === TABS.UNIX && (
                   <div>
-                    <code className='db'><b className='no-select'>$ </b>ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '[{addOrigin && `"${origin}", `}"{defaultDomains.join('", "')}"]'</code>
-                    <code className='db'><b className='no-select'>$ </b>ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "POST"]'</code>
+                    <code className='db'><b className='no-select'>$ </b>{CLI_NAME} config --json API.HTTPHeaders.Access-Control-Allow-Origin '[{addOrigin && `"${origin}", `}"{defaultDomains.join('", "')}"]'</code>
+                    <code className='db'><b className='no-select'>$ </b>{CLI_NAME} config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "POST"]'</code>
                   </div>
                 )}
                 { activeTab === TABS.POWERSHELL && (
                   <div>
-                    <code className='db'><b className='no-select'>$ </b>ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '[{addOrigin && `\\"${origin}\\", `}\"{defaultDomains.join('\\", \\"')}\"]'</code>
-                    <code className='db'><b className='no-select'>$ </b>ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '[\"PUT\", \"POST\"]'</code>
+                    <code className='db'><b className='no-select'>$ </b>{CLI_NAME} config --json API.HTTPHeaders.Access-Control-Allow-Origin '[{addOrigin && `\\"${origin}\\", `}\"{defaultDomains.join('\\", \\"')}\"]'</code>
+                    <code className='db'><b className='no-select'>$ </b>{CLI_NAME} config --json API.HTTPHeaders.Access-Control-Allow-Methods '[\"PUT\", \"POST\"]'</code>
                   </div>
                 )}
                 { activeTab === TABS.WINDOWS && (
                   <div>
-                    <code className='db'><b className='no-select'>$ </b>ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin "[{addOrigin && `"""${origin}""", `}"""{defaultDomains.join('""", """')}"""]"</code>
-                    <code className='db'><b className='no-select'>$ </b>ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods "["""PUT""", """POST"""]"</code>
+                    <code className='db'><b className='no-select'>$ </b>{CLI_NAME} config --json API.HTTPHeaders.Access-Control-Allow-Origin "[{addOrigin && `"""${origin}""", `}"""{defaultDomains.join('""", """')}"""]"</code>
+                    <code className='db'><b className='no-select'>$ </b>{CLI_NAME} config --json API.HTTPHeaders.Access-Control-Allow-Methods "["""PUT""", """POST"""]"</code>
                   </div>
                 )}
               </div>
@@ -80,7 +78,7 @@ const IsNotConnected = () => {
           </div>
         )}
         <Trans i18nKey='notConnected.paragraph4' t={t}>
-          <li className='mt4 mb3'>Is your Kubo RPC on a port other than 5001? If your node is configured with a <a className='link blue' href='https://github.com/ipfs/kubo/blob/master/docs/config.md#addresses' target='_blank' rel='noopener noreferrer'>custom RPC API address</a>, enter it here.</li>
+          <li className='mt4 mb3'>Is your IFShare RPC on a port other than 5001? If your node is configured with a <span>custom RPC API address</span>, enter it here.</li>
         </Trans>
         <ApiAddressForm />
       </ol>

@@ -8,8 +8,6 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { Modal, ModalActions, ModalBody } from '../../../components/modal/modal'
 import { SHARE_LINK_TYPE } from '../../../lib/share-link.js'
 
-const COMPANION_URL = 'https://docs.ipfs.tech/install/ipfs-companion/'
-
 const ShareModal = ({ t, tReady, onLeave, link, type, localLink, subdomainLocalLink, className, ...props }) => {
   const [useLocalLink, setUseLocalLink] = useState(false)
   const [useSubdomains, setUseSubdomains] = useState(false)
@@ -47,7 +45,7 @@ const ShareModal = ({ t, tReady, onLeave, link, type, localLink, subdomainLocalL
   } else if (type === SHARE_LINK_TYPE.NATIVE) {
     description = (
       <Trans i18nKey='shareModal.descriptionNative' t={t}>
-        This native IPFS address opens in apps and browsers that support IPFS, like the <a className='link blue' href={COMPANION_URL} target='_blank' rel='noopener noreferrer'>IPFS Companion</a> extension.
+        This native address opens in compatible apps or browsers with <span>protocol support</span>.
       </Trans>
     )
   }
