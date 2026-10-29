@@ -86,7 +86,7 @@ export const Preview = ({ t, name, cid, size, availableGatewayUrl, previewLocalG
           </div>
         </div>
         <div className='file-preview-actions'>
-          <Button onClick={onDownload}>{t('app:actions.download')}</Button>
+          <Button className='file-preview-download' minWidth={0} onClick={onDownload}>{t('app:actions.download')}</Button>
           {onClose && <button className='file-preview-close' onClick={onClose} aria-label={t('app:actions.close')}><GlyphCancel aria-hidden='true' /></button>}
         </div>
       </header>

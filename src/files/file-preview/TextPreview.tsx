@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import AceEditor from 'react-ace'
 import { getTextMode } from './preview-type'
 import { useTranslation } from 'react-i18next'
@@ -44,13 +44,12 @@ import 'brace/mode/makefile.js'
 
 export default function TextPreview ({ name, text }: { name: string, text: string }) {
   const { t } = useTranslation('files')
-  const [wrap, setWrap] = useState(false)
   const mode = getTextMode(name)
   return (
     <div className='file-preview-editor'>
       <div className='file-preview-editor-toolbar'>
         <span>{mode === 'text' ? t('preview.text') : mode.toUpperCase()}</span>
-        <label><input type='checkbox' checked={wrap} onChange={e => setWrap(e.target.checked)} /> {t('preview.wrap')}</label>
+        <span>{t('preview.wrap')}</span>
       </div>
       <AceEditor
         name='ifshare-file-preview'
@@ -58,7 +57,7 @@ export default function TextPreview ({ name, text }: { name: string, text: strin
         mode={mode}
         theme='chrome'
         readOnly
-        wrapEnabled={wrap}
+        wrapEnabled
         width='100%'
         height='min(65vh, 720px)'
         fontSize={14}

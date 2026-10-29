@@ -17,6 +17,7 @@ export class JsonEditor extends React.Component {
           readOnly={readOnly}
           onChange={onChange}
           mode='json'
+          wrapEnabled
           theme='ipfs_dark'
           width='100%'
           height={height + 'px'}

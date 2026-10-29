@@ -79,8 +79,7 @@ const SortDropdown = ({ currentSort, onSortChange, t }) => {
     <div className="relative" ref={dropdownRef}>
       <button
         ref={buttonRef}
-        className="flex items-center justify-between pa2 bg-white ba b--light-gray br2 pointer hover-bg-near-white"
-        style={{ minWidth: '140px' }}
+        className="files-sort-button flex items-center justify-between pa2 bg-white ba b--light-gray br2 pointer hover-bg-near-white"
         aria-label={t('sortFiles')}
         onClick={() => setIsOpen(!isOpen)}
       >

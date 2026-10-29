@@ -1,3 +1,19 @@
+.Breadcrumbs, .breadcrumbs-items, .breadcrumbs-item {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.breadcrumbs-item > span {
+    max-width: 100%;
+}
+
+.BreadcrumbsButton {
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    text-align: left;
+}
+
 .BreadcrumbsButton::after {
     content: '';
     position: absolute;

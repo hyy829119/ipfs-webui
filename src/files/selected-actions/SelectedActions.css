@@ -1,10 +1,38 @@
 .selectedActions {
     width: 100%;
+    max-width: 100%;
 }
 
 @media only screen and (min-width: 60em) {
     .selectedActions {
-        width: calc(100% - 148px)
+        width: calc(100% - var(--if-sidebar, 220px));
+    }
+}
+
+@media (max-width: 1200px) {
+    .selectedActions > .flex {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .selectedActions [role="menu"] {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(72px, 100%), 1fr));
+        gap: 8px;
+        order: 1;
+        width: 100%;
+    }
+
+    .selectedActions [role="menuitem"] {
+        min-width: 0;
+        margin: 0;
+        padding: 4px;
+        overflow-wrap: anywhere;
+    }
+
+    .selectedActions [role="menuitem"] svg {
+        width: 32px;
+        height: 32px;
     }
 }
 

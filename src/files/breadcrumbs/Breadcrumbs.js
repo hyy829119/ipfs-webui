@@ -86,11 +86,11 @@ const Breadcrumbs = ({ t, tReady, path, onClick, className, onContextMenuHandle,
 
   return (
     <nav aria-label={t('breadcrumbs')} className={classNames('Breadcrumbs flex items-center sans-serif overflow-hidden sticky top-0', className)} {...props}>
-      <div className='nowrap overflow-hidden relative flex flex-wrap' ref={ anchors }>
+      <div className='breadcrumbs-items relative flex flex-wrap' ref={ anchors }>
         <div className={`absolute left-0 top-0 h-100 w1 ${overflows ? '' : 'dn'}`} style={{ background: 'linear-gradient(to right, #ffffff 0%, transparent 100%)' }} />
 
         { bread.map((link, index) => (
-          <div key={`${index}link`}>
+          <div className='breadcrumbs-item' key={`${index}link`}>
             <DropableBreadcrumb index={index} link={link} immutable={isImmutable}
               onAddFiles={onAddFiles} onMove={onMove} onClick={onClick} onContextMenuHandle={onContextMenuHandle} getPathInfo={doGetPathInfo} checkIfPinned={doCheckIfPinned} />
             { index !== bread.length - 1 && <span className='dib pr1 pv1 mid-gray v-top'>/</span>}

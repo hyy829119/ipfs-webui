@@ -18,13 +18,14 @@
   .navbar-brand { padding: 18px 24px 12px; }
   .navbar-monogram { width: 32px; height: 32px; border-radius: 9px; font-size: 14px; }
   .navbar-brand-name { font-size: 21px; }
-  .navbar-links { flex-direction: row; gap: 6px; padding: 0 16px 12px; overflow-x: auto; }
-  .navbar-item { justify-content: center; flex: 1; min-height: 42px; padding: 8px 14px; gap: 7px; }
+  .navbar-links { flex-direction: row; flex-wrap: wrap; gap: 6px; padding: 0 16px 12px; }
+  .navbar-item { justify-content: center; flex: 1 1 70px; min-width: 0; min-height: 44px; padding: 8px 14px; gap: 7px; }
+  .navbar-item-label { white-space: normal; overflow-wrap: anywhere; text-align: center; }
   .navbar-item-icon { width: 22px; height: 22px; }
   .navbar-footer { display: none; }
 }
 @media (max-width: 480px) {
   .navbar-links { gap: 4px; padding: 0 10px 10px; }
-  .navbar-item { flex-direction: column; gap: 3px; padding: 8px 10px; }
+  .navbar-item { flex-basis: 48px; flex-direction: column; gap: 3px; padding: 8px 6px; }
   .navbar-item-label { font-size: 11px; }
 }

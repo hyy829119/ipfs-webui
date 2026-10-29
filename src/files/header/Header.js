@@ -25,7 +25,7 @@ const size = (s) => humanSize(s, {
   spacer: ''
 })
 
-class Header extends React.Component {
+export class Header extends React.Component {
   handleContextMenu = (ev) => {
     const pos = this.dotsWrapper.getBoundingClientRect()
     this.props.handleContextMenu(ev, 'TOP', {
@@ -59,14 +59,14 @@ class Header extends React.Component {
     const pinsInQueue = pendingPins.length + failedPins.length + completedPins.length
     const filefound = files && files.type !== 'not-found'
     return (
-      <div className='files-toolbar db flex-l justify-between items-center mb3'>
-        <div className='flex items-center w-100 justify-between mr3'>
-          <div className='breadheader overflow-hidden mr1'>
+      <div className='files-toolbar mb3'>
+        <div className='files-toolbar-navigation'>
+          <div className='breadheader'>
             <Breadcrumbs className="joyride-files-breadcrumbs" path={filefound ? files.path : '/404'}
             onClick={onNavigate} onContextMenuHandle={(...args) => this.handleBreadCrumbsContextMenu(...args)}
             onAddFiles={this.props.onAddFiles} onMove={this.props.onMove}/>
         </div>
-        { children }
+        { files?.type === 'directory' && children }
         </div>
         <div className='files-toolbar-actions flex justify-between items-center joyride-files-add'>
           { pinsInQueue > 0 && <a href='#/pins' alt={t('pinningQueue')} title={t('pinningQueue')} className='ml3'>
@@ -105,7 +105,7 @@ class Header extends React.Component {
                     color='white'
                     fill='fill-aqua'
                     className='f6 relative flex justify-center items-center tc'
-                    minWidth='100px'
+                    minWidth={0}
                     disabled={!files || filesPathInfo.isRoot || files.type === 'unknown'}
                     onClick={this.handleContextMenu}>
                     <GlyphDots className='w1 mr2' />

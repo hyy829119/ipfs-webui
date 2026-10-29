@@ -368,8 +368,8 @@ const FilesPage = ({
         onCliTutorMode={() => showModal(CLI_TUTOR_MODE)}
         handleContextMenu={(...args) => handleContextMenu(...args, true)}
       >
-        <div className="flex items-center justify-end">
-          <div className="mr3">
+        <div className="files-view-controls">
+          <div className="files-sort-control">
             <SortDropdown
               currentSort={filesSorting || { by: 'name', asc: true }}
               onSortChange={doFilesUpdateSorting}
@@ -381,19 +381,15 @@ const FilesPage = ({
             onClick={toggleViewMode}
             title={viewMode === 'list' ? t('switchToGridView') : t('switchToListView')}
             aria-label={viewMode === 'list' ? t('switchToGridView') : t('switchToListView')}
-            style={{
-              height: '24px'
-            }}
           >
             {viewMode === 'list' ? <ViewList width="24" height="24" /> : <ViewModule width="24" height="24" />}
           </button>
           <button
-            className="pointer selected-item ml2"
+            className="pointer selected-item"
             onClick={toggleSearch}
             title={showSearch ? t('hideSearch') : t('showSearch')}
             aria-label={showSearch ? t('hideSearch') : t('showSearch')}
             aria-pressed={showSearch}
-            style={{ height: '24px' }}
           >
             <GlyphSearch width="24" height="24" fill="currentColor" aria-hidden="true" />
           </button>

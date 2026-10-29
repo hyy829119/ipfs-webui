@@ -9,6 +9,15 @@
   --if-sidebar: 220px;
 }
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+#root, .ifshare-app { min-width: 0; max-width: 100%; }
+.ifshare-app { overflow-wrap: anywhere; }
+
 body {
   color: var(--if-ink);
   background: var(--if-bg);
@@ -20,13 +29,14 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 
-.app-layout { display: flex; min-height: 100vh; }
+.app-layout { display: flex; min-height: 100vh; max-width: 100%; }
 .app-workspace { flex: 1; min-width: 0; }
 .app-topbar {
   position: sticky;
   top: 0;
   z-index: 25;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 24px;
   min-height: 100px;
@@ -35,16 +45,20 @@ body {
   border-bottom: 1px solid var(--if-line);
   -webkit-app-region: drag;
 }
-.app-page-heading { flex: 1; min-width: 110px; }
-.app-eyebrow { display: flex; gap: 10px; color: var(--if-muted); font-size: 11px; letter-spacing: 0.03em; }
+.app-page-heading { flex: 1 1 110px; min-width: 0; }
+.app-eyebrow { display: flex; flex-wrap: wrap; gap: 10px; color: var(--if-muted); font-size: 11px; letter-spacing: 0.03em; }
 .app-eyebrow > span { color: #c4cddd; }
 .app-page-heading h1 { margin: 7px 0 0; font-size: 22px; font-weight: 650; letter-spacing: -0.04em; }
-.app-search { width: min(40%, 460px); min-width: 220px; }
-.app-topbar-actions { display: flex; align-items: center; gap: 14px; -webkit-app-region: no-drag; }
+.app-search { flex: 1 1 220px; max-width: 460px; min-width: 0; }
+.app-topbar-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; -webkit-app-region: no-drag; }
 .app-topbar-actions > button { display: flex; padding: 8px; margin: 0; border-radius: 10px; }
 .app-topbar-actions > button:hover { background: var(--if-primary-soft); }
-.app-content { padding: 30px 36px 48px; max-width: 1480px; margin: 0 auto; }
+.app-content { padding: 30px 36px 48px; min-width: 0; width: 100%; max-width: 1480px; margin: 0 auto; }
+.app-content > * { min-width: 0; max-width: 100%; }
 .app-content > .mw9 { max-width: none; }
+.app-content pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+.app-content .flex-auto { min-width: 0; }
+.app-content input, .app-content textarea, .app-content select { min-width: 0; max-width: 100%; }
 .appOverlay { background: rgba(53, 104, 236, 0.12); border: 2px dashed var(--if-primary); z-index: 40; }
 
 .connection-pill {
@@ -111,16 +125,24 @@ input[type="checkbox"], input[type="radio"] { accent-color: var(--if-primary); }
 .Button:disabled { opacity: 0.65; background: #e9eef6; color: #9aa6b9; fill: #9aa6b9; box-shadow: none; }
 a:focus-visible, button:focus-visible, .Button:focus-visible { outline: 2px solid #7295ef; outline-offset: 3px; }
 
-.app-search [data-id="FilesExploreForm"] > .flex { border: 1px solid var(--if-line); border-radius: 11px; background: #f6f8fc; padding: 4px; }
+.app-search [data-id="FilesExploreForm"] > .flex { min-width: 0; border: 1px solid var(--if-line); border-radius: 11px; background: #f6f8fc; padding: 4px; }
+.app-search [data-id="FilesExploreForm"] .flex-auto { min-width: 0; }
 .app-search [data-id="FilesExploreForm"] .mb2 { margin-bottom: 0; }
-.app-search input.input-reset { min-height: 32px; background: transparent; border: 0; box-shadow: none; padding: 6px 10px; font-size: 12px; }
+.app-search input.input-reset:not([type="checkbox"]):not([type="radio"]) { min-width: 0; min-height: 32px; background: transparent; border: 0; box-shadow: none; padding: 6px 10px; font-size: 12px; }
 .app-search .ExploreFormButton { min-height: 32px; padding: 3px 8px; border-radius: 7px !important; max-width: 36px; background: transparent; color: var(--if-primary); }
 .app-search .ExploreFormButton:last-of-type { max-width: 36px; }
 .app-search .ExploreFormButton:hover:not(:disabled), .app-search .ExploreFormButton:focus-visible { max-width: 150px; background: var(--if-primary-soft); }
 .app-search .ExploreFormButton:disabled { color: #a4aec0; background: transparent; opacity: 1; }
 
-.files-toolbar { background: white; border: 1px solid var(--if-line); border-radius: 16px; padding: 14px 18px; gap: 12px; }
-.files-toolbar-actions { flex-shrink: 0; border-left: 1px solid var(--if-line); padding-left: 10px; }
+.files-toolbar { display: flex; flex-wrap: wrap; align-items: center; background: white; border: 1px solid var(--if-line); border-radius: 16px; padding: 14px 18px; gap: 12px; }
+.files-toolbar-navigation { display: flex; flex: 1 1 320px; flex-wrap: wrap; align-items: center; gap: 12px; min-width: 0; }
+.files-toolbar .breadheader { flex: 1 1 160px; min-width: 0; }
+.files-view-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; min-width: 0; max-width: 100%; }
+.files-sort-control { flex: 1 1 140px; min-width: 0; }
+.files-sort-button { width: 100%; min-height: 44px; }
+.files-view-controls > button { display: grid; place-items: center; flex: 0 0 44px; width: 44px; height: 44px; border-radius: 8px; }
+.files-view-controls > button:hover { background: var(--if-primary-soft); }
+.files-toolbar-actions { flex-wrap: wrap; max-width: 100%; border-left: 1px solid var(--if-line); padding-left: 10px; }
 .files-toolbar-actions .pa3 { padding: 10px; }
 .files-toolbar-actions .f4 { font-size: 17px; font-weight: 600; }
 .files-toolbar-actions .ttu { font-size: 10px; text-transform: none; margin-top: 4px; }
@@ -137,12 +159,12 @@ a:focus-visible, button:focus-visible, .Button:focus-visible { outline: 2px soli
 .ifshare-app .peersTableItem { border-color: var(--if-line); }
 .ifshare-app .ReactVirtualized__Table__headerRow { color: var(--if-muted); background: #fafbfe; font-size: 12px; }
 
-.status-summary { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 3px 0 20px; border-bottom: 1px solid var(--if-line); margin-bottom: 10px; }
+.status-summary { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; padding: 3px 0 20px; border-bottom: 1px solid var(--if-line); margin-bottom: 10px; }
 .status-summary-heading { display: flex; align-items: center; gap: 12px; }
 .status-summary-mark { width: 44px; height: 44px; border-radius: 13px; display: grid; place-items: center; background: #edfaf5; color: #16856a; font-size: 20px; }
 .status-summary h2 { margin: 0; font-size: 18px; font-weight: 600; }
-.status-metrics { display: flex; gap: 14px; }
-.status-metric { display: flex; flex-direction: column; gap: 6px; padding: 14px 20px; min-width: 148px; border-radius: 12px; background: #f6f8fc; text-decoration: none; }
+.status-metrics { display: flex; flex-wrap: wrap; gap: 14px; max-width: 100%; }
+.status-metric { display: flex; flex: 1 1 148px; flex-direction: column; gap: 6px; padding: 14px 20px; min-width: 0; border-radius: 12px; background: #f6f8fc; text-decoration: none; }
 .status-metric-label { font-size: 11px; color: var(--if-muted); }
 .status-metric-value { font-size: 22px; font-weight: 650; color: var(--if-ink); letter-spacing: -0.04em; }
 
@@ -158,12 +180,12 @@ a:focus-visible, button:focus-visible, .Button:focus-visible { outline: 2px soli
   .connection-pill > span:last-child { display: none; }
   .connection-pill { padding: 10px; }
   .files-toolbar { flex-direction: column; align-items: stretch; }
+  .files-toolbar-navigation { flex-basis: auto; }
   .files-toolbar-actions { border-left: 0; border-top: 1px solid var(--if-line); padding: 8px 0 0; }
 }
 @media (max-width: 959px) {
   .app-layout { flex-direction: column; }
   .app-topbar { position: static; min-height: 90px; }
-  .app-search { width: 48%; }
   .status-summary { flex-wrap: wrap; }
   .status-metrics { width: 100%; }
   .status-metric { flex: 1; }
@@ -171,12 +193,14 @@ a:focus-visible, button:focus-visible, .Button:focus-visible { outline: 2px soli
 @media (max-width: 600px) {
   .app-topbar { padding: 18px; flex-wrap: wrap; gap: 16px; }
   .app-page-heading h1 { font-size: 20px; }
-  .app-search { width: 100%; order: 3; }
+  .app-search { flex-basis: 100%; max-width: none; order: 3; }
   .app-content { padding: 18px 14px 30px; }
   .ifshare-app .ifshare-card { padding: 18px; }
   .status-metric { min-width: 0; padding: 12px; }
   .status-metric-value { font-size: 20px; }
   .files-toolbar { padding: 12px; }
+  .files-toolbar .breadheader, .files-view-controls { flex-basis: 100%; width: 100%; }
+  .files-toolbar-actions .pa3 { padding: 8px 4px; }
   [data-testid="ipfs-modal"] { width: calc(100% - 24px); }
 }
 @media (prefers-reduced-motion: reduce) {
