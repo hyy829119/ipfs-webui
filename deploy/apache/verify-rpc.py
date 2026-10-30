@@ -26,10 +26,13 @@ jar = http.cookiejar.CookieJar()
 client = urllib.request.build_opener(
     urllib.request.HTTPCookieProcessor(jar),
     urllib.request.HTTPSHandler(context=ssl.create_default_context(cafile=args.ca_file)))
+client.addheaders = [('User-Agent', 'Mozilla/5.0 IFShare-Deployment-Check')]
 
 
 def request(path, data=None, request_origin=origin, content_type=None):
-    headers = {'Origin': request_origin}
+    # Match browser fetch: after TLS termination Kubo must not reject the
+    # external HTTPS Referer forwarded by the proxy.
+    headers = {'Origin': request_origin, 'Referer': origin + '/'}
     if content_type:
         headers['Content-Type'] = content_type
     req = urllib.request.Request(base + path, data=data, headers=headers)

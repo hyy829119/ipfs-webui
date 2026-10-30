@@ -55,9 +55,11 @@ Open `https://111.10.164.175:3000/?lng=zh-CN#/login`. The public port 3000 must 
 
 The IFShare daemon must already run with its RPC listener on `127.0.0.1:5001`. Apache forwards `/api/v0/` to that listener after checking the server session. The daemon does not need a public RPC port or a restart for this proxy configuration.
 
-`npm run build:server` enables server authentication and uses the page origin as the RPC address, including when the browser previously saved a localhost API address. The existing login form submits to Apache's form authentication handler; session cookies are encrypted, Secure, HttpOnly and SameSite=Strict, with an eight-hour lifetime. Logout clears the browser session. Unauthenticated RPC requests return 401, and requests bearing an unexpected Origin return 403. Apache removes the verified Origin header before forwarding to the loopback RPC listener.
+`npm run build:server` enables server authentication and uses the page origin as the RPC address, including when the browser previously saved a localhost API address. The existing login form submits to Apache's form authentication handler; session cookies are encrypted, Secure, HttpOnly and SameSite=Strict, with an eight-hour lifetime. Logout clears the browser session. Unauthenticated RPC requests return 401, and requests bearing an unexpected Origin return 403. Apache validates the external Origin and then normalizes request headers for the loopback RPC listener.
 
 The configured allowed origin is `https://111.10.164.175:3000`; update the Origin checks and certificate if the public URL changes. The plain `npm start` and `npm run build` flows retain the local preview login; use `build:server` with this Apache configuration.
+
+After authorization, Apache sets the upstream `Origin` to `http://127.0.0.1:5001` and removes the external `Referer`. Kubo independently checks the Referer, so forwarding the browser's new HTTPS Referer can cause RPC 403 responses even when login succeeds. Removing both headers also fails because Kubo rejects browser POST requests without either header. The verification script includes both external headers and a Mozilla User-Agent to cover the actual browser path. No daemon CORS change or restart is needed for this same-origin deployment.
 
 The gateway on `127.0.0.1:8080` is separate from the RPC listener. Apache forwards authenticated `/ipfs/` and `/ipns/` GET/HEAD requests to it, including byte-range requests for video seeking. The existing public port 3000 is sufficient; do not expose port 8080 separately. Content responses have a restrictive CSP sandbox because files share the WebUI host. They cannot execute scripts with the WebUI's privileges. The daemon's repository and private-network configuration stay unchanged.
 
@@ -129,3 +131,17 @@ npm run typecheck
 The real WASM tests use a disk-backed OPFS adapter with ZIP, RAR 4/5, TAR.GZ, Chinese paths, empty files, pagination and 128 MiB output. They do not substitute for checking OPFS support in the target browser. See [OPFS requirements and quotas](https://developer.mozilla.org/en-US/docs/Web/API/File_System_API/Origin_private_file_system).
 
 The extraction engine is unmodified `7z-wasm` 1.2.0 (7-Zip 24.09), loaded as separate versioned assets. Its LGPL and unRAR notices accompany the engine. Source and build instructions: [7z-wasm](https://github.com/use-strict/7z-wasm), [7-Zip source](https://www.7-zip.org/download.html).
+
+## Archive and HTTPS deployment — 2026-10-30
+
+- Public URL: `https://111.10.164.175:3000/`; HTTP redirects to HTTPS.
+- Active static release: `/var/www/ifshare/releases/20261030-archive-https-2b20cf09`.
+- Release archive SHA-256: `3eb32f5bb0af9278a7eae5c3e0e25d0b21980bf47c40515b90966c60361eec39`.
+- Previous static release: `/var/www/ifshare/releases/20261030-responsive-35638d20`.
+- Site and listener backups: `/home/master/ifshare-archive-https-20261030/previous-site.conf` and `previous-ports.conf`.
+- Server certificate expires on 2027-10-30 at 04:19:54 UTC. The public CA certificate is `/etc/apache2/ifshare/tls/ca.crt`; never distribute `ca.key` or `server.key`.
+- Public TLS verification, login, authenticated RPC, gateway byte ranges, raw-block reads, foreign-origin rejection and logout checks passed. RPC checks include browser User-Agent, Origin and Referer headers.
+- HTML, main JavaScript, archive worker and WASM bytes match the local production build. Apache and the existing IFShare daemon are active; the daemon was not restarted.
+- Code validation: 124 Jest tests, 7 real-engine/integration tests, ESLint, TypeScript and the server production build passed. Browser UI automation timed out; visual/browser-engine checks were not completed.
+
+Configuration changes and certificate installation use `sudo` under the `master` account. Building and uploading assets do not require root. To roll back the protocol change, restore both backed-up Apache files and the previous static release, run `apache2ctl configtest`, then reload Apache.
