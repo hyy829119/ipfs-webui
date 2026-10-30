@@ -14,6 +14,7 @@ import DndBackend from './lib/dnd-backend.js'
 import { HeliaProvider, ExploreProvider } from 'ipld-explorer-components/providers'
 import { ContextBridgeProvider } from './helpers/context-bridge.jsx'
 import AuthGate from './auth/AuthGate'
+import { createExplorerBroker } from './explore/gateway-broker.js'
 import './theme.css'
 
 const appVersion = process.env.REACT_APP_VERSION
@@ -35,13 +36,17 @@ async function render () {
     'color: black; font-size: 16px; font-weight: bold; background: yellow; padding: 4px; border-radius: 4px;'
   )
   const store = getStore(initialData)
+  const explorerBlockBrokers = [createExplorerBroker(() => ({
+    local: store.selectPreviewLocalGatewayUrl(),
+    server: store.selectAvailableGatewayUrl() || store.selectGatewayUrl()
+  }))]
   ReactDOM.render(
     <Provider store={store}>
       <ContextBridgeProvider>
         <I18nextProvider i18n={i18n} >
           <AuthGate>
             <DndProvider backend={DndBackend}>
-              <HeliaProvider>
+              <HeliaProvider blockBrokers={explorerBlockBrokers}>
                 <ExploreProvider>
                   <App />
                 </ExploreProvider>

@@ -61,3 +61,45 @@ index 5fe1caf..de0cc37 100644
        isUnixFs ? /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "dib", children: [
          gatewayUrl != null && gatewayUrl !== publicGatewayUrl && /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "no-underline avenir ml2 pa2 fw5 f6 navy dib", href: `${gatewayUrl}/ipfs/${cid}`, rel: "external nofollow", target: "_external", children: t("ObjectInfo.privateGateway") }),
          publicGatewayUrl != null && /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "no-underline avenir ml2 pa2 fw5 f6 navy dib", href: `${publicGatewayUrl}/ipfs/${cid}`, rel: "external nofollow", target: "_external", children: t("ObjectInfo.publicGateway") })
+diff --git a/node_modules/ipld-explorer-components/dist/providers/helia.js b/node_modules/ipld-explorer-components/dist/providers/helia.js
+--- a/node_modules/ipld-explorer-components/dist/providers/helia.js
++++ b/node_modules/ipld-explorer-components/dist/providers/helia.js
+@@ -26,7 +26,7 @@
+   return defaultKuboGatewayOptions;
+ };
+ const HeliaContext = createContext(void 0);
+-const HeliaProvider = ({ children }) => {
++const HeliaProvider = ({ children, blockBrokers }) => {
+   const [helia, setHelia] = useState(null);
+   const [kuboGatewayOptions, setKuboGatewayOptions] = useState(getDefaultKuboGatewayOptions());
+   const [error, setError] = useState(null);
+@@ -40,7 +40,7 @@
+   };
+   const doInitHelia = useCallback(async () => {
+     try {
+-      const helia2 = await initHelia(kuboGatewayOptions);
++      const helia2 = await initHelia({ ...kuboGatewayOptions, blockBrokers });
+       setError(null);
+       setHelia(helia2);
+     } catch (error2) {
+@@ -48,7 +48,7 @@
+       setError(error2);
+       setHelia(null);
+     }
+-  }, [kuboGatewayOptions, setHelia]);
++  }, [kuboGatewayOptions, blockBrokers, setHelia]);
+   return /* @__PURE__ */ jsxRuntimeExports.jsx(HeliaContext.Provider, { value: { helia, error, kuboGatewayOptions, selectHeliaReady, selectHeliaIdentity, doInitHelia, setKuboGatewayOptions: setKuboGatewayOptionsPublic }, children });
+ };
+ const useHelia = () => {
+diff --git a/node_modules/ipld-explorer-components/dist/lib/init-helia.js b/node_modules/ipld-explorer-components/dist/lib/init-helia.js
+--- a/node_modules/ipld-explorer-components/dist/lib/init-helia.js
++++ b/node_modules/ipld-explorer-components/dist/lib/init-helia.js
+@@ -28,7 +28,7 @@
+     routers.push(httpGatewayRouting());
+   }
+   const helia = await createHeliaHTTP({
+-    blockBrokers: [
++    blockBrokers: kuboGatewayOptions.blockBrokers ?? [
+       trustlessGateway(kuboGatewayOptions.trustlessBlockBrokerConfig?.init)
+     ],
+     routers,
