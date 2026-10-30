@@ -7,6 +7,7 @@ import { humanSize } from '../../lib/files.js'
 import Button from '../../components/button/button.tsx'
 import GlyphCancel from '../../icons/GlyphCancel.js'
 import TextPreview from './TextPreview'
+import ArchivePreview from './archive/ArchivePreview'
 import { resolvePreviewSource, mediaType, readPreviewBytes, decodePreviewText, withPreviewTimeout } from './preview-source'
 import './FilePreview.css'
 import '../../components/connected/Connecting.css'
@@ -23,6 +24,7 @@ export const Preview = ({ t, name, cid, size, availableGatewayUrl, previewLocalG
   const [result, setResult] = useState(null)
   const [error, setError] = useState('')
   const [attempt, setAttempt] = useState(0)
+  const [archiveSource, setArchiveSource] = useState(null)
   const key = `${cid}/${name}`
 
   useEffect(() => {
@@ -30,6 +32,7 @@ export const Preview = ({ t, name, cid, size, availableGatewayUrl, previewLocalG
     const signal = controller.signal
     setResult(null)
     setError('')
+    setArchiveSource(null)
     const load = async () => {
       try {
         const source = await resolvePreviewSource(availableGatewayUrl, previewLocalGatewayUrl, String(cid), name, signal)
@@ -44,8 +47,8 @@ export const Preview = ({ t, name, cid, size, availableGatewayUrl, previewLocalG
           }
           type = mediaType(mime) || 'text'
         }
-        if (isMedia(type)) {
-          if (!source.url) throw new Error('Preview unavailable')
+        if (isMedia(type) || type === 'archive') {
+          if (isMedia(type) && !source.url) throw new Error('Preview unavailable')
           if (!signal.aborted) setResult({ key, type, ...source })
           return
         }
@@ -67,6 +70,7 @@ export const Preview = ({ t, name, cid, size, availableGatewayUrl, previewLocalG
   }, [key, name, cid, size, read, availableGatewayUrl, previewLocalGatewayUrl, attempt])
 
   const preview = result?.key === key ? result : null
+  const activeSource = preview?.type === 'archive' ? archiveSource || preview : preview
   const onMediaError = () => {
     if (preview?.local && preview.fallbackUrl && preview.url !== preview.fallbackUrl) {
       setResult({ ...preview, url: preview.fallbackUrl, local: false })
@@ -82,7 +86,7 @@ export const Preview = ({ t, name, cid, size, availableGatewayUrl, previewLocalG
           <h2 title={name}>{name}</h2>
           <div className='file-preview-meta'>
             <span>{humanSize(size)}</span>
-            {preview && <span className='file-preview-badge'>{t(preview.local ? 'preview.local' : 'preview.connectedNode')}: {previewAddress(preview.url)}</span>}
+            {activeSource && <span className='file-preview-badge'>{t(activeSource.local ? 'preview.local' : 'preview.connectedNode')}: {previewAddress(activeSource.url)}</span>}
           </div>
         </div>
         <div className='file-preview-actions'>
@@ -99,6 +103,7 @@ export const Preview = ({ t, name, cid, size, availableGatewayUrl, previewLocalG
         : !preview
             ? <div className='file-preview-message' role='status'><span className='ifshare-connecting-spinner' aria-hidden='true' /><p>{t('preview.loading')}</p></div>
             : <>
+              {preview.type === 'archive' && <ArchivePreview key={key} name={name} size={size} source={preview} read={read} onSourceChange={setArchiveSource} />}
               {preview.type === 'image' && <div className='file-preview-media'><img key={preview.url} src={preview.url} alt={name} onError={onMediaError} referrerPolicy='no-referrer' /></div>}
               {preview.type === 'video' && <div className='file-preview-media'>
                 {/* eslint-disable-next-line jsx-a11y/media-has-caption */}

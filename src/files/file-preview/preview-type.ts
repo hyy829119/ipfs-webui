@@ -59,10 +59,21 @@ export function getTextMode (name: string): string {
 // Suffixes select a renderer/highlighter, never a text allowlist. All other
 // files are sampled and checked for binary content before the text view opens.
 export function getPreviewType (name: string): string {
+  if (getArchiveFormat(name)) return 'archive'
   const extension = name.split('.').pop()?.toLowerCase() || ''
   if (textModes.has(extension)) return 'text'
   if (['png', 'jpg', 'jpeg', 'jfif', 'gif', 'webp', 'avif', 'bmp', 'svg', 'ico'].includes(extension)) return 'image'
   if (['mp4', 'm4v', 'webm', 'ogv', 'mov', 'mkv', 'avi', 'mpeg', 'mpg', '3gp', 'm2ts'].includes(extension)) return 'video'
   if (['mp3', 'm4a', 'aac', 'wav', 'flac', 'opus', 'oga', 'ogg', 'aiff'].includes(extension)) return 'audio'
   return extension === 'pdf' ? 'pdf' : 'text'
+}
+
+export type ArchiveFormat = 'zip' | 'rar' | 'tar.gz'
+
+export function getArchiveFormat (name: string): ArchiveFormat | null {
+  const filename = name.split('/').pop()?.toLowerCase() || ''
+  if (filename.endsWith('.tar.gz')) return 'tar.gz'
+  if (filename.endsWith('.zip')) return 'zip'
+  if (filename.endsWith('.rar')) return 'rar'
+  return null
 }

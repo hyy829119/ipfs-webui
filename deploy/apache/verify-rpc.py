@@ -5,6 +5,7 @@ import getpass
 import http.cookiejar
 import json
 import secrets
+import ssl
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -13,6 +14,7 @@ parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('base_url')
 parser.add_argument('--origin')
 parser.add_argument('--username', default='admin')
+parser.add_argument('--ca-file', help='PEM certificate to trust for this verification only')
 parser.add_argument('--content-cid', help='An existing non-empty file CID to check gateway streaming')
 parser.add_argument('--content-name', default='preview.bin')
 args = parser.parse_args()
@@ -21,7 +23,9 @@ origin = args.origin or base
 content_path = '/ipfs/' + args.content_cid + '?' + urllib.parse.urlencode({'filename': args.content_name}) if args.content_cid else None
 password = getpass.getpass('IFShare password: ')
 jar = http.cookiejar.CookieJar()
-client = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
+client = urllib.request.build_opener(
+    urllib.request.HTTPCookieProcessor(jar),
+    urllib.request.HTTPSHandler(context=ssl.create_default_context(cafile=args.ca_file)))
 
 
 def request(path, data=None, request_origin=origin, content_type=None):
@@ -54,6 +58,8 @@ print('Incorrect password: rejected')
 status, body = login(password)
 assert status == 200 and json.loads(body)['authenticated'], ('Login failed', status)
 print('Login and session validation: passed')
+if base.startswith('https:'):
+    assert any(cookie.secure for cookie in jar), 'Session cookie is not Secure'
 
 for path in ['/api/v0/version', '/api/v0/stats/bw', '/api/v0/files/ls?arg=/&long=true']:
     status, body = request(path, b'')
@@ -86,6 +92,10 @@ if content_path:
     assert request(content_path, request_origin='http://untrusted.invalid')[0] == 403, 'Foreign content origin accepted'
     assert request(content_path, b'')[0] == 403, 'Gateway accepted a write request'
     print('Gateway byte ranges, foreign origin rejection and read-only access: passed')
+    # DAG inspection reads raw blocks from the same authenticated gateway.
+    status, body = request('/ipfs/' + args.content_cid + '?format=raw')
+    assert status == 200 and body, ('Raw block gateway failed', status)
+    print('Authenticated raw block gateway: passed')
 assert request('/auth/logout', b'')[0] == 200, 'Logout failed'
 assert request('/api/v0/version', b'')[0] == 401, 'RPC remained accessible after logout'
 if content_path:

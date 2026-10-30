@@ -229,5 +229,40 @@
     "empty": "This file is empty.",
     "limit": "Showing the first 256 KiB. Download the file to view the full content.",
     "binary": "This file contains binary data or an unsupported text encoding. Download it to open it."
+  },
+  "archive": {
+    "title": "Archive contents",
+    "description": "Extracted on this device. Files become available when extraction is complete.",
+    "desktopStorage": "Uses temporary browser storage. Keep this page open until extraction and downloads finish.",
+    "mobileLimit": "Small-screen devices: archive and extracted contents up to 100 MiB, with up to 10,000 files.",
+    "preparing": "Preparing local extraction…",
+    "loading": "Reading archive…",
+    "unpackingTar": "Decompressing TAR stream…",
+    "scanning": "Reading file directory…",
+    "extracting": "Extracting files…",
+    "complete": "Extraction complete. Choose a file to download.",
+    "searching": "Reading file list…",
+    "password": "Archive password",
+    "passwordHint": "Optional, for encrypted archives",
+    "fallback": "You can still use the download button above to save the original archive.",
+    "cancelled": "Extraction cancelled. Temporary files are being removed.",
+    "ready": "Download ready",
+    "save": "Save file",
+    "search": "Search file paths",
+    "count": "{count} files",
+    "downloadEntry": "Download {name}",
+    "empty": "This archive contains no regular files.",
+    "noMatches": "No matching files.",
+    "previous": "Previous",
+    "next": "Next",
+    "errors": {
+      "unsupported": "Local extraction is unavailable. Use a trusted HTTPS connection and a browser with temporary file storage support.",
+      "tooLarge": "This archive exceeds the small-screen device limit (100 MiB or 10,000 files). Open it on a computer or download the original.",
+      "storage": "The browser cannot write more temporary data. Free up disk space or download the original archive.",
+      "invalid": "The archive structure is invalid or unsupported.",
+      "failed": "Extraction failed. Check the password, archive integrity and browser support.",
+      "cancelled": "Extraction cancelled.",
+      "download": "The browser could not prepare this download. Try again or download the original archive."
+    }
   }
 }

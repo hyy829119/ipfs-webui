@@ -1,6 +1,6 @@
 # IFShare WebUI Apache deployment
 
-The WebUI is a static production build. Apache serves it on port 80; no Node.js process is needed on the server.
+The WebUI is a static production build. Apache terminates HTTPS on internal port 80, mapped from public port 3000; no Node.js process is needed on the server.
 
 ## Build
 
@@ -24,7 +24,7 @@ Upload the archive and `ifshare-webui.conf` to the deployment server. Keep SSH c
 Install Apache from the server's package repository. Before enabling the site, configure the authentication modules and server-only secrets:
 
 ```sh
-sudo a2enmod headers request auth_form session session_cookie session_crypto proxy proxy_http
+sudo a2enmod ssl headers request auth_form session session_cookie session_crypto proxy proxy_http
 sudo install -d -m 0750 -g www-data /etc/apache2/ifshare
 sudo htpasswd -B -C 8 -c /etc/apache2/ifshare/users admin
 sudo sh -c 'umask 077; openssl rand -base64 48 > /etc/apache2/ifshare/session.key'
@@ -44,21 +44,20 @@ For updates, extract each build into a new release directory, preserve the previ
 sudo apache2ctl configtest
 systemctl is-active apache2
 systemctl is-enabled apache2
-curl -I http://127.0.0.1/
-curl -I http://127.0.0.1/locales/zh-CN/login.json
-python3 deploy/apache/verify-rpc.py http://111.10.164.175:3000
+curl --cacert IFShare-CA.crt -I https://111.10.164.175:3000/
+python3 deploy/apache/verify-rpc.py https://111.10.164.175:3000 --ca-file IFShare-CA.crt
 # Add --content-cid <existing-file-CID> --content-name <filename> to verify gateway auth and byte ranges.
 ```
 
-Open `http://111.10.164.175:3000/?lng=zh-CN#/login`. The public port 3000 must map to `192.168.10.52:80`. Check the login page, sign-in and a page reload.
+Open `https://111.10.164.175:3000/?lng=zh-CN#/login`. The public port 3000 must map to `192.168.10.52:80`. Check the login page, sign-in and a page reload.
 
 ## IFShare backend
 
 The IFShare daemon must already run with its RPC listener on `127.0.0.1:5001`. Apache forwards `/api/v0/` to that listener after checking the server session. The daemon does not need a public RPC port or a restart for this proxy configuration.
 
-`npm run build:server` enables server authentication and uses the page origin as the RPC address, including when the browser previously saved a localhost API address. The existing login form submits to Apache's form authentication handler; session cookies are encrypted, HttpOnly and SameSite=Strict, with an eight-hour lifetime. Logout clears the browser session. Unauthenticated RPC requests return 401, and requests bearing an unexpected Origin return 403. Apache removes the verified Origin header before forwarding to the loopback RPC listener.
+`npm run build:server` enables server authentication and uses the page origin as the RPC address, including when the browser previously saved a localhost API address. The existing login form submits to Apache's form authentication handler; session cookies are encrypted, Secure, HttpOnly and SameSite=Strict, with an eight-hour lifetime. Logout clears the browser session. Unauthenticated RPC requests return 401, and requests bearing an unexpected Origin return 403. Apache removes the verified Origin header before forwarding to the loopback RPC listener.
 
-The configured allowed origin is `http://111.10.164.175:3000`; update the Origin checks if the public URL changes. The current deployment uses HTTP. When moving to HTTPS, also add `secure` to `SessionCookieName`. The plain `npm start` and `npm run build` flows retain the local preview login; use `build:server` with this Apache configuration.
+The configured allowed origin is `https://111.10.164.175:3000`; update the Origin checks and certificate if the public URL changes. The plain `npm start` and `npm run build` flows retain the local preview login; use `build:server` with this Apache configuration.
 
 The gateway on `127.0.0.1:8080` is separate from the RPC listener. Apache forwards authenticated `/ipfs/` and `/ipns/` GET/HEAD requests to it, including byte-range requests for video seeking. The existing public port 3000 is sufficient; do not expose port 8080 separately. Content responses have a restrictive CSP sandbox because files share the WebUI host. They cannot execute scripts with the WebUI's privileges. The daemon's repository and private-network configuration stay unchanged.
 
@@ -107,3 +106,26 @@ sudo systemctl reload apache2
 To roll back this update, restore the previous site configuration together with the previous `current` symlink, validate the configuration, and reload Apache. The initial release has no RPC forwarding, so restoring it also removes remote backend access.
 
 Implementation references: [Apache form authentication](https://httpd.apache.org/docs/2.4/mod/mod_auth_form.html), [encrypted sessions](https://httpd.apache.org/docs/2.4/mod/mod_session_crypto.html) and [session cookie attributes](https://httpd.apache.org/docs/2.4/mod/mod_session_cookie.html).
+
+## HTTPS and browser archive extraction
+
+Run `sudo sh deploy/apache/create-certificate.sh` once before enabling this TLS configuration. The script creates a private CA and a 365-day server certificate with the public IP in its SAN. It refuses to replace existing keys. Only export `ca.crt` to clients, as `IFShare-CA.crt`; keep both private keys on the server. Import and trust this CA on each client device. A browser exception alone may not enable secure-context storage APIs. Renew the server certificate before expiry, using the existing CA. No port mapping change is required: Apache speaks TLS on the already-mapped internal port 80. Plain HTTP requests receive the configured HTTPS error redirect; verify it when changing Apache versions.
+
+Clicking a `.zip`, `.rar`, or `.tar.gz` file starts local extraction immediately. A worker receives input in awaited chunks of at most 1 MiB, mounts the disk-backed archive through WORKERFS and writes outputs to OPFS. The UI shows reading/scanning/extraction progress, then lists files only after all regular files have been extracted. Downloads use disk-backed File URLs. Closing or cancelling the preview terminates the worker and removes its temporary directory.
+
+Desktop has no application file-size, entry-count or overall extraction-time limit. Archive decoder memory, browser disk quota and available disk space still apply. Solid archives may be read repeatedly when extracting individual entries. Small physical screens (up to 820 CSS pixels on the shorter side, with coarse primary input) enforce 100 MiB compressed and total unpacked limits, plus 10,000 files. Unknown browser APIs, storage failures, encrypted/unsupported/corrupt content degrade to the existing original-download button. Password-protected archives can be retried with a password. Symbolic/hard links are excluded; archived paths never become output filesystem paths.
+
+The inspector's Helia block broker now obtains current gateway settings per request. It first attempts a raw block at the local gateway without cookies (1.5 seconds), validates it, then falls back to the server with same-origin authentication. Both file-list inspection and CID inspection use this broker. No remote public routing is needed for these reads.
+
+Validation:
+
+```sh
+node --test test/archive/extraction.mjs test/explore-gateway.mjs
+npm run test:unit -- --runTestsByPath src/explore/gateway-broker.test.js src/files/file-preview/archive/archive-source.test.js src/files/file-preview/archive/archive-client.test.js src/files/file-preview/archive/ArchivePreview.test.js
+npm run eslint
+npm run typecheck
+```
+
+The real WASM tests use a disk-backed OPFS adapter with ZIP, RAR 4/5, TAR.GZ, Chinese paths, empty files, pagination and 128 MiB output. They do not substitute for checking OPFS support in the target browser. See [OPFS requirements and quotas](https://developer.mozilla.org/en-US/docs/Web/API/File_System_API/Origin_private_file_system).
+
+The extraction engine is unmodified `7z-wasm` 1.2.0 (7-Zip 24.09), loaded as separate versioned assets. Its LGPL and unRAR notices accompany the engine. Source and build instructions: [7z-wasm](https://github.com/use-strict/7z-wasm), [7-Zip source](https://www.7-zip.org/download.html).
