@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { humanSize } from '../../../lib/files.js'
 import Button from '../../../components/button/button'
-import { getArchiveFormat } from '../preview-type'
+import type { ArchiveFormat } from '../preview-type'
 import type { PreviewRead, PreviewSource } from '../preview-source'
 import { BrowserArchive } from './archive-client'
 import { ArchiveError, archiveSupported, isSmallScreenDevice, PAGE_SIZE } from './archive-utils'
@@ -12,13 +12,14 @@ import './ArchivePreview.css'
 
 interface Props {
   name: string
+  format: ArchiveFormat
   size: number
   source: PreviewSource
   read: PreviewRead
   onSourceChange: (source: PreviewSource) => void
 }
 
-export default function ArchivePreview ({ name, size, source, read, onSourceChange }: Props) {
+export default function ArchivePreview ({ name, format, size, source, read, onSourceChange }: Props) {
   const { t } = useTranslation('files')
   const [smallScreen] = useState(isSmallScreenDevice)
   const [status, setStatus] = useState('working')
@@ -35,6 +36,11 @@ export default function ArchivePreview ({ name, size, source, read, onSourceChan
   const [download, setDownload] = useState<{ name: string, url: string } | null>(null)
   const archive = useRef<BrowserArchive | null>(null)
   const controller = useRef<AbortController | null>(null)
+  const downloadUrl = useRef<string | null>(null)
+  const releaseDownload = useCallback(() => {
+    if (downloadUrl.current) URL.revokeObjectURL(downloadUrl.current)
+    downloadUrl.current = null
+  }, [])
 
   useEffect(() => {
     if (!archiveSupported()) {
@@ -46,9 +52,18 @@ export default function ArchivePreview ({ name, size, source, read, onSourceChan
     const { signal } = current
     controller.current = current
     let session: BrowserArchive | null = null
-    const dispose = () => { void session?.close() }
+    const dispose = () => {
+      releaseDownload()
+      void session?.close()
+    }
+    const leave = () => {
+      current.abort()
+      setDownload(null)
+      setListing({ entries: [], count: 0 })
+      setStatus('cancelled')
+    }
     signal.addEventListener('abort', dispose)
-    window.addEventListener('pagehide', dispose)
+    window.addEventListener('pagehide', leave)
     setStatus('working')
     setError('')
     setProgress({ phase: 'preparing', loaded: 0, total: 0 })
@@ -59,8 +74,6 @@ export default function ArchivePreview ({ name, size, source, read, onSourceChan
     setSaving(false)
     const load = async () => {
       try {
-        const format = getArchiveFormat(name)
-        if (!format) throw new ArchiveError('invalid')
         session = new BrowserArchive(value => { if (!signal.aborted) setProgress(value) })
         archive.current = session
         await session.init(smallScreen)
@@ -84,11 +97,11 @@ export default function ArchivePreview ({ name, size, source, read, onSourceChan
     void load()
     return () => {
       current.abort()
-      window.removeEventListener('pagehide', dispose)
+      window.removeEventListener('pagehide', leave)
       signal.removeEventListener('abort', dispose)
       if (archive.current === session) archive.current = null
     }
-  }, [name, size, source, read, onSourceChange, attempt, submittedPassword, smallScreen])
+  }, [name, format, size, source, read, onSourceChange, attempt, submittedPassword, smallScreen, releaseDownload])
 
   useEffect(() => {
     if (status !== 'ready' || !archive.current) return
@@ -97,20 +110,24 @@ export default function ArchivePreview ({ name, size, source, read, onSourceChan
     setListingBusy(true)
     const timer = setTimeout(() => {
       session.page(query, page).then(result => {
-        if (active) { setListing(result); setListingBusy(false) }
+        if (active && !controller.current?.signal.aborted) { setListing(result); setListingBusy(false) }
       }).catch(() => {
-        if (active) { setError('failed'); setStatus('error'); void session.close() }
+        if (active && !controller.current?.signal.aborted) {
+          releaseDownload()
+          setDownload(null)
+          setError('failed')
+          setStatus('error')
+          void session.close()
+        }
       })
     }, query ? 200 : 0)
     return () => { active = false; clearTimeout(timer) }
-  }, [status, query, page])
-
-  useEffect(() => {
-    return () => { if (download) URL.revokeObjectURL(download.url) }
-  }, [download])
+  }, [status, query, page, releaseDownload])
 
   const cancel = () => {
     controller.current?.abort()
+    setDownload(null)
+    setListing({ entries: [], count: 0 })
     setStatus('cancelled')
   }
 
@@ -124,13 +141,14 @@ export default function ArchivePreview ({ name, size, source, read, onSourceChan
       const file = await session.file(entry.id)
       if (signal.aborted) return
       const url = URL.createObjectURL(file)
+      releaseDownload()
+      downloadUrl.current = url
       setDownload({ name: entry.name, url })
       const link = document.createElement('a')
       link.href = url
       link.download = entry.name
       document.body.appendChild(link)
-      link.click()
-      link.remove()
+      try { link.click() } finally { link.remove() }
     } catch {
       if (!signal.aborted) setError('download')
     } finally {
@@ -149,7 +167,7 @@ export default function ArchivePreview ({ name, size, source, read, onSourceChan
   return <div className='archive-preview'>
     <div className='archive-intro'>
       <div><h3>{t('archive.title')}</h3><p>{t('archive.description')}</p></div>
-      <span className='file-preview-badge'>{getArchiveFormat(name)?.toUpperCase()}</span>
+      <span className='file-preview-badge'>{format.toUpperCase()}</span>
     </div>
     <p className='archive-storage-note'>{t(smallScreen ? 'archive.mobileLimit' : 'archive.desktopStorage')}</p>
     {status === 'working' && <div className='archive-progress'>

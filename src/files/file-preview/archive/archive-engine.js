@@ -12,13 +12,40 @@ export function downloadName (path) {
   return name === '.' || name === '..' ? 'file' : name
 }
 
-export function checkSignature (bytes, format) {
+function hasTarHeader (bytes) {
+  if (bytes.length < 512 || bytes[0] === 0) return false
+  const field = Array.from(bytes.subarray(148, 156), byte => byte === 0 ? ' ' : String.fromCharCode(byte)).join('').trim()
+  if (!/^[0-7]+$/.test(field)) return false
+  const checksum = parseInt(field, 8)
+  let unsigned = 0
+  let signed = 0
+  for (let index = 0; index < 512; index++) {
+    const byte = index >= 148 && index < 156 ? 32 : bytes[index]
+    unsigned += byte
+    signed += byte < 128 ? byte : byte - 256
+  }
+  // A header checksum also recognizes older TAR variants without ustar magic.
+  return checksum === unsigned || checksum === signed
+}
+
+// Share content detection between the preview and worker so CID-only files
+// reach the same extractor as files with a recognized extension.
+export function detectArchiveFormat (bytes) {
   const starts = signature => signature.every((byte, index) => bytes[index] === byte)
-  const valid = format === 'zip'
-    ? starts([0x50, 0x4b, 3, 4]) || starts([0x50, 0x4b, 5, 6])
-    : format === 'rar'
-      ? starts([0x52, 0x61, 0x72, 0x21, 0x1a, 7, 0]) || starts([0x52, 0x61, 0x72, 0x21, 0x1a, 7, 1, 0])
-      : format === 'tar.gz' && starts([0x1f, 0x8b, 8])
+  if (starts([0x50, 0x4b, 3, 4]) || starts([0x50, 0x4b, 5, 6])) return 'zip'
+  if (starts([0x52, 0x61, 0x72, 0x21, 0x1a, 7, 0]) || starts([0x52, 0x61, 0x72, 0x21, 0x1a, 7, 1, 0])) return 'rar'
+  if (starts([0x37, 0x7a, 0xbc, 0xaf, 0x27, 0x1c])) return '7z'
+  // Gzip is only a TAR.GZ candidate; unpacking explicitly validates the inner TAR.
+  if (starts([0x1f, 0x8b, 8])) return 'tar.gz'
+  if (hasTarHeader(bytes)) return 'tar'
+  return null
+}
+
+export function checkSignature (bytes, format) {
+  // Empty TARs have two zero blocks. Only accept these with an explicit TAR
+  // filename; otherwise ordinary zero-filled binary files would be misidentified.
+  const emptyTar = format === 'tar' && bytes.length >= 1024 && bytes.subarray(0, 1024).every(byte => byte === 0)
+  const valid = emptyTar || (format != null && detectArchiveFormat(bytes) === format)
   if (!valid) throw archiveFailure('invalid')
 }
 
@@ -41,7 +68,7 @@ function command (engine, args, consume) {
 }
 
 // Listing goes straight to a disk manifest, rather than building an unbounded array.
-export function listArchive (engine, archivePath, password, onEntry) {
+export function listArchive (engine, archivePath, password, onEntry, format) {
   const decoder = new TextDecoder()
   let pending = ''
   let record = new Map()
@@ -50,8 +77,10 @@ export function listArchive (engine, archivePath, password, onEntry) {
     const path = record.get('Path')
     const size = Number(record.get('Size'))
     if (!path || !Number.isSafeInteger(size) || size < 0) throw archiveFailure('invalid')
+    const attributes = record.get('Attributes') || ''
+    const special = /^[A-Z_.]*D[A-Z_.]*(?:\s|$)|(?:^|\s)[dlbcps][rwxstST-]{9}(?:\s|$)/.test(attributes)
     if (record.get('Folder') !== '+' && !record.get('Symbolic Link') && !record.get('Hard Link') && !record.get('Copy Link') &&
-      !/\bl[rwx-]{9}/.test(record.get('Attributes') || '')) onEntry({ path, name: downloadName(path), size })
+      !special) onEntry({ path, name: downloadName(path), size })
     record = new Map()
   }
   const line = value => {
@@ -71,14 +100,14 @@ export function listArchive (engine, archivePath, password, onEntry) {
     }
     if (pending.length > 16384) throw archiveFailure('invalid')
   }
-  command(engine, ['l', '-slt', '-ba', '-bsp0', '-sccUTF-8', `-p${password}`, '--', archivePath], consume)
+  command(engine, ['l', '-slt', '-ba', '-bsp0', '-mmt=1', '-sccUTF-8', ...(format ? [`-t${format}`] : []), `-p${password}`, '--', archivePath], consume)
   pending += decoder.decode()
   if (pending) line(pending)
   finish()
 }
 
-export function extractEntry (engine, archivePath, path, password, write) {
-  const args = ['x', '-so', '-y', '-spd', '-ssc', '-bso0', '-bsp0', '-mmt=1', `-p${password}`, '--', archivePath]
+export function extractEntry (engine, archivePath, path, password, write, format) {
+  const args = ['x', '-so', '-y', '-spd', '-ssc', '-bso0', '-bsp0', '-mmt=1', ...(format ? [`-t${format}`] : []), `-p${password}`, '--', archivePath]
   if (path !== null) args.push(path)
   command(engine, args, write)
 }

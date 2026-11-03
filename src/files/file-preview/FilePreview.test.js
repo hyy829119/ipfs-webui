@@ -1,9 +1,11 @@
 import React from 'react'
+import { readFileSync } from 'node:fs'
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import { Preview } from './FilePreview.js'
 
 jest.mock('./TextPreview', () => ({ __esModule: true, default: ({ text }) => text }))
+jest.mock('./archive/ArchivePreview', () => ({ __esModule: true, default: ({ format }) => <div data-testid='archive-preview'>{format}</div> }))
 
 const cid = 'QmdfTbBqBPQ7VNxZEYEj14VmRuZBkqFbiwReogJgS1zR1n'
 const t = key => key
@@ -48,6 +50,49 @@ it('previews an image CID without a filename extension', async () => {
   global.fetch = jest.fn().mockResolvedValue({ ok: true, headers: new Headers({ 'Content-Type': 'image/png' }) })
   render(<Preview {...props} name={cid} />)
   expect(await screen.findByRole('img')).toHaveAttribute('src', expect.stringContaining('https://ifshare.example/ipfs/'))
+})
+
+it.each([['备份.RAR', 'rar'], ['备份.7z', '7z'], ['backup.zip', 'zip'], ['backup.tar.gz', 'tar.gz'], ['多文件.TAR', 'tar']])('opens %s directly in the archive view', async (name, format) => {
+  const archiveRead = jest.fn()
+  render(<Preview {...props} name={name} read={archiveRead} />)
+  expect(await screen.findByTestId('archive-preview')).toHaveTextContent(format)
+  expect(archiveRead).not.toHaveBeenCalled()
+  expect(screen.queryByRole('alert')).not.toBeInTheDocument()
+})
+
+it('detects an IFShare multi-file TAR opened by CID across split reads', async () => {
+  global.fetch = jest.fn().mockResolvedValue({ ok: true, headers: new Headers({ 'Content-Type': 'application/octet-stream' }) })
+  const bytes = readFileSync('test/fixtures/archives/ifshare-multiple.tar')
+  const archiveRead = async function * () { yield bytes.subarray(0, 256); yield bytes.subarray(256) }
+  render(<Preview {...props} name={cid} size={bytes.length} read={archiveRead} />)
+  expect(await screen.findByTestId('archive-preview')).toHaveTextContent('tar')
+  expect(screen.queryByRole('alert')).not.toBeInTheDocument()
+})
+
+it.each([
+  ['rar', [0x52, 0x61, 0x72, 0x21, 0x1a, 7, 0]],
+  ['rar', [0x52, 0x61, 0x72, 0x21, 0x1a, 7, 1, 0]],
+  ['7z', [0x37, 0x7a, 0xbc, 0xaf, 0x27, 0x1c]],
+  ['zip', [0x50, 0x4b, 3, 4]],
+  ['tar.gz', [0x1f, 0x8b, 8]]
+])('detects %s from a bare CID before attempting text decoding', async (format, signature) => {
+  global.fetch = jest.fn().mockResolvedValue({ ok: true, headers: new Headers({ 'Content-Type': 'application/octet-stream' }) })
+  const bytes = Uint8Array.from([...signature, 0])
+  const archiveRead = async function * () { yield bytes.subarray(0, 2); yield bytes.subarray(2) }
+  render(<Preview {...props} name={cid} read={archiveRead} />)
+  expect(await screen.findByTestId('archive-preview')).toHaveTextContent(format)
+  expect(screen.queryByRole('alert')).not.toBeInTheDocument()
+})
+
+it('detects a renamed RAR and retains the actual node after local reads fall back', async () => {
+  global.fetch = jest.fn()
+    .mockResolvedValueOnce({ ok: true, headers: new Headers({ 'Content-Type': 'application/octet-stream' }) })
+    .mockRejectedValueOnce(new Error('Local client stopped'))
+  const archiveRead = async function * () { yield Uint8Array.from([0x52, 0x61, 0x72, 0x21, 0x1a, 7, 1, 0]) }
+  render(<Preview {...props} name='备份' read={archiveRead} previewLocalGatewayUrl='http://127.0.0.1:8080' />)
+  expect(await screen.findByTestId('archive-preview')).toHaveTextContent('rar')
+  expect(screen.getByText('preview.connectedNode: ifshare.example')).toBeInTheDocument()
+  expect(screen.queryByRole('alert')).not.toBeInTheDocument()
 })
 
 it('falls back when a locally probed image fails to load', async () => {

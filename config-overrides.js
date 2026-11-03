@@ -6,17 +6,7 @@
  */
 import webpack from 'webpack'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
-import { readFileSync } from 'node:fs'
-import { createRequire } from 'node:module'
-import { createHash } from 'node:crypto'
-
-const require = createRequire(import.meta.url)
-const archiveAssets = [
-  ...['7zz.es6.js', '7zz.wasm', 'License.txt', 'unRarLicense.txt'].map(name => ({ name, bytes: readFileSync(require.resolve(`7z-wasm/${name}`)) })),
-  ...['archive-worker.js', 'archive-engine.js', 'archive-job.js'].map(name => ({ name, bytes: readFileSync(new URL(`./src/files/file-preview/archive/${name}`, import.meta.url)) }))
-]
-const archiveRevision = createHash('sha256').update(Buffer.concat(archiveAssets.map(asset => asset.bytes))).digest('hex').slice(0, 16)
-const archiveDirectory = `static/archive/${archiveRevision}`
+import ArchiveAssetsPlugin from './config/archive-assets-plugin.js'
 
 const PURE_ESM_MODULES = [
   'ipfs-geoip',
@@ -109,20 +99,7 @@ function webpackOverride (config) {
   config.resolve.fallback = fallback
 
   config.plugins = (config.plugins || []).concat([
-    new webpack.DefinePlugin({
-      __IFSHARE_ARCHIVE_WORKER_URL__: JSON.stringify(`./${archiveDirectory}/archive-worker.js`)
-    }),
-    {
-      apply (compiler) {
-        compiler.hooks.thisCompilation.tap('IFShareArchiveAssets', compilation => {
-          compilation.hooks.processAssets.tap({ name: 'IFShareArchiveAssets', stage: webpack.Compilation.PROCESS_ASSETS_STAGE_ADDITIONAL }, () => {
-            for (const { name, bytes } of archiveAssets) {
-              compilation.emitAsset(`${archiveDirectory}/${name}`, new webpack.sources.RawSource(bytes))
-            }
-          })
-        })
-      }
-    },
+    new ArchiveAssetsPlugin(),
     new webpack.ProvidePlugin({
       process: 'process/browser',
       Buffer: ['buffer', 'Buffer']

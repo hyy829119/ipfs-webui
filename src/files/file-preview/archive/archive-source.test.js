@@ -8,7 +8,7 @@ afterEach(() => { global.fetch = originalFetch; jest.restoreAllMocks() })
 const sink = () => ({ append: jest.fn().mockResolvedValue(), reset: jest.fn().mockResolvedValue() })
 const signal = () => new AbortController().signal
 
-it.each([['a.ZIP', 'zip'], ['a.RAR', 'rar'], ['a.TAR.GZ', 'tar.gz'], ['a.7z', null], ['a.tar', null], ['a.tgz', null], ['a.zip.txt', null]])('recognizes only the requested extensions: %s', (name, expected) => {
+it.each([['a.ZIP', 'zip'], ['a.RAR', 'rar'], ['a.TAR.GZ', 'tar.gz'], ['a.7z', '7z'], ['a.7Z', '7z'], ['a.tar', 'tar'], ['a.TAR', 'tar'], ['a.tgz', null], ['a.zip.txt', null]])('recognizes only the requested extensions: %s', (name, expected) => {
   expect(getArchiveFormat(name)).toBe(expected)
 })
 

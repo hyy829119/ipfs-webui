@@ -68,12 +68,14 @@ export function getPreviewType (name: string): string {
   return extension === 'pdf' ? 'pdf' : 'text'
 }
 
-export type ArchiveFormat = 'zip' | 'rar' | 'tar.gz'
+export type ArchiveFormat = 'zip' | 'rar' | '7z' | 'tar.gz' | 'tar'
 
 export function getArchiveFormat (name: string): ArchiveFormat | null {
   const filename = name.split('/').pop()?.toLowerCase() || ''
   if (filename.endsWith('.tar.gz')) return 'tar.gz'
   if (filename.endsWith('.zip')) return 'zip'
   if (filename.endsWith('.rar')) return 'rar'
+  if (filename.endsWith('.7z')) return '7z'
+  if (filename.endsWith('.tar')) return 'tar'
   return null
 }

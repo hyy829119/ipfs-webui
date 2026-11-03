@@ -7,7 +7,8 @@ function worker () {
     removeEventListener: type => listeners.delete(type),
     postMessage: jest.fn(),
     terminate: jest.fn(),
-    message: data => listeners.get('message')({ data })
+    message: data => listeners.get('message')?.({ data }),
+    fail: () => listeners.get('error')?.()
   }
 }
 
@@ -24,6 +25,7 @@ it('keeps an extraction running without a total deadline and forwards real progr
   const progress = jest.fn()
   const client = new BrowserArchive(progress, target)
   const init = client.init(false)
+  await Promise.resolve()
   target.message({ id: 1 })
   await init
   const unpack = client.unpack('zip', '')
@@ -47,4 +49,38 @@ it('transfers input ownership and rejects pending requests when cancelled', asyn
   await client.close()
   await rejected
   expect(target.terminate).toHaveBeenCalledTimes(1)
+})
+
+it('shares cleanup across repeated closes and retries a temporarily locked directory', async () => {
+  removeEntry.mockRejectedValueOnce(new DOMException('File is busy', 'NoModificationAllowedError'))
+  const target = worker()
+  const client = new BrowserArchive(() => {}, target)
+  const closing = client.close()
+  expect(client.close()).toBe(closing)
+  await jest.runAllTimersAsync()
+  await closing
+  expect(target.terminate).toHaveBeenCalledTimes(1)
+  expect(removeEntry).toHaveBeenCalledTimes(2)
+  await expect(client.page('', 0)).rejects.toMatchObject({ code: 'cancelled' })
+})
+
+it('terminates a failed worker, rejects pending downloads and removes temporary files', async () => {
+  const target = worker()
+  const client = new BrowserArchive(() => {}, target)
+  const pending = expect(client.file(0)).rejects.toMatchObject({ code: 'unsupported' })
+  target.fail()
+  await pending
+  await client.close()
+  expect(target.terminate).toHaveBeenCalledTimes(1)
+  expect(removeEntry).toHaveBeenCalledTimes(1)
+})
+
+it('cancels initialization without sending work to a terminated worker', async () => {
+  const target = worker()
+  const client = new BrowserArchive(() => {}, target)
+  const pending = expect(client.init(false)).rejects.toMatchObject({ code: 'cancelled' })
+  await client.close()
+  await pending
+  expect(target.postMessage).not.toHaveBeenCalled()
+  expect(jest.getTimerCount()).toBe(0)
 })

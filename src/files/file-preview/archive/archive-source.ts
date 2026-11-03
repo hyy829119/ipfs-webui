@@ -26,7 +26,10 @@ export async function readArchive (source: PreviewSource, read: PreviewRead, siz
     let idle = setTimeout(abort, 30000)
     try {
       const response = await fetch(source.url, { signal: local.signal, credentials: source.local ? 'omit' : 'same-origin', referrerPolicy: 'no-referrer' })
-      if (!response.ok || !response.body?.getReader) throw new ArchiveError('failed')
+      if (!response.ok || !response.body?.getReader) {
+        await response.body?.cancel?.()
+        throw new ArchiveError('failed')
+      }
       const reader = response.body.getReader()
       try {
         while (true) {

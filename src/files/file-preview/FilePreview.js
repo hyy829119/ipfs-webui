@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { connect } from 'redux-bundler-react'
 import { withTranslation } from 'react-i18next'
 import { CID } from 'multiformats/cid'
-import { getPreviewType } from './preview-type'
+import { getArchiveFormat, getPreviewType } from './preview-type'
 import { humanSize } from '../../lib/files.js'
 import Button from '../../components/button/button.tsx'
 import GlyphCancel from '../../icons/GlyphCancel.js'
 import TextPreview from './TextPreview'
 import ArchivePreview from './archive/ArchivePreview'
+import { detectArchiveFormat } from './archive/archive-engine.js'
 import { resolvePreviewSource, mediaType, readPreviewBytes, decodePreviewText, withPreviewTimeout } from './preview-source'
 import './FilePreview.css'
 import '../../components/connected/Connecting.css'
@@ -49,10 +50,16 @@ export const Preview = ({ t, name, cid, size, availableGatewayUrl, previewLocalG
         }
         if (isMedia(type) || type === 'archive') {
           if (isMedia(type) && !source.url) throw new Error('Preview unavailable')
-          if (!signal.aborted) setResult({ key, type, ...source })
+          if (!signal.aborted) setResult({ key, type, format: getArchiveFormat(name), ...source })
           return
         }
         const { bytes, local } = await readPreviewBytes(source, read, signal)
+        const resolved = { ...source, url: local ? source.url : source.fallbackUrl, local }
+        const format = detectArchiveFormat(bytes)
+        if (format) {
+          if (!signal.aborted) setResult({ key, type: 'archive', format, ...resolved })
+          return
+        }
         let decoded
         try {
           decoded = decodePreviewText(bytes, size)
@@ -60,7 +67,7 @@ export const Preview = ({ t, name, cid, size, availableGatewayUrl, previewLocalG
           if (!signal.aborted) setError('unsupported')
           return
         }
-        if (!signal.aborted) setResult({ key, type: 'text', ...source, url: local ? source.url : source.fallbackUrl, local, ...decoded })
+        if (!signal.aborted) setResult({ key, type: 'text', ...resolved, ...decoded })
       } catch {
         if (!signal.aborted) setError('failed')
       }
@@ -103,7 +110,7 @@ export const Preview = ({ t, name, cid, size, availableGatewayUrl, previewLocalG
         : !preview
             ? <div className='file-preview-message' role='status'><span className='ifshare-connecting-spinner' aria-hidden='true' /><p>{t('preview.loading')}</p></div>
             : <>
-              {preview.type === 'archive' && <ArchivePreview key={key} name={name} size={size} source={preview} read={read} onSourceChange={setArchiveSource} />}
+              {preview.type === 'archive' && <ArchivePreview key={key} name={name} format={preview.format} size={size} source={preview} read={read} onSourceChange={setArchiveSource} />}
               {preview.type === 'image' && <div className='file-preview-media'><img key={preview.url} src={preview.url} alt={name} onError={onMediaError} referrerPolicy='no-referrer' /></div>}
               {preview.type === 'video' && <div className='file-preview-media'>
                 {/* eslint-disable-next-line jsx-a11y/media-has-caption */}

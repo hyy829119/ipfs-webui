@@ -19,4 +19,8 @@ describe('file preview classification', () => {
   it.each([['photo.PNG', 'image'], ['photo.avif', 'image'], ['clip.MP4', 'video'], ['clip.webm', 'video'], ['song.mp3', 'audio'], ['report.pdf', 'pdf']])('preserves the media renderer for %s', (name, type) => {
     expect(getPreviewType(name)).toBe(type)
   })
+
+  it.each(['files.zip', 'files.RAR', '备份.7z', 'FILES.7Z', 'files.tar.gz', 'download.tar', '多文件.TAR'])('opens %s in the archive view', name => {
+    expect(getPreviewType(name)).toBe('archive')
+  })
 })

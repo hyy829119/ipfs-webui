@@ -1,4 +1,5 @@
 import { ArchiveError } from './archive-utils'
+import { ArchiveStorage } from './archive-storage'
 import type { ArchivePage, ArchiveProgress } from './archive-utils'
 
 declare const __IFSHARE_ARCHIVE_WORKER_URL__: string
@@ -8,9 +9,10 @@ interface PendingRequest { resolve: (value: unknown) => void, reject: (error: Ar
 export class BrowserArchive {
   private worker: Worker
   private closed = false
+  private closing: Promise<void> | null = null
   private sequence = 0
   private pending = new Map<number, PendingRequest>()
-  private session = `archive-${Date.now()}-${Math.random().toString(36).slice(2)}`
+  private storage = new ArchiveStorage()
   private progress: (value: ArchiveProgress) => void
 
   constructor (progress: (value: ArchiveProgress) => void, worker = new Worker(new URL(__IFSHARE_ARCHIVE_WORKER_URL__, document.baseURI), { type: 'module', name: 'ifshare-archive' })) {
@@ -32,8 +34,8 @@ export class BrowserArchive {
 
   private onWorkerError = (): void => { void this.close(new ArchiveError('unsupported')) }
 
-  async close (reason = new ArchiveError('cancelled')): Promise<void> {
-    if (this.closed) return
+  close (reason = new ArchiveError('cancelled')): Promise<void> {
+    if (this.closing) return this.closing
     this.closed = true
     for (const task of this.pending.values()) task.reject(reason)
     this.pending.clear()
@@ -41,18 +43,8 @@ export class BrowserArchive {
     this.worker.removeEventListener('error', this.onWorkerError)
     this.worker.removeEventListener('messageerror', this.onWorkerError)
     this.worker.terminate()
-    // Worker termination releases synchronous handles. Remove only this view's temporary files.
-    for (const delay of [0, 200, 1000]) {
-      if (delay) await new Promise(resolve => setTimeout(resolve, delay))
-      try {
-        const root = await navigator.storage.getDirectory()
-        const parent = await root.getDirectoryHandle('ifshare-archives')
-        await parent.removeEntry(this.session, { recursive: true })
-        return
-      } catch (error) {
-        if (error instanceof DOMException && error.name === 'NotFoundError') return
-      }
-    }
+    this.closing = this.storage.close()
+    return this.closing
   }
 
   private async request<T> (method: string, args: unknown, transfer: ArrayBuffer[] = []): Promise<T> {
@@ -70,7 +62,10 @@ export class BrowserArchive {
   async init (smallScreen: boolean): Promise<void> {
     // This guards loading the engine only; archive reading/extraction has no time limit.
     const timer = setTimeout(() => { void this.close(new ArchiveError('unsupported')) }, 45000)
-    try { await this.request('init', { session: this.session, smallScreen }) } finally { clearTimeout(timer) }
+    try {
+      await this.storage.prepare()
+      await this.request('init', { session: this.storage.session, smallScreen })
+    } finally { clearTimeout(timer) }
   }
 
   async append (bytes: Uint8Array): Promise<void> { await this.request('append', { bytes }, [bytes.buffer]) }
