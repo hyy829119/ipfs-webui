@@ -1,0 +1,28 @@
+{
+  "title": "Logboeken",
+  "scopeAll": "Bekijk bestandsbewerkingen van alle gebruikers.",
+  "scopeOwn": "Bekijk je eigen bestandsbewerkingen.",
+  "refresh": "Vernieuwen",
+  "search": "Zoeken",
+  "searchPlaceholder": "Bestandsnaam, pad, CID of gebruikersnaam",
+  "action": "Bewerking",
+  "allActions": "Alle bewerkingen",
+  "actions": {
+    "upload": "Uploaden",
+    "download": "Downloaden",
+    "preview": "Voorbeeld"
+  },
+  "operationHint": "De logboeken tonen acties die in de webinterface zijn gestart. Een downloadvermelding bevestigt niet dat het bestand is opgeslagen.",
+  "loading": "Logboeken laden…",
+  "empty": "Geen overeenkomende bewerkingen.",
+  "time": "Tijd",
+  "user": "Gebruiker",
+  "file": "Bestand",
+  "count": "Bestanden",
+  "unnamed": "Naamloos bestand",
+  "total": "{count} vermeldingen",
+  "pageSize": "Per pagina",
+  "previous": "Vorige",
+  "next": "Volgende",
+  "page": "{page} / {pages}"
+}

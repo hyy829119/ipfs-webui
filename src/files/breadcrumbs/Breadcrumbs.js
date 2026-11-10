@@ -7,7 +7,7 @@ import { withTranslation } from 'react-i18next'
 import { useDrop } from 'react-dnd'
 import { NativeTypes } from 'react-dnd-html5-backend'
 
-import { normalizeFiles } from '../../lib/files.js'
+import { addDroppedFiles } from '../dropped-files'
 
 import './Breadcrumbs.css'
 
@@ -16,10 +16,7 @@ const DropableBreadcrumb = ({ index, link, immutable, onAddFiles, onMove, onClic
     accept: [NativeTypes.FILE, 'FILE'],
     drop: async ({ files, filesPromise, path: filePath }) => {
       if (files) {
-        (async () => {
-          const files = await filesPromise
-          onAddFiles(await normalizeFiles(files), link.path)
-        })()
+        void addDroppedFiles(filesPromise, files => onAddFiles(files, link.path))
       } else {
         const src = filePath
         const dst = join(link.path, basename(filePath))

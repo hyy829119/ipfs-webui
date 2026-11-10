@@ -1,5 +1,7 @@
 # IPFS Web UI
 
+本 IFShare 版本已接入 Node 用户与文件操作日志服务（支持 SQLite、MySQL、MariaDB、PostgreSQL）。开发时运行 `npm run dev` 同时启动页面与 API；默认管理员为 `admin`，密码为 `password`。安装、接口和 Apache HTTPS 部署说明见 [ipfs-webuiapi/README.md](ipfs-webuiapi/README.md)。新版部署需要同时运行 API 服务。
+
 > A web interface to [IPFS](https://ipfs.tech), shipped with [Kubo](https://github.com/ipfs/kubo), and [ipfs-desktop](https://github.com/ipfs/ipfs-desktop/).
 >
 > Check on your node stats, explore the IPLD powered merkle forest, see peers around the world and manage your files, without needing to touch the CLI.

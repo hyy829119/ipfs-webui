@@ -3,7 +3,9 @@ import { readFileSync } from 'node:fs'
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import { Preview } from './FilePreview.js'
+import { recordFileOperation } from '../../logs/operation-log'
 
+jest.mock('../../logs/operation-log', () => ({ recordFileOperation: jest.fn().mockResolvedValue(true) }))
 jest.mock('./TextPreview', () => ({ __esModule: true, default: ({ text }) => text }))
 jest.mock('./archive/ArchivePreview', () => ({ __esModule: true, default: ({ format }) => <div data-testid='archive-preview'>{format}</div> }))
 
@@ -12,6 +14,7 @@ const t = key => key
 const read = async function * () { yield new TextEncoder().encode('<script>example</script>\nhello 中文') }
 const props = { t, cid, size: 40, availableGatewayUrl: 'https://ifshare.example', read, onDownload: jest.fn(), onClose: jest.fn() }
 const originalFetch = global.fetch
+beforeEach(() => recordFileOperation.mockClear())
 afterEach(() => { global.fetch = originalFetch })
 
 it('renders text as inert content and keeps download available', async () => {
@@ -123,4 +126,28 @@ it('uses a streaming video URL with controls instead of buffering it via RPC', a
   await waitFor(() => expect(container.querySelector('video')).toHaveAttribute('controls'))
   expect(container.querySelector('video')).toHaveAttribute('preload', 'metadata')
   expect(videoRead).not.toHaveBeenCalled()
+})
+
+it('records one preview per file even when renders, reads, or gateways change', async () => {
+  const view = render(<React.StrictMode><Preview {...props} name='main.js' path='/files/main.js' /></React.StrictMode>)
+  expect(await screen.findByText(/hello 中文/)).toBeInTheDocument()
+  expect(recordFileOperation).toHaveBeenCalledTimes(1)
+  expect(recordFileOperation).toHaveBeenLastCalledWith('preview', { fileName: 'main.js', filePath: '/files/main.js', cid })
+  view.rerender(<React.StrictMode><Preview {...props} name='main.js' path='/files/main.js' availableGatewayUrl='https://another.example' read={async function * () { yield new TextEncoder().encode('updated') }} /></React.StrictMode>)
+  expect(await screen.findByText('updated')).toBeInTheDocument()
+  expect(recordFileOperation).toHaveBeenCalledTimes(1)
+  view.rerender(<React.StrictMode><Preview {...props} name='next.js' path='/files/next.js' /></React.StrictMode>)
+  expect(await screen.findByText(/hello 中文/)).toBeInTheDocument()
+  expect(recordFileOperation).toHaveBeenCalledTimes(2)
+})
+
+it('records direct CID previews and explicit retries without counting gateway fallback', async () => {
+  global.fetch = jest.fn().mockRejectedValue(new Error('Unavailable'))
+  render(<Preview {...props} name={cid} />)
+  expect(await screen.findByRole('alert')).toHaveTextContent('preview.failed')
+  expect(recordFileOperation).toHaveBeenCalledTimes(1)
+  expect(recordFileOperation).toHaveBeenLastCalledWith('preview', { fileName: cid, filePath: `/ipfs/${cid}`, cid })
+  fireEvent.click(screen.getByRole('button', { name: 'preview.retry' }))
+  expect(await screen.findByRole('alert')).toHaveTextContent('preview.failed')
+  expect(recordFileOperation).toHaveBeenCalledTimes(2)
 })

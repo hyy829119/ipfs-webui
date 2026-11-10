@@ -1,0 +1,28 @@
+{
+  "title": "로그",
+  "scopeAll": "모든 사용자의 파일 작업을 확인합니다.",
+  "scopeOwn": "내 파일 작업을 확인합니다.",
+  "refresh": "새로고침",
+  "search": "검색",
+  "searchPlaceholder": "파일 이름, 경로, CID 또는 사용자 이름",
+  "action": "작업",
+  "allActions": "모든 작업",
+  "actions": {
+    "upload": "업로드",
+    "download": "다운로드",
+    "preview": "미리보기"
+  },
+  "operationHint": "로그에는 웹 UI에서 시작한 작업이 기록됩니다. 다운로드 기록은 파일이 저장되었음을 확인하지 않습니다.",
+  "loading": "로그를 불러오는 중…",
+  "empty": "일치하는 작업이 없습니다.",
+  "time": "시간",
+  "user": "사용자",
+  "file": "파일",
+  "count": "파일 수",
+  "unnamed": "이름 없는 파일",
+  "total": "기록 {count}개",
+  "pageSize": "페이지당",
+  "previous": "이전",
+  "next": "다음",
+  "page": "{page} / {pages}"
+}

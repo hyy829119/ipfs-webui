@@ -1,0 +1,28 @@
+{
+  "title": "Jurnale",
+  "scopeAll": "Vizualizați operațiunile cu fișiere ale tuturor utilizatorilor.",
+  "scopeOwn": "Vizualizați propriile operațiuni cu fișiere.",
+  "refresh": "Reîmprospătare",
+  "search": "Căutare",
+  "searchPlaceholder": "Nume de fișier, cale, CID sau nume de utilizator",
+  "action": "Operațiune",
+  "allActions": "Toate operațiunile",
+  "operationHint": "Înregistrările arată acțiunile inițiate în WebUI. O înregistrare de descărcare nu confirmă că fișierul a fost salvat.",
+  "loading": "Se încarcă jurnalele…",
+  "empty": "Nu s-au găsit operațiuni corespunzătoare.",
+  "time": "Data și ora",
+  "user": "Utilizator",
+  "file": "Fișier",
+  "count": "Fișiere",
+  "unnamed": "Fișier fără nume",
+  "total": "{count} înregistrări",
+  "pageSize": "Pe pagină",
+  "previous": "Anterior",
+  "next": "Următor",
+  "page": "{page} / {pages}",
+  "actions": {
+    "upload": "Încărcare",
+    "download": "Descărcare",
+    "preview": "Previzualizare"
+  }
+}

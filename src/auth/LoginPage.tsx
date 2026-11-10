@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet'
 import { useTranslation } from 'react-i18next'
 import { APP_NAME } from '../constants/branding.js'
 import './LoginPage.css'
+import { translateApiError } from './api-error'
 
 type IconName = 'user' | 'lock' | 'arrow' | 'eye' | 'eyeOff' | 'logout' | 'content' | 'network' | 'storage'
 
@@ -64,16 +65,16 @@ function DataFlow () {
 
 interface LoginPageProps {
   onLogin: (username: string, password: string) => Promise<boolean>
-  serverAuth?: boolean
 }
 
-export default function LoginPage ({ onLogin, serverAuth = false }: LoginPageProps) {
+export default function LoginPage ({ onLogin }: LoginPageProps) {
   const { t } = useTranslation('login')
+  const { t: usersT } = useTranslation('users')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState(false)
-  const [unavailable, setUnavailable] = useState(false)
+  const [unavailable, setUnavailable] = useState<unknown>(null)
   const [pending, setPending] = useState(false)
   const passwordInput = useRef<HTMLInputElement>(null)
   const mounted = useRef(true)
@@ -88,14 +89,14 @@ export default function LoginPage ({ onLogin, serverAuth = false }: LoginPagePro
     if (pending) return
     setPending(true)
     setError(false)
-    setUnavailable(false)
+    setUnavailable(null)
     try {
       if (!await onLogin(username, password)) {
         setError(true)
         passwordInput.current?.focus()
       }
-    } catch {
-      setUnavailable(true)
+    } catch (error) {
+      setUnavailable(error)
     } finally {
       if (mounted.current) setPending(false)
     }
@@ -137,19 +138,19 @@ export default function LoginPage ({ onLogin, serverAuth = false }: LoginPagePro
                 <label htmlFor='login-username'>{t('username')}</label>
                 <div className={'login-input-wrap' + (error ? ' login-input-error' : '')}>
                   <LoginIcon name='user' />
-                  <input id='login-username' name='username' autoComplete='username' autoCapitalize='none' spellCheck={false} required placeholder={t('usernamePlaceholder')} value={username} aria-invalid={error} aria-describedby={error ? 'login-error' : undefined} onChange={event => { setUsername(event.target.value); setError(false) }} />
+                  <input id='login-username' name='username' autoComplete='username' autoCapitalize='none' spellCheck={false} required maxLength={32} placeholder={t('usernamePlaceholder')} value={username} aria-invalid={error} aria-describedby={error ? 'login-error' : undefined} onChange={event => { setUsername(event.target.value); setError(false) }} />
                 </div>
               </div>
               <div className='login-field'>
                 <label htmlFor='login-password'>{t('password')}</label>
                 <div className={'login-input-wrap' + (error ? ' login-input-error' : '')}>
                   <LoginIcon name='lock' />
-                  <input ref={passwordInput} id='login-password' name='password' type={showPassword ? 'text' : 'password'} autoComplete='current-password' required placeholder={t('passwordPlaceholder')} value={password} aria-invalid={error} aria-describedby={error ? 'login-error' : undefined} onChange={event => { setPassword(event.target.value); setError(false) }} />
+                  <input ref={passwordInput} id='login-password' name='password' type={showPassword ? 'text' : 'password'} autoComplete='current-password' required maxLength={128} placeholder={t('passwordPlaceholder')} value={password} aria-invalid={error} aria-describedby={error ? 'login-error' : undefined} onChange={event => { setPassword(event.target.value); setError(false) }} />
                   <button type='button' className='login-password-toggle' onClick={() => setShowPassword(!showPassword)} aria-label={t(showPassword ? 'hidePassword' : 'showPassword')} aria-pressed={showPassword}><LoginIcon name={showPassword ? 'eyeOff' : 'eye'} /></button>
                 </div>
               </div>
               <div className='login-feedback'>
-                {error ? <p id='login-error' role='alert'>{t('invalidCredentials')}</p> : unavailable ? <p role='alert'>{t('serviceUnavailable')}</p> : <p>{t(serverAuth ? 'serverSessionHint' : 'sessionHint')}</p>}
+                {error ? <p id='login-error' role='alert'>{t('invalidCredentials')}</p> : unavailable !== null ? <p role='alert'>{translateApiError(unavailable, usersT)}</p> : <p>{t('serverSessionHint')}</p>}
               </div>
               <button type='submit' className='login-submit' disabled={pending} aria-busy={pending}><span>{t(pending ? 'signingIn' : 'signIn')}</span><LoginIcon name='arrow' /></button>
             </form>

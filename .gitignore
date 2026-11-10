@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/ipfs-webuiapi/node_modules
 
 # testing
 /coverage
@@ -33,6 +34,9 @@ tsconfig.tsbuildinfo
 .connect-deps*
 .envrc
 .cid
+/ipfs-webuiapi/data/
+/ipfs-webuiapi/.env
+/ipfs-webuiapi/*.sqlite*
 .cache
 .nyc_output
 

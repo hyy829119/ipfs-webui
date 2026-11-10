@@ -165,7 +165,22 @@ function webpackOverride (config) {
 }
 
 const configOverride = {
-  webpack: webpackOverride
+  webpack: webpackOverride,
+  devServer: configFunction => (proxy, allowedHost) => {
+    const config = configFunction(proxy, allowedHost)
+    config.proxy = [
+      ...(config.proxy || []),
+      {
+        context: ['/webui-api/', '/api/v0/', '/ipfs/', '/ipns/'],
+        target: process.env.WEBUI_API_PROXY_TARGET || 'http://127.0.0.1:3001',
+        changeOrigin: false,
+        // Retain the browser's Host and Origin for server-side CSRF checks.
+        xfwd: false,
+        proxyTimeout: 600000
+      }
+    ]
+    return config
+  }
 }
 
 export default configOverride

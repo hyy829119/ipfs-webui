@@ -1,5 +1,7 @@
 # IFShare 一键私有部署
 
+完整的环境准备、端口放行、节点组网、跨节点文件验收、HTTPS 和 WebUI 部署流程见 [IFShare 私有部署与验收手册](DEPLOYMENT-zh-CN.md)。
+
 安装包包含已编译的 Linux amd64 `ifshare`、带服务端登录校验的 WebUI、独立 Apache 配置、安装脚本和 HTTPS 证书脚本。服务器不需要安装 Go、Node.js，也不需要现场编译程序。
 
 ## 环境

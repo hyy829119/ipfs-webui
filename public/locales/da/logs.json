@@ -1,0 +1,28 @@
+{
+  "title": "Logfiler",
+  "scopeAll": "Se filhandlinger fra alle brugere.",
+  "scopeOwn": "Se dine filhandlinger.",
+  "refresh": "Opdater",
+  "search": "Søg",
+  "searchPlaceholder": "Filnavn, sti, CID eller brugernavn",
+  "action": "Handling",
+  "allActions": "Alle handlinger",
+  "actions": {
+    "upload": "Upload",
+    "download": "Download",
+    "preview": "Forhåndsvisning"
+  },
+  "operationHint": "Loggen viser handlinger startet i webgrænsefladen. En downloadregistrering bekræfter ikke, at filen er blevet gemt.",
+  "loading": "Indlæser loggen…",
+  "empty": "Ingen matchende handlinger.",
+  "time": "Tid",
+  "user": "Bruger",
+  "file": "Fil",
+  "count": "Filer",
+  "unnamed": "Unavngivet fil",
+  "total": "{count} poster",
+  "pageSize": "Pr. side",
+  "previous": "Forrige",
+  "next": "Næste",
+  "page": "{page} / {pages}"
+}

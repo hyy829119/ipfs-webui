@@ -27,7 +27,7 @@ i18n
       ],
       backendOptions: [
         { // LocalStorageBackend
-          defaultVersion: `${APP_NAME}-${CLI_NAME}-${version}-archive1`,
+          defaultVersion: `${APP_NAME}-${CLI_NAME}-${version}-logs2`,
           expirationTime: (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') ? 1 : 7 * 24 * 60 * 60 * 1000
         },
         { // HttpBackend
@@ -39,7 +39,7 @@ i18n
         }
       ]
     },
-    ns: ['app', 'login', 'welcome', 'status', 'files', 'explore', 'peers', 'settings', 'notify'],
+    ns: ['app', 'login', 'users', 'logs', 'welcome', 'status', 'files', 'explore', 'peers', 'settings', 'notify'],
     defaultNS: 'app',
     fallbackNS: 'app',
     fallbackLng: {

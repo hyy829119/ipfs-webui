@@ -1,0 +1,28 @@
+{
+  "title": "Lokit",
+  "scopeAll": "Näytä kaikkien käyttäjien tiedostotoiminnot.",
+  "scopeOwn": "Näytä omat tiedostotoimintosi.",
+  "refresh": "Päivitä",
+  "search": "Hae",
+  "searchPlaceholder": "Tiedostonimi, polku, CID tai käyttäjätunnus",
+  "action": "Toiminto",
+  "allActions": "Kaikki toiminnot",
+  "actions": {
+    "upload": "Lähetys",
+    "download": "Lataus",
+    "preview": "Esikatselu"
+  },
+  "operationHint": "Lokimerkinnät näyttävät verkkokäyttöliittymässä aloitetut toiminnot. Latausmerkintä ei vahvista, että tiedosto on tallennettu.",
+  "loading": "Ladataan lokeja…",
+  "empty": "Ei vastaavia toimintoja.",
+  "time": "Aika",
+  "user": "Käyttäjä",
+  "file": "Tiedosto",
+  "count": "Tiedostoja",
+  "unnamed": "Nimetön tiedosto",
+  "total": "{count} merkintää",
+  "pageSize": "Sivua kohden",
+  "previous": "Edellinen",
+  "next": "Seuraava",
+  "page": "{page} / {pages}"
+}

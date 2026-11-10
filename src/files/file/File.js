@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import { join, basename } from 'path'
 import { withTranslation } from 'react-i18next'
 import classnames from 'classnames'
-import { normalizeFiles, humanSize } from '../../lib/files.js'
+import { humanSize } from '../../lib/files.js'
+import { addDroppedFiles } from '../dropped-files'
 // React DnD
 import { useDrag, useDrop } from 'react-dnd'
 // Components
@@ -55,10 +56,7 @@ const File = ({
       const item = monitor.getItem()
 
       if (item.files) {
-        (async () => {
-          const files = await item.filesPromise
-          onAddFiles(normalizeFiles(files), path)
-        })()
+        void addDroppedFiles(item.filesPromise, files => onAddFiles(files, path))
       } else {
         const src = item.path
         const dst = join(path, basename(item.path))

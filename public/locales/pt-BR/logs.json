@@ -1,0 +1,28 @@
+{
+  "title": "Logs",
+  "scopeAll": "Veja as operações de arquivos de todos os usuários.",
+  "scopeOwn": "Veja suas operações de arquivos.",
+  "refresh": "Atualizar",
+  "search": "Pesquisar",
+  "searchPlaceholder": "Nome do arquivo, caminho, CID ou nome de usuário",
+  "action": "Operação",
+  "allActions": "Todas as operações",
+  "operationHint": "Os registros mostram ações iniciadas na WebUI. Um registro de download não confirma que o arquivo foi salvo.",
+  "loading": "Carregando registros…",
+  "empty": "Nenhuma operação correspondente encontrada.",
+  "time": "Data e hora",
+  "user": "Usuário",
+  "file": "Arquivo",
+  "count": "Arquivos",
+  "unnamed": "Arquivo sem nome",
+  "total": "{count} registros",
+  "pageSize": "Por página",
+  "previous": "Anterior",
+  "next": "Próxima",
+  "page": "{page} / {pages}",
+  "actions": {
+    "upload": "Enviar",
+    "download": "Baixar",
+    "preview": "Visualizar"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "title": "Journaux",
+  "scopeAll": "Consultez les opérations sur les fichiers de tous les utilisateurs.",
+  "scopeOwn": "Consultez vos opérations sur les fichiers.",
+  "refresh": "Actualiser",
+  "search": "Rechercher",
+  "searchPlaceholder": "Nom du fichier, chemin, CID ou nom d’utilisateur",
+  "action": "Opération",
+  "allActions": "Toutes les opérations",
+  "actions": {
+    "upload": "Envoi",
+    "download": "Téléchargement",
+    "preview": "Aperçu"
+  },
+  "operationHint": "Les journaux indiquent les actions lancées dans l’interface web. Une entrée de téléchargement ne confirme pas que le fichier a été enregistré.",
+  "loading": "Chargement des journaux…",
+  "empty": "Aucune opération correspondante.",
+  "time": "Heure",
+  "user": "Utilisateur",
+  "file": "Fichier",
+  "count": "Fichiers",
+  "unnamed": "Fichier sans nom",
+  "total": "{count} entrées",
+  "pageSize": "Par page",
+  "previous": "Précédent",
+  "next": "Suivant",
+  "page": "{page} / {pages}"
+}

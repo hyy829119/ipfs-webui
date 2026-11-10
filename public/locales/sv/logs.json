@@ -1,0 +1,28 @@
+{
+  "title": "Loggar",
+  "scopeAll": "Visa alla användares filåtgärder.",
+  "scopeOwn": "Visa dina filåtgärder.",
+  "refresh": "Uppdatera",
+  "search": "Sök",
+  "searchPlaceholder": "Filnamn, sökväg, CID eller användarnamn",
+  "action": "Åtgärd",
+  "allActions": "Alla åtgärder",
+  "operationHint": "Loggarna visar åtgärder som påbörjats i WebUI. En nedladdningspost bekräftar inte att filen har sparats.",
+  "loading": "Läser in loggar…",
+  "empty": "Inga matchande åtgärder hittades.",
+  "time": "Tid",
+  "user": "Användare",
+  "file": "Fil",
+  "count": "Filer",
+  "unnamed": "Namnlös fil",
+  "total": "{count} poster",
+  "pageSize": "Per sida",
+  "previous": "Föregående",
+  "next": "Nästa",
+  "page": "{page} / {pages}",
+  "actions": {
+    "upload": "Uppladdning",
+    "download": "Nedladdning",
+    "preview": "Förhandsvisning"
+  }
+}

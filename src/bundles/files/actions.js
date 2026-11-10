@@ -12,6 +12,7 @@ import { CID } from 'multiformats/cid'
 
 import { spawn, perform, send, ensureMFS, Channel, sortFiles, infoFromPath, dispatchAsyncProvide } from './utils.js'
 import { IGNORED_FILES, ACTIONS } from './consts.js'
+import { recordFilesOperation } from '../../logs/operation-log'
 
 /**
  * @typedef {import('kubo-rpc-client').KuboRPCClient} IPFSService
@@ -325,7 +326,7 @@ const actions = () => ({
    * @param {FileStream[]} source
    * @param {string} root
    */
-  doFilesWrite: (source, root) => spawn(ACTIONS.WRITE, async function * (ipfs, { store }) {
+  doFilesWrite: (source, root) => {
     const files = source
       // Skip ignored files
       .filter($ => !IGNORED_FILES.includes(basename($.path)))
@@ -333,66 +334,69 @@ const actions = () => ({
       // as relative paths, so normalize all to be relative.
       .map($ => $.path[0] === '/' ? { ...$, path: $.path.slice(1) } : $)
 
-    const totalSize = files.reduce((prev, { size }) => prev + size, 0)
+    void recordFilesOperation('upload', files, realMfsPath(root || '/files'))
+    return spawn(ACTIONS.WRITE, async function * (ipfs, { store }) {
+      const totalSize = files.reduce((prev, { size }) => prev + size, 0)
 
-    const entries = files.map(({ path, size }) => ({ path, size }))
+      const entries = files.map(({ path, size }) => ({ path, size }))
 
-    yield { entries, progress: 0 }
+      yield { entries, progress: 0 }
 
-    const { result, progress } = importFiles(ipfs, files)
+      const { result, progress } = importFiles(ipfs, files)
 
-    /** @type {null|{uploaded:number, offset:number, name:string}} */
-    let status = null
+      /** @type {null|{uploaded:number, offset:number, name:string}} */
+      let status = null
 
-    for await (const { name, offset } of progress) {
-      status = status == null
-        ? { uploaded: 0, offset, name }
-        : name === status.name
-          ? { uploaded: status.uploaded, offset, name }
-          : { uploaded: status.uploaded + status.offset, offset, name }
-      const progress = (status.uploaded + status.offset) / totalSize * 100
+      for await (const { name, offset } of progress) {
+        status = status == null
+          ? { uploaded: 0, offset, name }
+          : name === status.name
+            ? { uploaded: status.uploaded, offset, name }
+            : { uploaded: status.uploaded + status.offset, offset, name }
+        const progress = (status.uploaded + status.offset) / totalSize * 100
 
-      yield { entries, progress }
-    }
-
-    try {
-      const added = await result
-
-      const numberOfFiles = files.length
-      const numberOfDirs = countDirs(files)
-      const expectedResponseCount = numberOfFiles + numberOfDirs
-
-      if (added.length !== expectedResponseCount) {
-        // See https://github.com/ipfs/js-ipfs-api/issues/797
-        throw Object.assign(new Error('API returned a partial response.'), {
-          code: 'ERR_API_RESPONSE'
-        })
+        yield { entries, progress }
       }
 
-      for (const { path, cid } of added) {
-        // Only go for direct children
-        if (path.indexOf('/') === -1 && path !== '') {
-          const src = `/ipfs/${cid}`
-          const dst = join(realMfsPath(root || '/files'), path)
+      try {
+        const added = await result
 
-          try {
-            await ipfs.files.cp(src, dst)
-          } catch (err) {
-            // TODO: Not sure why we do this. Perhaps a generic error is used
-            // to avoid leaking private information via Countly?
-            throw Object.assign(new Error('ipfs.files.cp call failed'), {
-              code: 'ERR_FILES_CP_FAILED'
-            })
+        const numberOfFiles = files.length
+        const numberOfDirs = countDirs(files)
+        const expectedResponseCount = numberOfFiles + numberOfDirs
+
+        if (added.length !== expectedResponseCount) {
+          // See https://github.com/ipfs/js-ipfs-api/issues/797
+          throw Object.assign(new Error('API returned a partial response.'), {
+            code: 'ERR_API_RESPONSE'
+          })
+        }
+
+        for (const { path, cid } of added) {
+          // Only go for direct children
+          if (path.indexOf('/') === -1 && path !== '') {
+            const src = `/ipfs/${cid}`
+            const dst = join(realMfsPath(root || '/files'), path)
+
+            try {
+              await ipfs.files.cp(src, dst)
+            } catch (err) {
+              // TODO: Not sure why we do this. Perhaps a generic error is used
+              // to avoid leaking private information via Countly?
+              throw Object.assign(new Error('ipfs.files.cp call failed'), {
+                code: 'ERR_FILES_CP_FAILED'
+              })
+            }
           }
         }
-      }
 
-      yield { entries, progress: 100 }
-      return entries
-    } finally {
-      await store.doFilesFetch()
-    }
-  }),
+        yield { entries, progress: 100 }
+        return entries
+      } finally {
+        await store.doFilesFetch()
+      }
+    })
+  },
 
   /**
    * Deletes `files` with provided paths. On completion (success or fail) will
@@ -499,45 +503,48 @@ const actions = () => ({
    * @param {FileStream} carFile
    * @param {string} name
    */
-  doAddCarFile: (root, carFile, name = '') => perform(ACTIONS.ADD_CAR_FILE, async (/** @type {IPFSService} */ ipfs, { store }) => {
-    ensureMFS(store)
+  doAddCarFile: (root, carFile, name = '') => {
+    void recordFilesOperation('upload', [carFile], realMfsPath(root || '/files'))
+    return perform(ACTIONS.ADD_CAR_FILE, async (/** @type {IPFSService} */ ipfs, { store }) => {
+      ensureMFS(store)
 
-    const stream = carFile.content.stream()
-    try {
-      // @ts-expect-error - https://github.com/ipfs/js-kubo-rpc-client/issues/278
-      const result = await all(ipfs.dag.import(stream, {
-        pinRoots: true
-      }))
-      const cid = result[0].root.cid
-      const src = `/ipfs/${cid}`
-      const dst = realMfsPath(join(root, name))
-      let dstExists = false
-
-      // Check if destination path already exists
-      await ipfs.files.stat(dst).then(() => {
-        dstExists = true
-      }).catch(() => {
-        // Swallow error. We can add the file to the dst path
-      })
-
-      if (dstExists) {
-        throw new Error(`The name "${name}" already exists in the current directory. Try importing with a different name.`)
-      }
-
+      const stream = carFile.content.stream()
       try {
-        await ipfs.files.cp(src, dst)
-      } catch (/** @type {any} */ err) {
-        // TODO: Not sure why we do this. Perhaps a generic error is used
-        // to avoid leaking private information via Countly?
-        throw Object.assign(new Error('ipfs.files.cp call failed'), {
-          code: 'ERR_FILES_CP_FAILED'
+        // @ts-expect-error - https://github.com/ipfs/js-kubo-rpc-client/issues/278
+        const result = await all(ipfs.dag.import(stream, {
+          pinRoots: true
+        }))
+        const cid = result[0].root.cid
+        const src = `/ipfs/${cid}`
+        const dst = realMfsPath(join(root, name))
+        let dstExists = false
+
+        // Check if destination path already exists
+        await ipfs.files.stat(dst).then(() => {
+          dstExists = true
+        }).catch(() => {
+          // Swallow error. We can add the file to the dst path
         })
+
+        if (dstExists) {
+          throw new Error(`The name "${name}" already exists in the current directory. Try importing with a different name.`)
+        }
+
+        try {
+          await ipfs.files.cp(src, dst)
+        } catch (/** @type {any} */ err) {
+          // TODO: Not sure why we do this. Perhaps a generic error is used
+          // to avoid leaking private information via Countly?
+          throw Object.assign(new Error('ipfs.files.cp call failed'), {
+            code: 'ERR_FILES_CP_FAILED'
+          })
+        }
+        return carFile
+      } finally {
+        await store.doFilesFetch()
       }
-      return carFile
-    } finally {
-      await store.doFilesFetch()
-    }
-  }),
+    })
+  },
 
   /**
    * Reads a text file containing CIDs and adds each one to IPFS at the given root path.

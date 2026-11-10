@@ -28,14 +28,21 @@ import Header from './header/Header.js'
 import FileImportStatus from './file-import-status/FileImportStatus.js'
 import { useExplore } from 'ipld-explorer-components/providers'
 import SelectedActions from './selected-actions/SelectedActions.js'
+import { recordFilesOperation } from '../logs/operation-log'
+import { getSessionGeneration } from '../auth/server-auth'
 
-const FilesPage = ({
+export const FilesPage = ({
   doFetchPinningServices, doFilesFetch, doPinsFetch, doFilesSizeGet, doFilesDownloadLink, doFilesDownloadCarLink, doFilesWrite, doAddCarFile, doFilesBulkCidImport, doFilesAddPath, doUpdateHash,
   doFilesUpdateSorting, doFilesNavigateTo, doFilesMove, doSetCliOptions, doFetchRemotePins, remotePins, pendingPins, failedPins,
   ipfsProvider, ipfsConnected, doFilesMakeDir, doFilesShareLink, doFilesCidProvide, doFilesDelete, doSetPinning, onRemotePinClick, doPublishIpnsKey,
   files, pins, filesPathInfo, filesIsFetching, pinningServices, toursEnabled, handleJoyrideCallback, isCliTutorModeEnabled, cliOptions, filesSorting, t
 }) => {
   const { doExploreUserProvidedPath } = useExplore()
+  const mounted = useRef(true)
+  useEffect(() => {
+    mounted.current = true
+    return () => { mounted.current = false }
+  }, [])
   const contextMenuRef = useRef()
   const [modals, setModals] = useState({ show: null, files: null })
   const [contextMenu, setContextMenu] = useState({
@@ -121,19 +128,30 @@ const FilesPage = ({
   */
 
   const onDownload = async (files) => {
-    const url = await doFilesDownloadLink(files)
-    window.location.href = url
+    if (!mounted.current) return
+    const generation = getSessionGeneration()
+    void recordFilesOperation('download', files)
+    try {
+      const url = await doFilesDownloadLink(files)
+      if (mounted.current && generation === getSessionGeneration()) window.location.href = url
+    } catch {} // The file action already exposes failures through the Redux notification state.
   }
 
   const onDownloadCar = async (files) => {
-    const url = await doFilesDownloadCarLink(files)
-    window.location.href = url
+    if (!mounted.current) return
+    const generation = getSessionGeneration()
+    void recordFilesOperation('download', files)
+    try {
+      const url = await doFilesDownloadCarLink(files)
+      if (mounted.current && generation === getSessionGeneration()) window.location.href = url
+    } catch {}
   }
 
-  const onAddFiles = (raw, root = '') => {
+  const onAddFiles = async (raw, root = '') => {
+    if (!mounted.current) return
     if (root === '') root = files.path
 
-    doFilesWrite(raw, root)
+    try { await doFilesWrite(raw, root) } catch {}
   }
 
   const onBulkCidImport = (raw, root = '') => {
@@ -156,8 +174,9 @@ const FilesPage = ({
    * @param {File} file
    * @param {string} name
    */
-  const onAddByCar = (file, name) => {
-    doAddCarFile(files.path, file, name)
+  const onAddByCar = async (file, name) => {
+    if (!mounted.current) return
+    try { await doAddCarFile(files.path, file, name) } catch {}
   }
   const onInspect = (cid) => doUpdateHash(`/explore/${cid}`)
   const showModal = (modal, files = null) => setModals({ show: modal, files })

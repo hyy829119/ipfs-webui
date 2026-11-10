@@ -95,7 +95,7 @@
 .login-footer { display: flex; justify-content: space-between; gap: 20px; width: 100%; max-width: 1320px; margin: 0 auto; color: #a8b2c4; font-size: 10px; letter-spacing: 0.04em; }
 .login-footer > span:last-child { font-size: 9px; letter-spacing: 0.14em; }
 .ifshare-account { display: flex; align-items: center; gap: 10px; border-left: 1px solid #e8edf5; padding-left: 14px; }
-.ifshare-account-name { display: flex; align-items: center; gap: 6px; color: #7b879c; font-size: 11px; }
+.ifshare-account-name { display: flex; align-items: center; gap: 6px; color: #7b879c; font-size: 11px; max-width: 140px; overflow-wrap: anywhere; }
 .ifshare-account svg { width: 17px; height: 17px; }
 .ifshare-account button { display: grid; place-items: center; padding: 7px; border: 0; background: transparent; border-radius: 8px; color: #7b879c; cursor: pointer; }
 .ifshare-account button:hover { color: #3568ec; background: #edf3ff; }

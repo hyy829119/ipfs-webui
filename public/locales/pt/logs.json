@@ -1,0 +1,28 @@
+{
+  "title": "Registos",
+  "scopeAll": "Consulte as operações de ficheiros de todos os utilizadores.",
+  "scopeOwn": "Consulte as suas operações de ficheiros.",
+  "refresh": "Atualizar",
+  "search": "Pesquisar",
+  "searchPlaceholder": "Nome do ficheiro, caminho, CID ou nome de utilizador",
+  "action": "Operação",
+  "allActions": "Todas as operações",
+  "operationHint": "Os registos mostram ações iniciadas na WebUI. Um registo de transferência não confirma que o ficheiro foi guardado.",
+  "loading": "A carregar os registos…",
+  "empty": "Não foram encontradas operações correspondentes.",
+  "time": "Data e hora",
+  "user": "Utilizador",
+  "file": "Ficheiro",
+  "count": "Ficheiros",
+  "unnamed": "Ficheiro sem nome",
+  "total": "{count} registos",
+  "pageSize": "Por página",
+  "previous": "Anterior",
+  "next": "Seguinte",
+  "page": "{page} / {pages}",
+  "actions": {
+    "upload": "Carregar",
+    "download": "Transferir",
+    "preview": "Pré-visualizar"
+  }
+}

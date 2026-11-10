@@ -1,0 +1,28 @@
+{
+  "title": "ログ",
+  "scopeAll": "すべてのユーザーのファイル操作を表示します。",
+  "scopeOwn": "自分のファイル操作を表示します。",
+  "refresh": "更新",
+  "search": "検索",
+  "searchPlaceholder": "ファイル名、パス、CID、ユーザー名",
+  "action": "操作",
+  "allActions": "すべての操作",
+  "actions": {
+    "upload": "アップロード",
+    "download": "ダウンロード",
+    "preview": "プレビュー"
+  },
+  "operationHint": "Web UI で開始された操作を記録します。ダウンロードの記録は、ファイルが保存されたことを保証するものではありません。",
+  "loading": "ログを読み込み中…",
+  "empty": "一致する操作はありません。",
+  "time": "日時",
+  "user": "ユーザー",
+  "file": "ファイル",
+  "count": "ファイル数",
+  "unnamed": "名前のないファイル",
+  "total": "{count} 件",
+  "pageSize": "1ページあたり",
+  "previous": "前へ",
+  "next": "次へ",
+  "page": "{page} / {pages}"
+}

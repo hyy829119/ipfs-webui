@@ -2,13 +2,13 @@ import React, { useRef, useState, useEffect, useCallback, useMemo, type FC, type
 import { Trans, withTranslation } from 'react-i18next'
 import { useDrop } from 'react-dnd'
 import { NativeTypes } from 'react-dnd-html5-backend'
-import { normalizeFiles } from '../../lib/files.js'
+import { addDroppedFiles } from '../dropped-files'
 import GridFile from './grid-file.jsx'
 import Checkbox from '../../components/checkbox/Checkbox.js'
 import { connect } from 'redux-bundler-react'
 import './files-grid.css'
 import { TFunction } from 'i18next'
-import type { ContextMenuFile, ExtendedFile, FileStream } from '../types'
+import type { ContextMenuFile, FileStream } from '../types'
 import type { CID } from 'multiformats/cid'
 import SearchFilter from '../search-filter/SearchFilter'
 
@@ -54,18 +54,13 @@ const FilesGrid = ({
     drop: (_, monitor) => {
       if (monitor.didDrop()) return
       const { filesPromise } = monitor.getItem()
-      addFiles(filesPromise, onAddFiles)
+      void addDroppedFiles(filesPromise, onAddFiles)
     },
     collect: (monitor) => ({
       isOver: monitor.isOver({ shallow: true }),
       canDrop: filesPathInfo?.isMfs
     })
   })
-
-  const addFiles = async (filesPromise: Promise<ExtendedFile[]>, onAddFiles: (files: FileStream[]) => void) => {
-    const files = await filesPromise
-    onAddFiles(normalizeFiles(files))
-  }
 
   const filteredFiles = useMemo(() => {
     if (!filter) return files

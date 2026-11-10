@@ -1,0 +1,28 @@
+{
+  "title": "Logger",
+  "scopeAll": "Se filhandlinger fra alle brukere.",
+  "scopeOwn": "Se dine filhandlinger.",
+  "refresh": "Oppdater",
+  "search": "Søk",
+  "searchPlaceholder": "Filnavn, sti, CID eller brukernavn",
+  "action": "Handling",
+  "allActions": "Alle handlinger",
+  "actions": {
+    "upload": "Opplasting",
+    "download": "Nedlasting",
+    "preview": "Forhåndsvisning"
+  },
+  "operationHint": "Loggene viser handlinger startet i nettgrensesnittet. En nedlastingsoppføring bekrefter ikke at filen ble lagret.",
+  "loading": "Laster logger…",
+  "empty": "Ingen samsvarende handlinger.",
+  "time": "Tid",
+  "user": "Bruker",
+  "file": "Fil",
+  "count": "Filer",
+  "unnamed": "Fil uten navn",
+  "total": "{count} oppføringer",
+  "pageSize": "Per side",
+  "previous": "Forrige",
+  "next": "Neste",
+  "page": "{page} / {pages}"
+}

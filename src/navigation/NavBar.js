@@ -8,6 +8,9 @@ import StrokeWeb from '../icons/StrokeWeb.js'
 import StrokeCube from '../icons/StrokeCube.js'
 import StrokeSettings from '../icons/StrokeSettings.js'
 import StrokeIpld from '../icons/StrokeIpld.js'
+import StrokeUser from '../icons/StrokeUser.js'
+import StrokeDocText from '../icons/StrokeDocText.js'
+import { useSession } from '../auth/AuthGate'
 
 // Styles
 import './NavBar.css'
@@ -52,6 +55,7 @@ const NavLink = ({
  * @param {import('i18next').TFunction} props.t
  */
 export const NavBar = ({ t }) => {
+  const { user } = useSession()
   const gitRevision = process.env.REACT_APP_GIT_REV
   return (
     <div className='navbar-inner'>
@@ -65,6 +69,8 @@ export const NavBar = ({ t }) => {
           <NavLink to='/files' icon={StrokeWeb}>{t('files:title')}</NavLink>
           <NavLink to='/explore' icon={StrokeIpld}>{t('explore:tabName')}</NavLink>
           <NavLink to='/peers' icon={StrokeCube}>{t('peers:title')}</NavLink>
+          {user?.role === 'admin' && <NavLink to='/users' icon={StrokeUser}>{t('users:title')}</NavLink>}
+          <NavLink to='/logs' icon={StrokeDocText}>{t('logs:title')}</NavLink>
           <NavLink to='/settings' icon={StrokeSettings}>{t('settings:title')}</NavLink>
         </div>
       </div>

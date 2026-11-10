@@ -1,0 +1,28 @@
+{
+  "title": "日誌",
+  "scopeAll": "查看所有使用者的檔案操作記錄。",
+  "scopeOwn": "查看你自己的檔案操作記錄。",
+  "refresh": "重新載入",
+  "search": "搜尋",
+  "searchPlaceholder": "檔名、路徑、CID 或使用者名稱",
+  "action": "操作類型",
+  "allActions": "全部操作",
+  "actions": {
+    "upload": "上傳",
+    "download": "下載",
+    "preview": "預覽"
+  },
+  "operationHint": "記錄在 WebUI 中發起的操作，下載記錄不代表檔案已儲存完成。",
+  "loading": "正在載入日誌…",
+  "empty": "沒有符合條件的操作記錄。",
+  "time": "時間",
+  "user": "使用者",
+  "file": "檔案",
+  "count": "檔案數",
+  "unnamed": "未命名檔案",
+  "total": "共 {count} 項記錄",
+  "pageSize": "每頁項目",
+  "previous": "上一頁",
+  "next": "下一頁",
+  "page": "第 {page} / {pages} 頁"
+}

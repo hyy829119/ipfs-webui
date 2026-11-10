@@ -1,0 +1,28 @@
+{
+  "title": "Protokoly",
+  "scopeAll": "Zobrazte operace se soubory všech uživatelů.",
+  "scopeOwn": "Zobrazte své operace se soubory.",
+  "refresh": "Obnovit",
+  "search": "Hledat",
+  "searchPlaceholder": "Název souboru, cesta, CID nebo uživatelské jméno",
+  "action": "Operace",
+  "allActions": "Všechny operace",
+  "actions": {
+    "upload": "Nahrání",
+    "download": "Stažení",
+    "preview": "Náhled"
+  },
+  "operationHint": "Záznamy zobrazují akce zahájené ve webovém rozhraní. Záznam stažení nepotvrzuje, že byl soubor uložen.",
+  "loading": "Načítání protokolů…",
+  "empty": "Žádné odpovídající operace.",
+  "time": "Čas",
+  "user": "Uživatel",
+  "file": "Soubor",
+  "count": "Soubory",
+  "unnamed": "Soubor bez názvu",
+  "total": "Počet záznamů: {count}",
+  "pageSize": "Na stránku",
+  "previous": "Předchozí",
+  "next": "Další",
+  "page": "{page} / {pages}"
+}

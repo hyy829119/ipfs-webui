@@ -4,7 +4,7 @@ import { connect } from 'redux-bundler-react'
 import { getNavHelper } from 'internal-nav-helper'
 import ReactJoyride from 'react-joyride'
 import { withTranslation } from 'react-i18next'
-import { normalizeFiles } from './lib/files.js'
+import { addDroppedFiles } from './files/dropped-files'
 // React DnD
 import { DropTarget } from 'react-dnd'
 import { NativeTypes } from 'react-dnd-html5-backend'
@@ -28,6 +28,8 @@ const pageTitleKey = (url) => {
   if (url.startsWith('/peers')) return 'peers:title'
   if (url.startsWith('/pins')) return 'files:pinningQueue'
   if (url.startsWith('/welcome')) return 'welcome:description'
+  if (url.startsWith('/users')) return 'users:title'
+  if (url.startsWith('/logs')) return 'logs:title'
   return 'status:title'
 }
 
@@ -50,20 +52,24 @@ export class App extends Component {
   }
 
   componentDidMount () {
+    this.mounted = true
     this.props.doTryInitIpfs()
+  }
+
+  componentWillUnmount () {
+    this.mounted = false
   }
 
   addFiles = async (filesPromise) => {
     const { doFilesWrite, doUpdateHash, routeInfo, filesPathInfo } = this.props
     const isFilesPage = routeInfo.pattern === '/files*'
     const addAtPath = isFilesPage ? (filesPathInfo?.realPath || routeInfo.params.path) : '/'
-    const files = await filesPromise
-
-    doFilesWrite(normalizeFiles(files), addAtPath)
-    // Change to the files pages if the user is not there
-    if (!isFilesPage) {
-      doUpdateHash('/files')
-    }
+    await addDroppedFiles(filesPromise, files => {
+      if (!this.mounted) return
+      void doFilesWrite(files, addAtPath).catch(() => {})
+      // Change to the files pages if the user is not there.
+      if (!isFilesPage) doUpdateHash('/files')
+    })
   }
 
   handleJoyrideCb = (data) => {
@@ -99,7 +105,7 @@ export class App extends Component {
               </div>
             </header>
             <main className='app-content'>
-              { (ipfsReady || url === '/' || url.startsWith('/status') || url === '/welcome' || url.startsWith('/settings'))
+              { (ipfsReady || url === '/' || url.startsWith('/status') || url === '/welcome' || url.startsWith('/settings') || url.startsWith('/users') || url.startsWith('/logs'))
                 ? <Page />
                 : <ComponentLoader />
               }

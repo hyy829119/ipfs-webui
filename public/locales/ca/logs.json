@@ -1,0 +1,28 @@
+{
+  "title": "Registres",
+  "scopeAll": "Consulta les operacions de fitxers de tots els usuaris.",
+  "scopeOwn": "Consulta les teves operacions de fitxers.",
+  "refresh": "Actualitza",
+  "search": "Cerca",
+  "searchPlaceholder": "Nom del fitxer, camí, CID o nom d'usuari",
+  "action": "Operació",
+  "allActions": "Totes les operacions",
+  "actions": {
+    "upload": "Pujada",
+    "download": "Baixada",
+    "preview": "Previsualització"
+  },
+  "operationHint": "Els registres mostren les accions iniciades a la interfície web. Un registre de baixada no confirma que el fitxer s'hagi desat.",
+  "loading": "S'estan carregant els registres…",
+  "empty": "No hi ha operacions coincidents.",
+  "time": "Hora",
+  "user": "Usuari",
+  "file": "Fitxer",
+  "count": "Fitxers",
+  "unnamed": "Fitxer sense nom",
+  "total": "{count} registres",
+  "pageSize": "Per pàgina",
+  "previous": "Anterior",
+  "next": "Següent",
+  "page": "{page} / {pages}"
+}

@@ -16,7 +16,7 @@ const redirectsBundle = {
     'selectIpfsInitFailed',
     'selectHash',
     (failed, hash) => {
-      if (failed && !['/', '/login', '/welcome'].includes(hash) && !hash.startsWith('/status') && !hash.startsWith('/settings')) {
+      if (failed && !['/', '/login', '/welcome'].includes(hash) && !hash.startsWith('/status') && !hash.startsWith('/settings') && !hash.startsWith('/users') && !hash.startsWith('/logs')) {
         return { actionCreator: 'doUpdateHash', args: ['#/welcome'] }
       }
     }

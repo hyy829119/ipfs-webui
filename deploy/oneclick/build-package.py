@@ -38,8 +38,10 @@ def main():
     with tempfile.TemporaryDirectory(prefix='.package-', dir=args.output_dir) as temporary:
         stage = Path(temporary) / 'ifshare-linux-amd64'
         stage.mkdir()
-        for name in ['install.sh', 'installer.py', 'certificates.py', 'renew-certificate.sh', 'README-zh-CN.md']:
+        for name in ['install.sh', 'installer.py', 'certificates.py', 'renew-certificate.sh',
+                     'README-zh-CN.md', 'DEPLOYMENT-zh-CN.md']:
             shutil.copyfile(source / name, stage / name)
+        shutil.copyfile(source.parent / 'apache' / 'verify-rpc.py', stage / 'verify-rpc.py')
         shutil.copytree(source / 'apache', stage / 'apache')
         shutil.copytree(args.web_build, stage / 'web', ignore=shutil.ignore_patterns('*.map', '.DS_Store'))
         (stage / 'bin').mkdir()

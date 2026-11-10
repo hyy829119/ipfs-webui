@@ -1,0 +1,28 @@
+{
+  "title": "Registri",
+  "scopeAll": "Visualizza le operazioni sui file di tutti gli utenti.",
+  "scopeOwn": "Visualizza le tue operazioni sui file.",
+  "refresh": "Aggiorna",
+  "search": "Cerca",
+  "searchPlaceholder": "Nome del file, percorso, CID o nome utente",
+  "action": "Operazione",
+  "allActions": "Tutte le operazioni",
+  "actions": {
+    "upload": "Caricamento",
+    "download": "Download",
+    "preview": "Anteprima"
+  },
+  "operationHint": "I registri mostrano le azioni avviate nell’interfaccia web. Una voce di download non conferma che il file sia stato salvato.",
+  "loading": "Caricamento dei registri…",
+  "empty": "Nessuna operazione corrispondente.",
+  "time": "Ora",
+  "user": "Utente",
+  "file": "File",
+  "count": "File",
+  "unnamed": "File senza nome",
+  "total": "{count} voci",
+  "pageSize": "Per pagina",
+  "previous": "Precedente",
+  "next": "Successiva",
+  "page": "{page} / {pages}"
+}

@@ -1,0 +1,52 @@
+.logs-page { min-width: 0; color: var(--if-ink, #202b43); overflow-wrap: anywhere; }
+.logs-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+.logs-header h2 { font-size: 23px; margin: 0 0 8px; }
+.logs-header p, .logs-note { color: var(--if-muted, #7b879c); font-size: 13px; line-height: 1.65; margin: 0; }
+.logs-page button, .logs-page input, .logs-page select { min-height: 40px; border: 1px solid var(--if-line, #e8edf5); border-radius: 8px; background: #fff; color: inherit; font: inherit; font-size: 13px; padding: 9px 13px; max-width: 100%; }
+.logs-page button { cursor: pointer; flex-shrink: 0; }
+.logs-page button:hover:enabled { border-color: #3665ef; color: #3665ef; }
+.logs-page button:disabled { opacity: .45; cursor: default; }
+.logs-page button:focus-visible, .logs-page input:focus-visible, .logs-page select:focus-visible { outline: 2px solid #3665ef; outline-offset: 2px; }
+.logs-page .logs-primary { color: #fff; background: #3665ef; border-color: #3665ef; }
+.logs-page .logs-primary:hover:enabled { color: #fff; background: #2955d5; }
+.logs-filters { display: flex; align-items: flex-end; flex-wrap: wrap; gap: 12px; }
+.logs-filters label { display: flex; flex-direction: column; gap: 7px; min-width: 0; font-size: 12px; }
+.logs-search { flex: 1; min-width: 180px !important; }
+.logs-filters input, .logs-filters select { width: 100%; }
+.logs-note { margin: 14px 0; }
+.logs-error { background: #fff1f1; color: #a22d35; padding: 14px; border-radius: 10px; }
+.logs-results { border: 1px solid var(--if-line, #e8edf5); border-radius: 14px; background: #fff; overflow: hidden; }
+.logs-results table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 13px; }
+.logs-results th, .logs-results td { text-align: start; padding: 16px 14px; vertical-align: top; border-bottom: 1px solid var(--if-line, #e8edf5); }
+.logs-results th { color: var(--if-muted, #7b879c); background: #f8faff; font-size: 12px; font-weight: 500; }
+.logs-results th:nth-child(1) { width: 21%; }
+.logs-results th:nth-child(2) { width: 16%; }
+.logs-results th:nth-child(3) { width: 14%; }
+.logs-results th:nth-child(5) { width: 10%; }
+.logs-results tr:last-child td { border-bottom: 0; }
+.logs-file { display: flex; flex-direction: column; min-width: 0; gap: 6px; }
+.logs-file strong { font-weight: 600; }
+.logs-file span, .logs-file code { color: var(--if-muted, #7b879c); font-size: 11px; word-break: break-word; white-space: normal; }
+.logs-action { display: inline-block; border-radius: 6px; padding: 4px 8px; color: #315ac8; background: #edf2ff; font-size: 12px; }
+.logs-action-upload { color: #0e8066; background: #eaf8f2; }
+.logs-action-preview { color: #7251ad; background: #f4effb; }
+.logs-empty { text-align: center; padding: 48px 20px; color: var(--if-muted, #7b879c); font-size: 14px; }
+.logs-pagination { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; margin-top: 16px; font-size: 12px; color: var(--if-muted, #7b879c); }
+.logs-pagination label { display: flex; align-items: center; gap: 8px; }
+.logs-page-controls { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; margin-inline-start: auto; }
+@media (max-width: 700px) {
+  .logs-results table, .logs-results tbody, .logs-results tr { display: block; }
+  .logs-results thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .logs-results tr { padding: 14px; border-bottom: 1px solid var(--if-line, #e8edf5); }
+  .logs-results tr:last-child { border-bottom: 0; }
+  .logs-results td { display: grid; grid-template-columns: minmax(68px, 25%) minmax(0, 1fr); align-items: start; gap: 10px; padding: 7px 0; border: 0; }
+  .logs-results td::before { content: attr(data-label); color: var(--if-muted, #7b879c); font-size: 12px; }
+  .logs-results .logs-action { justify-self: start; }
+}
+@media (max-width: 480px) {
+  .logs-header { align-items: flex-start; }
+  .logs-filters .logs-search { flex-basis: 100%; min-width: 0 !important; }
+  .logs-filters label:not(.logs-search) { flex: 1; }
+  .logs-page-controls { width: 100%; margin-inline-start: 0; }
+  .logs-page-controls button { flex-shrink: 1; }
+}

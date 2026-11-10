@@ -1,7 +1,8 @@
 import React, { useRef, useState, useEffect, type FC } from 'react'
 import { withTranslation } from 'react-i18next'
 import { useDrag, useDrop, type DropTargetMonitor } from 'react-dnd'
-import { humanSize, normalizeFiles } from '../../lib/files.js'
+import { humanSize } from '../../lib/files.js'
+import { addDroppedFiles } from '../dropped-files'
 import { CID } from 'multiformats/cid'
 import { isBinary } from 'istextorbinary'
 import FileIcon from '../file-icon/FileIcon.js'
@@ -83,10 +84,7 @@ const GridFile: FC<GridFilePropsConnected> = ({
       const item = monitor.getItem()
 
       if (item.files) {
-        (async () => {
-          const files = await item.filesPromise
-          onAddFiles(normalizeFiles(files), path)
-        })()
+        void addDroppedFiles(item.filesPromise, files => onAddFiles(files, path))
       } else {
         const src = item.path
         const dst = join(path, basename(item.path))

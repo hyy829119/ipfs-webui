@@ -8,6 +8,8 @@ import AnalyticsPage from '../settings/AnalyticsPage.js'
 import WelcomePage from '../welcome/LoadableWelcomePage.js'
 import BlankPage from '../blank/BlankPage.js'
 import ExplorePageRenderer from '../explore/explore-page-renderer.jsx'
+import UserManagement from '../users/UserManagement'
+import LogsPage from '../logs/LogsPage'
 import { useEffect } from 'react'
 import { connect } from 'redux-bundler-react'
 
@@ -27,6 +29,8 @@ export default createRouteBundle({
   '/peers': PeersPage,
   '/settings/analytics': AnalyticsPage,
   '/settings*': SettingsPage,
+  '/users*': UserManagement,
+  '/logs*': LogsPage,
   '/welcome': WelcomePage,
   '/blank': BlankPage,
   '/diagnostics*': RedirectToStatus,

@@ -2,14 +2,19 @@
   "short_name": "IFShare",
   "name": "IFShare",
   "icons": [
-     {
-      "src": "ipfs-logo-512-ice.png",
+    {
+      "src": "ifshare-icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "ifshare-icon-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
   "start_url": "./index.html",
   "display": "standalone",
-  "theme_color": "#0b3a53",
-  "background_color": "#0b3a53"
+  "theme_color": "#3665ef",
+  "background_color": "#f5f7fc"
 }

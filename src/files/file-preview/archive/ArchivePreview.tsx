@@ -8,10 +8,13 @@ import { BrowserArchive } from './archive-client'
 import { ArchiveError, archiveSupported, isSmallScreenDevice, PAGE_SIZE } from './archive-utils'
 import type { ArchivePage, ArchiveProgress, ArchiveEntry } from './archive-utils'
 import { readArchive } from './archive-source'
+import { recordFileOperation } from '../../../logs/operation-log'
 import './ArchivePreview.css'
 
 interface Props {
   name: string
+  path?: string
+  cid?: string
   format: ArchiveFormat
   size: number
   source: PreviewSource
@@ -19,7 +22,7 @@ interface Props {
   onSourceChange: (source: PreviewSource) => void
 }
 
-export default function ArchivePreview ({ name, format, size, source, read, onSourceChange }: Props) {
+export default function ArchivePreview ({ name, path, cid, format, size, source, read, onSourceChange }: Props) {
   const { t } = useTranslation('files')
   const [smallScreen] = useState(isSmallScreenDevice)
   const [status, setStatus] = useState('working')
@@ -33,7 +36,7 @@ export default function ArchivePreview ({ name, format, size, source, read, onSo
   const [password, setPassword] = useState('')
   const [submittedPassword, setSubmittedPassword] = useState('')
   const [saving, setSaving] = useState(false)
-  const [download, setDownload] = useState<{ name: string, url: string } | null>(null)
+  const [download, setDownload] = useState<{ name: string, path: string, url: string } | null>(null)
   const archive = useRef<BrowserArchive | null>(null)
   const controller = useRef<AbortController | null>(null)
   const downloadUrl = useRef<string | null>(null)
@@ -136,6 +139,7 @@ export default function ArchivePreview ({ name, format, size, source, read, onSo
     const signal = controller.current?.signal
     if (!session || !signal || saving) return
     setSaving(true)
+    recordEntryDownload(entry)
     try {
       // File is backed by browser storage; creating its URL does not buffer its contents.
       const file = await session.file(entry.id)
@@ -143,7 +147,7 @@ export default function ArchivePreview ({ name, format, size, source, read, onSo
       const url = URL.createObjectURL(file)
       releaseDownload()
       downloadUrl.current = url
-      setDownload({ name: entry.name, url })
+      setDownload({ name: entry.name, path: entry.path, url })
       const link = document.createElement('a')
       link.href = url
       link.download = entry.name
@@ -154,6 +158,14 @@ export default function ArchivePreview ({ name, format, size, source, read, onSo
     } finally {
       if (!signal.aborted) setSaving(false)
     }
+  }
+
+  const recordEntryDownload = (entry: { name: string, path: string }) => {
+    void recordFileOperation('download', {
+      fileName: entry.name,
+      filePath: `${path || (cid ? `/ipfs/${cid}` : name)}!/${entry.path}`,
+      cid
+    })
   }
 
   const pageCount = Math.max(1, Math.ceil(listing.count / PAGE_SIZE))
@@ -191,7 +203,7 @@ export default function ArchivePreview ({ name, format, size, source, read, onSo
     {status === 'cancelled' && <p className='archive-notice' role='status'>{t('archive.cancelled')}</p>}
     {download && <div className='archive-download-ready' role='status'>
       <span>{t('archive.ready')}: {download.name}</span>
-      <a href={download.url} download={download.name}>{t('archive.save')}</a>
+      <a href={download.url} download={download.name} onClick={() => recordEntryDownload(download)}>{t('archive.save')}</a>
     </div>}
     {(status === 'error' || status === 'cancelled') && error !== 'unsupported' && <form className='archive-password' onSubmit={retry}>
       <label htmlFor='archive-password'>{t('archive.password')}</label>

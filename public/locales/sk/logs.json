@@ -1,0 +1,28 @@
+{
+  "title": "Protokoly",
+  "scopeAll": "Zobrazte operácie so súbormi všetkých používateľov.",
+  "scopeOwn": "Zobrazte svoje operácie so súbormi.",
+  "refresh": "Obnoviť",
+  "search": "Hľadať",
+  "searchPlaceholder": "Názov súboru, cesta, CID alebo používateľské meno",
+  "action": "Operácia",
+  "allActions": "Všetky operácie",
+  "operationHint": "Záznamy zobrazujú akcie spustené vo WebUI. Záznam o stiahnutí nepotvrdzuje, že súbor bol uložený.",
+  "loading": "Načítavajú sa záznamy…",
+  "empty": "Nenašli sa žiadne zodpovedajúce operácie.",
+  "time": "Dátum a čas",
+  "user": "Používateľ",
+  "file": "Súbor",
+  "count": "Súbory",
+  "unnamed": "Súbor bez názvu",
+  "total": "Počet záznamov: {count}",
+  "pageSize": "Na stránku",
+  "previous": "Predchádzajúca",
+  "next": "Nasledujúca",
+  "page": "{page} / {pages}",
+  "actions": {
+    "upload": "Nahratie",
+    "download": "Stiahnutie",
+    "preview": "Náhľad"
+  }
+}

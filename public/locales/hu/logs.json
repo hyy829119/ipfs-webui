@@ -1,0 +1,28 @@
+{
+  "title": "Naplók",
+  "scopeAll": "Az összes felhasználó fájlműveleteinek megtekintése.",
+  "scopeOwn": "Saját fájlműveletek megtekintése.",
+  "refresh": "Frissítés",
+  "search": "Keresés",
+  "searchPlaceholder": "Fájlnév, elérési út, CID vagy felhasználónév",
+  "action": "Művelet",
+  "allActions": "Összes művelet",
+  "actions": {
+    "upload": "Feltöltés",
+    "download": "Letöltés",
+    "preview": "Előnézet"
+  },
+  "operationHint": "A napló a webes felületen elindított műveleteket mutatja. A letöltési bejegyzés nem igazolja, hogy a fájlt mentették.",
+  "loading": "Naplók betöltése…",
+  "empty": "Nincs megfelelő művelet.",
+  "time": "Idő",
+  "user": "Felhasználó",
+  "file": "Fájl",
+  "count": "Fájlok",
+  "unnamed": "Névtelen fájl",
+  "total": "{count} bejegyzés",
+  "pageSize": "Oldalanként",
+  "previous": "Előző",
+  "next": "Következő",
+  "page": "{page} / {pages}"
+}

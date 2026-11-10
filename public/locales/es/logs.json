@@ -1,0 +1,28 @@
+{
+  "title": "Registros",
+  "scopeAll": "Consulta las operaciones de archivos de todos los usuarios.",
+  "scopeOwn": "Consulta tus operaciones de archivos.",
+  "refresh": "Actualizar",
+  "search": "Buscar",
+  "searchPlaceholder": "Nombre del archivo, ruta, CID o nombre de usuario",
+  "action": "Operación",
+  "allActions": "Todas las operaciones",
+  "actions": {
+    "upload": "Subida",
+    "download": "Descarga",
+    "preview": "Vista previa"
+  },
+  "operationHint": "Los registros muestran las acciones iniciadas en la interfaz web. Un registro de descarga no confirma que el archivo se haya guardado.",
+  "loading": "Cargando registros…",
+  "empty": "No hay operaciones coincidentes.",
+  "time": "Hora",
+  "user": "Usuario",
+  "file": "Archivo",
+  "count": "Archivos",
+  "unnamed": "Archivo sin nombre",
+  "total": "{count} registros",
+  "pageSize": "Por página",
+  "previous": "Anterior",
+  "next": "Siguiente",
+  "page": "{page} / {pages}"
+}

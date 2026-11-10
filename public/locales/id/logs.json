@@ -1,0 +1,28 @@
+{
+  "title": "Log",
+  "scopeAll": "Lihat aktivitas berkas semua pengguna.",
+  "scopeOwn": "Lihat aktivitas berkas Anda.",
+  "refresh": "Muat ulang",
+  "search": "Cari",
+  "searchPlaceholder": "Nama berkas, jalur, CID, atau nama pengguna",
+  "action": "Aktivitas",
+  "allActions": "Semua aktivitas",
+  "actions": {
+    "upload": "Unggah",
+    "download": "Unduh",
+    "preview": "Pratinjau"
+  },
+  "operationHint": "Log menampilkan aktivitas yang dimulai di antarmuka web. Catatan unduhan tidak memastikan bahwa berkas telah disimpan.",
+  "loading": "Memuat log…",
+  "empty": "Tidak ada aktivitas yang cocok.",
+  "time": "Waktu",
+  "user": "Pengguna",
+  "file": "Berkas",
+  "count": "Berkas",
+  "unnamed": "Berkas tanpa nama",
+  "total": "{count} catatan",
+  "pageSize": "Per halaman",
+  "previous": "Sebelumnya",
+  "next": "Berikutnya",
+  "page": "{page} / {pages}"
+}

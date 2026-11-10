@@ -1,0 +1,28 @@
+{
+  "title": "Žurnalai",
+  "scopeAll": "Peržiūrėkite visų naudotojų failų operacijas.",
+  "scopeOwn": "Peržiūrėkite savo failų operacijas.",
+  "refresh": "Atnaujinti",
+  "search": "Ieškoti",
+  "searchPlaceholder": "Failo pavadinimas, kelias, CID arba naudotojo vardas",
+  "action": "Operacija",
+  "allActions": "Visos operacijos",
+  "actions": {
+    "upload": "Įkėlimas",
+    "download": "Atsisiuntimas",
+    "preview": "Peržiūra"
+  },
+  "operationHint": "Žurnaluose rodomi žiniatinklio sąsajoje pradėti veiksmai. Atsisiuntimo įrašas nepatvirtina, kad failas buvo išsaugotas.",
+  "loading": "Įkeliami žurnalai…",
+  "empty": "Atitinkančių operacijų nėra.",
+  "time": "Laikas",
+  "user": "Naudotojas",
+  "file": "Failas",
+  "count": "Failai",
+  "unnamed": "Failas be pavadinimo",
+  "total": "Įrašų: {count}",
+  "pageSize": "Puslapyje",
+  "previous": "Ankstesnis",
+  "next": "Kitas",
+  "page": "{page} / {pages}"
+}

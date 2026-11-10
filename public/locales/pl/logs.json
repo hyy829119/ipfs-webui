@@ -1,0 +1,28 @@
+{
+  "title": "Dzienniki",
+  "scopeAll": "Wyświetl operacje na plikach wszystkich użytkowników.",
+  "scopeOwn": "Wyświetl swoje operacje na plikach.",
+  "refresh": "Odśwież",
+  "search": "Szukaj",
+  "searchPlaceholder": "Nazwa pliku, ścieżka, CID lub nazwa użytkownika",
+  "action": "Operacja",
+  "allActions": "Wszystkie operacje",
+  "actions": {
+    "upload": "Przesyłanie",
+    "download": "Pobieranie",
+    "preview": "Podgląd"
+  },
+  "operationHint": "Dzienniki pokazują działania rozpoczęte w interfejsie internetowym. Wpis pobierania nie potwierdza, że plik został zapisany.",
+  "loading": "Ładowanie dzienników…",
+  "empty": "Brak pasujących operacji.",
+  "time": "Czas",
+  "user": "Użytkownik",
+  "file": "Plik",
+  "count": "Pliki",
+  "unnamed": "Plik bez nazwy",
+  "total": "Liczba wpisów: {count}",
+  "pageSize": "Na stronę",
+  "previous": "Poprzednia",
+  "next": "Następna",
+  "page": "{page} / {pages}"
+}

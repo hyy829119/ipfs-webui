@@ -6,7 +6,7 @@ import { Trans, withTranslation } from 'react-i18next'
 import classnames from 'classnames'
 import { join } from 'path'
 import { sorts } from '../../bundles/files/index.js'
-import { normalizeFiles } from '../../lib/files.js'
+import { addDroppedFiles } from '../dropped-files'
 import { List, WindowScroller, AutoSizer } from 'react-virtualized'
 // React DnD
 import { NativeTypes } from 'react-dnd-html5-backend'
@@ -17,11 +17,6 @@ import Checkbox from '../../components/checkbox/Checkbox.js'
 import File from '../file/File.js'
 import LoadingAnimation from '../../components/loading-animation/LoadingAnimation.js'
 import SearchFilter from '../search-filter/SearchFilter'
-
-const addFiles = async (filesPromise, onAddFiles) => {
-  const files = await filesPromise
-  onAddFiles(normalizeFiles(files))
-}
 
 const mergeRemotePinsIntoFiles = (files, remotePins = [], pendingPins = [], failedPins = []) => {
   const remotePinsCids = remotePins.map(id => id.split(':').at(-1))
@@ -71,7 +66,7 @@ export const FilesList = ({
         return
       }
       const { filesPromise } = monitor.getItem()
-      addFiles(filesPromise, onAddFiles)
+      void addDroppedFiles(filesPromise, onAddFiles)
     },
     collect: (monitor) => ({
       isOver: monitor.isOver({ shallow: true }),

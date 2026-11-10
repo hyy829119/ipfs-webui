@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { connect } from 'redux-bundler-react'
 import { withTranslation } from 'react-i18next'
 import { CID } from 'multiformats/cid'
@@ -10,6 +10,7 @@ import TextPreview from './TextPreview'
 import ArchivePreview from './archive/ArchivePreview'
 import { detectArchiveFormat } from './archive/archive-engine.js'
 import { resolvePreviewSource, mediaType, readPreviewBytes, decodePreviewText, withPreviewTimeout } from './preview-source'
+import { recordFileOperation } from '../../logs/operation-log'
 import './FilePreview.css'
 import '../../components/connected/Connecting.css'
 
@@ -21,12 +22,20 @@ const previewAddress = url => {
   try { return new URL(url).host } catch { return '' }
 }
 
-export const Preview = ({ t, name, cid, size, availableGatewayUrl, previewLocalGatewayUrl = '', read, onDownload, onClose }) => {
+export const Preview = ({ t, name, path, cid, size, availableGatewayUrl, previewLocalGatewayUrl = '', read, onDownload, onClose }) => {
   const [result, setResult] = useState(null)
   const [error, setError] = useState('')
   const [attempt, setAttempt] = useState(0)
   const [archiveSource, setArchiveSource] = useState(null)
+  const recordedPreview = useRef(null)
   const key = `${cid}/${name}`
+
+  useEffect(() => {
+    const operationKey = JSON.stringify([key, path, attempt])
+    if (recordedPreview.current === operationKey) return
+    recordedPreview.current = operationKey
+    void recordFileOperation('preview', { fileName: name, filePath: path || `/ipfs/${cid}`, cid })
+  }, [key, name, path, cid, attempt])
 
   useEffect(() => {
     const controller = new AbortController()
@@ -110,7 +119,7 @@ export const Preview = ({ t, name, cid, size, availableGatewayUrl, previewLocalG
         : !preview
             ? <div className='file-preview-message' role='status'><span className='ifshare-connecting-spinner' aria-hidden='true' /><p>{t('preview.loading')}</p></div>
             : <>
-              {preview.type === 'archive' && <ArchivePreview key={key} name={name} format={preview.format} size={size} source={preview} read={read} onSourceChange={setArchiveSource} />}
+              {preview.type === 'archive' && <ArchivePreview key={key} name={name} path={path} cid={String(cid)} format={preview.format} size={size} source={preview} read={read} onSourceChange={setArchiveSource} />}
               {preview.type === 'image' && <div className='file-preview-media'><img key={preview.url} src={preview.url} alt={name} onError={onMediaError} referrerPolicy='no-referrer' /></div>}
               {preview.type === 'video' && <div className='file-preview-media'>
                 {/* eslint-disable-next-line jsx-a11y/media-has-caption */}

@@ -5,7 +5,9 @@ import ArchivePreview from './ArchivePreview'
 import { BrowserArchive } from './archive-client'
 import { ArchiveError, archiveSupported } from './archive-utils'
 import { readArchive } from './archive-source'
+import { recordFileOperation } from '../../../logs/operation-log'
 
+jest.mock('../../../logs/operation-log', () => ({ recordFileOperation: jest.fn().mockResolvedValue(true) }))
 jest.mock('react-i18next', () => ({ useTranslation: () => ({ t: key => key }) }))
 jest.mock('./archive-client')
 jest.mock('./archive-source')
@@ -14,6 +16,7 @@ jest.mock('./archive-utils', () => ({ ...jest.requireActual('./archive-utils'), 
 const props = { name: 'files.zip', format: 'zip', size: 100, source: { url: '/ipfs/test', fallbackUrl: '/ipfs/test' }, read: jest.fn(), onSourceChange: jest.fn() }
 let session, finish, reportProgress
 beforeEach(() => {
+  recordFileOperation.mockClear()
   BrowserArchive.mockClear()
   archiveSupported.mockReturnValue(true)
   readArchive.mockResolvedValue(props.source)
@@ -90,14 +93,24 @@ it('revokes replaced download URLs and the last URL when the preview closes', as
   const click = jest.spyOn(HTMLAnchorElement.prototype, 'click').mockImplementation(() => {})
   try {
     session.file = jest.fn().mockResolvedValue(new File(['code'], 'file-0'))
-    const view = render(<ArchivePreview {...props} />)
+    const view = render(<ArchivePreview {...props} path='/files/files.zip' cid='archive-cid' />)
     await waitFor(() => expect(session.unpack).toHaveBeenCalled())
     await act(async () => finish())
     const button = await screen.findByRole('button', { name: 'archive.downloadEntry' })
+    expect(recordFileOperation).not.toHaveBeenCalled()
     fireEvent.click(button)
     await waitFor(() => expect(screen.getByRole('link', { name: 'archive.save' })).toHaveAttribute('href', 'blob:first'))
+    expect(recordFileOperation).toHaveBeenCalledTimes(1)
+    expect(recordFileOperation).toHaveBeenLastCalledWith('download', {
+      fileName: 'code.js', filePath: '/files/files.zip!/folder/code.js', cid: 'archive-cid'
+    })
+    const manualSave = screen.getByRole('link', { name: 'archive.save' })
+    manualSave.addEventListener('click', event => event.preventDefault())
+    fireEvent.click(manualSave)
+    expect(recordFileOperation).toHaveBeenCalledTimes(2)
     fireEvent.click(button)
     await waitFor(() => expect(screen.getByRole('link', { name: 'archive.save' })).toHaveAttribute('href', 'blob:second'))
+    expect(recordFileOperation).toHaveBeenCalledTimes(3)
     expect(URL.revokeObjectURL).toHaveBeenCalledWith('blob:first')
     view.unmount()
     expect(URL.revokeObjectURL).toHaveBeenCalledWith('blob:second')

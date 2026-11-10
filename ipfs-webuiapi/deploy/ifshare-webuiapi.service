@@ -1,0 +1,25 @@
+[Unit]
+Description=IFShare WebUI API and authenticated gateway
+After=network.target ifshare-node.service
+
+[Service]
+Type=simple
+User=ifshare
+Group=ifshare
+WorkingDirectory=/opt/ifshare/current/ipfs-webuiapi
+EnvironmentFile=/etc/ifshare/webuiapi.env
+ExecStart=/usr/bin/node /opt/ifshare/current/ipfs-webuiapi/server.mjs
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=120
+UMask=0077
+StateDirectory=ifshare-webuiapi
+StateDirectoryMode=0700
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/ifshare-webuiapi
+
+[Install]
+WantedBy=multi-user.target

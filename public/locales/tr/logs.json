@@ -1,0 +1,28 @@
+{
+  "title": "Günlükler",
+  "scopeAll": "Tüm kullanıcıların dosya işlemlerini görüntüleyin.",
+  "scopeOwn": "Kendi dosya işlemlerinizi görüntüleyin.",
+  "refresh": "Yenile",
+  "search": "Ara",
+  "searchPlaceholder": "Dosya adı, yol, CID veya kullanıcı adı",
+  "action": "İşlem",
+  "allActions": "Tüm işlemler",
+  "operationHint": "Kayıtlar WebUI üzerinden başlatılan işlemleri gösterir. Bir indirme kaydı, dosyanın kaydedildiğini doğrulamaz.",
+  "loading": "Günlükler yükleniyor…",
+  "empty": "Eşleşen işlem bulunamadı.",
+  "time": "Zaman",
+  "user": "Kullanıcı",
+  "file": "Dosya",
+  "count": "Dosyalar",
+  "unnamed": "Adsız dosya",
+  "total": "{count} kayıt",
+  "pageSize": "Sayfa başına",
+  "previous": "Önceki",
+  "next": "Sonraki",
+  "page": "{page} / {pages}",
+  "actions": {
+    "upload": "Yükleme",
+    "download": "İndirme",
+    "preview": "Önizleme"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "title": "Protokolle",
+  "scopeAll": "Dateiaktionen aller Benutzer anzeigen.",
+  "scopeOwn": "Eigene Dateiaktionen anzeigen.",
+  "refresh": "Aktualisieren",
+  "search": "Suchen",
+  "searchPlaceholder": "Dateiname, Pfad, CID oder Benutzername",
+  "action": "Aktion",
+  "allActions": "Alle Aktionen",
+  "actions": {
+    "upload": "Hochladen",
+    "download": "Herunterladen",
+    "preview": "Vorschau"
+  },
+  "operationHint": "Die Einträge zeigen Aktionen, die in der Weboberfläche gestartet wurden. Ein Download-Eintrag bestätigt nicht, dass die Datei gespeichert wurde.",
+  "loading": "Protokolle werden geladen…",
+  "empty": "Keine passenden Aktionen.",
+  "time": "Zeit",
+  "user": "Benutzer",
+  "file": "Datei",
+  "count": "Dateien",
+  "unnamed": "Unbenannte Datei",
+  "total": "{count} Einträge",
+  "pageSize": "Pro Seite",
+  "previous": "Zurück",
+  "next": "Weiter",
+  "page": "{page} / {pages}"
+}
